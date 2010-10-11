@@ -1,0 +1,30 @@
+
+<Solution
+	type="com.cordys.cws.documenttypes.solution.Solution"
+	RuntimeDocumentID="005056C0-0008-71DE-965C-92268EBB5DD1">
+	<DocumentID>005056C0-0008-71DE-965C-92268EBB5DD0</DocumentID>
+	<Name>SAP_BOP4_Solution</Name>
+	<Description>SAP_BOP4_Solution</Description>
+	<CreatedBy>hboecker</CreatedBy>
+	<CreationDate>2009-08-26T10:20:22.875</CreationDate>
+	<LastModifiedBy>pgussow</LastModifiedBy>
+	<LastModifiedDate>2009-10-14T10:39:15.559</LastModifiedDate>
+	<Notes/>
+	<Projects>
+		<uri
+			id="001D09BE-4863-71DE-8EEE-B89CEAEE5BFB"
+			path="SAP Binaries/SAP Binaries"
+			type="com.cordys.cws.documenttypes.project.Project"
+		/>
+		<uri
+			id="001D09BE-4863-71DE-8EEE-B8A5FA7D8F10"
+			path="TestProject/TestProject"
+			type="com.cordys.cws.documenttypes.project.Project"
+		/>
+		<uri
+			id="005056C0-0008-71DE-9657-8CC2DDF3A0ED"
+			path="SAP R3 Connector/SAP R3 Connector"
+			type="com.cordys.cws.documenttypes.project.Project"
+		/>
+	</Projects>
+</Solution>

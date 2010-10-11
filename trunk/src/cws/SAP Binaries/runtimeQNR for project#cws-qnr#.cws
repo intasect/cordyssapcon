@@ -1,0 +1,21 @@
+
+<QualifiedNameRoot
+	type="com.cordys.cws.namespace.qualifiedname.QualifiedNameRoot"
+	RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B8A308E81CD0">
+	<DocumentID>001D09BE-4863-71DE-8EEE-B8A308E81CCF</DocumentID>
+	<Name>runtimeQNR for project</Name>
+	<Description/>
+	<CreatedBy>pgussow</CreatedBy>
+	<CreationDate>2009-10-14T09:22:04.661</CreationDate>
+	<LastModifiedBy>pgussow</LastModifiedBy>
+	<LastModifiedDate>2009-10-14T09:22:04.661</LastModifiedDate>
+	<Notes/>
+	<DesigntimeQNRFolder/>
+	<RuntimeQNRFolder>
+		<uri
+			id="001D09BE-4863-71DE-8EEE-B89CEAEE5BF9"
+			path="SAP Binaries"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</RuntimeQNRFolder>
+</QualifiedNameRoot>

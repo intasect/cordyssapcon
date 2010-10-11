@@ -1,0 +1,19 @@
+
+<RoleDesignTime
+	type="com.cordys.organization.role.RoleDesignTime"
+	RuntimeDocumentID="00059A3C-7800-71DE-9652-88F0AB6236A3">
+	<DocumentID>00059A3C-7800-71DE-9652-88F0AB6236A2</DocumentID>
+	<Name>SAP Developer</Name>
+	<Description>SAP Developer</Description>
+	<CreatedBy>hboecker</CreatedBy>
+	<CreationDate>2009-08-14T16:44:32.156</CreationDate>
+	<LastModifiedBy>pgussow</LastModifiedBy>
+	<LastModifiedDate>2009-10-14T08:53:31.116</LastModifiedDate>
+	<Notes/>
+	<CommonName>SAP Developer</CommonName>
+	<DistinguishedName>cn=#roleName#, cn=#ISVPName#, #LDAPRoot#</DistinguishedName>
+	<isFunctionalRole>true</isFunctionalRole>
+	<type>Functional</type>
+	<configuredTasks/>
+	<Subroles/>
+</RoleDesignTime>

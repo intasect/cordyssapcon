@@ -1,0 +1,404 @@
+<xsd:schema xmlns:cordys="http://schemas.cordys.com/General/1.0/"
+			xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://schemas.cordys.com/1.0/SAPSchema"
+			xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+			attributeFormDefault="unqualified" elementFormDefault="qualified"
+			targetNamespace="http://schemas.cordys.com/1.0/SAPSchema">
+			<xsd:import namespace="http://schemas.cordys.com/General/1.0/" />
+			<xsd:element name="GetComponents" type="tns:ctGetComponents" />
+			<xsd:element name="GetComponentsResponse" type="tns:ctGetComponentsResponse" />
+
+			<xsd:complexType name="ctGetComponents">
+				<xsd:sequence>
+					<xsd:element name="overwrite" type="xsd:boolean"
+						default="true" minOccurs="0" maxOccurs="1">
+					</xsd:element>
+					<xsd:element name="parent" type="xsd:string" maxOccurs="1"
+						minOccurs="1"></xsd:element>
+					<xsd:element name="level" type="xsd:string" maxOccurs="1"
+						minOccurs="1"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="ctGetComponentsResponse">
+				<xsd:sequence>
+					<xsd:element name="tuple" maxOccurs="unbounded"
+						minOccurs="0">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="old" maxOccurs="1" minOccurs="1">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element name="Components" type="tns:ctAny">
+											</xsd:element>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="ctAny">
+				<xsd:sequence>
+					<xsd:any processContents="skip" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="GetBOs" type="tns:ctGetBOs">
+
+			</xsd:element>
+			<xsd:element name="GetBOsResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tuple" maxOccurs="unbounded"
+							minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="old" maxOccurs="1" minOccurs="1">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="BusinessObjects" type="tns:ctAny">
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:complexType name="ctGetBOs">
+				<xsd:sequence>
+					<xsd:element name="overwrite" type="xsd:boolean"
+						default="true" minOccurs="0" maxOccurs="1">
+					</xsd:element>
+					<xsd:element name="fromBO" type="xsd:string" maxOccurs="1"
+						minOccurs="0"></xsd:element>
+					<xsd:element name="toBO" type="xsd:string" maxOccurs="1"
+						minOccurs="0"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="GetBAPIs" type="tns:ctGetBAPIs">
+
+			</xsd:element>
+			<xsd:element name="GetBAPIsResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tuple" maxOccurs="unbounded"
+							minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="old" maxOccurs="1" minOccurs="1">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="BAPIs" type="tns:ctAny">
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:complexType name="ctGetBAPIs">
+				<xsd:sequence>
+					<xsd:element name="overwrite" type="xsd:boolean"
+						default="true" minOccurs="0" maxOccurs="1" />
+					<xsd:element name="BO" type="xsd:string" maxOccurs="1"
+						minOccurs="1"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="GetIDOCInterface" type="tns:ctGetIDOCInterface">
+
+			</xsd:element>
+			<xsd:element name="GetIDOCInterfaceResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tuple" maxOccurs="unbounded"
+							minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="old" type="tns:ctAny" />
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:complexType name="ctGetIDOCInterface">
+				<xsd:sequence>
+					<xsd:element name="overwrite" type="xsd:boolean"
+						default="true" minOccurs="0" maxOccurs="1" />
+					<xsd:element name="IDOCType" type="xsd:string"
+						maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="CIMType" type="xsd:string"
+						maxOccurs="1" minOccurs="1"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="GetIDOCMessageTypes" type="tns:ctGetIDOCMessageTypes">
+
+			</xsd:element>
+			<xsd:element name="GetIDOCMessageTypesResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tuple" maxOccurs="unbounded"
+							minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="old" maxOccurs="1" minOccurs="1">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="MessageTypes" type="tns:ctAny">
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:complexType name="ctGetIDOCMessageTypes">
+				<xsd:sequence>
+					<xsd:element name="overwrite" type="xsd:boolean"
+						default="true" minOccurs="0" maxOccurs="1" />
+					<xsd:element name="fromMSGTYPE" type="xsd:string"
+						maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="toMSGTYPE" type="xsd:string"
+						maxOccurs="1" minOccurs="0"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="GetIDOCTypesForMesType" type="tns:ctGetIDOCTypesForMesType">
+
+			</xsd:element>
+			<xsd:element name="GetIDOCTypesForMesTypeResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tuple" maxOccurs="unbounded"
+							minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="old" maxOccurs="1" minOccurs="1">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="IDOCTypes" type="tns:ctAny">
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:complexType name="ctGetIDOCTypesForMesType">
+				<xsd:sequence>
+					<xsd:element name="overwrite" type="xsd:boolean"
+						default="true" minOccurs="0" maxOccurs="1" />
+					<xsd:element name="MESTYPE" type="xsd:string"
+						maxOccurs="1" minOccurs="1"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="GetMappedRFC" type="tns:ctGetMappedRFC">
+
+			</xsd:element>
+			<xsd:element name="GetMappedRFCResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tuple" maxOccurs="unbounded"
+							minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="old" maxOccurs="1" minOccurs="1">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="IDOCTypes" type="tns:ctAny">
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:complexType name="ctGetMappedRFC">
+				<xsd:sequence>
+					<xsd:element name="overwrite" type="xsd:boolean"
+						default="true" minOccurs="0" maxOccurs="1" />
+					<xsd:element name="BAPIName" type="xsd:string"
+						maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="ObjectType" type="xsd:string"
+						maxOccurs="1" minOccurs="1"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="GetRFCInterface" type="tns:ctGetRFCInterface">
+
+			</xsd:element>
+			<xsd:element name="GetRFCInterfaceResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tuple" maxOccurs="unbounded"
+							minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="old" maxOccurs="1" minOccurs="1">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="IDOCTypes" type="tns:ctAny">
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+
+			<xsd:complexType name="ctGetRFCInterface">
+				<xsd:sequence>
+					<xsd:element name="overwrite" type="xsd:boolean" default="true" minOccurs="0" maxOccurs="1" />
+					<xsd:element name="RFCName" type="xsd:string"
+						maxOccurs="1" minOccurs="1"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="LoadComponentMetadata"/>
+			<xsd:element name="LoadComponentMetadataResponse"/>
+			<xsd:element name="LoadBOMetadata"/>
+			<xsd:element name="LoadBOMetadataResponse"/>
+			<xsd:element name="LoadRFCMetadata"/>
+			<xsd:element name="LoadRFCMetadataResponse"/>
+			<xsd:element name="LoadIDOCMetadata"/>
+			<xsd:element name="LoadIDOCMetadataResponse"/>
+			<xsd:element name="GetRFCs" type="tns:ctGetRFCs">
+			</xsd:element>
+			<xsd:element name="GetRFCsResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="tuple" maxOccurs="unbounded"
+							minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="old" maxOccurs="1" minOccurs="1">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element name="RFCs" type="tns:ctAny">
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		
+			<xsd:complexType name="ctGetRFCs">
+				<xsd:sequence>
+					<xsd:element name="overwrite" type="xsd:boolean" default="true" minOccurs="0" maxOccurs="1" />
+					<xsd:element name="fromRFC" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="toRFC" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:element name="SearchObject">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<xsd:element name="type" maxOccurs="1"
+							minOccurs="1">
+
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:string">
+									<xsd:enumeration value="BAPI"></xsd:enumeration>
+									<xsd:enumeration value="RFC"></xsd:enumeration>
+									<xsd:enumeration value="IDOC"></xsd:enumeration>
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="name"
+							type="xsd:string">
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="SearchObjectResponse">
+				<xsd:complexType>
+					<xsd:sequence>
+
+						<xsd:element name="tuple" maxOccurs="unbounded" minOccurs="0">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element name="old"
+										maxOccurs="1" minOccurs="1">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element
+													name="objectdetails" type="tns:ctObjectDetails"
+													maxOccurs="1" minOccurs="1">
+												</xsd:element>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		
+			<xsd:complexType name="ctObjectDetails">
+				<xsd:sequence>
+					<xsd:element name="displayname" type="xsd:string"></xsd:element>
+
+					<xsd:element name="data" type="tns:ctObjectData"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+		
+			<xsd:complexType name="ctObjectData">
+				<xsd:choice maxOccurs="1" minOccurs="1">
+					<xsd:element name="rfc" type="tns:ctRFCMetadata"></xsd:element>
+					<xsd:element name="bapi"
+						type="tns:ctBAPIMetadata">
+					</xsd:element>
+					<xsd:element name="idoc"
+						type="tns:ctIDOCMetadata">
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		
+			<xsd:complexType name="ctRFCMetadata">
+				<xsd:sequence>
+					<xsd:element name="functionname"
+						type="xsd:string" maxOccurs="1" minOccurs="1">
+					</xsd:element>
+					<xsd:element name="groupname" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="application" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="host" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+					<xsd:element name="stext" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="ctBAPIMetadata">
+				<xsd:sequence>
+					<xsd:element name="objecttype" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+					<xsd:element name="objectname" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+				</xsd:sequence>
+			</xsd:complexType>
+			
+            <xsd:complexType name="ctIDOCMetadata"></xsd:complexType>
+        </xsd:schema>
