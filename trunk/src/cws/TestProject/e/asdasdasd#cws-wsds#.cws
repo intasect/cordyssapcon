@@ -1,0 +1,26 @@
+
+<WebserviceDefinitionSet
+	type="com.cordys.wsdl.WebserviceDefinitionSet"
+	RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEDCB65D0E30">
+	<DocumentID>001E3780-4713-71DE-8EF4-CEDCB65D0E2F</DocumentID>
+	<Name>asdasdasd</Name>
+	<Description>asdasdasdasd</Description>
+	<CreatedBy>pgussow</CreatedBy>
+	<CreationDate>2009-11-11T16:11:29.116</CreationDate>
+	<LastModifiedBy>pgussow</LastModifiedBy>
+	<LastModifiedDate>2009-11-11T16:11:29.116</LastModifiedDate>
+	<Notes/>
+	<LocationURI></LocationURI>
+	<TargetNamespace>http://asssddff</TargetNamespace>
+	<TNSPrefix></TNSPrefix>
+	<Type></Type>
+	<Connectors/>
+	<QName/>
+	<RuntimeSchemaDefinitions/>
+	<SchemaDefinitions/>
+	<Services/>
+	<WebserviceBindings/>
+	<WebserviceImports/>
+	<WebserviceInterfaces/>
+	<WebserviceMessages/>
+</WebserviceDefinitionSet>

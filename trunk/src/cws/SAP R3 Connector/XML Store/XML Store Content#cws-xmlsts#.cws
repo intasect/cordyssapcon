@@ -1,0 +1,22 @@
+
+<XMLStoreSource
+	type="com.cordys.xmlstore.sourceroot.XMLStoreSource"
+	RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B7209E832C11">
+	<DocumentID>001D09BE-4863-71DE-8EEE-B7209E832C10</DocumentID>
+	<Name>XML Store Content</Name>
+	<Description>XML Store Content</Description>
+	<CreatedBy>pgussow</CreatedBy>
+	<CreationDate>2009-10-12T12:26:42.022</CreationDate>
+	<LastModifiedBy>pgussow</LastModifiedBy>
+	<LastModifiedDate>2009-10-12T12:31:38.073</LastModifiedDate>
+	<Notes/>
+	<NamespacePrefix></NamespacePrefix>
+	<SecurityDescriptor/>
+	<SourceFolder>
+		<uri
+			id="001D09BE-4863-71DE-8EEE-B7209E832C35"
+			path="SAP R3 Connector/XML Store"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+</XMLStoreSource>
