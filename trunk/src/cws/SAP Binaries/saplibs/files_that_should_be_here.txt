@@ -1,8 +1,0 @@
-sapjco.jar
-sapidocjco.jar
-sapidoc.jar
-jdsr.jar
-  
-For convience reasons these can downloaded from:
-http://code.google.com/p/cordyssapcon/downloads/detail?name=saplibs.zip
-
