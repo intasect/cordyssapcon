@@ -1,0 +1,42 @@
+
+<Project
+	type="com.cordys.cws.documenttypes.project.Project"
+	typeVersion="0019B980-5ADC-71DF-9C5A-1C9DE0779704"
+	RuntimeDocumentID="005056C0-0008-11E0-E669-61ED4E113F17">
+	<DocumentID>005056C0-0008-11E0-E669-61ED4E111F17</DocumentID>
+	<Name>Documentation</Name>
+	<Description>Documentation</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-02-08T06:23:57.625</CreationDate>
+	<Notes/>
+	<NamespacePrefix></NamespacePrefix>
+	<SourceFolder>
+		<uri
+			id="005056C0-0008-11E0-E669-61ED4E10DF17"
+			path="Documentation"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+	<ISVPackageInfo>
+		<ISVPackageInfo
+			type="com.cordys.cws.packaging.isvp.ISVPackageInfo"
+			RuntimeDocumentID="005056C0-0008-11E0-E669-61ED4E107F17">
+			<DocumentID>005056C0-0008-11E0-E669-61ED4E105F17</DocumentID>
+			<Name>Cordys Util</Name>
+			<Description>Cordys Util</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-02-08T06:23:57.625</CreationDate>
+			<Notes/>
+			<BuildNumber>0</BuildNumber>
+			<ISVPackageFileName>Cordys Util 1.0.0</ISVPackageFileName>
+			<Version>1.0</Version>
+			<Product>Util</Product>
+			<PostISVLoaderInformation/>
+			<PackageForRuntime>true</PackageForRuntime>
+			<ISVPackageOwner>Cordys</ISVPackageOwner>
+			<LicenseAgreement/>
+			<ThirdPartyAgreement/>
+		</ISVPackageInfo>
+	</ISVPackageInfo>
+	<RuntimeQualifiedName/>
+</Project>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:connection xmlns:tns="http://sapconnector.cordys.com/2.0/configuration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://sapconnector.cordys.com/2.0/configuration ../src/cws/SAP_R3_M_BOP4/Static Files/BAC/SAP/schemas/configuration.xsd ">
+  <tns:sapserver>1</tns:sapserver>
+		<tns:jco>
+			<tns:client>1</tns:client>
+			<tns:sysnum>1</tns:sysnum>
+			<tns:language>EN</tns:language>
+			<tns:cachedirectory>c:\te</tns:cachedirectory>
+			<tns:userid>1</tns:userid>
+			<tns:password>MQ==</tns:password>
+			<tns:idocservers>1</tns:idocservers>
+			<tns:gwserv>1</tns:gwserv>
+			<tns:progID>1</tns:progID>
+			<tns:maxCons>10</tns:maxCons>
+		</tns:jco>
+</tns:connection>
