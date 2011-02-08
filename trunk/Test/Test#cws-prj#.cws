@@ -1,0 +1,42 @@
+
+<Project
+	type="com.cordys.cws.documenttypes.project.Project"
+	typeVersion="0019B980-5ADC-71DF-9C5A-1C9DE0779704"
+	RuntimeDocumentID="005056C0-0008-11E0-E669-61ED4E13DF17">
+	<DocumentID>005056C0-0008-11E0-E669-61ED4E13BF17</DocumentID>
+	<Name>Test</Name>
+	<Description>Test</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-02-08T06:22:54.703</CreationDate>
+	<Notes/>
+	<NamespacePrefix></NamespacePrefix>
+	<SourceFolder>
+		<uri
+			id="005056C0-0008-11E0-E669-61ED4E137F17"
+			path="Test"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+	<ISVPackageInfo>
+		<ISVPackageInfo
+			type="com.cordys.cws.packaging.isvp.ISVPackageInfo"
+			RuntimeDocumentID="005056C0-0008-11E0-E669-61ED4E131F17">
+			<DocumentID>005056C0-0008-11E0-E669-61ED4E12FF17</DocumentID>
+			<Name>Cordys Test</Name>
+			<Description>Cordys Test</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-02-08T06:22:54.703</CreationDate>
+			<Notes/>
+			<BuildNumber>0</BuildNumber>
+			<ISVPackageFileName>Cordys Test 1.0.0</ISVPackageFileName>
+			<Version>1.0</Version>
+			<Product>Test</Product>
+			<PostISVLoaderInformation/>
+			<PackageForRuntime>true</PackageForRuntime>
+			<ISVPackageOwner>Cordys</ISVPackageOwner>
+			<LicenseAgreement/>
+			<ThirdPartyAgreement/>
+		</ISVPackageInfo>
+	</ISVPackageInfo>
+	<RuntimeQualifiedName/>
+</Project>

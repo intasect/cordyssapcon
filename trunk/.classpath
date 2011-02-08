@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="SAP R3 Connector/Java"/>
+	<classpathentry kind="src" path="Test/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="con" path="com.cordys.coe.cep.PLATFORM/BOP_4/latest"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="SAP R3 Connector/Static Files/BAC/SAP/lib/coelib.jar"/>
+	<classpathentry kind="lib" path="SAP R3 Connector/Static Files/BAC/SAP/lib/wsdl4j.jar"/>
+	<classpathentry kind="lib" path="SAP Binaries/saplibs/jdsr.jar"/>
+	<classpathentry kind="lib" path="SAP Binaries/saplibs/sapidoc.jar"/>
+	<classpathentry kind="lib" path="SAP Binaries/saplibs/sapidocjco.jar"/>
+	<classpathentry kind="lib" path="SAP Binaries/saplibs/sapjco.jar"/>
+	<classpathentry kind="output" path="classes"/>
+</classpath>
