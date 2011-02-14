@@ -1,5 +1,0 @@
-VERSION 2.0.4 - Beta (08-02-2011)
-- Update: Project restructured
-
-VERSION 2.0.3 - Beta (15-10-2009)
-- Add: Added the option to turn on/off the fallback mechanism in case no usermapping is present Removed the BusinessConnector. For ease of maintainability only the JCo is supported.    
