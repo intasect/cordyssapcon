@@ -1,0 +1,128 @@
+<xsd:schema xmlns:cordys="http://schemas.cordys.com/General/1.0/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://schemas.cordys.com/2.0/SAPSchema"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://schemas.cordys.com/2.0/SAPSchema">
+	<xsd:element name="sapobject" type="tns:ctSAPObject"></xsd:element>
+
+	<xsd:complexType name="ctSAPObject">
+		<xsd:sequence>
+			<xsd:element name="type" type="tns:stObjectType" maxOccurs="1" minOccurs="1"></xsd:element>
+			<xsd:element name="displayname" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+
+			<xsd:element name="value" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+			<xsd:element name="items" type="tns:ctItems" maxOccurs="1"
+				minOccurs="0"></xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:simpleType name="stObjectType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="BAPI"></xsd:enumeration>
+			<xsd:enumeration value="RFC"></xsd:enumeration>
+			<xsd:enumeration value="IDOC"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:complexType name="ctObjectData">
+		<xsd:choice maxOccurs="1" minOccurs="1">
+			<xsd:element name="rfc" type="tns:ctRFCMetadata"></xsd:element>
+			<xsd:element name="bapi" type="tns:ctBAPIMetadata">
+			</xsd:element>
+			<xsd:element name="idoc" type="tns:ctIDOCMetadata">
+			</xsd:element>
+		</xsd:choice>
+	</xsd:complexType>
+
+	<xsd:complexType name="ctRFCMetadata">
+		<xsd:sequence>
+			<xsd:element name="function" type="xsd:string" maxOccurs="1"
+				minOccurs="1">
+			</xsd:element>
+			<xsd:element name="groupname" type="xsd:string"
+				maxOccurs="1" minOccurs="1"></xsd:element>
+			<xsd:element name="application" type="xsd:string"
+				maxOccurs="1" minOccurs="0"></xsd:element>
+			<xsd:element name="host" type="xsd:string" maxOccurs="1"
+				minOccurs="0"></xsd:element>
+			<xsd:element name="stext" type="xsd:string" maxOccurs="1"
+				minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ctBAPIMetadata">
+		<xsd:sequence>
+			<xsd:element name="method" type="xsd:string" maxOccurs="1"
+				minOccurs="1">
+			</xsd:element>
+			<xsd:element name="methodname" type="xsd:string"
+				maxOccurs="1" minOccurs="1">
+			</xsd:element>
+			<xsd:element name="description" type="xsd:string"
+				maxOccurs="1" minOccurs="0"></xsd:element>
+			<xsd:element name="shorttext" type="xsd:string"
+				maxOccurs="1" minOccurs="0"></xsd:element>
+			<xsd:element name="function" type="xsd:string" maxOccurs="1"
+				minOccurs="1"></xsd:element>
+			<xsd:element name="classverb" type="xsd:string"
+				maxOccurs="1" minOccurs="0"></xsd:element>
+			<xsd:element name="apitype" type="xsd:string" maxOccurs="1"
+				minOccurs="0"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ctIDOCMetadata">
+		<xsd:sequence>
+			<xsd:element name="type" type="xsd:string" maxOccurs="1"
+				minOccurs="1"></xsd:element>
+			<xsd:element name="cimtype" type="xsd:string" maxOccurs="1"
+				minOccurs="0"></xsd:element>
+			<xsd:element name="released" type="xsd:string" maxOccurs="1"
+				minOccurs="1"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ctItems">
+		<xsd:sequence>
+			<xsd:element name="item" type="tns:ctItem" maxOccurs="unbounded"
+				minOccurs="1">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ctItem">
+		<xsd:sequence>
+			<xsd:element name="displayname" type="xsd:string"
+				maxOccurs="1" minOccurs="1">
+			</xsd:element>
+			<xsd:element name="value" type="xsd:string" maxOccurs="1"
+				minOccurs="1">
+			</xsd:element>
+			<xsd:element name="detail" type="tns:ctObjectData"
+				maxOccurs="1" minOccurs="1"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:element name="filter" type="tns:ctFilter"></xsd:element>
+
+	<xsd:complexType name="ctFilter">
+		<xsd:all>
+			<xsd:element name="type" type="tns:stFilterType"
+				maxOccurs="1" minOccurs="1">
+			</xsd:element>
+			<xsd:element name="value" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+			<xsd:element name="fieldname" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+		</xsd:all>
+	</xsd:complexType>
+
+	<xsd:simpleType name="stFilterType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="REGEX"/>
+			<xsd:enumeration value="STARTS_WITH"/>
+			<xsd:enumeration value="CONTAINS"/>
+			<xsd:enumeration value="EQUALS"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

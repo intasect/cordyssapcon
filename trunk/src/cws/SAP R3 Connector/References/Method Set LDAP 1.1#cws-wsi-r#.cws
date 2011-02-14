@@ -1,0 +1,248 @@
+
+<WebserviceInterfaceRuntime
+	type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+	RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEAFFFEAB9C8">
+	<DocumentID>001E3780-4713-71DE-8EF4-CEAFFFEAB9C7</DocumentID>
+	<Name>Method Set LDAP 1.1</Name>
+	<Description>Method Set LDAP 1.1</Description>
+	<CreatedBy>pgussow</CreatedBy>
+	<CreationDate>2009-11-11T13:37:22.67</CreationDate>
+	<LastModifiedBy>pgussow</LastModifiedBy>
+	<LastModifiedDate>2009-11-11T13:37:23.123</LastModifiedDate>
+	<Notes/>
+	<BinaryReferenceInfo></BinaryReferenceInfo>
+	<ISVPName>Cordys LDAP Connector</ISVPName>
+	<RuntimeKey>Method Set LDAP 1.1</RuntimeKey>
+	<WebserviceOperations>
+		<WebserviceOperationRuntime
+			type="com.cordys.wsdl.WebserviceOperationRuntime"
+			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE4138">
+			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE4137</DocumentID>
+			<Name>GetACLForISVPackage</Name>
+			<Description>Runtime reference for Web Service Operation GetACLForISVPackage in Web Service Method Set LDAP 1.1</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-11-11T13:37:23.358</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-11-11T13:37:23.358</LastModifiedDate>
+			<Notes/>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ImplementationType>LDAP</ImplementationType>
+			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetACLForISVPackage</RuntimeKey>
+			<WebserviceInterface>
+				<uri
+					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
+					path="SAP R3 Connector/References/Method Set LDAP 1.1"
+					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+				/>
+			</WebserviceInterface>
+		</WebserviceOperationRuntime>
+		<WebserviceOperationRuntime
+			type="com.cordys.wsdl.WebserviceOperationRuntime"
+			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE413C">
+			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE413B</DocumentID>
+			<Name>GetACLForService</Name>
+			<Description>Runtime reference for Web Service Operation GetACLForService in Web Service Method Set LDAP 1.1</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-11-11T13:37:23.373</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-11-11T13:37:23.373</LastModifiedDate>
+			<Notes/>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ImplementationType>LDAP</ImplementationType>
+			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetACLForService</RuntimeKey>
+			<WebserviceInterface>
+				<uri
+					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
+					path="SAP R3 Connector/References/Method Set LDAP 1.1"
+					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+				/>
+			</WebserviceInterface>
+		</WebserviceOperationRuntime>
+		<WebserviceOperationRuntime
+			type="com.cordys.wsdl.WebserviceOperationRuntime"
+			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE4140">
+			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE413F</DocumentID>
+			<Name>GetACLForUser</Name>
+			<Description>Runtime reference for Web Service Operation GetACLForUser in Web Service Method Set LDAP 1.1</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-11-11T13:37:23.373</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-11-11T13:37:23.373</LastModifiedDate>
+			<Notes/>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ImplementationType>LDAP</ImplementationType>
+			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetACLForUser</RuntimeKey>
+			<WebserviceInterface>
+				<uri
+					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
+					path="SAP R3 Connector/References/Method Set LDAP 1.1"
+					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+				/>
+			</WebserviceInterface>
+		</WebserviceOperationRuntime>
+		<WebserviceOperationRuntime
+			type="com.cordys.wsdl.WebserviceOperationRuntime"
+			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE4144">
+			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE4143</DocumentID>
+			<Name>Update</Name>
+			<Description>Runtime reference for Web Service Operation Update in Web Service Method Set LDAP 1.1</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-11-11T13:37:23.358</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-11-11T13:37:23.358</LastModifiedDate>
+			<Notes/>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ImplementationType>LDAP</ImplementationType>
+			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/Update</RuntimeKey>
+			<WebserviceInterface>
+				<uri
+					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
+					path="SAP R3 Connector/References/Method Set LDAP 1.1"
+					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+				/>
+			</WebserviceInterface>
+		</WebserviceOperationRuntime>
+		<WebserviceOperationRuntime
+			type="com.cordys.wsdl.WebserviceOperationRuntime"
+			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE4148">
+			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE4147</DocumentID>
+			<Name>GetAuthenticatedUsers</Name>
+			<Description>Runtime reference for Web Service Operation GetAuthenticatedUsers in Web Service Method Set LDAP 1.1</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-11-11T13:37:23.358</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-11-11T13:37:23.358</LastModifiedDate>
+			<Notes/>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ImplementationType>LDAP</ImplementationType>
+			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetAuthenticatedUsers</RuntimeKey>
+			<WebserviceInterface>
+				<uri
+					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
+					path="SAP R3 Connector/References/Method Set LDAP 1.1"
+					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+				/>
+			</WebserviceInterface>
+		</WebserviceOperationRuntime>
+		<WebserviceOperationRuntime
+			type="com.cordys.wsdl.WebserviceOperationRuntime"
+			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE414C">
+			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE414B</DocumentID>
+			<Name>GetOrganizationalUsers</Name>
+			<Description>Runtime reference for Web Service Operation GetOrganizationalUsers in Web Service Method Set LDAP 1.1</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-11-11T13:37:23.358</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-11-11T13:37:23.358</LastModifiedDate>
+			<Notes/>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ImplementationType>LDAP</ImplementationType>
+			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetOrganizationalUsers</RuntimeKey>
+			<WebserviceInterface>
+				<uri
+					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
+					path="SAP R3 Connector/References/Method Set LDAP 1.1"
+					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+				/>
+			</WebserviceInterface>
+		</WebserviceOperationRuntime>
+		<WebserviceOperationRuntime
+			type="com.cordys.wsdl.WebserviceOperationRuntime"
+			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE4150">
+			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE414F</DocumentID>
+			<Name>GetRolesByType</Name>
+			<Description>Runtime reference for Web Service Operation GetRolesByType in Web Service Method Set LDAP 1.1</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-11-11T13:37:23.373</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-11-11T13:37:23.373</LastModifiedDate>
+			<Notes/>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ImplementationType>LDAP</ImplementationType>
+			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetRolesByType</RuntimeKey>
+			<WebserviceInterface>
+				<uri
+					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
+					path="SAP R3 Connector/References/Method Set LDAP 1.1"
+					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+				/>
+			</WebserviceInterface>
+		</WebserviceOperationRuntime>
+		<WebserviceOperationRuntime
+			type="com.cordys.wsdl.WebserviceOperationRuntime"
+			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE4154">
+			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE4153</DocumentID>
+			<Name>GetToolbar</Name>
+			<Description>Runtime reference for Web Service Operation GetToolbar in Web Service Method Set LDAP 1.1</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-11-11T13:37:23.358</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-11-11T13:37:23.358</LastModifiedDate>
+			<Notes/>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ImplementationType>LDAP</ImplementationType>
+			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetToolbar</RuntimeKey>
+			<WebserviceInterface>
+				<uri
+					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
+					path="SAP R3 Connector/References/Method Set LDAP 1.1"
+					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+				/>
+			</WebserviceInterface>
+		</WebserviceOperationRuntime>
+		<WebserviceOperationRuntime
+			type="com.cordys.wsdl.WebserviceOperationRuntime"
+			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE4158">
+			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE4157</DocumentID>
+			<Name>GetUserDetails</Name>
+			<Description>Runtime reference for Web Service Operation GetUserDetails in Web Service Method Set LDAP 1.1</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-11-11T13:37:23.373</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-11-11T13:37:23.373</LastModifiedDate>
+			<Notes/>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ImplementationType>LDAP</ImplementationType>
+			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetUserDetails</RuntimeKey>
+			<WebserviceInterface>
+				<uri
+					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
+					path="SAP R3 Connector/References/Method Set LDAP 1.1"
+					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+				/>
+			</WebserviceInterface>
+		</WebserviceOperationRuntime>
+		<WebserviceOperationRuntime
+			type="com.cordys.wsdl.WebserviceOperationRuntime"
+			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE415C">
+			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE415B</DocumentID>
+			<Name>FlushLDAPCache</Name>
+			<Description>Runtime reference for Web Service Operation FlushLDAPCache in Web Service Method Set LDAP 1.1</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-11-11T13:37:23.373</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-11-11T13:37:23.373</LastModifiedDate>
+			<Notes/>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ImplementationType>LDAP</ImplementationType>
+			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/FlushLDAPCache</RuntimeKey>
+			<WebserviceInterface>
+				<uri
+					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
+					path="SAP R3 Connector/References/Method Set LDAP 1.1"
+					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+				/>
+			</WebserviceInterface>
+		</WebserviceOperationRuntime>
+	</WebserviceOperations>
+</WebserviceInterfaceRuntime>
