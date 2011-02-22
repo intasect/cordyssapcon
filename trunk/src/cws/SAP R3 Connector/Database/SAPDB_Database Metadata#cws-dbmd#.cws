@@ -7,11 +7,1227 @@
 	<Description>SAPDB_Database Metadata</Description>
 	<CreatedBy>hboecker</CreatedBy>
 	<CreationDate>2009-08-28T06:34:15.906</CreationDate>
-	<LastModifiedBy>hboecker</LastModifiedBy>
-	<LastModifiedDate>2009-08-28T06:34:16.234</LastModifiedDate>
 	<Notes/>
 	<DataBaseName>HB_DEMO</DataBaseName>
-	<DBProcedures/>
+	<RuntimeSchemaDefinitions>
+		<XMLSchemaDefinitionRuntime
+			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
+			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B"
+			RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D14">
+			<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D13</DocumentID>
+			<Name>XMLSchema_Binary_Reference_WSAppServerSchema.xsd</Name>
+			<Description>WSAppServerSchema.xsd</Description>
+			<CreatedBy>hboecker</CreatedBy>
+			<CreationDate>2009-08-28T06:34:16.75</CreationDate>
+			<Notes/>
+			<RuntimeKey>http://schemas.cordys.com/WS-AppServer/1.0/WSAppServerSchema.xsd</RuntimeKey>
+			<ISVPName>Cordys WS-AppServer</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<TargetNamespace></TargetNamespace>
+			<NamespaceReferencePrefix>tns</NamespaceReferencePrefix>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<XmlNode>
+				<xsd:schema
+					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
+					xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+					attributeFormDefault="unqualified"
+					elementFormDefault="qualified">
+					<xsd:import
+						namespace="http://schemas.cordys.com/General/ClientAttributes/"
+						schemaLocation="http://schemas.cordys.com/CordysSchemas//ClientAttributes.xsd"
+					/>
+				</xsd:schema>
+			</XmlNode>
+			<Location></Location>
+			<SchemaFragments>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D17">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D16</DocumentID>
+					<Name>UpdateMethodAttributes</Name>
+					<Description>UpdateMethodAttributes(attributeGroup)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.75</CreationDate>
+					<Notes/>
+					<FragmentName>UpdateMethodAttributes</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attributeGroup
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="UpdateMethodAttributes">
+							<xsd:attribute
+								name="reply"
+								default="yes">
+								<xsd:simpleType>
+									<xsd:restriction
+										base="xsd:string">
+										<xsd:enumeration
+											value="yes"
+										/>
+										<xsd:enumeration
+											value="no"
+										/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+							<xsd:attribute
+								name="commandUpdate"
+								default="no">
+								<xsd:simpleType>
+									<xsd:restriction
+										base="xsd:string">
+										<xsd:enumeration
+											value="yes"
+										/>
+										<xsd:enumeration
+											value="no"
+										/>
+										<xsd:enumeration
+											value="true"
+										/>
+										<xsd:enumeration
+											value="false"
+										/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+							<xsd:attribute
+								name="preserveSpace"
+								default="no">
+								<xsd:simpleType>
+									<xsd:restriction
+										base="xsd:string">
+										<xsd:enumeration
+											value="yes"
+										/>
+										<xsd:enumeration
+											value="no"
+										/>
+										<xsd:enumeration
+											value="true"
+										/>
+										<xsd:enumeration
+											value="false"
+										/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+							<xsd:anyAttribute
+								namespace="http://schemas.cordys.com/General/ClientAttributes/"
+								processContents="strict"
+							/>
+						</xsd:attributeGroup>
+					</DefinitionXML>
+					<Type>attributeGroup</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D19">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D18</DocumentID>
+					<Name>tupleAttributes</Name>
+					<Description>tupleAttributes(attributeGroup)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.75</CreationDate>
+					<Notes/>
+					<FragmentName>tupleAttributes</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attributeGroup
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="tupleAttributes">
+							<xsd:anyAttribute
+								namespace="http://schemas.cordys.com/General/ClientAttributes/"
+								processContents="strict"
+							/>
+						</xsd:attributeGroup>
+					</DefinitionXML>
+					<Type>attributeGroup</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D1B">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D1A</DocumentID>
+					<Name>seqId</Name>
+					<Description>seqId(attribute)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.734</CreationDate>
+					<Notes/>
+					<FragmentName>seqId</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attribute
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="seqId"
+							type="xsd:int"
+						/>
+					</DefinitionXML>
+					<Type>attribute</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D1D">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D1C</DocumentID>
+					<Name>oldObjectAttributes</Name>
+					<Description>oldObjectAttributes(attributeGroup)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.734</CreationDate>
+					<Notes/>
+					<FragmentName>oldObjectAttributes</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attributeGroup
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="oldObjectAttributes">
+							<xsd:attribute
+								name="qConstraint"
+								default="0">
+								<xsd:simpleType>
+									<xsd:restriction
+										base="xsd:string">
+										<xsd:enumeration
+											value="0"
+										/>
+										<xsd:enumeration
+											value="1"
+										/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+						</xsd:attributeGroup>
+					</DefinitionXML>
+					<Type>attributeGroup</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D1F">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D1E</DocumentID>
+					<Name>nestedObjectAttributes</Name>
+					<Description>nestedObjectAttributes(attributeGroup)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.718</CreationDate>
+					<Notes/>
+					<FragmentName>nestedObjectAttributes</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attributeGroup
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="nestedObjectAttributes">
+							<xsd:anyAttribute
+								namespace="##targetNamespace"
+								processContents="strict"
+							/>
+						</xsd:attributeGroup>
+					</DefinitionXML>
+					<Type>attributeGroup</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D21">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D20</DocumentID>
+					<Name>newObjectAttributes</Name>
+					<Description>newObjectAttributes(attributeGroup)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.734</CreationDate>
+					<Notes/>
+					<FragmentName>newObjectAttributes</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attributeGroup
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="newObjectAttributes">
+							<xsd:attribute
+								name="qAccess"
+								default="0">
+								<xsd:simpleType>
+									<xsd:restriction
+										base="xsd:string">
+										<xsd:enumeration
+											value="0"
+										/>
+										<xsd:enumeration
+											value="1"
+										/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+							<xsd:attribute
+								name="qConstraint"
+								default="0">
+								<xsd:simpleType>
+									<xsd:restriction
+										base="xsd:string">
+										<xsd:enumeration
+											value="0"
+										/>
+										<xsd:enumeration
+											value="1"
+										/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+							<xsd:attribute
+								name="qInit"
+								default="0">
+								<xsd:simpleType>
+									<xsd:restriction
+										base="xsd:string">
+										<xsd:enumeration
+											value="0"
+										/>
+										<xsd:enumeration
+											value="1"
+										/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+							<xsd:attribute
+								type="xsd:string"
+								name="qValues"
+								use="optional"
+								default=""
+							/>
+						</xsd:attributeGroup>
+					</DefinitionXML>
+					<Type>attributeGroup</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D23">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D22</DocumentID>
+					<Name>GetMethodAttributes</Name>
+					<Description>GetMethodAttributes(attributeGroup)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.734</CreationDate>
+					<Notes/>
+					<FragmentName>GetMethodAttributes</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attributeGroup
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="GetMethodAttributes">
+							<xsd:attribute
+								name="preserveSpace"
+								default="no">
+								<xsd:simpleType>
+									<xsd:restriction
+										base="xsd:string">
+										<xsd:enumeration
+											value="yes"
+										/>
+										<xsd:enumeration
+											value="no"
+										/>
+										<xsd:enumeration
+											value="true"
+										/>
+										<xsd:enumeration
+											value="false"
+										/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+							<xsd:attribute
+								name="qAccess"
+								default="0">
+								<xsd:simpleType>
+									<xsd:restriction
+										base="xsd:string">
+										<xsd:enumeration
+											value="0"
+										/>
+										<xsd:enumeration
+											value="1"
+										/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+							<xsd:attribute
+								type="xsd:string"
+								name="qValues"
+								use="optional"
+								default=""
+							/>
+							<xsd:anyAttribute
+								namespace="http://schemas.cordys.com/General/ClientAttributes/"
+								processContents="strict"
+							/>
+						</xsd:attributeGroup>
+					</DefinitionXML>
+					<Type>attributeGroup</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D25">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D24</DocumentID>
+					<Name>elementAttributes</Name>
+					<Description>elementAttributes(attributeGroup)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.734</CreationDate>
+					<Notes/>
+					<FragmentName>elementAttributes</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attributeGroup
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="elementAttributes">
+							<xsd:anyAttribute
+								namespace="##any"
+								processContents="skip"
+							/>
+						</xsd:attributeGroup>
+					</DefinitionXML>
+					<Type>attributeGroup</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D27">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D26</DocumentID>
+					<Name>values</Name>
+					<Description>values(element)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.734</CreationDate>
+					<Notes/>
+					<FragmentName>values</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:element
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="values">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element
+										maxOccurs="unbounded"
+										minOccurs="1"
+										name="item">
+										<xsd:complexType>
+											<xsd:sequence>
+												<xsd:element
+													maxOccurs="1"
+													minOccurs="1"
+													type="xsd:string"
+													name="label"
+												/>
+												<xsd:element
+													maxOccurs="1"
+													minOccurs="1"
+													type="xsd:string"
+													name="value"
+												/>
+											</xsd:sequence>
+										</xsd:complexType>
+									</xsd:element>
+								</xsd:sequence>
+								<xsd:attribute
+									name="valuesID"
+									type="xsd:string"
+								/>
+							</xsd:complexType>
+						</xsd:element>
+					</DefinitionXML>
+					<Type>element</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D29">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D28</DocumentID>
+					<Name>cursor</Name>
+					<Description>cursor(element)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.734</CreationDate>
+					<Notes/>
+					<FragmentName>cursor</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:element
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="cursor">
+							<xsd:complexType>
+								<xsd:attribute
+									name="id"
+									type="xsd:string"
+									default="0"
+								/>
+								<xsd:attribute
+									name="position"
+									type="xsd:integer"
+									default="0"
+								/>
+								<xsd:attribute
+									name="numRows"
+									type="xsd:integer"
+									default="5"
+								/>
+								<xsd:attribute
+									name="maxRows"
+									type="xsd:integer"
+									default="99999"
+								/>
+								<xsd:attribute
+									name="sameConnection"
+									type="xsd:boolean"
+									default="false"
+								/>
+							</xsd:complexType>
+						</xsd:element>
+					</DefinitionXML>
+					<Type>element</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+			</SchemaFragments>
+			<DefinitionSet/>
+		</XMLSchemaDefinitionRuntime>
+		<XMLSchemaDefinitionRuntime
+			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
+			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B"
+			RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D2B">
+			<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D2A</DocumentID>
+			<Name>XMLSchema_Binary_Reference_DBConnectorAttributes.xsd</Name>
+			<Description>DBConnectorAttributes.xsd</Description>
+			<CreatedBy>hboecker</CreatedBy>
+			<CreationDate>2009-08-28T06:34:16.703</CreationDate>
+			<Notes/>
+			<RuntimeKey>http://schemas.cordys.com/dbconnectors/schemas/1.0/DBConnectorAttributes.xsd</RuntimeKey>
+			<ISVPName>Cordys WS-AppServer</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<TargetNamespace></TargetNamespace>
+			<NamespaceReferencePrefix>tns</NamespaceReferencePrefix>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<XmlNode>
+				<xsd:schema
+					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
+					xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+					attributeFormDefault="unqualified"
+					elementFormDefault="qualified"
+				/>
+			</XmlNode>
+			<Location></Location>
+			<SchemaFragments>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D2E">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D2D</DocumentID>
+					<Name>CommonAttributes</Name>
+					<Description>CommonAttributes(attributeGroup)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.703</CreationDate>
+					<Notes/>
+					<FragmentName>CommonAttributes</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attributeGroup
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="CommonAttributes">
+							<xsd:attribute
+								default="false"
+								name="null">
+								<xsd:simpleType>
+									<xsd:restriction
+										base="xsd:string">
+										<xsd:enumeration
+											value="true"
+										/>
+										<xsd:enumeration
+											value="false"
+										/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+							<xsd:attribute
+								default="false"
+								name="guid">
+								<xsd:simpleType>
+									<xsd:restriction
+										base="xsd:string">
+										<xsd:enumeration
+											value="true"
+										/>
+										<xsd:enumeration
+											value="false"
+										/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+							<xsd:attribute
+								default="false"
+								name="preserveSpace">
+								<xsd:simpleType>
+									<xsd:restriction
+										base="xsd:string">
+										<xsd:enumeration
+											value="true"
+										/>
+										<xsd:enumeration
+											value="false"
+										/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+							<xsd:attribute
+								name="href"
+								type="xsd:string"
+							/>
+							<xsd:attribute
+								name="id"
+								type="xsd:string"
+							/>
+							<xsd:attribute
+								name="table"
+								type="xsd:string"
+							/>
+						</xsd:attributeGroup>
+					</DefinitionXML>
+					<Type>attributeGroup</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D2A"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D30">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D2F</DocumentID>
+					<Name>CursorAttributes</Name>
+					<Description>CursorAttributes(attributeGroup)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.703</CreationDate>
+					<Notes/>
+					<FragmentName>CursorAttributes</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attributeGroup
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="CursorAttributes">
+							<xsd:attribute
+								default="5"
+								name="numRows"
+								type="xsd:integer"
+							/>
+							<xsd:attribute
+								default="0"
+								name="position"
+								type="xsd:integer"
+							/>
+							<xsd:attribute
+								default="99999"
+								name="maxRows"
+								type="xsd:integer"
+							/>
+						</xsd:attributeGroup>
+					</DefinitionXML>
+					<Type>attributeGroup</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D2A"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D32">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D31</DocumentID>
+					<Name>QueryAttributes</Name>
+					<Description>QueryAttributes(attributeGroup)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.718</CreationDate>
+					<Notes/>
+					<FragmentName>QueryAttributes</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attributeGroup
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="QueryAttributes">
+							<xsd:attribute
+								name="type"
+								type="xsd:string"
+							/>
+							<xsd:attribute
+								name="dverify">
+								<xsd:simpleType>
+									<xsd:restriction
+										base="xsd:string">
+										<xsd:enumeration
+											value="yes"
+										/>
+										<xsd:enumeration
+											value="no"
+										/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:attribute>
+							<xsd:attribute
+								name="attr"
+								type="xsd:string"
+							/>
+							<xsd:attribute
+								name="dd"
+								type="xsd:string"
+							/>
+							<xsd:attribute
+								name="dt"
+								type="xsd:string"
+							/>
+							<xsd:attribute
+								name="table"
+								type="xsd:string"
+							/>
+						</xsd:attributeGroup>
+					</DefinitionXML>
+					<Type>attributeGroup</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D2A"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D34">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D33</DocumentID>
+					<Name>UpdateAttributes</Name>
+					<Description>UpdateAttributes(attributeGroup)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.718</CreationDate>
+					<Notes/>
+					<FragmentName>UpdateAttributes</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attributeGroup
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="UpdateAttributes">
+							<xsd:attribute
+								name="src"
+								type="xsd:string"
+							/>
+							<xsd:attribute
+								name="ref"
+								type="xsd:string"
+							/>
+							<xsd:attribute
+								name="version"
+								type="xsd:string"
+							/>
+							<xsd:attribute
+								name="parent"
+								type="xsd:string"
+							/>
+						</xsd:attributeGroup>
+					</DefinitionXML>
+					<Type>attributeGroup</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D2A"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+			</SchemaFragments>
+			<DefinitionSet/>
+		</XMLSchemaDefinitionRuntime>
+		<XMLSchemaDefinitionRuntime
+			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
+			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B"
+			RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D36">
+			<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D35</DocumentID>
+			<Name>XMLSchema_Binary_Reference_ClientAttributes.xsd</Name>
+			<Description>ClientAttributes.xsd</Description>
+			<CreatedBy>hboecker</CreatedBy>
+			<CreationDate>2009-08-28T06:34:16.718</CreationDate>
+			<Notes/>
+			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//ClientAttributes.xsd</RuntimeKey>
+			<ISVPName>Cordys ESBServer</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<TargetNamespace>http://schemas.cordys.com/General/ClientAttributes/</TargetNamespace>
+			<NamespaceReferencePrefix></NamespaceReferencePrefix>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<XmlNode>
+				<xsd:schema
+					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
+					xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+					targetNamespace="http://schemas.cordys.com/General/ClientAttributes/"
+					elementFormDefault="qualified"
+					attributeFormDefault="unqualified"
+				/>
+			</XmlNode>
+			<Location></Location>
+			<SchemaFragments>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D39">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D38</DocumentID>
+					<Name>sync_id</Name>
+					<Description>sync_id(attribute)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.718</CreationDate>
+					<Notes/>
+					<FragmentName>sync_id</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attribute
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="sync_id"
+							type="xsd:string"
+						/>
+					</DefinitionXML>
+					<Type>attribute</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D35"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D3B">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D3A</DocumentID>
+					<Name>current_model</Name>
+					<Description>current_model(attribute)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.687</CreationDate>
+					<Notes/>
+					<FragmentName>current_model</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attribute
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="current_model"
+							type="xsd:string"
+						/>
+					</DefinitionXML>
+					<Type>attribute</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D35"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D3D">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D3C</DocumentID>
+					<Name>reorder</Name>
+					<Description>reorder(attribute)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.687</CreationDate>
+					<Notes/>
+					<FragmentName>reorder</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attribute
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="reorder"
+							type="xsd:boolean"
+						/>
+					</DefinitionXML>
+					<Type>attribute</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D35"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D3F">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D3E</DocumentID>
+					<Name>related</Name>
+					<Description>related(attribute)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.687</CreationDate>
+					<Notes/>
+					<FragmentName>related</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attribute
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="related"
+							type="xsd:string"
+						/>
+					</DefinitionXML>
+					<Type>attribute</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D35"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D41">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D40</DocumentID>
+					<Name>selected</Name>
+					<Description>selected(attribute)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.703</CreationDate>
+					<Notes/>
+					<FragmentName>selected</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attribute
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="selected"
+							type="xsd:boolean"
+						/>
+					</DefinitionXML>
+					<Type>attribute</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D35"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D43">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D42</DocumentID>
+					<Name>activebusinessobject</Name>
+					<Description>activebusinessobject(attribute)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.703</CreationDate>
+					<Notes/>
+					<FragmentName>activebusinessobject</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attribute
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="activebusinessobject"
+							type="xsd:boolean"
+						/>
+					</DefinitionXML>
+					<Type>attribute</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D35"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+			</SchemaFragments>
+			<DefinitionSet/>
+		</XMLSchemaDefinitionRuntime>
+		<XMLSchemaDefinitionRuntime
+			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
+			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B"
+			RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D45">
+			<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D44</DocumentID>
+			<Name>XMLSchema_Binary_Reference_CordysLocalizableMessage.xsd</Name>
+			<Description>CordysLocalizableMessage.xsd</Description>
+			<CreatedBy>hboecker</CreatedBy>
+			<CreationDate>2009-08-28T06:34:16.703</CreationDate>
+			<Notes/>
+			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//CordysLocalizableMessage.xsd</RuntimeKey>
+			<ISVPName>Cordys ESBServer</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<TargetNamespace>http://schemas.cordys.com/General/1.0/</TargetNamespace>
+			<NamespaceReferencePrefix>cordys</NamespaceReferencePrefix>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<XmlNode>
+				<xsd:schema
+					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
+					xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+					xmlns:cordys="http://schemas.cordys.com/General/1.0/"
+					targetNamespace="http://schemas.cordys.com/General/1.0/"
+					elementFormDefault="qualified"
+				/>
+			</XmlNode>
+			<Location></Location>
+			<SchemaFragments>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D47">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D46</DocumentID>
+					<Name>LocalizableMessage</Name>
+					<Description>LocalizableMessage(element)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.703</CreationDate>
+					<Notes/>
+					<FragmentName>LocalizableMessage</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:element
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:cordys="http://schemas.cordys.com/General/1.0/"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="LocalizableMessage">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element
+										minOccurs="1"
+										maxOccurs="1"
+										name="MessageCode"
+										type="xsd:string"
+									/>
+									<xsd:element
+										minOccurs="0"
+										maxOccurs="unbounded"
+										name="Insertion"
+										type="cordys:NestedMessage"
+									/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</DefinitionXML>
+					<Type>element</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D44"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D49">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D48</DocumentID>
+					<Name>NestedMessage</Name>
+					<Description>NestedMessage(complexType)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.703</CreationDate>
+					<Notes/>
+					<FragmentName>NestedMessage</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:complexType
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:cordys="http://schemas.cordys.com/General/1.0/"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="NestedMessage"
+							mixed="true">
+							<xsd:sequence
+								minOccurs="0">
+								<xsd:element
+									name="LocalizableMessage">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element
+												minOccurs="1"
+												maxOccurs="1"
+												name="MessageCode"
+												type="xsd:string"
+											/>
+											<xsd:element
+												minOccurs="0"
+												maxOccurs="unbounded"
+												name="Insertion"
+												type="cordys:NestedMessage"
+											/>
+										</xsd:sequence>
+									</xsd:complexType>
+								</xsd:element>
+							</xsd:sequence>
+						</xsd:complexType>
+					</DefinitionXML>
+					<Type>complexType</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D44"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+			</SchemaFragments>
+			<DefinitionSet/>
+		</XMLSchemaDefinitionRuntime>
+		<XMLSchemaDefinitionRuntime
+			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
+			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B"
+			RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D4B">
+			<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D4A</DocumentID>
+			<Name>XMLSchema_Binary_Reference_CordysFaultDetails.xsd</Name>
+			<Description>CordysFaultDetails.xsd</Description>
+			<CreatedBy>hboecker</CreatedBy>
+			<CreationDate>2009-08-28T06:34:16.75</CreationDate>
+			<Notes/>
+			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//CordysFaultDetails.xsd</RuntimeKey>
+			<ISVPName>Cordys ESBServer</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<TargetNamespace>http://schemas.cordys.com/General/1.0/</TargetNamespace>
+			<NamespaceReferencePrefix>cordys</NamespaceReferencePrefix>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<XmlNode>
+				<xsd:schema
+					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
+					xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+					xmlns:cordys="http://schemas.cordys.com/General/1.0/"
+					targetNamespace="http://schemas.cordys.com/General/1.0/"
+					elementFormDefault="qualified">
+					<xsd:include
+						schemaLocation="http://schemas.cordys.com/CordysSchemas//CordysLocalizableMessage.xsd"> </xsd:include>
+				</xsd:schema>
+			</XmlNode>
+			<Location></Location>
+			<SchemaFragments>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D4D">
+					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D4C</DocumentID>
+					<Name>FaultDetails</Name>
+					<Description>FaultDetails(element)</Description>
+					<CreatedBy>hboecker</CreatedBy>
+					<CreationDate>2009-08-28T06:34:16.75</CreationDate>
+					<Notes/>
+					<FragmentName>FaultDetails</FragmentName>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:element
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:cordys="http://schemas.cordys.com/General/1.0/"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="FaultDetails">
+							<xsd:complexType>
+								<xsd:sequence>
+									<xsd:element
+										ref="cordys:LocalizableMessage"
+									/>
+								</xsd:sequence>
+							</xsd:complexType>
+						</xsd:element>
+					</DefinitionXML>
+					<Type>element</Type>
+					<Realizations/>
+					<DecisionCases/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="00059A3C-7800-71DE-965E-939CCE0E1D4A"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+			</SchemaFragments>
+			<DefinitionSet/>
+		</XMLSchemaDefinitionRuntime>
+	</RuntimeSchemaDefinitions>
 	<DBTables>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -21,8 +1237,6 @@
 			<Description>ABSENT_DATES</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.75</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.75</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -68,14 +1282,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -85,8 +1297,6 @@
 			<Description>Customer</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -133,14 +1343,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -150,8 +1358,6 @@
 			<Description>DATE_TEST</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.75</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.75</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -201,14 +1407,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -218,8 +1422,6 @@
 			<Description>FZG_KONFIGS</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -291,14 +1493,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -308,8 +1508,6 @@
 			<Description>HOLIDAYS</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -375,14 +1573,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -392,8 +1588,6 @@
 			<Description>IDOCTable</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -499,14 +1693,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -516,8 +1708,6 @@
 			<Description>KONTO_DATA</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.718</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.718</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -593,14 +1783,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -610,8 +1798,6 @@
 			<Description>Kunden</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.718</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.718</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -729,14 +1915,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -746,8 +1930,6 @@
 			<Description>LIEFER_BEWERT_KATEGORIEN</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.718</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.718</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -794,14 +1976,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -811,8 +1991,6 @@
 			<Description>LIEFER_BEWERTUNG</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.718</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.718</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -1113,14 +2291,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -1130,8 +2306,6 @@
 			<Description>LIEFER_BEWERTUNG_KOPF</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.718</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.718</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -1289,14 +2463,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -1306,8 +2478,6 @@
 			<Description>LIEFER_LEISTUNG</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.718</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.718</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -1412,14 +2582,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -1429,8 +2597,6 @@
 			<Description>LIEFER_MASSNAHMEN</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.718</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.718</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -1496,14 +2662,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -1513,8 +2677,6 @@
 			<Description>LIEFERANTEN</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.718</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.718</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -1642,14 +2804,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -1659,8 +2819,6 @@
 			<Description>NO_PRIMARY</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -1684,14 +2842,12 @@
 					<Keys/>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -1701,8 +2857,6 @@
 			<Description>Personen</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -1784,14 +2938,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -1801,8 +2953,6 @@
 			<Description>R_Artikel_DMG</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -1888,14 +3038,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -1905,8 +3053,6 @@
 			<Description>Rechnungen</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -1998,14 +3144,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -2015,8 +3159,6 @@
 			<Description>RechnungPositionen</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -2089,14 +3231,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -2106,8 +3246,6 @@
 			<Description>ReklamationAktionTypen</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -2149,14 +3287,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -2166,8 +3302,6 @@
 			<Description>ReklamationDetailAktionen</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -2267,14 +3401,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -2284,8 +3416,6 @@
 			<Description>ReklamationDetails</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.687</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.687</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -2371,14 +3501,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -2388,8 +3516,6 @@
 			<Description>Reklamationen</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.687</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.687</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -2534,14 +3660,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -2551,8 +3675,6 @@
 			<Description>ReklamationErgebnisTypen</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -2609,14 +3731,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -2626,8 +3746,6 @@
 			<Description>ReklamationsHistorie</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.687</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.687</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -2706,14 +3824,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -2723,8 +3839,6 @@
 			<Description>ReklamationsTypen</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.75</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.75</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -2776,14 +3890,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -2793,8 +3905,6 @@
 			<Description>SAP_MATERIAL</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.75</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.75</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -2996,14 +4106,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -3013,8 +4121,6 @@
 			<Description>SAP_MATERIAL_2</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.75</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.75</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -3216,14 +4322,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -3233,8 +4337,6 @@
 			<Description>Shares</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.75</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.75</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -3286,14 +4388,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -3303,8 +4403,6 @@
 			<Description>SUBSTITUTES</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -3351,14 +4449,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -3368,8 +4464,6 @@
 			<Description>tbl_Vorgaenge</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -3410,14 +4504,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -3427,8 +4519,6 @@
 			<Description>TEST_FLOAT_TABLE</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -3488,14 +4578,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -3505,8 +4593,6 @@
 			<Description>Users</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.75</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.75</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -3553,14 +4639,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -3570,8 +4654,6 @@
 			<Description>WAEHRG_WERTE</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -3639,14 +4721,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -3656,8 +4736,6 @@
 			<Description>WAEHRUNGEN</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -3704,14 +4782,12 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -3721,8 +4797,6 @@
 			<Description>ZHP_IN</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
 			<Notes/>
 			<Definition>
 				<TableInfo
@@ -3809,1326 +4883,14 @@
 					</Indices>
 				</TableInfo>
 			</Definition>
+			<SecurityDescriptor/>
 			<DBSchema>
 				<uri
 					id="00059A3C-7800-71DE-965E-939C1FB16373"
-					path="SAP R3 Connector/references/SAPDB_Database Metadata"
-					type="com.cordys.dbschema.DBSchema"
 				/>
 			</DBSchema>
-			<SecurityDescriptor/>
 		</DBTable>
 	</DBTables>
 	<DBViews/>
-	<RuntimeSchemaDefinitions>
-		<XMLSchemaDefinitionRuntime
-			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-			RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D14">
-			<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D13</DocumentID>
-			<Name>XMLSchema_Binary_Reference_WSAppServerSchema.xsd</Name>
-			<Description>WSAppServerSchema.xsd</Description>
-			<CreatedBy>hboecker</CreatedBy>
-			<CreationDate>2009-08-28T06:34:16.75</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.75</LastModifiedDate>
-			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<ISVPName>Cordys WS-AppServer</ISVPName>
-			<Location></Location>
-			<NamespaceReferencePrefix>tns</NamespaceReferencePrefix>
-			<RuntimeKey>http://schemas.cordys.com/WS-AppServer/1.0/WSAppServerSchema.xsd</RuntimeKey>
-			<TargetNamespace></TargetNamespace>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
-			<XmlNode>
-				<xsd:schema
-					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
-					xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-					attributeFormDefault="unqualified"
-					elementFormDefault="qualified">
-					<xsd:import
-						namespace="http://schemas.cordys.com/General/ClientAttributes/"
-						schemaLocation="http://schemas.cordys.com/CordysSchemas//ClientAttributes.xsd"
-					/>
-				</xsd:schema>
-			</XmlNode>
-			<SchemaFragments>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D17">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D16</DocumentID>
-					<Name>UpdateMethodAttributes</Name>
-					<Description>UpdateMethodAttributes(attributeGroup)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.75</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.75</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attributeGroup
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="UpdateMethodAttributes">
-							<xsd:attribute
-								name="reply"
-								default="yes">
-								<xsd:simpleType>
-									<xsd:restriction
-										base="xsd:string">
-										<xsd:enumeration
-											value="yes"
-										/>
-										<xsd:enumeration
-											value="no"
-										/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:attribute>
-							<xsd:attribute
-								name="commandUpdate"
-								default="no">
-								<xsd:simpleType>
-									<xsd:restriction
-										base="xsd:string">
-										<xsd:enumeration
-											value="yes"
-										/>
-										<xsd:enumeration
-											value="no"
-										/>
-										<xsd:enumeration
-											value="true"
-										/>
-										<xsd:enumeration
-											value="false"
-										/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:attribute>
-							<xsd:attribute
-								name="preserveSpace"
-								default="no">
-								<xsd:simpleType>
-									<xsd:restriction
-										base="xsd:string">
-										<xsd:enumeration
-											value="yes"
-										/>
-										<xsd:enumeration
-											value="no"
-										/>
-										<xsd:enumeration
-											value="true"
-										/>
-										<xsd:enumeration
-											value="false"
-										/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:attribute>
-							<xsd:anyAttribute
-								namespace="http://schemas.cordys.com/General/ClientAttributes/"
-								processContents="strict"
-							/>
-						</xsd:attributeGroup>
-					</DefinitionXML>
-					<FragmentName>UpdateMethodAttributes</FragmentName>
-					<Type>attributeGroup</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_WSAppServerSchema.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D19">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D18</DocumentID>
-					<Name>tupleAttributes</Name>
-					<Description>tupleAttributes(attributeGroup)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.75</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.75</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attributeGroup
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="tupleAttributes">
-							<xsd:anyAttribute
-								namespace="http://schemas.cordys.com/General/ClientAttributes/"
-								processContents="strict"
-							/>
-						</xsd:attributeGroup>
-					</DefinitionXML>
-					<FragmentName>tupleAttributes</FragmentName>
-					<Type>attributeGroup</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_WSAppServerSchema.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D1B">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D1A</DocumentID>
-					<Name>seqId</Name>
-					<Description>seqId(attribute)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attribute
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="seqId"
-							type="xsd:int"
-						/>
-					</DefinitionXML>
-					<FragmentName>seqId</FragmentName>
-					<Type>attribute</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_WSAppServerSchema.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D1D">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D1C</DocumentID>
-					<Name>oldObjectAttributes</Name>
-					<Description>oldObjectAttributes(attributeGroup)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attributeGroup
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="oldObjectAttributes">
-							<xsd:attribute
-								name="qConstraint"
-								default="0">
-								<xsd:simpleType>
-									<xsd:restriction
-										base="xsd:string">
-										<xsd:enumeration
-											value="0"
-										/>
-										<xsd:enumeration
-											value="1"
-										/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:attribute>
-						</xsd:attributeGroup>
-					</DefinitionXML>
-					<FragmentName>oldObjectAttributes</FragmentName>
-					<Type>attributeGroup</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_WSAppServerSchema.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D1F">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D1E</DocumentID>
-					<Name>nestedObjectAttributes</Name>
-					<Description>nestedObjectAttributes(attributeGroup)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.718</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.718</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attributeGroup
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="nestedObjectAttributes">
-							<xsd:anyAttribute
-								namespace="##targetNamespace"
-								processContents="strict"
-							/>
-						</xsd:attributeGroup>
-					</DefinitionXML>
-					<FragmentName>nestedObjectAttributes</FragmentName>
-					<Type>attributeGroup</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_WSAppServerSchema.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D21">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D20</DocumentID>
-					<Name>newObjectAttributes</Name>
-					<Description>newObjectAttributes(attributeGroup)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attributeGroup
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="newObjectAttributes">
-							<xsd:attribute
-								name="qAccess"
-								default="0">
-								<xsd:simpleType>
-									<xsd:restriction
-										base="xsd:string">
-										<xsd:enumeration
-											value="0"
-										/>
-										<xsd:enumeration
-											value="1"
-										/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:attribute>
-							<xsd:attribute
-								name="qConstraint"
-								default="0">
-								<xsd:simpleType>
-									<xsd:restriction
-										base="xsd:string">
-										<xsd:enumeration
-											value="0"
-										/>
-										<xsd:enumeration
-											value="1"
-										/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:attribute>
-							<xsd:attribute
-								name="qInit"
-								default="0">
-								<xsd:simpleType>
-									<xsd:restriction
-										base="xsd:string">
-										<xsd:enumeration
-											value="0"
-										/>
-										<xsd:enumeration
-											value="1"
-										/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:attribute>
-							<xsd:attribute
-								type="xsd:string"
-								name="qValues"
-								use="optional"
-								default=""
-							/>
-						</xsd:attributeGroup>
-					</DefinitionXML>
-					<FragmentName>newObjectAttributes</FragmentName>
-					<Type>attributeGroup</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_WSAppServerSchema.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D23">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D22</DocumentID>
-					<Name>GetMethodAttributes</Name>
-					<Description>GetMethodAttributes(attributeGroup)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attributeGroup
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="GetMethodAttributes">
-							<xsd:attribute
-								name="preserveSpace"
-								default="no">
-								<xsd:simpleType>
-									<xsd:restriction
-										base="xsd:string">
-										<xsd:enumeration
-											value="yes"
-										/>
-										<xsd:enumeration
-											value="no"
-										/>
-										<xsd:enumeration
-											value="true"
-										/>
-										<xsd:enumeration
-											value="false"
-										/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:attribute>
-							<xsd:attribute
-								name="qAccess"
-								default="0">
-								<xsd:simpleType>
-									<xsd:restriction
-										base="xsd:string">
-										<xsd:enumeration
-											value="0"
-										/>
-										<xsd:enumeration
-											value="1"
-										/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:attribute>
-							<xsd:attribute
-								type="xsd:string"
-								name="qValues"
-								use="optional"
-								default=""
-							/>
-							<xsd:anyAttribute
-								namespace="http://schemas.cordys.com/General/ClientAttributes/"
-								processContents="strict"
-							/>
-						</xsd:attributeGroup>
-					</DefinitionXML>
-					<FragmentName>GetMethodAttributes</FragmentName>
-					<Type>attributeGroup</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_WSAppServerSchema.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D25">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D24</DocumentID>
-					<Name>elementAttributes</Name>
-					<Description>elementAttributes(attributeGroup)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attributeGroup
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="elementAttributes">
-							<xsd:anyAttribute
-								namespace="##any"
-								processContents="skip"
-							/>
-						</xsd:attributeGroup>
-					</DefinitionXML>
-					<FragmentName>elementAttributes</FragmentName>
-					<Type>attributeGroup</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_WSAppServerSchema.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D27">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D26</DocumentID>
-					<Name>values</Name>
-					<Description>values(element)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:element
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="values">
-							<xsd:complexType>
-								<xsd:sequence>
-									<xsd:element
-										maxOccurs="unbounded"
-										minOccurs="1"
-										name="item">
-										<xsd:complexType>
-											<xsd:sequence>
-												<xsd:element
-													maxOccurs="1"
-													minOccurs="1"
-													type="xsd:string"
-													name="label"
-												/>
-												<xsd:element
-													maxOccurs="1"
-													minOccurs="1"
-													type="xsd:string"
-													name="value"
-												/>
-											</xsd:sequence>
-										</xsd:complexType>
-									</xsd:element>
-								</xsd:sequence>
-								<xsd:attribute
-									name="valuesID"
-									type="xsd:string"
-								/>
-							</xsd:complexType>
-						</xsd:element>
-					</DefinitionXML>
-					<FragmentName>values</FragmentName>
-					<Type>element</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_WSAppServerSchema.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D29">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D28</DocumentID>
-					<Name>cursor</Name>
-					<Description>cursor(element)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.734</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.734</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:element
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="cursor">
-							<xsd:complexType>
-								<xsd:attribute
-									name="id"
-									type="xsd:string"
-									default="0"
-								/>
-								<xsd:attribute
-									name="position"
-									type="xsd:integer"
-									default="0"
-								/>
-								<xsd:attribute
-									name="numRows"
-									type="xsd:integer"
-									default="5"
-								/>
-								<xsd:attribute
-									name="maxRows"
-									type="xsd:integer"
-									default="99999"
-								/>
-								<xsd:attribute
-									name="sameConnection"
-									type="xsd:boolean"
-									default="false"
-								/>
-							</xsd:complexType>
-						</xsd:element>
-					</DefinitionXML>
-					<FragmentName>cursor</FragmentName>
-					<Type>element</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D13"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_WSAppServerSchema.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-			</SchemaFragments>
-		</XMLSchemaDefinitionRuntime>
-		<XMLSchemaDefinitionRuntime
-			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-			RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D2B">
-			<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D2A</DocumentID>
-			<Name>XMLSchema_Binary_Reference_DBConnectorAttributes.xsd</Name>
-			<Description>DBConnectorAttributes.xsd</Description>
-			<CreatedBy>hboecker</CreatedBy>
-			<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
-			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<ISVPName>Cordys WS-AppServer</ISVPName>
-			<Location></Location>
-			<NamespaceReferencePrefix>tns</NamespaceReferencePrefix>
-			<RuntimeKey>http://schemas.cordys.com/dbconnectors/schemas/1.0/DBConnectorAttributes.xsd</RuntimeKey>
-			<TargetNamespace></TargetNamespace>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
-			<XmlNode>
-				<xsd:schema
-					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
-					xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-					attributeFormDefault="unqualified"
-					elementFormDefault="qualified"
-				/>
-			</XmlNode>
-			<SchemaFragments>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D2E">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D2D</DocumentID>
-					<Name>CommonAttributes</Name>
-					<Description>CommonAttributes(attributeGroup)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attributeGroup
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="CommonAttributes">
-							<xsd:attribute
-								default="false"
-								name="null">
-								<xsd:simpleType>
-									<xsd:restriction
-										base="xsd:string">
-										<xsd:enumeration
-											value="true"
-										/>
-										<xsd:enumeration
-											value="false"
-										/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:attribute>
-							<xsd:attribute
-								default="false"
-								name="guid">
-								<xsd:simpleType>
-									<xsd:restriction
-										base="xsd:string">
-										<xsd:enumeration
-											value="true"
-										/>
-										<xsd:enumeration
-											value="false"
-										/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:attribute>
-							<xsd:attribute
-								default="false"
-								name="preserveSpace">
-								<xsd:simpleType>
-									<xsd:restriction
-										base="xsd:string">
-										<xsd:enumeration
-											value="true"
-										/>
-										<xsd:enumeration
-											value="false"
-										/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:attribute>
-							<xsd:attribute
-								name="href"
-								type="xsd:string"
-							/>
-							<xsd:attribute
-								name="id"
-								type="xsd:string"
-							/>
-							<xsd:attribute
-								name="table"
-								type="xsd:string"
-							/>
-						</xsd:attributeGroup>
-					</DefinitionXML>
-					<FragmentName>CommonAttributes</FragmentName>
-					<Type>attributeGroup</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D2A"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_DBConnectorAttributes.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D30">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D2F</DocumentID>
-					<Name>CursorAttributes</Name>
-					<Description>CursorAttributes(attributeGroup)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attributeGroup
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="CursorAttributes">
-							<xsd:attribute
-								default="5"
-								name="numRows"
-								type="xsd:integer"
-							/>
-							<xsd:attribute
-								default="0"
-								name="position"
-								type="xsd:integer"
-							/>
-							<xsd:attribute
-								default="99999"
-								name="maxRows"
-								type="xsd:integer"
-							/>
-						</xsd:attributeGroup>
-					</DefinitionXML>
-					<FragmentName>CursorAttributes</FragmentName>
-					<Type>attributeGroup</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D2A"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_DBConnectorAttributes.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D32">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D31</DocumentID>
-					<Name>QueryAttributes</Name>
-					<Description>QueryAttributes(attributeGroup)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.718</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.718</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attributeGroup
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="QueryAttributes">
-							<xsd:attribute
-								name="type"
-								type="xsd:string"
-							/>
-							<xsd:attribute
-								name="dverify">
-								<xsd:simpleType>
-									<xsd:restriction
-										base="xsd:string">
-										<xsd:enumeration
-											value="yes"
-										/>
-										<xsd:enumeration
-											value="no"
-										/>
-									</xsd:restriction>
-								</xsd:simpleType>
-							</xsd:attribute>
-							<xsd:attribute
-								name="attr"
-								type="xsd:string"
-							/>
-							<xsd:attribute
-								name="dd"
-								type="xsd:string"
-							/>
-							<xsd:attribute
-								name="dt"
-								type="xsd:string"
-							/>
-							<xsd:attribute
-								name="table"
-								type="xsd:string"
-							/>
-						</xsd:attributeGroup>
-					</DefinitionXML>
-					<FragmentName>QueryAttributes</FragmentName>
-					<Type>attributeGroup</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D2A"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_DBConnectorAttributes.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D34">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D33</DocumentID>
-					<Name>UpdateAttributes</Name>
-					<Description>UpdateAttributes(attributeGroup)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.718</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.718</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attributeGroup
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="UpdateAttributes">
-							<xsd:attribute
-								name="src"
-								type="xsd:string"
-							/>
-							<xsd:attribute
-								name="ref"
-								type="xsd:string"
-							/>
-							<xsd:attribute
-								name="version"
-								type="xsd:string"
-							/>
-							<xsd:attribute
-								name="parent"
-								type="xsd:string"
-							/>
-						</xsd:attributeGroup>
-					</DefinitionXML>
-					<FragmentName>UpdateAttributes</FragmentName>
-					<Type>attributeGroup</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D2A"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_DBConnectorAttributes.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-			</SchemaFragments>
-		</XMLSchemaDefinitionRuntime>
-		<XMLSchemaDefinitionRuntime
-			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-			RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D36">
-			<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D35</DocumentID>
-			<Name>XMLSchema_Binary_Reference_ClientAttributes.xsd</Name>
-			<Description>ClientAttributes.xsd</Description>
-			<CreatedBy>hboecker</CreatedBy>
-			<CreationDate>2009-08-28T06:34:16.718</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.718</LastModifiedDate>
-			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<ISVPName>Cordys ESBServer</ISVPName>
-			<Location></Location>
-			<NamespaceReferencePrefix></NamespaceReferencePrefix>
-			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//ClientAttributes.xsd</RuntimeKey>
-			<TargetNamespace>http://schemas.cordys.com/General/ClientAttributes/</TargetNamespace>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
-			<XmlNode>
-				<xsd:schema
-					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
-					xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-					targetNamespace="http://schemas.cordys.com/General/ClientAttributes/"
-					elementFormDefault="qualified"
-					attributeFormDefault="unqualified"
-				/>
-			</XmlNode>
-			<SchemaFragments>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D39">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D38</DocumentID>
-					<Name>sync_id</Name>
-					<Description>sync_id(attribute)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.718</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.718</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attribute
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="sync_id"
-							type="xsd:string"
-						/>
-					</DefinitionXML>
-					<FragmentName>sync_id</FragmentName>
-					<Type>attribute</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D35"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_ClientAttributes.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D3B">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D3A</DocumentID>
-					<Name>current_model</Name>
-					<Description>current_model(attribute)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.687</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.687</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attribute
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="current_model"
-							type="xsd:string"
-						/>
-					</DefinitionXML>
-					<FragmentName>current_model</FragmentName>
-					<Type>attribute</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D35"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_ClientAttributes.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D3D">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D3C</DocumentID>
-					<Name>reorder</Name>
-					<Description>reorder(attribute)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.687</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.687</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attribute
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="reorder"
-							type="xsd:boolean"
-						/>
-					</DefinitionXML>
-					<FragmentName>reorder</FragmentName>
-					<Type>attribute</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D35"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_ClientAttributes.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D3F">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D3E</DocumentID>
-					<Name>related</Name>
-					<Description>related(attribute)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.687</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.687</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attribute
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="related"
-							type="xsd:string"
-						/>
-					</DefinitionXML>
-					<FragmentName>related</FragmentName>
-					<Type>attribute</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D35"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_ClientAttributes.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D41">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D40</DocumentID>
-					<Name>selected</Name>
-					<Description>selected(attribute)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attribute
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="selected"
-							type="xsd:boolean"
-						/>
-					</DefinitionXML>
-					<FragmentName>selected</FragmentName>
-					<Type>attribute</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D35"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_ClientAttributes.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D43">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D42</DocumentID>
-					<Name>activebusinessobject</Name>
-					<Description>activebusinessobject(attribute)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:attribute
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="activebusinessobject"
-							type="xsd:boolean"
-						/>
-					</DefinitionXML>
-					<FragmentName>activebusinessobject</FragmentName>
-					<Type>attribute</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D35"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_ClientAttributes.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-			</SchemaFragments>
-		</XMLSchemaDefinitionRuntime>
-		<XMLSchemaDefinitionRuntime
-			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-			RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D45">
-			<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D44</DocumentID>
-			<Name>XMLSchema_Binary_Reference_CordysLocalizableMessage.xsd</Name>
-			<Description>CordysLocalizableMessage.xsd</Description>
-			<CreatedBy>hboecker</CreatedBy>
-			<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
-			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<ISVPName>Cordys ESBServer</ISVPName>
-			<Location></Location>
-			<NamespaceReferencePrefix>cordys</NamespaceReferencePrefix>
-			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//CordysLocalizableMessage.xsd</RuntimeKey>
-			<TargetNamespace>http://schemas.cordys.com/General/1.0/</TargetNamespace>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
-			<XmlNode>
-				<xsd:schema
-					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
-					xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-					xmlns:cordys="http://schemas.cordys.com/General/1.0/"
-					targetNamespace="http://schemas.cordys.com/General/1.0/"
-					elementFormDefault="qualified"
-				/>
-			</XmlNode>
-			<SchemaFragments>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D47">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D46</DocumentID>
-					<Name>LocalizableMessage</Name>
-					<Description>LocalizableMessage(element)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:element
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:cordys="http://schemas.cordys.com/General/1.0/"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="LocalizableMessage">
-							<xsd:complexType>
-								<xsd:sequence>
-									<xsd:element
-										minOccurs="1"
-										maxOccurs="1"
-										name="MessageCode"
-										type="xsd:string"
-									/>
-									<xsd:element
-										minOccurs="0"
-										maxOccurs="unbounded"
-										name="Insertion"
-										type="cordys:NestedMessage"
-									/>
-								</xsd:sequence>
-							</xsd:complexType>
-						</xsd:element>
-					</DefinitionXML>
-					<FragmentName>LocalizableMessage</FragmentName>
-					<Type>element</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D44"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_CordysLocalizableMessage.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D49">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D48</DocumentID>
-					<Name>NestedMessage</Name>
-					<Description>NestedMessage(complexType)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.703</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.703</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:complexType
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:cordys="http://schemas.cordys.com/General/1.0/"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="NestedMessage"
-							mixed="true">
-							<xsd:sequence
-								minOccurs="0">
-								<xsd:element
-									name="LocalizableMessage">
-									<xsd:complexType>
-										<xsd:sequence>
-											<xsd:element
-												minOccurs="1"
-												maxOccurs="1"
-												name="MessageCode"
-												type="xsd:string"
-											/>
-											<xsd:element
-												minOccurs="0"
-												maxOccurs="unbounded"
-												name="Insertion"
-												type="cordys:NestedMessage"
-											/>
-										</xsd:sequence>
-									</xsd:complexType>
-								</xsd:element>
-							</xsd:sequence>
-						</xsd:complexType>
-					</DefinitionXML>
-					<FragmentName>NestedMessage</FragmentName>
-					<Type>complexType</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D44"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_CordysLocalizableMessage.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-			</SchemaFragments>
-		</XMLSchemaDefinitionRuntime>
-		<XMLSchemaDefinitionRuntime
-			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-			RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D4B">
-			<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D4A</DocumentID>
-			<Name>XMLSchema_Binary_Reference_CordysFaultDetails.xsd</Name>
-			<Description>CordysFaultDetails.xsd</Description>
-			<CreatedBy>hboecker</CreatedBy>
-			<CreationDate>2009-08-28T06:34:16.75</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-08-28T06:34:16.75</LastModifiedDate>
-			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<ISVPName>Cordys ESBServer</ISVPName>
-			<Location></Location>
-			<NamespaceReferencePrefix>cordys</NamespaceReferencePrefix>
-			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//CordysFaultDetails.xsd</RuntimeKey>
-			<TargetNamespace>http://schemas.cordys.com/General/1.0/</TargetNamespace>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
-			<XmlNode>
-				<xsd:schema
-					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
-					xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-					xmlns:cordys="http://schemas.cordys.com/General/1.0/"
-					targetNamespace="http://schemas.cordys.com/General/1.0/"
-					elementFormDefault="qualified">
-					<xsd:include
-						schemaLocation="http://schemas.cordys.com/CordysSchemas//CordysLocalizableMessage.xsd"> </xsd:include>
-				</xsd:schema>
-			</XmlNode>
-			<SchemaFragments>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="00059A3C-7800-71DE-965E-939CCE0E1D4D">
-					<DocumentID>00059A3C-7800-71DE-965E-939CCE0E1D4C</DocumentID>
-					<Name>FaultDetails</Name>
-					<Description>FaultDetails(element)</Description>
-					<CreatedBy>hboecker</CreatedBy>
-					<CreationDate>2009-08-28T06:34:16.75</CreationDate>
-					<LastModifiedBy>hboecker</LastModifiedBy>
-					<LastModifiedDate>2009-08-28T06:34:16.75</LastModifiedDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<DefinitionXML>
-						<xsd:element
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:cordys="http://schemas.cordys.com/General/1.0/"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="FaultDetails">
-							<xsd:complexType>
-								<xsd:sequence>
-									<xsd:element
-										ref="cordys:LocalizableMessage"
-									/>
-								</xsd:sequence>
-							</xsd:complexType>
-						</xsd:element>
-					</DefinitionXML>
-					<FragmentName>FaultDetails</FragmentName>
-					<Type>element</Type>
-					<DecisionCases/>
-					<Realizations/>
-					<Rules/>
-					<SchemaDefinition>
-						<uri
-							id="00059A3C-7800-71DE-965E-939CCE0E1D4A"
-							path="SAP R3 Connector/references/SAPDB_Database Metadata/XMLSchema_Binary_Reference_CordysFaultDetails.xsd"
-							type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-						/>
-					</SchemaDefinition>
-				</BusinessObjectDocument>
-			</SchemaFragments>
-		</XMLSchemaDefinitionRuntime>
-	</RuntimeSchemaDefinitions>
+	<DBProcedures/>
 </DBSchema>
