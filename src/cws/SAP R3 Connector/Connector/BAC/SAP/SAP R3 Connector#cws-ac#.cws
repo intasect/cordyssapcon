@@ -1,22 +1,18 @@
 
 <ApplicationConnectorDesigntime
 	type="com.cordys.applicationconnector.ApplicationConnectorDesigntime"
+	typeVersion="0014C25C-F38B-71DF-A966-2C0BB1243A56"
 	RuntimeDocumentID="00059A3C-7800-71DE-9653-8AF640C2ABEF">
 	<DocumentID>00059A3C-7800-71DE-9653-8AF640C2ABEE</DocumentID>
 	<Name>SAP R3 Connector</Name>
 	<Description>Cordys SAP R3 Application Connector</Description>
 	<CreatedBy>hboecker</CreatedBy>
 	<CreationDate>2009-08-17T09:28:24.812</CreationDate>
-	<LastModifiedBy>pgussow</LastModifiedBy>
-	<LastModifiedDate>2009-10-02T12:07:54.942</LastModifiedDate>
 	<Notes/>
-	<ClassPath>/BAC/SAP/lib/sapjco.jar;/BAC/SAP/lib/sapidocjco.jar;/BAC/SAP/lib/sapidoc.jar;/BAC/SAP/lib/jdsr.jar;/BAC/SAP/lib/coelib.jar;/BAC/SAP/lib/wsdl4j.jar;</ClassPath>
-	<ImplementationClass>com.eibus.applicationconnector.sap.SAPMapper</ImplementationClass>
-	<ISV>Cordys SAP R3 ApplicationConnector 2.0</ISV>
 	<LoggerCategoryGroups>
 		<loggercategory
-			xmlns=""
-			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
+			xmlns="">
 			<categorygroup
 				displayname="SAP Connector">
 				<category>com.eibus.applicationconnector.sap</category>
@@ -55,10 +51,6 @@
 			</categorygroup>
 		</loggercategory>
 	</LoggerCategoryGroups>
-	<MetadataForAdministrator>false</MetadataForAdministrator>
-	<MetadataForDeveloper>false</MetadataForDeveloper>
-	<MetadataNamespace></MetadataNamespace>
-	<Product>Cordys SAP R3 ApplicationConnector 2.0</Product>
 	<StartupDependencies>
 		<startupDependency
 			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
@@ -66,14 +58,17 @@
 		/>
 	</StartupDependencies>
 	<SupportsJVMSharing>true</SupportsJVMSharing>
-	<Image/>
-	<MetadataPage/>
+	<ClassPath>/BAC/SAP/lib/sapjco.jar;/BAC/SAP/lib/sapidocjco.jar;/BAC/SAP/lib/sapidoc.jar;/BAC/SAP/lib/jdsr.jar;/BAC/SAP/lib/coelib.jar;/BAC/SAP/lib/wsdl4j.jar;/BAC/SAP/sapconnector.jar;</ClassPath>
+	<ImplementationClass>com.eibus.applicationconnector.sap.SAPMapper</ImplementationClass>
+	<TypeImplementationMappings/>
 	<PropertyPage>
 		<uri
-			id="001E3780-4713-71DE-8EEA-ACFC419DFE9B"
+			id="005056C0-0008-11E0-E7D7-FC0B632A5F40"
 			path="SAP R3 Connector/Web Files/BAC/sap/sap.htm"
 			type="com.cordys.cws.documenttypes.hypertextmarkup.Htm"
 		/>
 	</PropertyPage>
-	<TypeImplementationMappings/>
+	<MetadataPage/>
+	<ConfigurationPage/>
+	<Image/>
 </ApplicationConnectorDesigntime>
