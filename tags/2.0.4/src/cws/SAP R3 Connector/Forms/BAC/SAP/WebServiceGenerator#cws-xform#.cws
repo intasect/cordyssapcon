@@ -1,0 +1,1031 @@
+
+<XFormDesigntime
+	type="com.cordys.xforms.XFormDesigntime"
+	RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B7083CE0AD67">
+	<DocumentID>001D09BE-4863-71DE-8EEE-B7083CE0AD66</DocumentID>
+	<Name>WebServiceGenerator</Name>
+	<Description>WebServiceGenerator</Description>
+	<CreatedBy>pgussow</CreatedBy>
+	<CreationDate>2009-10-12T08:24:09.403</CreationDate>
+	<LastModifiedBy>pgussow</LastModifiedBy>
+	<LastModifiedDate>2009-11-12T08:10:37.791</LastModifiedDate>
+	<Notes/>
+	<automatic>false</automatic>
+	<caption></caption>
+	<data/>
+	<height></height>
+	<isInternal>false</isInternal>
+	<isLegacy>false</isLegacy>
+	<left></left>
+	<mode>full</mode>
+	<parameters/>
+	<qualifiedclassname></qualifiedclassname>
+	<showOnStartPage>false</showOnStartPage>
+	<title>true</title>
+	<top></top>
+	<type>XForm</type>
+	<width></width>
+	<XFormContent>
+		<xformhtml
+			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
+			xmlns="http://schemas.cordys.com/1.0/xform"
+			xmlns:eibus="http://schemas.cordys.com"
+			xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+			xmlns:ev="http://www.w3.org/2001/xml-events"
+			xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+			xformsversion="2"
+			key="BAC/SAP/WebServiceGenerator"
+			focusatstartup="true">
+			<xhead>
+				<xforms:model
+					xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+					xmlns:ev="http://www.w3.org/2001/xml-events"
+					xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+					id="SearchObjectModel"
+					wcpforms:businessElement="sapobject"
+					wcpforms:automatic="false"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp">
+					<xforms:instance
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+						wcpforms:iteratorSize="50">
+						<wcpforms:dataset
+							src="http://schemas.cordys.com/2.0/SAPSchema/SearchObject"
+							type="get"
+							wcpforms:wsguid="001E3780-4713-71DE-8EF1-C54B4CACCDAF">
+							<type
+								xmlns="http://schemas.cordys.com/2.0/SAPSchema"
+							/>
+							<read_from_sap
+								xmlns="http://schemas.cordys.com/2.0/SAPSchema"
+							/>
+							<filters
+								xmlns="http://schemas.cordys.com/2.0/SAPSchema">
+								<filter>
+									<type/>
+									<value/>
+									<fieldname/>
+								</filter>
+							</filters>
+						</wcpforms:dataset>
+					</xforms:instance>
+					<wcpforms:xpathmetainfo
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms">
+						<wcpforms:namespace
+							prefix="xmlns">http://schemas.cordys.com/2.0/SAPSchema</wcpforms:namespace>
+						<wcpforms:namespace
+							prefix="tns">http://schemas.cordys.com/2.0/SAPSchema</wcpforms:namespace>
+					</wcpforms:xpathmetainfo>
+				</xforms:model>
+				<xforms:model
+					xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+					xmlns:ev="http://www.w3.org/2001/xml-events"
+					xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+					id="GetSoapNodesOperationModel"
+					wcpforms:businessElement="entry"
+					wcpforms:automatic="false"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
+					singleTransaction="false"
+					promptToSave="false"
+					isConstraintValidation="false"
+					isInitializationRequired="false"
+					isApplyAccessControl="false">
+					<xforms:instance
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+						wcpforms:iteratorSize="50">
+						<wcpforms:dataset
+							src="http://schemas.cordys.com/1.0/ldap/GetSoapNodes"
+							type="get"
+							wcpforms:wsguid="001E3780-4713-71DE-8EF4-CEC766692546">
+							<dn
+								xmlns="http://schemas.cordys.com/1.0/ldap"
+							/>
+							<namespace
+								xmlns="http://schemas.cordys.com/1.0/ldap"
+							/>
+							<sort
+								xmlns="http://schemas.cordys.com/1.0/ldap"
+							/>
+						</wcpforms:dataset>
+					</xforms:instance>
+					<wcpforms:instanceschema/>
+					<wcpforms:xpathmetainfo
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms">
+						<wcpforms:namespace
+							prefix="xmlns">http://schemas.cordys.com/1.0/ldap</wcpforms:namespace>
+						<wcpforms:namespace
+							prefix="tns">http://schemas.cordys.com/1.0/ldap</wcpforms:namespace>
+					</wcpforms:xpathmetainfo>
+				</xforms:model>
+				<xforms:model
+					xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+					xmlns:ev="http://www.w3.org/2001/xml-events"
+					xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+					id="GenerateMethodsModel"
+					wcpforms:businessElement="GenerateMethodsResponse"
+					wcpforms:automatic="false"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
+					wcpforms:nontransactional="true"
+					singleTransaction="false"
+					promptToSave="true"
+					isConstraintValidation="false"
+					isInitializationRequired="false"
+					isApplyAccessControl="false">
+					<xforms:instance
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+						wcpforms:iteratorSize="50">
+						<wcpforms:dataset
+							src="http://schemas.cordys.com/2.0/SAPSchema/GenerateMethods"
+							type="get"
+							wcpforms:wsguid="001E3780-4713-71DE-8EF4-CEB0649CDF3A">
+							<type
+								xmlns="http://schemas.cordys.com/2.0/SAPSchema"
+							/>
+							<businessobject_mestype
+								xmlns="http://schemas.cordys.com/2.0/SAPSchema"
+							/>
+							<interfacename
+								xmlns="http://schemas.cordys.com/2.0/SAPSchema"
+							/>
+							<namespace
+								xmlns="http://schemas.cordys.com/2.0/SAPSchema"
+							/>
+							<operations
+								xmlns="http://schemas.cordys.com/2.0/SAPSchema">
+								<operation
+									servicename=""
+									cimtype=""
+								/>
+							</operations>
+						</wcpforms:dataset>
+					</xforms:instance>
+					<wcpforms:instanceschema/>
+					<wcpforms:xpathmetainfo
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms">
+						<wcpforms:namespace
+							prefix="xmlns">http://schemas.cordys.com/2.0/SAPSchema</wcpforms:namespace>
+						<wcpforms:namespace
+							prefix="tns">http://schemas.cordys.com/2.0/SAPSchema</wcpforms:namespace>
+					</wcpforms:xpathmetainfo>
+				</xforms:model>
+				<xml
+					xmlns="">
+					<xml
+						id="xmlFilter">
+						<filter
+							xmlns="http://schemas.cordys.com/2.0/SAPSchema">
+							<type>EQUALS</type>
+							<value>Customer</value>
+							<fieldname>object</fieldname>
+						</filter>
+					</xml>
+				</xml>
+			</xhead>
+			<xbody>
+				<xforms:group
+					wcpforms:layout="vertical"
+					id="xbody_group"
+					wcpforms:labelalign="">
+					<xforms:group
+						appearance="box"
+						wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
+						id="grpProcessorSelection"
+						wcpforms:collapsible="true"
+						wcpforms:expanded="false"
+						wcpforms:layout="free"
+						wcpforms:class="v_layout"
+						wcpforms:size="730px 70"
+						wcpforms:labelalign="left">
+						<xforms:label
+							wcpforms:class="groupheader expand">Select the proper SAP R3 Connector</xforms:label>
+						<xforms:select1
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
+							id="txtServiceContainer"
+							doEBIValidate="false"
+							initializeValueSets="0"
+							wcpforms:enumerated="false"
+							multiple="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="703px null"
+							wcpforms:anchors="10px 13px 15px null"
+							wcpforms:position="10 13">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="120 null">Service Container</xforms:label>
+						</xforms:select1>
+					</xforms:group>
+					<xforms:group
+						appearance="box"
+						wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
+						id="grpGenerationDetails"
+						wcpforms:layout="free"
+						wcpforms:class="v_layout"
+						wcpforms:size="730px 450"
+						wcpforms:labelalign="left">
+						<xforms:label
+							wcpforms:class="groupheader">Enter the details for the methods to be generated</xforms:label>
+						<xforms:input
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+							id="txtWebServiceName"
+							doEBIValidate="false"
+							wcpforms:required="true"
+							wcpforms:class="f_layout"
+							wcpforms:size="708px null"
+							wcpforms:anchors="10px 10px 10px null"
+							wcpforms:position="10 10">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="190 null">Web service Binidng Name</xforms:label>
+							<messages
+								xmlns="">
+								<message
+									constraint="required"
+									description="Required">Please enter a name for the Web Service Binding</message>
+							</messages>
+						</xforms:input>
+						<xforms:group
+							appearance="choicebox"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsChoicebox"
+							id="choicebox1"
+							controltype="radio"
+							wcpforms:layout="horizontal"
+							wcpforms:class="f_layout"
+							wcpforms:align="left_align"
+							wcpforms:size="440px 20px"
+							wcpforms:position="10 32">
+							<xforms:select1
+								appearance="full"
+								unique-id="1"
+								id="rSAPObjectType">
+								<xforms:label
+									wcpforms:class="h_label left_align"
+									wcpforms:size="190 null">Choose SAP object type</xforms:label>
+								<xforms:item
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRadio"
+									id="radio1_1"
+									wcpforms:class="h_choicebox"
+									wcpforms:size="80px auto">
+									<xforms:label>BAPI</xforms:label>
+									<xforms:value>BAPI</xforms:value>
+								</xforms:item>
+								<xforms:item
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRadio"
+									id="radio1_2"
+									wcpforms:class="h_choicebox"
+									wcpforms:size="80px auto">
+									<xforms:label>RFC</xforms:label>
+									<xforms:value>RFC</xforms:value>
+								</xforms:item>
+								<xforms:item
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRadio"
+									id="radio1_3"
+									wcpforms:class="h_choicebox"
+									wcpforms:size="80px auto">
+									<xforms:label>IDOC</xforms:label>
+									<xforms:value>IDOC</xforms:value>
+								</xforms:item>
+								<xforms:action
+									ev:event="xforms-value-changed">
+									<xforms:rSAPObjectType_Change/>
+								</xforms:action>
+							</xforms:select1>
+						</xforms:group>
+						<xforms:select1
+							appearance="compact"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsList"
+							id="lAvailable"
+							doEBIValidate="false"
+							initializeValueSets="0"
+							wcpforms:enumerated="false"
+							multiple="true"
+							wcpforms:class="f_layout"
+							wcpforms:size="320px 240px"
+							wcpforms:anchors="10px 180px null 8px"
+							wcpforms:position="10 180">
+							<xforms:label
+								wcpforms:class="v_label">Available methods</xforms:label>
+						</xforms:select1>
+						<xforms:select1
+							appearance="compact"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsList"
+							id="lSelected"
+							doEBIValidate="false"
+							initializeValueSets="0"
+							wcpforms:enumerated="false"
+							multiple="true"
+							wcpforms:required="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="320px 240px"
+							wcpforms:anchors="400px 180px 8px 8px"
+							wcpforms:position="400 180">
+							<xforms:label
+								wcpforms:class="v_label">Selected methods</xforms:label>
+							<messages
+								xmlns="">
+								<message
+									constraint="required"
+									description="Required">Please select at least 1 operation</message>
+							</messages>
+						</xforms:select1>
+						<xforms:group
+							appearance="controlbox"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbox"
+							id="controlbox1"
+							controltype="button"
+							wcpforms:layout="horizontal"
+							wcpforms:class="f_layout"
+							wcpforms:align="left_align"
+							wcpforms:size="60px 30px"
+							wcpforms:position="340 200">
+							<xforms:trigger
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
+								id="btnMoveToSelected"
+								wcpforms:class="h_button"
+								wcpforms:size="40px 2em">
+								<xforms:label>&gt;&gt;&gt;</xforms:label>
+								<xforms:action
+									ev:event="xforms-activate">
+									<xforms:btnMoveToSelected_Click/>
+								</xforms:action>
+							</xforms:trigger>
+						</xforms:group>
+						<xforms:group
+							appearance="controlbox"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbox"
+							id="controlbox3"
+							controltype="button"
+							wcpforms:layout="horizontal"
+							wcpforms:class="f_layout"
+							wcpforms:align="left_align"
+							wcpforms:size="60px 30px"
+							wcpforms:position="340 240">
+							<xforms:trigger
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
+								id="btnMoveToAvailable"
+								wcpforms:class="h_button"
+								wcpforms:size="40px 2em">
+								<xforms:label>&lt;&lt;&lt;</xforms:label>
+								<xforms:action
+									ev:event="xforms-activate">
+									<xforms:btnMoveToAvailable_Click/>
+								</xforms:action>
+							</xforms:trigger>
+						</xforms:group>
+						<xforms:select1
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
+							id="txtFirstType"
+							doEBIValidate="false"
+							initializeValueSets="0"
+							wcpforms:enumerated="false"
+							multiple="false"
+							wcpforms:dataType="string"
+							wcpforms:textalign="left_align"
+							wcpforms:class="f_layout"
+							wcpforms:size="330px null"
+							wcpforms:position="10 60">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="190 null">Object</xforms:label>
+							<xforms:item
+								xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+								<xforms:label>equals</xforms:label>
+								<xforms:value>EQUALS</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>contains</xforms:label>
+								<xforms:value>CONTAINS</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>starts with</xforms:label>
+								<xforms:value>STARTS_WITH</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>regex</xforms:label>
+								<xforms:value>REGEX</xforms:value>
+							</xforms:item>
+						</xforms:select1>
+						<xforms:input
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+							id="txtFirstValue"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="368px null"
+							wcpforms:anchors="350px 60px 10px null"
+							wcpforms:position="350 60">
+							<xforms:label
+								wcpforms:class="h_label left_align removed">Input20</xforms:label>
+						</xforms:input>
+						<xforms:select1
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
+							id="txtSecondType"
+							doEBIValidate="false"
+							initializeValueSets="0"
+							wcpforms:enumerated="false"
+							multiple="false"
+							wcpforms:dataType="string"
+							wcpforms:textalign="left_align"
+							wcpforms:class="f_layout"
+							wcpforms:size="330px null"
+							wcpforms:position="10 90">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="190 null">Method</xforms:label>
+							<xforms:item
+								xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+								xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
+								<xforms:label>equals</xforms:label>
+								<xforms:value>EQUALS</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>contains</xforms:label>
+								<xforms:value>CONTAINS</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>starts with</xforms:label>
+								<xforms:value>STARTS_WITH</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>regex</xforms:label>
+								<xforms:value>REGEX</xforms:value>
+							</xforms:item>
+						</xforms:select1>
+						<xforms:select1
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
+							id="txtThirdType"
+							doEBIValidate="false"
+							initializeValueSets="0"
+							wcpforms:enumerated="false"
+							multiple="false"
+							wcpforms:dataType="string"
+							wcpforms:textalign="left_align"
+							wcpforms:class="f_layout"
+							wcpforms:size="330px null"
+							wcpforms:position="10 120">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="190 null">Description</xforms:label>
+							<xforms:item
+								xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+								xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
+								<xforms:label>equals</xforms:label>
+								<xforms:value>EQUALS</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>contains</xforms:label>
+								<xforms:value>CONTAINS</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>starts with</xforms:label>
+								<xforms:value>STARTS_WITH</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>regex</xforms:label>
+								<xforms:value>REGEX</xforms:value>
+							</xforms:item>
+						</xforms:select1>
+						<xforms:input
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+							id="txtSecondValue"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="367px null"
+							wcpforms:anchors="350px 90px 11px null"
+							wcpforms:position="350 90">
+							<xforms:label
+								wcpforms:class="h_label left_align removed">Input20</xforms:label>
+						</xforms:input>
+						<xforms:input
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+							id="txtThirdValue"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="367px null"
+							wcpforms:anchors="350px 120px 11px null"
+							wcpforms:position="350 120">
+							<xforms:label
+								wcpforms:class="h_label left_align removed">Input20</xforms:label>
+						</xforms:input>
+						<xforms:group
+							appearance="controlbox"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbox"
+							id="controlbox4"
+							controltype="button"
+							wcpforms:layout="horizontal"
+							wcpforms:class="f_layout"
+							wcpforms:align="left_align"
+							wcpforms:size="10em 26px"
+							wcpforms:position="10 150">
+							<xforms:trigger
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
+								id="btnSearch"
+								wcpforms:class="h_button"
+								wcpforms:size="160px 2em">
+								<xforms:label>Search metadata</xforms:label>
+								<xforms:action
+									ev:event="xforms-activate">
+									<xforms:btnSearch_Click/>
+								</xforms:action>
+							</xforms:trigger>
+						</xforms:group>
+						<xforms:select1
+							appearance="check"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsCheck"
+							id="txtUseCache"
+							doEBIValidate="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="268px null"
+							wcpforms:anchors="450px 35px 10px null"
+							wcpforms:position="450 35">
+							<xforms:label>Use cache if possible</xforms:label>
+							<xforms:item>
+								<xforms:label>true</xforms:label>
+								<xforms:value>true</xforms:value>
+							</xforms:item>
+							<xforms:item>
+								<xforms:label>false</xforms:label>
+								<xforms:value>false</xforms:value>
+							</xforms:item>
+						</xforms:select1>
+						<xforms:select1
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
+							id="txtContainer"
+							doEBIValidate="false"
+							initializeValueSets="0"
+							wcpforms:enumerated="false"
+							multiple="false"
+							wcpforms:class="f_layout"
+							wcpforms:size="520px null"
+							wcpforms:anchors="198px 153px 10px null"
+							wcpforms:position="198 153">
+							<xforms:label
+								wcpforms:class="h_label left_align"
+								wcpforms:size="150 null">Select object</xforms:label>
+							<xforms:action
+								ev:event="xforms-value-changed">
+								<xforms:txtContainer_Change/>
+							</xforms:action>
+						</xforms:select1>
+					</xforms:group>
+				</xforms:group>
+			</xbody>
+			<xformsscript>
+				<![CDATA[var NAMESPACES = {"ldap" : "http://schemas.cordys.com/1.0/ldap", "ns" : "http://schemas.cordys.com/2.0/SAPSchema"};
+
+/**
+ * This method sets the proper labels for the object types.
+ */
+function rSAPObjectType_Change(eventObject)
+{
+    setProperLables();
+}
+
+/**
+ * This method is called when a method is selected so that Web Services will be generated for it.
+ */
+function btnMoveToSelected_Click(eventObject)
+{
+    var options = lAvailable.getSelectedOptions();
+    lAvailable.removeOptions(options);
+    lSelected.addOptions(options);
+}
+
+/**
+ * This method is called when a method is deselected.
+ */
+function btnMoveToAvailable_Click(eventObject)
+{
+    var options = lSelected.getSelectedOptions();
+    lSelected.removeOptions(options);
+    lAvailable.addOptions(options);
+}
+
+/**
+ * This method is called when the form initializes. It will set some default values
+ * and then it will query the LDAP to find out if there are any SAP connectors available.
+ * If so, they will be displayed in the select box.
+ */
+function Form_InitDone(eventObject)
+{
+    //Initialize the default values.
+    rSAPObjectType.setValue("BAPI");
+    txtFirstType.setValue("CONTAINS");
+    txtSecondType.setValue("CONTAINS");
+    txtThirdType.setValue("CONTAINS");
+    txtUseCache.setValue("true");
+    
+    //Read the current BO from the global data
+    if (system.data["bac.sap.currentbo"])
+    {
+        txtWebServiceName.setValue(system.data["bac.sap.currentbo"].name());
+    }
+    
+    //Get the SAP Mapper Service Containers
+    var xmlRequest = GetSoapNodesOperationModel.getMethodRequest("GET");
+    
+    cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ldap:dn", NAMESPACES), application.container.organization);
+    cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ldap:namespace", NAMESPACES), NAMESPACES["ns"]);
+    
+    GetSoapNodesOperationModel.setMethodRequest(xmlRequest, "GET");
+    GetSoapNodesOperationModel.reset();
+    
+    if (!GetSoapNodesOperationModel.soapFaultOccurred)
+    {
+        //Now we can fill the response
+        var entries = cordys.selectXMLNodes(GetSoapNodesOperationModel.getData(), "//ldap:tuple/ldap:old/ldap:entry", NAMESPACES);
+        txtServiceContainer.removeOptions(txtServiceContainer.getAllOptions());
+
+        for (var count = 0; count < entries.length; count++)
+        {
+            var dn = entries[count].getAttribute("dn");
+            var xmlCN = cordys.selectXMLNode(entries[count], "ldap:cn/ldap:string", NAMESPACES);
+            if (xmlCN != null)
+            {
+                var option = {value: dn, description: cordys.getTextContent(xmlCN)};
+                txtServiceContainer.addOption(option);
+            }
+        }
+        
+        if (txtServiceContainer.getAllOptions().length == 0)
+        {
+            application.showError("There are no SAP R3 Connectors in the current organization");
+        }
+        else if (txtServiceContainer.getAllOptions().length > 1)
+        {
+            grpProcessorSelection.expand();
+        }
+    }
+}
+
+/**
+ * This method is called when the search button is clicked. It will build up the request for the SearchObject
+ * and then fire it to the proper receiver.
+ */
+function btnSearch_Click(eventObject)
+{
+    var xmlRequest = SearchObjectModel.getMethodRequest("GET");
+    
+    cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:type", NAMESPACES), rSAPObjectType.getValue());
+    cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:read_from_sap", NAMESPACES), (txtUseCache.getValue() == "true" ? "false" : true));
+    
+    //Clean up existing filter entries
+    var xmlFilters = cordys.selectXMLNode(xmlRequest, "//ns:filters", NAMESPACES);
+    while (xmlFilters.childNodes.length > 0)
+    {
+        xmlFilters.removeChild(xmlFilters.childNodes[0]);
+    }
+    
+    //Now we can create the filters.
+    var firstFieldname = "object";
+    var secondFieldname = "method";
+    var thirdFieldname = "description";
+    
+    if (rSAPObjectType.getValue() == "RFC")
+    {
+        firstFieldname = "function";
+        secondFieldname = "group";
+    }
+    else if (rSAPObjectType.getValue() == "IDOC")
+    {
+        firstFieldname = "messageType";
+        secondFieldname = "operation";
+    }
+    
+    createFilter(xmlFilters, txtFirstType.getValue(), txtFirstValue.getValue(), firstFieldname);
+    createFilter(xmlFilters, txtSecondType.getValue(), txtSecondValue.getValue(), secondFieldname);
+    createFilter(xmlFilters, txtThirdType.getValue(), txtThirdValue.getValue(), thirdFieldname);
+
+    //Execute the search
+    SearchObjectModel.setMethodRequest(xmlRequest, "GET");
+    SearchObjectModel.reset();
+    
+    if (!SearchObjectModel.soapFaultOccurred)
+    {
+        //Get all the containers in the response
+        var sapObjects = cordys.selectXMLNodes(SearchObjectModel.getData(), "//ns:tuple/ns:old/ns:sapobject", NAMESPACES);
+        
+        //Add all objects to the select
+        txtContainer.removeOptions(txtContainer.getAllOptions);
+        
+        for (var count = 0; count < sapObjects.length; count++)
+        {
+            var sValue = cordys.getTextContent(cordys.selectXMLNode(sapObjects[count], "ns:value", NAMESPACES));
+            var sDescription = cordys.getTextContent(cordys.selectXMLNode(sapObjects[count], "ns:displayname", NAMESPACES));
+            
+            var option = {value: sValue, description: sDescription, xmlObject: sapObjects[count]};
+            txtContainer.addOption(option);
+        }
+        
+        //Make sure the lists are updated with the proper items.
+        txtContainer_Change();
+    }
+}
+
+/**
+ * This method creates the filter XML for the request.
+ */
+function createFilter(xmlParent, type, value, fieldname)
+{
+    if (value != null && value != "")
+    {
+        var ns = NAMESPACES["ns"];
+    
+        var filter = cordys.createElementNS(xmlParent.ownerDocument, ns, "filter");
+        xmlParent.appendChild(filter);
+    
+        var xmlType = cordys.createElementNS(xmlParent.ownerDocument, ns, "type");
+        cordys.setTextContent(xmlType, type);
+        filter.appendChild(xmlType);
+    
+        var xmlValue = cordys.createElementNS(xmlParent.ownerDocument, ns, "value");
+        cordys.setTextContent(xmlValue, value);
+        filter.appendChild(xmlValue);
+    
+        var xmlFieldname = cordys.createElementNS(xmlParent.ownerDocument, ns, "fieldname");
+        cordys.setTextContent(xmlFieldname , fieldname);
+        filter.appendChild(xmlFieldname);
+    }
+}
+
+/**
+ * This method sets the proper labels based on the selection types.
+ */
+function setProperLables()
+{
+    var value = rSAPObjectType.getValue();
+    var sFirst = "Object";
+    var sSecond = "Method";
+    if (value == "RFC")
+    {
+        sFirst = "Function";
+        sSecond = "Group";
+    }
+    else if (value == "IDOC")
+    {
+        sFirst = "Message type";
+        sSecond = "Operation";
+    }
+    
+    //Set the actual labels.
+    txtFirstType.getLabel().innerText = sFirst;
+    txtSecondType.getLabel().innerText = sSecond;
+}
+
+/**
+ * This method will refresh the list of available items based on the object selected.
+ */
+function txtContainer_Change(eventObject)
+{
+    var value = txtContainer.getSelectedOptions();
+    if (value.length > 0)
+    {
+        var realValue = value[0].value;
+        
+        //Find all items for the object.
+        var items = cordys.selectXMLNodes(SearchObjectModel.getData(), "//ns:tuple/ns:old/ns:sapobject[ns:value='" 
+            + realValue + "']/ns:items/ns:item", NAMESPACES);
+            
+        //Clean current avaiable and selected lists.
+        lAvailable.removeOptions(lAvailable.getAllOptions());
+        lSelected.removeOptions(lSelected.getAllOptions());
+        
+        for (var count = 0; count < items.length; count++)
+        {
+            var sValue = cordys.getTextContent(cordys.selectXMLNode(items[count], "ns:value", NAMESPACES));
+            var sDescription = cordys.getTextContent(cordys.selectXMLNode(items[count], "ns:displayname", NAMESPACES));
+            
+            var option = {value: sValue, description: sDescription, xmlObject: items[count]};
+            lAvailable.addOption(option);
+        }
+
+    }
+}
+
+/**
+ * This function validates the inputs.
+ */
+function validate()
+{
+    var ok = WebForm.validate(grpGenerationDetails);
+    
+    //Custom validations
+    if (lSelected.getAllOptions().length == 0)
+    {
+        application.showError("Please select at least 1 operation to generate a web service for");
+        ok = false;
+    }
+    
+    return ok;
+}
+
+/**
+ * This method will generate the proper WSDL from the SAP connector. It will clone the request template 
+ * and fill in the proper parameters based on the user's input. Then the request is actually fired.
+ *
+ * @param interfaceName The name of the web service interface.
+ * @param namespace     The target namespace for the interface.
+ *
+ * @return The XML structure containing the WSDLs and realizations.
+ *
+ * @author pgussow
+ */
+function getGeneratedWSDL(namespace)
+{
+    // Clone the request
+    var xmlRequest = GenerateMethodsModel.getMethodRequest("GET");
+
+    // Fill the general information
+    cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:namespace", NAMESPACES), namespace);
+    cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:interfacename", NAMESPACES), txtWebServiceName.getValue());    
+    
+    // Based on the selected options fill in the proper data.
+    if (rSAPObjectType.getValue() == "BAPI")
+    {
+        cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:type", NAMESPACES), "BAPI");
+        cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:businessobject_mestype", NAMESPACES), txtContainer.getValue());
+    }
+    else if(rSAPObjectType.getValue() == "RFC")
+    {
+        cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:type", NAMESPACES), "RFC");
+    }
+    else
+    {
+        cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:type", NAMESPACES), "IDOC");
+        cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:businessobject_mestype", NAMESPACES), txtContainer.getValue());
+    }
+
+    //Now add all operations to the list.
+    var operations = cordys.selectXMLNode(xmlRequest, "//ns:operations", NAMESPACES);
+    
+    //Clean all children
+    while (operations.childNodes.length > 0)
+    {
+        operations.removeChild(operations.childNodes[0]);
+    }
+    
+    //Add the selected options.
+    var options = lSelected.getAllOptions();
+    
+    var sapObjectValue = "";
+    var sapObjectDescription = "";
+    var selectedOption = txtContainer.getSelectedOptions();
+    if (selectedOption.length > 0)
+    {
+        sapObjectValue = selectedOption[0].value;
+        sapObjectDescription = selectedOption[0].description;
+    }
+    
+    for(var count = 0; count < options.length ; count++)
+    {
+        // Get the information. The operationName must be the actual SAP name for the object.
+        var operationName = options[count].description;
+        var webserviceName = null;
+        var cimType = null;
+        
+        if (rSAPObjectType.getValue() == "BAPI")
+        {
+            //The SAP name for the object can be found in the XML.
+            var tmpNode = cordys.selectXMLNode(SearchObjectModel.getData(), "//ns:sapobject[ns:value='" + sapObjectValue 
+                + "']/ns:items/ns:item[ns:value='" + options[count].value+ "']/ns:detail/ns:bapi/ns:function", NAMESPACES);
+            if (tmpNode != null)
+            {
+                operationName = cordys.getTextContent(tmpNode);
+            }
+            
+            webserviceName = sapObjectDescription + "_" + options[count].description;
+        }
+        else if (rSAPObjectType.getValue() == "IDOC")
+        {
+            cimType = options[count].value;
+            webserviceName = options[count].value;
+        }
+
+        //Create the actual operation node.
+        var xmlOperation = cordys.createElementNS(operations.ownerDocument, NAMESPACES["ns"], "operation");
+        cordys.setTextContent(xmlOperation, operationName);
+        if (webserviceName != null)
+        {
+            cordys.setXMLAttribute(xmlOperation, NAMESPACES["ns"], "servicename", webserviceName); 
+        }
+        
+        if (cimType != null)
+        {
+            cordys.setXMLAttribute(xmlOperation, NAMESPACES["ns"], "cimtype", cimType); 
+        }
+        
+        operations.appendChild(xmlOperation);
+    }
+    
+    
+    //Send the request to the backend.
+    GenerateMethodsModel.setMethodRequest(xmlRequest, "GET");
+    GenerateMethodsModel.reset();    
+    
+    if (GenerateMethodsModel.soapFaultOccurred)
+    {
+        application.showError("Error generating web service interface.");
+    }
+
+    return GenerateMethodsModel.getData();
+}]]>
+			</xformsscript>
+			<xforms:action
+				ev:event="xforms-initialize-done">
+				<xforms:Form_InitDone/>
+			</xforms:action>
+		</xformhtml>
+	</XFormContent>
+	<XFormWSDL/>
+	<aclFragments/>
+	<CompositeControls/>
+	<deliveryModels/>
+	<Htms/>
+	<image/>
+	<Images/>
+	<input/>
+	<Javascripts/>
+	<messageParts>
+		<MessagePart
+			type="com.cordys.task.MessagePart"
+			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B7083CE0AD61">
+			<DocumentID>001D09BE-4863-71DE-8EEE-B7083CE0AD60</DocumentID>
+			<Name>freeformcontrols</Name>
+			<Description>freeformcontrols</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-10-12T08:29:25.704</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-10-14T08:43:48.658</LastModifiedDate>
+			<Notes/>
+			<isRefExists>false</isRefExists>
+			<namespace>http://schemas.cordys.com/1.0/xforms/processapi</namespace>
+			<operationName>freeformcontrols</operationName>
+		</MessagePart>
+		<MessagePart
+			type="com.cordys.task.MessagePart"
+			RuntimeDocumentID="001E3780-4713-71DE-8EF1-C5597FFF35A2">
+			<DocumentID>001E3780-4713-71DE-8EF1-C5597FFF35A1</DocumentID>
+			<Name>SearchObjectModel</Name>
+			<Description>SearchObjectModel</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-10-30T13:40:24.806</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-10-30T13:40:24.806</LastModifiedDate>
+			<Notes/>
+			<isRefExists>true</isRefExists>
+			<namespace>http://schemas.cordys.com/2.0/SAPSchema</namespace>
+			<operationName>SearchObject</operationName>
+		</MessagePart>
+		<MessagePart
+			type="com.cordys.task.MessagePart"
+			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEAFFFEAB9BB">
+			<DocumentID>001E3780-4713-71DE-8EF4-CEAFFFEAB9BA</DocumentID>
+			<Name>GetSoapNodesOperationModel</Name>
+			<Description>GetSoapNodesOperationModel</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-11-11T13:52:18.835</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-11-11T13:52:18.835</LastModifiedDate>
+			<Notes/>
+			<isRefExists>true</isRefExists>
+			<namespace>http://schemas.cordys.com/1.0/ldap</namespace>
+			<operationName>GetSoapNodes</operationName>
+		</MessagePart>
+		<MessagePart
+			type="com.cordys.task.MessagePart"
+			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CED5B6230AC8">
+			<DocumentID>001E3780-4713-71DE-8EF4-CED5B6230AC7</DocumentID>
+			<Name>GenerateMethodsModel</Name>
+			<Description>GenerateMethodsModel</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-11-11T15:45:42.073</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-11-11T15:45:42.073</LastModifiedDate>
+			<Notes/>
+			<isRefExists>true</isRefExists>
+			<namespace>http://schemas.cordys.com/2.0/SAPSchema</namespace>
+			<operationName>GenerateMethods</operationName>
+		</MessagePart>
+	</messageParts>
+	<output/>
+	<StyleSheets/>
+	<taskParts/>
+	<TranslatableApplications/>
+	<Webservices>
+		<uri
+			id="001E3780-4713-71DE-8EF1-C54B4CACCDAF"
+			path="SAP R3 Connector/WebService/BAC/SAP/Method Set SAP Schema 2.0/WSI_SAP_SCHEMA_2/SearchObject"
+			type="com.cordys.wsdl.BindingOperation"
+		/>
+		<uri
+			id="001E3780-4713-71DE-8EF4-CEB0649CDF3A"
+			path="SAP R3 Connector/WebService/BAC/SAP/Method Set SAP Schema 2.0/WSI_SAP_SCHEMA_2/GenerateMethods"
+			type="com.cordys.wsdl.BindingOperation"
+		/>
+		<uri
+			id="001E3780-4713-71DE-8EF4-CEC766692546"
+			path="SAP R3 Connector/References/Method Set LDAP 1.0/GetSoapNodes"
+			type="com.cordys.wsdl.WebserviceOperationRuntime"
+		/>
+	</Webservices>
+</XFormDesigntime>
