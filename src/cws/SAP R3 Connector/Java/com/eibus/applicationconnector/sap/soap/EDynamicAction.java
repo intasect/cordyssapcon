@@ -25,6 +25,7 @@
 public enum EDynamicAction
 {
     SEARCH_OBJECT(SearchObject.class),
+    CLEAR_CACHE(ClearCache.class),
     GENERATE_METHODS(GenerateMethods.class),
     EXECUTE_RFC(ExecuteRFC.class);
 
