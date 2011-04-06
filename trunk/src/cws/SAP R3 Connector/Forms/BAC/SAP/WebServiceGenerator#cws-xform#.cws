@@ -7,24 +7,7 @@
 	<Description>WebServiceGenerator</Description>
 	<CreatedBy>pgussow</CreatedBy>
 	<CreationDate>2009-10-12T08:24:09.403</CreationDate>
-	<LastModifiedBy>pgussow</LastModifiedBy>
-	<LastModifiedDate>2009-11-12T08:10:37.791</LastModifiedDate>
 	<Notes/>
-	<automatic>false</automatic>
-	<caption></caption>
-	<data/>
-	<height></height>
-	<isInternal>false</isInternal>
-	<isLegacy>false</isLegacy>
-	<left></left>
-	<mode>full</mode>
-	<parameters/>
-	<qualifiedclassname></qualifiedclassname>
-	<showOnStartPage>false</showOnStartPage>
-	<title>true</title>
-	<top></top>
-	<type>XForm</type>
-	<width></width>
 	<XFormContent>
 		<xformhtml
 			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
@@ -34,7 +17,6 @@
 			xmlns:ev="http://www.w3.org/2001/xml-events"
 			xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
 			xformsversion="2"
-			key="BAC/SAP/WebServiceGenerator"
 			focusatstartup="true">
 			<xhead>
 				<xforms:model
@@ -170,6 +152,40 @@
 							prefix="tns">http://schemas.cordys.com/2.0/SAPSchema</wcpforms:namespace>
 					</wcpforms:xpathmetainfo>
 				</xforms:model>
+				<xforms:model
+					xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+					xmlns:ev="http://www.w3.org/2001/xml-events"
+					xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+					id="ClearCacheModel"
+					wcpforms:businessElement="ClearCacheResponse"
+					wcpforms:automatic="false"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
+					wcpforms:nontransactional="true"
+					singleTransaction="false"
+					promptToSave="true"
+					isConstraintValidation="false"
+					isInitializationRequired="false"
+					isApplyAccessControl="false">
+					<xforms:instance
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+						wcpforms:iteratorSize="50">
+						<wcpforms:dataset
+							src="http://schemas.cordys.com/2.0/SAPClearCache/ClearCache"
+							operationName="ClearCache"
+							type="get"
+							wcpforms:wsguid="005056C0-0008-11E0-EBEF-21FC296ADFC1"
+						/>
+					</xforms:instance>
+					<wcpforms:xpathmetainfo
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms">
+						<wcpforms:namespace
+							prefix="xmlns">http://schemas.cordys.com/2.0/SAPClearCache</wcpforms:namespace>
+						<wcpforms:namespace
+							prefix="tns">http://schemas.cordys.com/2.0/SAPClearCache</wcpforms:namespace>
+					</wcpforms:xpathmetainfo>
+					<wcpforms:instanceschema/>
+				</xforms:model>
 				<xml
 					xmlns="">
 					<xml
@@ -196,7 +212,7 @@
 						wcpforms:expanded="false"
 						wcpforms:layout="free"
 						wcpforms:class="v_layout"
-						wcpforms:size="730px 70"
+						wcpforms:size="730px 70px"
 						wcpforms:labelalign="left">
 						<xforms:label
 							wcpforms:class="groupheader expand">Select the proper SAP R3 Connector</xforms:label>
@@ -222,7 +238,7 @@
 						id="grpGenerationDetails"
 						wcpforms:layout="free"
 						wcpforms:class="v_layout"
-						wcpforms:size="730px 450"
+						wcpforms:size="730px 450px"
 						wcpforms:labelalign="left">
 						<xforms:label
 							wcpforms:class="groupheader">Enter the details for the methods to be generated</xforms:label>
@@ -305,7 +321,8 @@
 							wcpforms:anchors="10px 180px null 8px"
 							wcpforms:position="10 180">
 							<xforms:label
-								wcpforms:class="v_label">Available methods</xforms:label>
+								wcpforms:class="v_label"
+								wcpforms:size="89 14">Available methods</xforms:label>
 						</xforms:select1>
 						<xforms:select1
 							appearance="compact"
@@ -321,7 +338,8 @@
 							wcpforms:anchors="400px 180px 8px 8px"
 							wcpforms:position="400 180">
 							<xforms:label
-								wcpforms:class="v_label">Selected methods</xforms:label>
+								wcpforms:class="v_label"
+								wcpforms:size="87 14">Selected methods</xforms:label>
 							<messages
 								xmlns="">
 								<message
@@ -535,8 +553,8 @@
 							id="txtUseCache"
 							doEBIValidate="false"
 							wcpforms:class="f_layout"
-							wcpforms:size="268px null"
-							wcpforms:anchors="450px 35px 10px null"
+							wcpforms:size="130px null"
+							wcpforms:anchors="450px 35px 148px null"
 							wcpforms:position="450 35">
 							<xforms:label>Use cache if possible</xforms:label>
 							<xforms:item>
@@ -567,6 +585,28 @@
 								<xforms:txtContainer_Change/>
 							</xforms:action>
 						</xforms:select1>
+						<xforms:group
+							appearance="controlbox"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbox"
+							id="controlbox5"
+							controltype="button"
+							wcpforms:layout="horizontal"
+							wcpforms:class="f_layout"
+							wcpforms:align="left_align"
+							wcpforms:size="110px 22px"
+							wcpforms:position="585 35">
+							<xforms:trigger
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
+								id="btnclearcache"
+								wcpforms:class="h_button"
+								wcpforms:size="8em 2em">
+								<xforms:label>Refresh Cache</xforms:label>
+								<xforms:action
+									ev:event="xforms-activate">
+									<xforms:btnclearcache_Click/>
+								</xforms:action>
+							</xforms:trigger>
+						</xforms:group>
 					</xforms:group>
 				</xforms:group>
 			</xbody>
@@ -928,6 +968,11 @@ function getGeneratedWSDL(namespace)
     }
 
     return GenerateMethodsModel.getData();
+}
+function btnclearcache_Click(eventObject)
+{
+     application.notify("Cache will be cleared and reloaded again.");
+    ClearCacheModel.reset();
 }]]>
 			</xformsscript>
 			<xforms:action
@@ -936,15 +981,48 @@ function getGeneratedWSDL(namespace)
 			</xforms:action>
 		</xformhtml>
 	</XFormContent>
+	<qualifiedclassname></qualifiedclassname>
 	<XFormWSDL/>
-	<aclFragments/>
-	<CompositeControls/>
-	<deliveryModels/>
+	<type>XForm</type>
+	<showOnStartPage>false</showOnStartPage>
+	<isInternal>false</isInternal>
+	<parameters/>
+	<caption></caption>
+	<title>true</title>
+	<mode>full</mode>
+	<automatic>false</automatic>
+	<left></left>
+	<top></top>
+	<height></height>
+	<width></width>
+	<data/>
+	<isLegacy>false</isLegacy>
+	<Webservices>
+		<uri
+			id="001E3780-4713-71DE-8EF1-C54B4CACCDAF"
+		/>
+		<uri
+			id="001E3780-4713-71DE-8EF4-CEB0649CDF3A"
+		/>
+		<uri
+			id="001E3780-4713-71DE-8EF4-CEC766692546"
+		/>
+		<uri
+			id="005056C0-0008-11E0-EBEF-21FC296ADFC1"
+		/>
+	</Webservices>
+	<StyleSheets/>
+	<Javascripts/>
 	<Htms/>
-	<image/>
+	<CompositeControls/>
+	<TranslatableApplications/>
+	<ReferredXForms/>
 	<Images/>
 	<input/>
-	<Javascripts/>
+	<output/>
+	<deliveryModels/>
+	<taskParts/>
+	<aclFragments/>
 	<messageParts>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
@@ -954,12 +1032,10 @@ function getGeneratedWSDL(namespace)
 			<Description>freeformcontrols</Description>
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-10-12T08:29:25.704</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-10-14T08:43:48.658</LastModifiedDate>
 			<Notes/>
-			<isRefExists>false</isRefExists>
 			<namespace>http://schemas.cordys.com/1.0/xforms/processapi</namespace>
 			<operationName>freeformcontrols</operationName>
+			<isRefExists>false</isRefExists>
 		</MessagePart>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
@@ -969,12 +1045,10 @@ function getGeneratedWSDL(namespace)
 			<Description>SearchObjectModel</Description>
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-10-30T13:40:24.806</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-10-30T13:40:24.806</LastModifiedDate>
 			<Notes/>
-			<isRefExists>true</isRefExists>
 			<namespace>http://schemas.cordys.com/2.0/SAPSchema</namespace>
 			<operationName>SearchObject</operationName>
+			<isRefExists>true</isRefExists>
 		</MessagePart>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
@@ -984,12 +1058,10 @@ function getGeneratedWSDL(namespace)
 			<Description>GetSoapNodesOperationModel</Description>
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-11-11T13:52:18.835</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-11-11T13:52:18.835</LastModifiedDate>
 			<Notes/>
-			<isRefExists>true</isRefExists>
 			<namespace>http://schemas.cordys.com/1.0/ldap</namespace>
 			<operationName>GetSoapNodes</operationName>
+			<isRefExists>true</isRefExists>
 		</MessagePart>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
@@ -999,33 +1071,24 @@ function getGeneratedWSDL(namespace)
 			<Description>GenerateMethodsModel</Description>
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-11-11T15:45:42.073</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-11-11T15:45:42.073</LastModifiedDate>
 			<Notes/>
-			<isRefExists>true</isRefExists>
 			<namespace>http://schemas.cordys.com/2.0/SAPSchema</namespace>
 			<operationName>GenerateMethods</operationName>
+			<isRefExists>true</isRefExists>
+		</MessagePart>
+		<MessagePart
+			type="com.cordys.task.MessagePart"
+			RuntimeDocumentID="005056C0-0008-11E0-EBEF-4C7759F29FC1">
+			<DocumentID>005056C0-0008-11E0-EBEF-4C7759F27FC1</DocumentID>
+			<Name>ClearCacheModel</Name>
+			<Description>ClearCacheModel</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-04-05T12:04:34.149</CreationDate>
+			<Notes/>
+			<namespace>http://schemas.cordys.com/2.0/SAPClearCache</namespace>
+			<operationName>ClearCache</operationName>
+			<isRefExists>true</isRefExists>
 		</MessagePart>
 	</messageParts>
-	<output/>
-	<StyleSheets/>
-	<taskParts/>
-	<TranslatableApplications/>
-	<Webservices>
-		<uri
-			id="001E3780-4713-71DE-8EF1-C54B4CACCDAF"
-			path="SAP R3 Connector/WebService/BAC/SAP/Method Set SAP Schema 2.0/WSI_SAP_SCHEMA_2/SearchObject"
-			type="com.cordys.wsdl.BindingOperation"
-		/>
-		<uri
-			id="001E3780-4713-71DE-8EF4-CEB0649CDF3A"
-			path="SAP R3 Connector/WebService/BAC/SAP/Method Set SAP Schema 2.0/WSI_SAP_SCHEMA_2/GenerateMethods"
-			type="com.cordys.wsdl.BindingOperation"
-		/>
-		<uri
-			id="001E3780-4713-71DE-8EF4-CEC766692546"
-			path="SAP R3 Connector/References/Method Set LDAP 1.0/GetSoapNodes"
-			type="com.cordys.wsdl.WebserviceOperationRuntime"
-		/>
-	</Webservices>
+	<image/>
 </XFormDesigntime>
