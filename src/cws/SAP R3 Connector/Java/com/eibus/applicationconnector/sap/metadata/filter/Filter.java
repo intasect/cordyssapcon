@@ -146,7 +146,7 @@ class Filter
         switch (m_type)
         {
             case CONTAINS:
-                regex = ".+" + m_value + ".+";
+                regex = ".*" + m_value + ".*";
                 break;
 
             case STARTS_WITH:
