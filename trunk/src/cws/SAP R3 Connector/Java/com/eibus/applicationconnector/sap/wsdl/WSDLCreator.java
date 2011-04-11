@@ -243,7 +243,8 @@ public class WSDLCreator
 
         Binding bReturn = dDef.createBinding();
         bReturn.setUndefined(false);
-        bReturn.setQName(new QName(m_sNamespace, baseName + "Binding"));
+        //bReturn.setQName(new QName(m_sNamespace, baseName + "Binding"));
+        bReturn.setQName(new QName(m_sNamespace, baseName));
         bReturn.setPortType(ptPortType);
 
         SOAPBinding sb = (SOAPBinding) erRegistry.createExtension(Binding.class, qnSoapBinding);
