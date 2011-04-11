@@ -7,24 +7,7 @@
 	<Description>SAP ServicesPublisher</Description>
 	<CreatedBy>hboecker</CreatedBy>
 	<CreationDate>2009-08-14T16:16:23.546</CreationDate>
-	<LastModifiedBy>pgussow</LastModifiedBy>
-	<LastModifiedDate>2009-10-14T08:56:27.102</LastModifiedDate>
 	<Notes/>
-	<automatic>false</automatic>
-	<caption>SAP Service Generator</caption>
-	<data/>
-	<height></height>
-	<isInternal>false</isInternal>
-	<isLegacy>false</isLegacy>
-	<left></left>
-	<mode>full</mode>
-	<parameters/>
-	<qualifiedclassname></qualifiedclassname>
-	<showOnStartPage>false</showOnStartPage>
-	<title>true</title>
-	<top></top>
-	<type>XForm</type>
-	<width></width>
 	<XFormContent>
 		<xformhtml
 			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
@@ -206,21 +189,35 @@ function validate()
 			/>
 		</xformhtml>
 	</XFormContent>
+	<qualifiedclassname></qualifiedclassname>
 	<XFormWSDL/>
-	<aclFragments/>
-	<CompositeControls/>
-	<deliveryModels/>
+	<type>XForm</type>
+	<showOnStartPage>false</showOnStartPage>
+	<isInternal>false</isInternal>
+	<parameters/>
+	<caption>SAP Service Generator</caption>
+	<title>true</title>
+	<mode>full</mode>
+	<automatic>false</automatic>
+	<left></left>
+	<top></top>
+	<height></height>
+	<width></width>
+	<data/>
+	<isLegacy>false</isLegacy>
+	<Webservices/>
+	<StyleSheets/>
+	<Javascripts/>
 	<Htms/>
-	<image>
-		<uri
-			id="001D09BE-4863-71DE-8EEE-B89DB8C8A324"
-			path="SAP R3 Connector/Web Files/BAC/sap/images/sap_icon_cordys_all_sizes.png"
-			type="com.cordys.cws.documenttypes.image.Png"
-		/>
-	</image>
+	<CompositeControls/>
+	<TranslatableApplications/>
+	<ReferredXForms/>
 	<Images/>
 	<input/>
-	<Javascripts/>
+	<output/>
+	<deliveryModels/>
+	<taskParts/>
+	<aclFragments/>
 	<messageParts>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
@@ -230,12 +227,10 @@ function validate()
 			<Description>WebserviceDefinitionSetModel</Description>
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-10-12T09:39:03.028</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-10-14T08:43:48.596</LastModifiedDate>
 			<Notes/>
-			<isRefExists>false</isRefExists>
 			<namespace>http://schemas.cordys.com/1.0/xforms/processapi</namespace>
 			<operationName></operationName>
+			<isRefExists>false</isRefExists>
 		</MessagePart>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
@@ -245,17 +240,11 @@ function validate()
 			<Description>freeformcontrols</Description>
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-10-12T09:37:55.478</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-10-14T08:43:48.596</LastModifiedDate>
 			<Notes/>
-			<isRefExists>false</isRefExists>
 			<namespace>http://schemas.cordys.com/1.0/xforms/processapi</namespace>
 			<operationName>freeformcontrols</operationName>
+			<isRefExists>false</isRefExists>
 		</MessagePart>
 	</messageParts>
-	<output/>
-	<StyleSheets/>
-	<taskParts/>
-	<TranslatableApplications/>
-	<Webservices/>
+	<image/>
 </XFormDesigntime>

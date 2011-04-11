@@ -7,24 +7,7 @@
 	<Description>Cordys SAP Administration</Description>
 	<CreatedBy>hboecker</CreatedBy>
 	<CreationDate>2009-08-17T12:04:44.953</CreationDate>
-	<LastModifiedBy>pgussow</LastModifiedBy>
-	<LastModifiedDate>2009-10-15T07:40:34.714</LastModifiedDate>
 	<Notes/>
-	<automatic>false</automatic>
-	<caption>SAP Administration</caption>
-	<data/>
-	<height></height>
-	<isInternal>false</isInternal>
-	<isLegacy>false</isLegacy>
-	<left></left>
-	<mode>full</mode>
-	<parameters/>
-	<qualifiedclassname></qualifiedclassname>
-	<showOnStartPage>true</showOnStartPage>
-	<title>true</title>
-	<top></top>
-	<type>XForm</type>
-	<width></width>
 	<XFormContent>
 		<xformhtml
 			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
@@ -133,25 +116,35 @@
 			<xformsscript/>
 		</xformhtml>
 	</XFormContent>
+	<qualifiedclassname></qualifiedclassname>
 	<XFormWSDL/>
-	<aclFragments/>
-	<CompositeControls/>
-	<deliveryModels/>
+	<type>XForm</type>
+	<showOnStartPage>true</showOnStartPage>
+	<isInternal>false</isInternal>
+	<parameters/>
+	<caption>SAP Administration</caption>
+	<title>true</title>
+	<mode>full</mode>
+	<automatic>false</automatic>
+	<left></left>
+	<top></top>
+	<height></height>
+	<width></width>
+	<data/>
+	<isLegacy>false</isLegacy>
+	<Webservices/>
+	<StyleSheets/>
+	<Javascripts/>
 	<Htms/>
-	<image>
-		<uri
-			id="001D09BE-4863-71DE-8EEE-B89DB8C8A320"
-			path="SAP R3 Connector/Web Files/BAC/sap/images/sap_icon_cordys_all_sizes_Admin.png"
-			type="com.cordys.cws.documenttypes.image.Png"
-		/>
-	</image>
+	<CompositeControls/>
+	<TranslatableApplications/>
+	<ReferredXForms/>
 	<Images/>
 	<input/>
-	<Javascripts/>
-	<messageParts/>
 	<output/>
-	<StyleSheets/>
+	<deliveryModels/>
 	<taskParts/>
-	<TranslatableApplications/>
-	<Webservices/>
+	<aclFragments/>
+	<messageParts/>
+	<image/>
 </XFormDesigntime>
