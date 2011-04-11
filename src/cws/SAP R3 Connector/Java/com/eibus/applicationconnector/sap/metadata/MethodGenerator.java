@@ -584,11 +584,13 @@ public abstract class MethodGenerator
      */
     private static String fixMethodName(String source)
     {
-        String returnValue = source.replaceAll("[^a-zA-Z.0-9_]", "").toLowerCase();
+        //String returnValue = source.replaceAll("[^a-zA-Z.0-9_]", "").toLowerCase();
+        String returnValue = source.replaceAll("[^a-zA-Z.0-9_]", "_");
 
+        returnValue=returnValue.charAt(0)=='_'?returnValue.substring(1):returnValue;
         // Now we need to fix the case of the methods. This means that CUST_BLA_BLA will become
         // CustBlaBla
-        StringBuilder sb = new StringBuilder(1024);
+       /* StringBuilder sb = new StringBuilder(1024);
 
         for (int count = 0; count < returnValue.length(); count++)
         {
@@ -620,7 +622,7 @@ public abstract class MethodGenerator
             }
         }
 
-        returnValue = sb.toString();
+        returnValue = sb.toString();*/
 
         return returnValue;
     }

@@ -61,13 +61,7 @@
 	<ClassPath>/BAC/SAP/lib/sapjco.jar;/BAC/SAP/lib/sapidocjco.jar;/BAC/SAP/lib/sapidoc.jar;/BAC/SAP/lib/jdsr.jar;/BAC/SAP/lib/coelib.jar;/BAC/SAP/lib/wsdl4j.jar;/BAC/SAP/sapconnector.jar;</ClassPath>
 	<ImplementationClass>com.eibus.applicationconnector.sap.SAPMapper</ImplementationClass>
 	<TypeImplementationMappings/>
-	<PropertyPage>
-		<uri
-			id="005056C0-0008-11E0-E7D7-FC0B632A5F40"
-			path="SAP R3 Connector/Web Files/BAC/sap/sap.htm"
-			type="com.cordys.cws.documenttypes.hypertextmarkup.Htm"
-		/>
-	</PropertyPage>
+	<PropertyPage/>
 	<MetadataPage/>
 	<ConfigurationPage/>
 	<Image/>
