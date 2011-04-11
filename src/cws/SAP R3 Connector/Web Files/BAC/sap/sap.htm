@@ -1,21 +1,8 @@
 <!--
-Copyright 2003 Cordys R&D B.V. 
-
-This file is part of the Cordys SAP Connector. 
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
-<!--
+	 © 2003 Cordys R&D B.V. All rights reserved.
+The computer program(s) is the proprietary information of Cordys R&D B.V.
+and provided under the relevant License Agreement containing restrictions
+on use and disclosure. Use is subject to the License Agreement .
 	Project		: Cordys BAC
 	File Name	: sap.htm
 	Description : This page displays the properties of the SAP Application Connector.
@@ -38,7 +25,103 @@ limitations under the License.
 	 * Holds the namespace for the configuration XML.
 	 */
 	var NS_SAP_CONFIG = "http://sapconnector.cordys.com/2.0/configuration";
-	
+
+// set up the array .
+        var keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + //all caps
+                                 "abcdefghijklmnopqrstuvwxyz" + //all lowercase
+                                 "0123456789+/="; // all numbers plus +/=
+
+//Heres the encode function
+function encode(str)
+{
+        var result = ""; //This is the output
+        var chr1, chr2, chr3 = ""; //These are the 3 bytes to be encoded
+        var enc1, enc2, enc3, enc4 = ""; //These are the 4 encoded bytes
+        var i = 0; //Position counter
+
+        do
+        { //Set up the loop here
+                chr1 = str.charCodeAt(i++); //Grab the first byte
+                chr2 = str.charCodeAt(i++); //Grab the second byte
+                chr3 = str.charCodeAt(i++); //Grab the third byte
+
+                //Here is the actual base64 encode part.
+                //There really is only one way to do it.
+                enc1 = chr1 >> 2;
+                enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+                enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+                enc4 = chr3 & 63;
+
+                if (isNaN(chr2))
+                        enc3 = enc4 = 64;
+                else if (isNaN(chr3))
+                        enc4 = 64;
+
+                //Lets spit out the 4 encoded bytes
+                result = result + keyStr.charAt(enc1) + keyStr.charAt(enc2) + keyStr.charAt(enc3) + keyStr.charAt(enc4);
+
+                // OK, now clean out the variables used.
+                chr1 = chr2 = chr3 = "";
+                enc1 = enc2 = enc3 = enc4 = "";
+
+        }
+        while (i < str.length); //And finish off the loop
+
+        //Now return the encoded values.
+        return result;
+}
+//Heres the decode function
+function decode(str)
+{
+        var result = ""; //This is the output
+        var chr1, chr2, chr3 = ""; //These are the 3 decoded bytes
+        var enc1, enc2, enc3, enc4 = ""; //These are the 4 bytes to be decoded
+        var i = 0; //Position counter
+
+        // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
+        var base64test = /[^A-Za-z0-9\+\/\=]/g;
+
+        if (base64test.exec(str))
+        { //Do some error checking
+                application.spy("There were invalid base64 characters in the input text.\n" +
+                "Valid base64 characters are A-Z, a-z, 0-9, +, /, and =\n"
+ +
+                "Expect errors in decoding.");
+        }
+        str = str.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+
+        do
+        { //Here's the decode loop.
+                //Grab 4 bytes of encoded content.
+                enc1 = keyStr.indexOf(str.charAt(i++));
+                enc2 = keyStr.indexOf(str.charAt(i++));
+                enc3 = keyStr.indexOf(str.charAt(i++));
+                enc4 = keyStr.indexOf(str.charAt(i++));
+
+                //Heres the decode part. There's really only one way to do it.
+                chr1 = (enc1 << 2) | (enc2 >> 4);
+                chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+                chr3 = ((enc3 & 3) << 6) | enc4;
+
+                //Start to output decoded content
+                result = result + String.fromCharCode(chr1);
+
+                if (enc3 != 64)
+                        result = result + String.fromCharCode(chr2);
+
+                if (enc4 != 64)
+                        result = result + String.fromCharCode(chr3);
+
+                //now clean out the variables used
+                chr1 = chr2 = chr3 = "";
+                enc1 = enc2 = enc3 = enc4 = "";
+        }
+        while (i < str.length); //finish off the loop
+
+        //Now return the decoded values.
+        return result;
+}
+
 	// To validate the details provided
 	function fnValidate()
 	{
@@ -194,7 +277,7 @@ limitations under the License.
 			createElementWithParentNS(jcoNode, "language", input_RFCURL_lang.value);
 			createElementWithParentNS(jcoNode, "userid", input_userid_cachedir.value);
 			
-			var encodedPassword = input_user_password.encode(input_user_password.value);			
+			var encodedPassword = encode(input_user_password.value);			
 			createElementWithParentNS(jcoNode, "password", encodedPassword);
 			createElementWithParentNS(jcoNode, "idocservers", input_idocServers.value);
 			createElementWithParentNS(jcoNode, "gwserv", input_gateway_kstype.value);
@@ -300,7 +383,7 @@ limitations under the License.
 			var encodedPassword = cordys.getNodeText(jcoNode, "ns:password", "", namespaces);
 			if (encodedPassword != "")
 			{
-				encodedPassword = input_user_password.decode(encodedPassword);
+				encodedPassword = decode(encodedPassword);
 			}
 			input_user_password.value = encodedPassword;
 						
@@ -468,7 +551,7 @@ limitations under the License.
 	 * @return The created element.
 	 */
 	function createElementWithParentNS(parent, name, value)
-	{
+	{
 		var returnValue = null;
 		
 		if (!(parent == null || typeof(parent.ownerDocument) == "undefined"))
