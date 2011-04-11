@@ -1,0 +1,955 @@
+<!--
+Copyright 2003 Cordys R&D B.V. 
+
+This file is part of the Cordys SAP Connector. 
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!--
+ Project  : Cordys WCP
+ File Name : SAPJCOMethodPublisher.htm
+ Description : This page is used to publish the sap methods and method sets.
+ author : Vijaya Gopal
+-->
+
+<html xmlns:eibus="xmlns:eibus" onapplicationready = "setTitle()">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title></title>
+	<script src="/cordys/wcp/application.js" >
+	</script>
+	<style>
+		input{font-size:11; font-family:verdana; width:100% }
+		label{font-size:11; font-family:verdana;}
+		div{font-size:11; font-family:verdana;}
+		eibus\:select div{font-size:11; font-family:verdana; width:100%}
+	</style>
+</head>
+<script>
+var sapNodes_org=new Array();//the cn's of the sap nodes under current organization are stored here in this array.
+var sapNodes_sys=new Array();// if current organization is not system.
+var flag_SOAPFault = false; // To keep track of SOAP Faults.
+var organizationDN; // to store the DN of the current organization.
+var currentUserDN; // To store the DN of the current user who is accessing the page.
+var flag_PublishRequest = false; // To store if the request sent is a publish request or not.
+var array_publishResults = new Array(); // To store the results of publish requests.
+var methodName_publishResults ;//Global variable to store the current method name being published.
+//This is useful to store the status in the publish results array when a SOAP Fault occurs.
+// It gets the application definition and sets the title of the page.
+
+function setTitle()
+{
+	var applicationDef = application.event.applicationDefinition;
+	window.application.container.setTitle(applicationDef.selectSingleNode(".//description").text,"BAC for SAP R/3");
+	organizationDN = application.organization;
+	currentUserDN = system.user.organizations[organizationDN].userDN;
+
+	//Removed the publish results
+	//PublishResultsApplication.selectSingleNode(".//parentid").text = applicationDef.selectSingleNode(".//id").text ;
+	
+	removeOptions(sel_org,1);
+	sel_org.add(organizationDN.split(",")[0].substring(2),organizationDN);
+	if (organizationDN.split(",")[0].substring(2)!="system")
+		sel_org.add("system","o=system" + "," + organizationDN.split(",")[1] + "," + organizationDN.split(",")[2]);
+	adjustUI();
+	getSAPSoapNodes();
+	//If from metadata explorer
+	if(application.event.srcApplication.container.url == "/cordys/bac/sap/sapexplorer.htm")
+		handlePublishData(application.event.data);
+
+	//Check if it's an existing method set.
+	if (system.data["bac.sap.currentbo"])
+	{
+		txtWebServiceInterfaceName.value = system.data["bac.sap.currentbo"].name();
+	}
+}
+// To show the item being published from the metadata explorer.
+function handlePublishData(publishData)
+{
+	sel_org.setSelectedIndex(1);// Always the current organization
+	fillSoapNodes();
+	sel_soapnode.setValue(publishData.soapNodeDN);
+	switch(publishData.methodType)
+	{
+		case "BAPI" :
+			radio_bapi.checked = true;
+			changeTable();
+			var objType = publishData.parentItem.getAttribute("NAME");
+			var objName = publishData.parentItem.getAttribute("EXT_NAME");
+			sel_BO_MsgType.add(objName,objType);
+			sel_BO_MsgType.options[1].title = objName;
+			sel_BO_MsgType.setSelectedIndex(1);// The newly added one
+			var bapiName = publishData.selectedItem.getAttribute("METHODNAME");
+			var rfcName = publishData.selectedItem.getAttribute("FUNCTION");
+			selectedlist.add(bapiName, rfcName);
+			selectedlist.options[0].title = bapiName;
+			break;
+		case "RFC" :
+			radio_rfc.checked = true;
+			changeTable();
+			var rfcName = publishData.selectedItem.selectSingleNode("FUNCNAME").text;
+			selectedlist.add(rfcName);
+			selectedlist.options[0].title = rfcName;
+			break;
+		case "IDOCType" :
+			radio_idoc.checked = true;
+			changeTable();
+			var msgType = publishData.parentItem.getAttribute("MESTYP");
+			sel_BO_MsgType.add(msgType);
+			sel_BO_MsgType.options[1].title = msgType;
+			sel_BO_MsgType.setSelectedIndex(1);
+			var idocType = publishData.selectedItem.getAttribute("IDOCTYP");
+			var cimType = publishData.selectedItem.getAttribute("CIMTYP");
+			//var released = publishData.selectedItem.getAttribute("RELEASED");
+			var idocValue = cimType;// Contains Extension
+			selectedlist.add(idocType, idocValue);
+			selectedlist.options[0].title = idocType;
+	}
+}
+// To show and hide UI parts when the opens for the first time.
+function adjustUI()
+{
+	removeOptions(entitylist,0);
+	removeOptions(selectedlist,0);
+	removeOptions(sel_BO_MsgType, 1);
+}
+// To get all the SAP JCO Soap Nodes, both in system and in current organization.
+function getSAPSoapNodes()
+{
+	getSOAPNodesInOrganization(organizationDN, sapNodes_org);
+	if (organizationDN.split(",")[0].substring(2)!="system")
+	{
+		var systemDN = "o=system" + "," + organizationDN.split(",")[1] + "," + organizationDN.split(",")[2];
+		getSOAPNodesInOrganization(systemDN, sapNodes_sys);
+	}
+}
+// This function gets the SAP soap nodes in the given organization and stores them in the given array.
+function getSOAPNodesInOrganization(organization, soapNodeArray)
+{
+	var clone_requestGetSOAPProcessors = requestGetSOAPProcessors.XMLDocument.cloneNode(true);
+	clone_requestGetSOAPProcessors.selectSingleNode(".//dn").text = organization;
+	bdiSAP.request = clone_requestGetSOAPProcessors ;
+	bdiSAP.clear();
+	bdiSAP.parameters.receiver = null;
+	bdiSAP.reset();
+	if(bdiSAP.data.selectSingleNode(".//entry"))
+	{
+		var ConfigurationXML = new ActiveXObject("Microsoft.XMLDOM");
+		var SoapProcessorDetails = bdiSAP.data;
+		var tupleNodes = SoapProcessorDetails.getElementsByTagName("entry");
+    	var chNodes;
+		var count = 0;
+		var arrayFlag_SOAPFault;
+		var confNodes;
+		var confDet;
+		var confTags;
+		for(j = 0;j<tupleNodes.length;j++)
+		{
+			arrayFlag_SOAPFault = false;
+			if(tupleNodes[j].selectSingleNode(".//bussoapprocessorconfiguration"))
+			{
+				confNodes = tupleNodes[j].selectSingleNode(".//bussoapprocessorconfiguration").firstChild;
+				confDet = String(confNodes.text);
+				ConfigurationXML.loadXML(confDet);
+				if(ConfigurationXML.selectSingleNode(".//configuration"))
+				{
+					confTags = ConfigurationXML.selectNodes(".//configuration");
+					for(var confTag = confTags.nextNode;confTag;confTag = confTags.nextNode)
+					{
+						var impl = confTag.getAttribute("implementation");
+						if(impl == null) continue;
+						if(impl.substring(impl.lastIndexOf(".")+1,impl.length)=="SAPMapper")
+						{
+							dnValue = tupleNodes[j].getAttribute("dn")
+							dnSoapNode = dnValue.substring(dnValue.indexOf(",")+1,dnValue.length)
+							if(sapNodes_org.length>0)
+							{
+								for(intI = 0; intI< sapNodes_org.length ; intI++)
+								{
+									if(dnSoapNode == sapNodes_org[intI])
+									{
+										arrayFlag_SOAPFault = true;
+										break;
+									}
+								}
+							}
+							if(!arrayFlag_SOAPFault)
+							{
+								soapNodeArray[count] = dnSoapNode;
+								count = count+1;
+							}
+
+						}
+					}
+				}
+			}
+		}
+	}
+}
+// To fill in the Soap Nodes Names in the select box depending on the organization selected.
+function fillSoapNodes()
+{
+	removeOptions(sel_soapnode,1);
+	if (sel_org.getValue() == organizationDN)
+	{
+		for(var i=0;i<sapNodes_org.length;i++)
+		{
+			sel_soapnode.add(sapNodes_org[i].split(",")[0].substring(3),sapNodes_org[i]);
+		}
+	}
+	else if (sel_org.options[sel_org.getSelectedIndex()].innerText == "system" )
+	{
+		for(var i=0;i<sapNodes_sys.length;i++)
+		{
+			sel_soapnode.add(sapNodes_sys[i].split(",")[0].substring(3),sapNodes_sys[i]);
+		}
+	}
+}
+//This function removes all the options from the select box.*/
+function removeOptions(idCombo,optlength)
+{
+	while(optlength < idCombo.options.length)
+		idCombo.remove(optlength);
+}
+
+// To enable and disabled the input box and select boxes depending on the button checked.
+function enableDisableSelect()
+{
+	if (radio_new.checked)
+	{
+		new_methodset.disabled = false;
+		sel_methodset.setEnabled(false);
+		sel_methodset.setSelectedIndex(0);
+		input_namespace.disabled = false ;
+		input_namespace.value = "";
+	}
+	else
+	{
+		new_methodset.disabled = true;
+		sel_methodset.setEnabled(true);
+		new_methodset.value ="";
+		input_namespace.disabled = true ;
+		input_namespace.value = "";
+		getAndPopulateMethodSets();
+	}
+}
+// To get and list all the method sets in the current organization.
+function getAndPopulateMethodSets()
+{
+	flag_SOAPFault = false;
+	removeOptions(sel_methodset,1);
+	reqForMethodSets.selectSingleNode(".//dn").text = organizationDN ;
+	bdiSAP.request = reqForMethodSets.XMLDocument;
+	bdiSAP.clear();
+	bdiSAP.parameters.receiver = null;
+	bdiSAP.reset();
+	if ( flag_SOAPFault == false )
+	{
+		if (bdiSAP.data.selectSingleNode(".//entry"))
+		{
+			var entries = bdiSAP.data.selectNodes(".//entry");
+			for ( var i=0; i< entries.length ; i++)
+			{
+				sel_methodset.add(entries[i].selectSingleNode(".//cn/string").text,entries[i].selectSingleNode(".//labeleduri/string").text);
+				// name is soap node name, value is its namespace
+				sel_methodset.options[i+1].title = entries[i].selectSingleNode(".//cn/string").text ;
+			}
+		}
+		else
+		{
+			alert(" There are no Method Sets in the current organization." );
+			radio_new.checked = true;
+			enableDisableSelect();
+		}
+	}
+}
+// To populate the namespace of the selected method set and disable the input box.
+function populateNamespace()
+{
+	if ( sel_methodset.value != 0 )
+		input_namespace.value = sel_methodset.getValue();
+	else
+		input_namespace.value = "";
+}
+// To show the alert message that methods will not be overwritten if that checkbox is unchecked.
+function showAlert()
+{
+	if(overwrite.checked==false)
+	{
+		alert("Already published methods will not be overwritten.");
+	}
+}
+// To add the selected entities from the entity list to the selected list
+function addEntitiesToSelectedList()
+{
+	var entityListOptions = entitylist.options;
+	var noOfOptions = entityListOptions.length;
+	var eachOption;
+	for (var i=0; i< noOfOptions ; i++)
+	{
+		eachOption = entityListOptions.item(i);
+		if(eachOption.selected)
+		{
+			selectedlist.add(eachOption.innerText, eachOption.value);
+			selectedlist.options[selectedlist.options.length - 1].title = eachOption.innerText ;
+			entitylist.remove(i);
+			i--;
+			noOfOptions--;
+		}
+	}
+}
+// To remove the entities from the selected list
+function removeEntitiesFromSelectedList()
+{
+	var selectedListOptions = selectedlist.options;
+	var noOfOptions = selectedListOptions.length;
+	var eachOption;
+	for (var i=0; i< noOfOptions ; i++)
+	{
+		eachOption = selectedListOptions.item(i);
+		if(eachOption.selected)
+		{
+			entitylist.add(eachOption.innerText, eachOption.value);
+			entitylist.options[entitylist.options.length - 1].title = eachOption.innerText ;
+			selectedlist.remove(i);
+			i--;
+			noOfOptions--;
+		}
+	}
+}
+// To get the BOs from backend and list.
+function getBOs(startsWithValue)
+{
+	var clone_reqGetBOs = reqGetBOs.XMLDocument.cloneNode(true);
+	clone_reqGetBOs.selectSingleNode("SOAP:Envelope/SOAP:Body/GetBOs/fromBO").text = startsWithValue;
+	clone_reqGetBOs.selectSingleNode("SOAP:Envelope/SOAP:Body/GetBOs/toBO").text = startsWithValue + "zzzzzzzz";
+	bdiSAP.request = clone_reqGetBOs;
+	bdiSAP.clear();
+	bdiSAP.parameters.receiver = sel_soapnode.getValue();
+	bdiSAP.reset();
+	if (flag_SOAPFault == false)
+	{
+		var BOs = bdiSAP.data.selectNodes("data/GetBOsResponse/tuple/old/BusinessObjects/item");
+		var noOfBOs = BOs.length;
+		for ( var i=0; i< noOfBOs ;i++)
+		{
+			var boName = BOs[i].getAttribute("OBJECTNAME");
+			var boType = BOs[i].getAttribute("OBJTYPE");
+			sel_BO_MsgType.add(boName, boType);
+			sel_BO_MsgType.options[i+1].title = boName ;
+		}
+	}
+}
+// To get BAPIs if a BO is chosen or to get the IDOCs if a MSGTYPE is chosen.
+function getSubItems()
+{	
+	debugger;
+	
+	if (sel_BO_MsgType.value != 0)
+	{
+		if ( sel_soapnode.getValue() != "0")
+		bdiSAP.parameters.receiver = sel_soapnode.getValue();
+		else
+		{
+			alert("Select a SOAP Node.");
+			sel_soapnode.focus();
+			return;
+		}
+		flag_SOAPFault = false;
+		removeOptions(entitylist,0);
+		removeOptions(selectedlist,0);
+		var itemName;
+		if(radio_bapi.checked)
+		{
+			itemName = sel_BO_MsgType.getValue();
+			getBAPIs(itemName);
+		}
+		else if(radio_idoc.checked)
+		{
+			itemName = sel_BO_MsgType.options[sel_BO_MsgType.getSelectedIndex()].innerText;
+			getIDOCTypes(itemName);
+		}
+	}
+}
+//To get all the BAPIs under a component and list.
+function getBAPIs(BOName)
+{
+	var clone_reqGetBAPIs = reqGetBAPIs.XMLDocument.cloneNode(true);
+	clone_reqGetBAPIs.selectSingleNode("SOAP:Envelope/SOAP:Body/GetBAPIs/BO").text = BOName;
+	bdiSAP.request = clone_reqGetBAPIs;
+	bdiSAP.clear();
+	flag_SoapFault = false ;
+	bdiSAP.parameters.receiver = sel_soapnode.getValue();
+	bdiSAP.reset();
+	if (flag_SOAPFault == false )
+	{
+		var bapiItems = bdiSAP.data.selectNodes("data/GetBAPIsResponse/tuple/old/BAPIs/item");
+		var noOfBapis = bapiItems.length ;
+		for(var i=0; i < noOfBapis ; i++)
+		{
+			var methodName = bapiItems[i].getAttribute("METHODNAME");
+			var rfcName = bapiItems[i].getAttribute("FUNCTION");
+			entitylist.add(methodName, rfcName);
+			entitylist.options[i].title = methodName;
+		}
+	}
+}
+// To get the metadata items based on the metadata type selected.
+function getItems()
+{
+	var startsWithValue = startsWith.value;
+	if (!validText(startsWithValue))
+	{
+		var alertMessage;
+		if (radio_bapi.checked)
+			alertMessage = "Enter a string with which the BO names start.";
+		else if(radio_rfc.checked)
+			alertMessage = "Enter a string with which the RFC names start.";
+		else
+			alertMessage = "Enter a string with which the RFC names start.";
+		alert(alertMessage);
+		startsWith.focus();
+		return;
+	}
+	if ( sel_soapnode.getValue() != "0")
+		bdiSAP.parameters.receiver = sel_soapnode.getValue();
+	else
+	{
+		alert("Select a SOAP Node.");
+		sel_soapnode.focus();
+		return;
+	}
+	flag_SOAPFault = false;
+	removeOptions(sel_BO_MsgType,1);
+	removeOptions(entitylist,0);
+	removeOptions(selectedlist,0);
+	if(radio_bapi.checked)
+		getBOs(startsWithValue);
+	else if(radio_rfc.checked)
+		getRFCs(startsWithValue);
+	else
+		getMsgTypes(startsWithValue);
+}
+// To get RFCs which start with the given string and list.
+function getRFCs(startsWithValue)
+{
+	var clone_reqGetRFCs = reqGetRFCs.XMLDocument.cloneNode(true);
+	clone_reqGetRFCs.selectSingleNode("SOAP:Envelope/SOAP:Body/GetRFCs/fromRFC").text = startsWithValue;
+	clone_reqGetRFCs.selectSingleNode("SOAP:Envelope/SOAP:Body/GetRFCs/toRFC").text = startsWithValue + "zzzzzzz";
+	bdiSAP.request = clone_reqGetRFCs;
+	bdiSAP.clear();
+	bdiSAP.parameters.receiver = sel_soapnode.getValue();
+	bdiSAP.reset();
+	if (flag_SOAPFault == false)
+	{
+		var RFCs = bdiSAP.data.selectNodes("data/GetRFCsResponse/tuple/old/RFCs/item");
+		var noOfRFCs = RFCs.length;
+		for ( var i=0; i< noOfRFCs ;i++)
+		{
+			var rfcName = RFCs[i].selectSingleNode("FUNCNAME").text;
+			entitylist.add(rfcName);
+			entitylist.options[i].title = rfcName ;
+		}
+	}
+}
+// To get Message types starting with a string
+function getMsgTypes(startsWithValue)
+{
+	var clone_reqGetMsgTypes = reqGetMsgTypes.XMLDocument.cloneNode(true);
+	clone_reqGetMsgTypes.selectSingleNode("SOAP:Envelope/SOAP:Body/GetIDOCMessageTypes/fromMSGTYPE").text = startsWithValue;
+	clone_reqGetMsgTypes.selectSingleNode("SOAP:Envelope/SOAP:Body/GetIDOCMessageTypes/toMSGTYPE").text = startsWithValue + "zzzzzzz";
+	bdiSAP.request = clone_reqGetMsgTypes;
+	bdiSAP.clear();
+	bdiSAP.reset();
+	if (flag_SOAPFault == false )
+	{
+		var mesItems = bdiSAP.data.selectNodes("data/GetIDOCMessageTypesResponse/tuple/old/MessageTypes/item");
+		var noOfMesItems = mesItems.length;
+		for(var i=0; i<noOfMesItems; i++)
+		{
+			var msgType = mesItems[i].getAttribute("MESTYP");
+			sel_BO_MsgType.add(msgType);
+			sel_BO_MsgType.options[i+1].title = msgType ;
+		}
+	}
+}
+// To get the IDOC tyeps in a message type
+function getIDOCTypes(mesType)
+{
+	var clone_reqGetIDOCTypes = reqGetIDOCTypes.XMLDocument.cloneNode(true);
+	clone_reqGetIDOCTypes.selectSingleNode("SOAP:Envelope/SOAP:Body/GetIDOCTypesForMesType/MESTYPE").text = mesType;
+	bdiSAP.request = clone_reqGetIDOCTypes;
+	bdiSAP.clear();
+	flag_SoapFault = false ;
+	bdiSAP.parameters.receiver = sel_soapnode.getValue();
+	bdiSAP.reset();
+	if (flag_SOAPFault == false )
+	{
+		var idocItems = bdiSAP.data.selectNodes("data/GetIDOCTypesForMesTypeResponse/tuple/old/IDOCTypes/item");
+		var noOfIdocItems = idocItems.length;
+		for(var i=0; i<noOfIdocItems; i++)
+		{
+			var idocType = idocItems[i].getAttribute("IDOCTYP");
+			var cimType = idocItems[i].getAttribute("CIMTYP");
+			var released = idocItems[i].getAttribute("RELEASED");
+			//var idocValue = cimType ;// Contains Extension
+			entitylist.add(idocType, cimType);
+			entitylist.options[i].title = idocType;
+		}
+	}
+}
+// To change the table to suit listing of BAPIs or RFCs depending on the radio button checked
+function changeTable()
+{
+	removeOptions(entitylist,0);
+	removeOptions(selectedlist,0);
+	if (radio_bapi.checked)
+	{
+		row_BO_MsgType.style.display = "inline" ;
+		startsWithValue.innerText = "BO Name" ;
+		removeOptions(sel_BO_MsgType, 0);
+		sel_BO_MsgType.add("--Select BO--", "0");
+		sel_BO_MsgType.setSelectedIndex(0);
+		lb_entitylist.innerText = "Available BAPIs" ;
+		lb_selectedlist.innerText = "Selected BAPIs" ;
+		startsWith.title = "The string BO names should start with" ;
+	}
+	else if(radio_rfc.checked)
+	{
+		row_BO_MsgType.style.display = "none" ;
+		lb_entitylist.innerText = "Available RFCs" ;
+		lb_selectedlist.innerText = "Selected RFCs" ;
+		startsWith.title = "The string RFC names should start with" ;
+	}
+	else
+	{
+		startsWithValue.innerText = "Message Type" ;
+		removeOptions(sel_BO_MsgType, 0);
+		sel_BO_MsgType.add("--Select MsgType--", "0");
+		sel_BO_MsgType.setSelectedIndex(0);
+		row_BO_MsgType.style.display = "inline" ;
+		lb_entitylist.innerText = "Available IDOCs" ;
+		lb_selectedlist.innerText = "Selected IDOCs" ;
+		startsWith.title = "The string Message Type names should start with" ;
+	}
+}
+// To validate the values provided.
+
+// To validate the value entered in an input box
+function validText(givenText)
+{
+	if (givenText == "" || !givenText.match(/\S/))
+		return false;
+	return true;
+}
+
+// To change the multiple select box to four text boxes if Cordys Protocol Checkbox is checked
+//and vice versa.
+function change_SelectedBAPIsBox()
+{
+	sel_BO_MsgType.value = 0;
+	removeOptions(entitylist,0);
+	if (ch_protocol.checked )
+	{
+		td_TwoButtons.style.display = "none" ;
+		td_FourButtons.style.display = "inline" ;
+		td_SelectedList.style.display = "none" ;
+		td_FourBoxes.style.display = "inline" ;
+		removeOptions(selectedlist,0);
+	}
+	else
+	{
+		td_FourButtons.style.display = "none" ;
+		td_TwoButtons.style.display = "inline" ;
+		td_FourBoxes.style.display = "none" ;
+		td_SelectedList.style.display = "inline" ;
+	}
+}
+
+/**
+ * This method will generate the proper WSDL from the SAP connector. It will clone the request template 
+ * and fill in the proper parameters based on the user's input. Then the request is actually fired.
+ *
+ * @param interfaceName The name of the web service interface.
+ * @param namespace     The target namespace for the interface.
+ *
+ * @return The XML structure containing the WSDLs and realizations.
+ *
+ * @author pgussow
+ */
+function getGeneratedWSDL(namespace)
+{
+	// Initialize the prefixes
+	var NS_PUB = "http://schemas.cordys.com/1.0/SAPMethodPublish";
+	
+	var prefixes = new Array();
+	prefixes["ns"] = NS_PUB; 
+
+	// Clone the request
+	var xmlRequest = reqGenerateMethods.XMLDocument.cloneNode(true);
+
+	// Fill the general information
+	cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:namespace", prefixes), namespace);
+	cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:interfacename", prefixes), txtWebServiceInterfaceName.value);	
+	
+    // Based on the selected options fill in the proper data.
+	if(radio_bapi.checked)
+	{
+		cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:type", prefixes), "BAPI");
+		var boName = sel_BO_MsgType.options[sel_BO_MsgType.getSelectedIndex()].innerText;
+		cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:businessobject_mestype", prefixes), boName);
+	}
+	else if(radio_rfc.checked)
+	{
+		cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:type", prefixes), "RFC");
+	}
+	else
+	{
+		cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:type", prefixes), "IDOC");
+		msgType = sel_BO_MsgType.options[sel_BO_MsgType.getSelectedIndex()].innerText;
+		cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:businessobject_mestype", prefixes), msgType);
+	}
+
+	//Now add all operations to the list.
+	var operations = cordys.selectXMLNode(xmlRequest, "//ns:operations", prefixes)
+	for(var count = 0; count < selectedlist.options.length ; count++)
+	{
+		// Get the information 
+		var operationName = selectedlist.options[count].innerText;
+		var webserviceName = null;
+		var cimType = null;
+		
+		if(radio_bapi.checked)
+		{
+			operationName = selectedlist.options[count].value;
+			webserviceName = boName + "_" + selectedlist.options[count].innerText;
+		}
+		else if(radio_idoc.checked)
+		{
+			cimType = selectedlist.options[count].value;
+			webserviceName = idocType ;
+		}
+
+		//Create the actual operation node.
+		var xmlOperation = cordys.createElementNS(operations.ownerDocument, NS_PUB, "operation");
+		cordys.setTextContent(xmlOperation, operationName);
+		if (webserviceName != null)
+		{
+			cordys.setXMLAttribute(xmlOperation, NS_PUB, "servicename", webserviceName); 
+		}
+		if (cimType != null)
+		{
+			cordys.setXMLAttribute(xmlOperation, NS_PUB, "cimtype", cimType); 
+		}
+		operations.appendChild(xmlOperation);
+	}
+	
+	
+	//Send the request to the backend.
+	bdiSAP.request = xmlRequest;
+	bdiSAP.clear();
+	
+	bdiSAP.reset();
+	
+	if (!flag_SOAPFault)
+	{
+		application.showError("Error generating web service interface.");
+	}
+
+	return bdiSAP.data;
+}
+
+/**
+ * This method validates that the data entered is correct.
+ *
+ * @return true when the data is entered correctly. Otherwise false.
+ */
+function fnValidate()
+{
+	var bReturn = false;
+
+	if (txtWebServiceInterfaceName.value == "")
+	{
+		application.showError("Enter a name for the web service interface");
+		txtWebServiceInterfaceName.focus();
+	}
+	else if (sel_org.value == 0)
+	{
+		application.showError("Select an Organization.");
+		sel_org.focus();
+	}
+	else  if (sel_soapnode.getValue() == 0)
+	{
+		application.showError("Select a SOAP Node.");
+		sel_soapnode.focus();
+	}
+	else if ( selectedlist.options.length == 0)
+	{
+		application.showError(" No items selected for publishing.");
+	}
+	else
+	{
+		bReturn = true;
+	}
+	
+	return bReturn;
+}
+
+</script>
+	<eibus:dataisland
+		 id="bdiSAP"
+		 async = "false"
+		 automatic = "false">
+	</eibus:dataisland>
+	
+	<xml id="requestGetSOAPProcessors">
+	    <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+		  <SOAP:Body>
+		     <GetSoapProcessors xmlns="http://schemas.cordys.com/1.0/ldap">
+		        <dn></dn>
+		     </GetSoapProcessors>
+		  </SOAP:Body>
+		</SOAP:Envelope>
+	</xml>
+	<xml id="reqForMethodSets">
+		<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+		    <SOAP:Body>
+		        <GetMethodSets xmlns="http://schemas.cordys.com/1.0/ldap">
+					<dn></dn>
+					<labeleduri>*</labeleduri>
+		        </GetMethodSets>
+		    </SOAP:Body>
+	    </SOAP:Envelope>
+	</xml>
+	<xml id="reqGenerateMethods">
+		<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+			<SOAP:Body>
+				<GenerateMethods xmlns="http://schemas.cordys.com/1.0/SAPMethodPublish">
+					<type/>
+					<businessobject_mestype/>
+					<interfacename/>
+					<namespace/>
+					<operations/>
+				</GenerateMethods>
+			</SOAP:Body>
+		</SOAP:Envelope>
+	</xml>
+	<xml id="reqPublishBAPI">
+	<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+	  <SOAP:Body>
+	    <PublishBAPI xmlns="http://schemas.cordys.com/1.0/SAPMethodPublish">
+			<methodSet/>
+			<namespace/>
+			<isNew/>
+			<attachToSOAPNode/>
+			<SOAPNodeDN/>
+			<BO/>
+			<BAPI/>
+			<RFM/>
+			<organization/>
+			<overwrite/>
+	    </PublishBAPI>
+	  </SOAP:Body>
+	</SOAP:Envelope>
+	</xml>
+	<xml id="reqPublishIDOC">
+	<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+	  <SOAP:Body>
+	    <PublishIDOC xmlns="http://schemas.cordys.com/1.0/SAPMethodPublish">
+			<methodSet/>
+			<namespace/>
+			<isNew/>
+			<attachToSOAPNode/>
+			<SOAPNodeDN/>
+			<IDOCType/>
+			<MESType/>
+			<CIMType/>
+			<organization/>
+			<overwrite/>
+	    </PublishIDOC>
+	  </SOAP:Body>
+	</SOAP:Envelope>
+	</xml>
+	<xml id="reqPublishRFC">
+	<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+	  <SOAP:Body>
+	    <PublishRFC xmlns="http://schemas.cordys.com/1.0/SAPMethodPublish">
+			<methodSet/>
+			<namespace/>
+			<isNew/>
+			<attachToSOAPNode/>
+			<SOAPNodeDN/>
+			<RFM/>
+			<organization/>
+			<overwrite/>
+	    </PublishRFC>
+	  </SOAP:Body>
+	</SOAP:Envelope>
+	</xml>
+	<xml id="reqGetBOs">
+	<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+	  <SOAP:Body>
+		<GetBOs xmlns="http://schemas.cordys.com/1.0/SAPSchema">
+			<fromBO/>
+			<toBO/>
+			<overwrite>false</overwrite>
+		</GetBOs>
+	  </SOAP:Body>
+	</SOAP:Envelope>
+	</xml>
+	<xml id="reqGetBAPIs">
+	<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+	  <SOAP:Body>
+	    <GetBAPIs xmlns="http://schemas.cordys.com/1.0/SAPSchema">
+			<BO/>
+			<overwrite>false</overwrite>
+	    </GetBAPIs>
+	  </SOAP:Body>
+	</SOAP:Envelope>
+	</xml>
+	<xml id="reqGetRFCs">
+	<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+	  <SOAP:Body>
+	    <GetRFCs xmlns="http://schemas.cordys.com/1.0/SAPSchema">
+			<fromRFC/>
+			<toRFC/>
+			<overwrite>false</overwrite>
+	    </GetRFCs>
+	  </SOAP:Body>
+	</SOAP:Envelope>
+	</xml>
+	<xml id="reqGetMsgTypes">
+	<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+	  <SOAP:Body>
+	    <GetIDOCMessageTypes xmlns="http://schemas.cordys.com/1.0/SAPSchema">
+			<fromMSGTYPE/>
+			<toMSGTYPE/>
+			<overwrite>false</overwrite>
+	    </GetIDOCMessageTypes>
+	  </SOAP:Body>
+	</SOAP:Envelope>
+	</xml>
+	<xml id="reqGetIDOCTypes">
+	<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+	  <SOAP:Body>
+	    <GetIDOCTypesForMesType xmlns="http://schemas.cordys.com/1.0/SAPSchema">
+			<MESTYPE></MESTYPE>
+			<overwrite>false</overwrite>
+	    </GetIDOCTypesForMesType>
+	  </SOAP:Body>
+	</SOAP:Envelope>
+	</xml>
+	<body>
+		<table border="0" width="100%" height="99%"><!--To avoid scroll bar in the page-->
+			<tr>
+				<td>
+					<label style="width:95%"> Web Service Interface Name </label><br/>
+					<input type="text" id="txtWebServiceInterfaceName" class="input" style="width:95%" title="The name of the new Web Service Interface"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label style="width:50%"> Organization </label> </br>
+					<eibus:select class="input" id="sel_org" style="width:50%" onchange="fillSoapNodes()">
+						<div value="0">--- Select Organization ---</div>
+					</eibus:select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label style="width:50%">Service Group</label> </br>
+					<eibus:select class="input" id="sel_soapnode" style="width:50%" onchange="adjustUI()">
+						<div value="0">--- Select Service Group ---</div>
+					</eibus:select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table border="0" width="100%" height = "100%" cellSpacing="1" cellPadding="1" class="mediumdark">
+						<thead >
+							<tr height="2%">
+								<td colspan="2">
+									<label>Select Web Services to be Published</label>
+								</td>
+							</tr>
+						</thead>
+						<tbody class="mainbody">
+							<tr>
+								<td style="width:20%">
+									<table border="0" width="100%" >
+										<tr>
+											<td>
+												<input type="radio" id = "radio_bapi" name = "radio_type" style="width:20%" onclick="changeTable()" checked>
+												<label for="radio_bapi">BAPI</label>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<input type="radio" id = "radio_rfc" name = "radio_type" style="width:20%" onclick="changeTable()">
+												<label for="radio_rfc">RFC</label>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<input type="radio" id = "radio_idoc" name = "radio_type" style="width:20%" onclick="changeTable()">
+												<label for="radio_idoc">IDOC</label>
+											</td>
+										</tr>
+									</table>
+								</td>
+								<td style="width:80%">
+									<table border="0" width = "100%" height="100%">
+										<tr id="row_StartsWith" height="10%">
+											<td colspan="3">
+												<label > Start with </label></br>
+												<input type="text" id="startsWith" class="input" style="width:30%" title="The string BO names should start with"> &nbsp;&nbsp;
+												<button class="medium" style="width:10%;height:18" onclick="getItems()">Go</button>
+											</td>
+										</tr>
+										<tr id="row_BO_MsgType"  height="5%">
+											<td colspan="3">
+												<label id="startsWithValue"> BO Name </label></br>
+												<eibus:select id="sel_BO_MsgType" class="input" onchange ="getSubItems()" style="width:45%">
+													<div value="0">--Select BO--</div>
+												</eibus:select>
+											</td>
+										</tr>
+										<tr height="80%">
+											<td style="width:45%">
+												<label id="lb_entitylist">Available BAPIs</label><br/>
+												<eibus:select id="entitylist" class="input" selectType="multiple" style="width:100%;height:90%">
+												</eibus:select>
+											</td>
+											<td style="width:15%" align="center" id = "td_TwoButtons">
+												<button class="medium" style="width:60%;height:18px" onclick="addEntitiesToSelectedList()" ><label>>></label></button>
+												<br/><br/><br/><br/>
+												<button class="medium" style="width:60%;height:18px" onclick="removeEntitiesFromSelectedList()" ><label><<</label></button>
+											</td>
+											<td style="width:45%" id="td_SelectedList" >
+												<label id="lb_selectedlist">Selected BAPIs</label><br/>
+												<eibus:select id="selectedlist" class="input" selectType="multiple" style="width:100%;height:90%">
+												</eibus:select>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

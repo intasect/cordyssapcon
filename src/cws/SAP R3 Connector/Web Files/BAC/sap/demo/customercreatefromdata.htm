@@ -1,0 +1,432 @@
+<!--
+Copyright 2003 Cordys R&D B.V. 
+
+This file is part of the Cordys SAP Connector. 
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!--
+ Project  : Cordys BAC
+ File Name : customercreatefromdata.htm
+ Description : This page is used as a demo page.This creates a customer in sap.
+ Author : Vijaya Gopal
+ ======================== adjustment for BOP4 compliance ===============================================
+ **                                                                                                   **
+ ** changed: 26.aug2009: Helmut Boecker - xmlns:eibus="xmlns:eibus"                                   **
+ ** changed: 26.aug2009: Helmut Boecker - moved the  tag </head> from end of dataisland before script **
+ ** changed: 26.aug2009: Helmut Boecker - added application.js                                        **
+ ** changed: 26.aug2009: Helmut Boecker - removed link to behaviors.css                               **
+ ** changed: 26.aug2009: Helmut Boecker - getValue() for all occurences done                          ** 
+ ** changed: 26.aug2009: Helmut Boecker - changed window.event.applicationDefinition to application.event.applicationDefinition    ** 
+-->
+<html xmlns:eibus="xmlns:eibus" onselect="setTitle()">
+<head>
+  <script src="/cordys/wcp/application.js"></script>
+	<style>
+		input{font-size:11; font-family:verdana; width:100%;height:20px }
+		label{font-size:11; font-family:verdana; }
+		eibus\:select div{font-size:11; font-family:verdana; width:100%;height:18px}
+	</style>
+</head>
+
+
+	<script language = "JScript">
+	var uniqueFilePath;//the folder path of the surrent applocation.
+	var flag_SoapFault=true//soapfault flag.
+	//It gets the application definition and sets the title of the page.*/
+	function setTitle()
+	{
+		var applicationDef=application.event.applicationDefinition;
+		window.application.container.setTitle(applicationDef.selectSingleNode(".//description").text,"BAC for SAP R/3 JCo");
+		uniqueFilePath=applicationDef.selectSingleNode(".//url").text
+	}
+	//This function is used to validate the fields..
+	function fnValidate()
+	{
+		var allFields = document.getElementsByTagName("input");
+		for(var k = 0;k < allFields.length ; k++ )
+		{
+			if(allFields[k].required == "yes")
+			{
+				if(!isValidText(allFields[k]))
+				{
+					alert("Enter the " +allFields[k].title + ".");
+					allFields[k].select();
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	//This checks for text in the text box..
+	function isValidText(objElement)
+	{
+		var objText = objElement.value;
+		if (objText == "" || !objText.match(/\S/))
+			return false;
+		return true;
+	}
+	//It creates the soap request and calls the method to create the customer.
+	function createCustomerFromData()
+	{
+		flag_SoapFault=true;
+		if(fnValidate())
+		{
+			var clone_reqCreateCustomer = reqCreateCustomer.XMLDocument.cloneNode(true);
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/TITLE_P").text = input_title.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/FIRSTNAME").text = input_firstName.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/LASTNAME").text = input_lastName.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/MIDDLENAME").text = input_middleName.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/SECONDNAME").text = input_secondName.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/DATE_BIRTH").text = input_dateBirth.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/CITY").text = input_city.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/DISTRICT").text = input_district.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/POSTL_COD1").text = input_postCode1.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/POSTL_COD2").text = input_postCode2.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/PO_BOX").text = input_poBox.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/PO_BOX_CIT").text = input_poBoxCit.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/STREET").text = input_street.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/HOUSE_NO").text = input_houseNo.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/BUILDING").text = input_building.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/FLOOR").text = input_floor.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/ROOM_NO").text = input_roomNo.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/COUNTRY").text = input_country.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/COUNTRYISO").text = input_countryISO.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/REGION").text = input_region.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/TEL1_NUMBR").text = input_tel.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/TEL1_EXT").text = input_telExtn.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/FAX_NUMBER").text = input_fax.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/FAX_EXTENS").text = input_faxExtn.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/E_MAIL").text = input_email.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/LANGU_P").text = input_lang.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/LANGUP_ISO").text = input_langISO.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/CURRENCY").text = input_currency.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/CURRENCY_ISO").text = input_currencyISO.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_PERSONALDATA/TITLE_KEY").text = input_titleKey.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_COPYREFERENCE/SALESORG").text = input_salesOrg.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_COPYREFERENCE/DISTR_CHAN").text = input_distChain.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_COPYREFERENCE/DIVISION").text = input_division.value;
+			clone_reqCreateCustomer.selectSingleNode("SOAP:Envelope/SOAP:Body/Customer_CreateFromData1/PI_COPYREFERENCE/REF_CUSTMR").text = input_refCustomer.value;
+			diCreateCustomer.request = clone_reqCreateCustomer;
+			diCreateCustomer.clear();
+			diCreateCustomer.reset();
+			if(flag_SoapFault == true)
+			{
+				var resCreate=diCreateCustomer.data;
+				var customerNo;
+				var customerNode = resCreate.selectSingleNode(".//CUSTOMERNO");
+				if(customerNode)
+					customerNo = customerNode.text;
+				else
+					customerNo = resCreate.selectSingleNode(".//Customer_CreateFromData1Response").getAttribute("CustomerNo");
+				alert("The customer with ID " + customerNo +" has been created.");
+				reset();
+			}
+		}
+	}
+	//It sets the SOAPFault flag when a SOAPFault occurs.
+	function fnFault()
+	{
+		flag_SoapFault = false ;
+	}
+	//This function resets the application after each customer is created .
+	function reset()
+	{
+		var allFields = document.getElementsByTagName("input");
+		for(k = 0;k < allFields.length ; k++ )
+		{
+			if(allFields[k].type != "button")
+				allFields[k].value = "";
+		}
+	}
+	</script>
+
+<eibus:dataisland
+	 id="diCreateCustomer"
+	 onsoapfault="fnFault()"
+	 automatic="false"
+	 async="false"/>
+<xml id="reqCreateCustomer">
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP:Body>
+    <Customer_CreateFromData1 xmlns="http://schemas.cordys.com/1.0/SAPDemo">
+        <PI_PERSONALDATA>
+          <TITLE_P></TITLE_P>
+          <FIRSTNAME></FIRSTNAME>
+          <LASTNAME></LASTNAME>
+          <MIDDLENAME></MIDDLENAME>
+          <SECONDNAME></SECONDNAME>
+          <DATE_BIRTH></DATE_BIRTH>
+          <CITY></CITY>
+          <DISTRICT></DISTRICT>
+          <POSTL_COD1></POSTL_COD1>
+          <POSTL_COD2></POSTL_COD2>
+          <PO_BOX></PO_BOX>
+          <PO_BOX_CIT></PO_BOX_CIT>
+          <STREET></STREET>
+          <HOUSE_NO></HOUSE_NO>
+          <BUILDING></BUILDING>
+          <FLOOR></FLOOR>
+          <ROOM_NO></ROOM_NO>
+          <COUNTRY></COUNTRY>
+          <COUNTRYISO></COUNTRYISO>
+          <REGION></REGION>
+          <TEL1_NUMBR></TEL1_NUMBR>
+          <TEL1_EXT></TEL1_EXT>
+          <FAX_NUMBER></FAX_NUMBER>
+          <FAX_EXTENS></FAX_EXTENS>
+          <E_MAIL></E_MAIL>
+          <LANGU_P></LANGU_P>
+          <LANGUP_ISO></LANGUP_ISO>
+          <CURRENCY></CURRENCY>
+          <CURRENCY_ISO></CURRENCY_ISO>
+          <TITLE_KEY></TITLE_KEY>
+          <ONLY_CHANGE_COMADDRESS></ONLY_CHANGE_COMADDRESS>
+        </PI_PERSONALDATA>
+        <PI_COPYREFERENCE>
+          <SALESORG></SALESORG>
+          <DISTR_CHAN></DISTR_CHAN>
+          <DIVISION></DIVISION>
+          <REF_CUSTMR></REF_CUSTMR>
+        </PI_COPYREFERENCE>
+    </Customer_CreateFromData1>
+  </SOAP:Body>
+</SOAP:Envelope>
+</xml>
+<body>
+	<table border = "0" cellSpacing = "0" cellPadding = "0" width = "100%" height = "100%">
+		<tr>
+			<td>
+				<table class = "mediumdark" cellSpacing = "1" cellPadding = "1" width = "100%" height = "100%">
+					<thead>
+						<tr>
+							<td colspan = "2">
+								<label>Customer Personal Data</label>
+							</td>
+						</tr>
+					</thead>
+					<tbody class = "mainbody">
+						<tr>
+							<td>
+								<table width="100%" height="100%">
+									<tr>
+										<td>
+											<label style="width:40%" title = "Title text">TITLE_P</label>
+											<input type="text" class="input" style="width:50%" id="input_title" title = "Title text" tabIndex = "1">
+										</td>
+										<td>
+											<label  style="width:40%" title="Floor in building">FLOOR</label>
+											<input type="text" class="input" style="width:50%" id="input_floor" title="Floor in building" tabIndex = "16">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title="First name">FIRSTNAME</label>
+											<input type="text" class="input" style="width:50%" id="input_firstName" title="First name" tabIndex = "2">
+										</td>
+										<td>
+											<label  style="width:40%" title="Room or apartment number">ROOM_NO</label>
+											<input type="text" class="input" style="width:50%" id="input_roomNo" title="Room or apartment number" tabIndex = "17">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title="Last name">LASTNAME *</label>
+											<input type="text" class="input" style="width:50%" id="input_lastName" required="yes" title="Last name" tabIndex = "3">
+										</td>
+										<td>
+											<label  style="width:40%" title="Country key">COUNTRY *</label>
+											<input type="text" class="input" style="width:50%" id="input_country" required="yes" title="Country key" tabIndex = "18">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title = "Middle name or second forename">MIDDLENAME</label>
+											<input type="text" class="input" style="width:50%" id="input_middleName" title = "Middle name or second forename" tabIndex = "4">
+										</td>
+										<td>
+											<label  style="width:40%" title="Country ISO code">COUNTRYISO</label>
+											<input type="text" class="input" style="width:50%" id="input_countryISO" title="Country ISO code" tabIndex = "19">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title="second surname">SECONDNAME</label>
+											<input type="text" class="input" style="width:50%" id="input_secondName" title="second surname" tabIndex = "5">
+										</td>
+										<td>
+											<label  style="width:40%" title="Region(state, province, county)">REGION</label>
+											<input type="text" class="input" style="width:50%" id="input_region" title="Region(state, province, county)" tabIndex = "20">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title="Date of birth">DATE_BIRTH</label>
+											<input type="text" class="input" style="width:50%" id="input_dateBirth" title="Date of birth" tabIndex = "6">
+										</td>
+										<td>
+											<label  style="width:40%" title="First telephone no(dialling code+number)">TEL1_NUMBR</label>
+											<input type="text" class="input" style="width:50%" id="input_tel" title="First telephone no(dialling code+number)" tabIndex = "21">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title="city">CITY *</label>
+											<input type="text" class="input" style="width:50%" id="input_city" required="yes" title="city" tabIndex = "7">
+										</td>
+										<td>
+											<label  style="width:40%" title="First telephone number extension">TEL1_EXT</label>
+											<input type="text" class="input" style="width:50%" id="input_telExtn" title="First telephone number extension" tabIndex = "22">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title="District">DISTRICT</label>
+											<input type="text" class="input" style="width:50%" id="input_district" title="District" tabIndex = "8">
+										</td>
+										<td>
+											<label  style="width:40%" title="First fax number(dialling code+number)">FAX_NUMBER</label>
+											<input type="text" class="input" style="width:50%" id="input_fax" title="First fax number(dialling code+number)" tabIndex = "23">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title="City postal code">POSTL_COD1 *</label>
+											<input type="text" class="input" style="width:50%" id="input_postCode1" required="yes" title="City postal code" tabIndex = "9">
+										</td>
+										<td>
+											<label  style="width:40%" title="First fax number extension">FAX_EXTENS</label>
+											<input type="text" class="input" style="width:50%" id="input_faxExtn" title="First fax number extension" tabIndex = "24">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title="PO Box postal code">POSTL_COD2</label>
+											<input type="text" class="input" style="width:50%" id="input_postCode2" title="PO Box postal code" tabIndex = "10">
+										</td>
+										<td>
+											<label  style="width:40%" title="Internet mail(SMTP) address">E_MAIL</label>
+											<input type="text" class="input" style="width:50%" id="input_email" title="Internet mail(SMTP) address" tabIndex = "25">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title="PO Box">PO_BOX</label>
+											<input type="text" class="input" style="width:50%" id="input_poBox" title="PO Box" tabIndex = "11">
+										</td>
+										<td>
+											<label  style="width:40%" title="Language key">LANGU_P *</label>
+											<input type="text" class="input" style="width:50%" id="input_lang" required="yes" title="Language key" tabIndex = "26">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title="PO Box city">PO_BOX_CIT</label>
+											<input type="text" class="input" style="width:50%" id="input_poBoxCit" title="PO Box city" tabIndex = "12">
+										</td>
+										<td>
+											<label  style="width:40%" title="Language according to ISO 639">LANGUP_ISO</label>
+											<input type="text" class="input" style="width:50%" id="input_langISO" title="Language according to ISO 639" tabIndex = "27">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title="Street">STREET</label>
+											<input type="text" class="input" style="width:50%" id="input_street" title="Street" tabIndex = "13">
+										</td>
+										<td>
+											<label  style="width:40%" title="Currency key">CURRENCY *</label>
+											<input type="text" class="input" style="width:50%" id="input_currency" required="yes" title="Currency key" tabIndex = "28">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title="House number">HOUSE_NO</label>
+											<input type="text" class="input" style="width:50%" id="input_houseNo" title="House number" tabIndex = "14">
+										</td>
+										<td>
+											<label  style="width:40%" title="Currency ISO code">CURRENCY_ISO</label>
+											<input type="text" class="input" style="width:50%" id="input_currencyISO" title="Currency ISO code" tabIndex = "29">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title="Building number or code">BUILDING</label>
+											<input type="text" class="input" style="width:50%" id="input_building" title="Building number or code" tabIndex = "15">
+										</td>
+										<td>
+											<label  style="width:40%" title="Title key">TITLE_KEY</label>
+											<input type="text" class="input" style="width:50%" id="input_titleKey" title="Title key" tabIndex = "30">
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table class = "mediumdark" cellSpacing = "1" cellPadding = "1" width = "100%" height = "100%">
+					<thead>
+						<tr>
+							<td colspan = "2">
+								<label>Reference Data</label>
+							</td>
+						</tr>
+					</thead>
+					<tbody class = "mainbody">
+						<tr>
+							<td>
+								<table width="100%" height="100%">
+									<tr>
+										<td>
+											<label style="width:40%" title="Sales organization">SALESORG *</label>
+											<input type="text" class="input" style="width:50%" id="input_salesOrg" required="yes" title="Sales organization" tabIndex = "31">
+										</td>
+										<td>
+											<label  style="width:40%" title="Division">DIVISION *</label>
+											<input type="text" class="input" style="width:50%" id="input_division" required="yes" title="Division" tabIndex = "33">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<label style="width:40%" title="Distribution channel">DISTR_CHAN *</label>
+											<input type="text" class="input" style="width:50%" id="input_distChain" required="yes" title="Distribution channel" tabIndex = "32">
+										</td>
+										<td>
+											<label  style="width:40%" title="Reference customer number">REF_CUSTMR *</label>
+											<input type="text" class="input" style="width:50%" id="input_refCustomer" required="yes" title="Reference customer number" tabIndex = "34">
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		<tr>
+			<td align = "center" >
+				<input type="button" value="Submit" style="width:100" class="medium" onclick="createCustomerFromData()" tabIndex = "35">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label><font size="1px">The fields marked with * are mandatory</font></label>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

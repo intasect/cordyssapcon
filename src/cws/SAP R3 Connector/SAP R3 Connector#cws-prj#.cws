@@ -1,0 +1,42 @@
+
+<Project
+	type="com.cordys.cws.documenttypes.project.Project"
+	typeVersion="0019B980-5ADC-71DF-9C5A-1C9DE0779704"
+	RuntimeDocumentID="005056C0-0008-71DE-9657-8CC2DDF3A0EE">
+	<DocumentID>005056C0-0008-71DE-9657-8CC2DDF3A0ED</DocumentID>
+	<Name>SAP R3 Connector</Name>
+	<Description>SAP R3 Connector</Description>
+	<CreatedBy>hboecker</CreatedBy>
+	<CreationDate>2009-08-19T14:08:59.687</CreationDate>
+	<Notes/>
+	<NamespacePrefix></NamespacePrefix>
+	<SourceFolder>
+		<uri
+			id="005056C0-0008-11E0-E7D7-FC0B627BBF40"
+			path="SAP R3 Connector"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+	<ISVPackageInfo>
+		<ISVPackageInfo
+			type="com.cordys.cws.packaging.isvp.ISVPackageInfo"
+			RuntimeDocumentID="005056C0-0008-71DE-9657-8CC2DDF3A0E8">
+			<DocumentID>005056C0-0008-71DE-9657-8CC2DDF3A0E7</DocumentID>
+			<Name>Cordys_SAP_R3_2.0.4</Name>
+			<Description>Cordys_SAP_R3_2.0.4</Description>
+			<CreatedBy>hboecker</CreatedBy>
+			<CreationDate>2009-08-19T14:08:59.671</CreationDate>
+			<Notes/>
+			<BuildNumber>4</BuildNumber>
+			<ISVPackageFileName>Cordys_SAP_R3_2.0.4</ISVPackageFileName>
+			<Version>2.0</Version>
+			<Product>SAP R3 Connector </Product>
+			<PostISVLoaderInformation/>
+			<PackageForRuntime>true</PackageForRuntime>
+			<ISVPackageOwner>Cordys</ISVPackageOwner>
+			<LicenseAgreement/>
+			<ThirdPartyAgreement/>
+		</ISVPackageInfo>
+	</ISVPackageInfo>
+	<RuntimeQualifiedName/>
+</Project>

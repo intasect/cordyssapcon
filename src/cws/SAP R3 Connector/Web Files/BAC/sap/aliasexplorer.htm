@@ -1,0 +1,452 @@
+<!--
+Copyright 2003 Cordys R&D B.V. 
+
+This file is part of the Cordys SAP Connector. 
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!--
+ Project  : Cordys BAC
+ File Name : AliasExplorer.htm
+ Description : This UI is to show the details of the certificates in the keystore.you can also add certificates to
+				keystore from here.
+-->
+<html xmlns:eibus onselect="getSelectedItem()">
+<head>
+	<title>Key Stores</title>
+	<link REL="stylesheet" href="/cordys/wcp/style/behaviors.css"></link>
+</head>
+<script language="JavaScript">
+var LDAPtype;				//type of the keyStore
+var LDAPprovider;			//key Store provider
+var LDAPkeystorePath;		//keyStore Path
+var LDAPpasswd;				//keyStore Password
+var rootNode;
+var soapFaultOccured=false;
+/*	 This function builds the tree based on the key Store entries
+ */
+function assign()
+{
+		var response=new ActiveXObject("Microsoft.XMLDOM");
+		response.loadXML(digetEntries.data.selectSingleNode(".//getEntries/getEntries").text);
+		aliasTree.treeData=response;
+		schemaID.selectSingleNode(".//Root/description").text=rootNode;
+		aliasTree.treeSchema = 'schemaID';
+		RootContext.registerHTML(aliasTree.root);
+}
+/*	This function initialises the global varaibles which are later on used
+ */
+function getSelectedItem()
+{
+	applicationDef = window.event.applicationDefinition;
+	window.application.container.setTitle(applicationDef.selectSingleNode(".//description").text,"BAC for SAP R/3");
+	LDAPtype=applicationDef.selectSingleNode(".//type").text;
+	LDAPprovider=applicationDef.selectSingleNode(".//provider").text;
+	LDAPkeystorePath=applicationDef.selectSingleNode(".//keystorePath").text;
+	LDAPpasswd=applicationDef.selectSingleNode(".//passwd").text;
+	rootNode=applicationDef.selectSingleNode(".//description").text;
+
+}
+/*	This function sets the parameter values in the request to be passed and gets the entries in
+ *	a particular key store and displays them in a tree format.
+ */
+function initialize()
+{
+	var entriesXml=getEntries.XMLDocument.cloneNode(true);
+	entriesXml.selectSingleNode("SOAP:Envelope/SOAP:Body/getEntries/type").text = LDAPtype;
+	entriesXml.selectSingleNode("SOAP:Envelope/SOAP:Body/getEntries/provider").text =LDAPprovider;
+	entriesXml.selectSingleNode("SOAP:Envelope/SOAP:Body/getEntries/keystorePath").text = LDAPkeystorePath;
+    entriesXml.selectSingleNode("SOAP:Envelope/SOAP:Body/getEntries/passwd").text = LDAPpasswd;
+
+	digetEntries.organization=application.organization;
+	digetEntries.request=entriesXml;
+	digetEntries.reset();
+	if(!soapFaultOccured)
+		assign();
+}
+/*This function gets the details for a particular keystore type,provider,password,alias
+ * and puts the details
+ */
+function showDetails(selectedNode)
+{
+	var cloneGetDetailsXML = getDetailsXML.XMLDocument.cloneNode(true);
+	secondTable.style.visibility='visible';
+	loadcert.style.display="none";
+	properties.style.display="";
+
+	cloneGetDetailsXML.selectSingleNode("SOAP:Envelope/SOAP:Body/getDetails/type").text = LDAPtype;
+	cloneGetDetailsXML.selectSingleNode("SOAP:Envelope/SOAP:Body/getDetails/provider").text = LDAPprovider;
+	cloneGetDetailsXML.selectSingleNode("SOAP:Envelope/SOAP:Body/getDetails/keystorePath").text = LDAPkeystorePath;
+	cloneGetDetailsXML.selectSingleNode("SOAP:Envelope/SOAP:Body/getDetails/passwd").text =LDAPpasswd;
+	cloneGetDetailsXML.selectSingleNode("SOAP:Envelope/SOAP:Body/getDetails/alias").text = selectedNode.getLabel().innerText;
+
+	digetEntries.request=cloneGetDetailsXML;
+	digetEntries.reset();
+	if(!soapFaultOccured)
+	{
+		var response=new ActiveXObject("Microsoft.XMLDOM");
+		response.loadXML(digetEntries.data.selectSingleNode(".//getCertificateDetails/getCertificateDetails").text);
+		putDetails(response);
+	}
+}
+/*	This method puts the detials using the response from the method getDetails
+ */
+function putDetails(data)
+{
+
+	version.innerText=data.selectSingleNode(".//version").text
+	serialno.innerText=data.selectSingleNode(".//serialno").text
+	type.innerText=data.selectSingleNode(".//type").text
+	issuer.innerText=data.selectSingleNode(".//issuer").text
+	sigalg.innerText=data.selectSingleNode(".//sigalg").text
+	validfrom.innerText=data.selectSingleNode(".//validfrom").text
+	validto.innerText=data.selectSingleNode(".//validto").text
+	subject.innerText=data.selectSingleNode(".//subject").text
+	keyalg.innerText=data.selectSingleNode(".//keyalg").text
+}
+/*	This function deletes the alias by calling the method deleteAlias
+ */
+function deleteAlias()
+{
+	var cloneDelAlias = delAlias.XMLDocument.cloneNode(true);
+	contextedItem = window.event.activeElement.getTreeItem();
+	aliasToDelete=contextedItem.data.selectSingleNode(".//description").text;
+	cloneDelAlias.selectSingleNode("SOAP:Envelope/SOAP:Body/deleteAlias/type").text =LDAPtype;
+	cloneDelAlias.selectSingleNode("SOAP:Envelope/SOAP:Body/deleteAlias/provider").text =LDAPprovider;
+	cloneDelAlias.selectSingleNode("SOAP:Envelope/SOAP:Body/deleteAlias/keystorePath").text = LDAPkeystorePath;
+	cloneDelAlias.selectSingleNode("SOAP:Envelope/SOAP:Body/deleteAlias/passwd").text = LDAPpasswd;
+	cloneDelAlias.selectSingleNode("SOAP:Envelope/SOAP:Body/deleteAlias/alias").text=aliasToDelete;
+	if(confirm("Do you want to delete the "+aliasToDelete+" alias ?"))
+	{
+		digetEntries.request=cloneDelAlias;
+		digetEntries.reset();
+		if(!soapFaultOccured)
+			onrefresh();
+	}
+}
+/*	This function refreshes the tree
+ */
+function onrefresh()
+{
+	secondTable.style.visibility='hidden';
+	initialize();
+	aliasTree.root.expand();
+}
+/*	This function prepares the XML for loading a certicate
+ */
+function loadCertificate()
+{
+
+	secondTable.style.visibility='visible';
+	certificatePath.value = "";
+	alias.value="";
+	loadcert.style.display="";
+	properties.style.display="none";
+
+	contextedItem = window.event.activeElement.getTreeItem();
+	loadCertificateXML.selectSingleNode("SOAP:Envelope/SOAP:Body/loadCertificate/keystorePath").text=LDAPkeystorePath;
+	loadCertificateXML.selectSingleNode("SOAP:Envelope/SOAP:Body/loadCertificate/type").text = LDAPtype;
+	loadCertificateXML.selectSingleNode("SOAP:Envelope/SOAP:Body/loadCertificate/provider").text= LDAPprovider;
+	loadCertificateXML.selectSingleNode("SOAP:Envelope/SOAP:Body/loadCertificate/passwd").text =LDAPpasswd ;
+
+}
+/*	This function validates the given path & alias for new loading a new certificate
+ *  if no errors loads the certificate
+ */
+function startloading()
+{
+
+	if(!lookForValidPath())
+	{
+		window.alert("Please enter Valid Certificate Path!");
+		certificatePath.focus();
+		certificatePath.select();
+		return ;
+	}
+	if(alias.value=="")
+	{
+		window.alert("Please enter the alias");
+		alias.focus();
+		return;
+	}
+	loadCertificateXML.XMLDocument.selectSingleNode(".//certPath").text = certificatePath.value;
+	loadCertificateXML.XMLDocument.selectSingleNode(".//alias").text =alias.value ;
+	digetEntries.request=loadCertificateXML.XMLDocument;
+	digetEntries.reset();
+
+
+	if(!soapFaultOccured)
+	{
+		certificatePath.value="";
+		alias.value="";
+	}
+	onrefresh();
+}
+/*	This method returns boolean value based on whether the path given is valid or not
+ */
+function lookForValidPath()
+{
+	var regExp = /[\?:<>\*"|\/]/g
+	var collectionMatch = certificatePath.value.match(regExp);
+
+	if ( collectionMatch && collectionMatch.length >=0 )
+	{
+		return true;
+	}
+
+	if (certificatePath.value.indexOf("..")>=0 || certificatePath.value.indexOf(":\\")>=0 || certificatePath.value.indexOf(":")>=0)
+	{
+		return true;
+	}
+	return false;
+}
+
+/*	This fucntion reports any soap falut errors
+ */
+function reportError()
+{
+	soapFaultOccured=true;
+}
+/*Function Name : showGatewayError
+	Scope : This is to hide the gateway error and show only the fault information.*/
+function showGatewayError()
+{
+	window.event.showError = false;
+	alert("Error occured in the gateway.Please contact the administrator to find the details");
+}
+
+</script>
+<eibus:dataisland
+	 id="digetEntries"
+	 request="getEntries.XMLDocument"
+	 automatic = "false"
+	 async="false"
+	 onSoapFault="reportError()"
+	 ongatewayerror = "showGatewayError()"
+
+>
+</eibus:dataisland>
+<xml id="getEntries">
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP:Body>
+        <getEntries xmlns="http://schemas.cordys.com/1.0/keyStore">
+            <type></type>
+			<provider></provider>
+			<keystorePath></keystorePath>
+			<passwd></passwd>
+		</getEntries>
+    </SOAP:Body>
+</SOAP:Envelope>
+</xml>
+<xml id="getDetailsXML">
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP:Body>
+        <getDetails xmlns="http://schemas.cordys.com/1.0/keyStore">
+            <type></type>
+			<provider></provider>
+			<keystorePath></keystorePath>
+			<passwd></passwd>
+			<alias></alias>
+        </getDetails>
+    </SOAP:Body>
+</SOAP:Envelope>
+</xml>
+<xml id="delAlias">
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP:Body>
+        <deleteAlias xmlns="http://schemas.cordys.com/1.0/keyStore">
+            <type></type>
+			<provider></provider>
+			<keystorePath></keystorePath>
+			<passwd></passwd>
+			<alias></alias>
+        </deleteAlias>
+    </SOAP:Body>
+</SOAP:Envelope>
+</xml>
+<xml id="schemaID">
+    <TreeSchema>
+	    <searchPath>//menu/</searchPath>
+	    <Root>
+			<description></description>
+		  <contextMenu>RootContext</contextMenu>
+	    </Root>
+
+	    <TreeItem id="aliasID">
+	      <searchPath>alias</searchPath>
+	      <description>description</description>
+		  <onselect>showDetails</onselect>
+		  <contextMenu>AliasContext</contextMenu>
+	    </TreeItem>
+  </TreeSchema>
+</xml>
+<xml id="keyStoreXMLDoc">
+<keyStore>
+</keyStore>
+</xml>
+<xml id="loadCertificateXML">
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP:Body>
+        <loadCertificate xmlns="http://schemas.cordys.com/1.0/keyStore">
+            <type></type>
+			<provider></provider>
+			<keystorePath></keystorePath>
+			<passwd></passwd>
+			<certPath></certPath>
+			<alias></alias>
+        </loadCertificate>
+    </SOAP:Body>
+</SOAP:Envelope>
+</xml>
+
+<eibus:contextmenu id="AliasContext">
+			<eibus:menuitem onclick ='deleteAlias()';>Delete</eibus:menuitem>
+</eibus:contextmenu>
+<eibus:contextmenu id="RootContext">
+				<eibus:menuitem onclick='loadCertificate()';>Load Certificate</eibus:menuitem>
+				<eibus:menuitem onclick='onrefresh()';>Refresh</eibus:menuitem>
+</eibus:contextmenu>
+<eibus:contextmenu id="Root">
+				<eibus:menuitem onclick='onrefresh()';>Refresh</eibus:menuitem>
+</eibus:contextmenu>
+<body onload="initialize()" id="some" scroll="no">
+	<table id="treeTable" width="100%" height="95%" >
+		<tr>
+		  <td  valign="center" width="40%" >
+			<table width="90%" height="98%"  cellspacing="0" cellpadding="0" align="center" style="border:1px solid gray" >
+				<thead >
+					<tr  height="20px" class="mediumdark">
+					<th id="menuTitle" align="left" valign="top" nowrap>&nbsp;&nbsp;Alias Tree</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td valign="top" style="overflow:auto;width:100%;height:100%;">
+							<div style="overflow:auto;width:100% ;height:100%">
+								<eibus:tree
+									 id='aliasTree'
+									 textPadding=5
+
+									 treeSchema='schemaID' >
+								</eibus:tree>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+         </td>
+		<td align="center" valign="middle" width="60%" >
+			<table id='secondTable' width="90%" height="98%" style="visibility:hidden">
+			 <tr>
+				<td id="properties" style="display:none">
+					<table   width="100%" height="100%" cellspacing="0"  cellpadding="0" style="border: 1px solid gray">
+					<thead >
+						<tr  height="20px" class="mediumdark">
+							<th id="menuTitle" align="left" valign="top" nowrap>&nbsp;&nbsp;Alias Properties</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr >
+							<td valign="top" width="100%" class="light"  align="center" >
+								<div  width="100%"  class="light" style="overflow:auto;width:100%;height:100%" >
+									<table  align="center"   class="grid"  style = "border:1px " width="100%"  cellspacing=1 height="100%" cellpadding=3 border=1 style="border: 1px solid gray">
+											<tr  width="100%">
+												<td valign="top" width="50%">Version</td>
+												<td valign="top" width="50%"><label size="40" id="version" type="text">
+											</tr>
+											<tr>
+												<td valign="top">Serial Number</td>
+													<td valign="top"><label size="40" id="serialno"  type="text">
+											</tr>
+											<tr>
+												<td valign="top">Type</td>
+												<td valign="top"><label size="40" id="type"  type="text">
+											</tr>
+											<tr>
+												<td valign="top">Issuer</td>
+												<td valign="top"><label id="issuer"  type="text"/></td>
+											</tr>
+											<tr>
+												<td valign="top">Signature Algorithm</td>
+												<td valign="top"><label  id="sigalg"  type="text"/>
+											</tr>
+											<tr>
+												<td valign="top">Valid from</td>
+												<td valign="top"><label  id="validfrom"  type="text"/>
+											</tr>
+											<tr>
+												<td valign="top">Valid to</td>
+												<td valign="top"><label  id="validto"  type="text"/>
+											</tr>
+											<tr>
+												<td valign="top" >Subject</td>
+												<td valign="top"><label id="subject"  /></TD>
+											</tr>
+											<tr>
+												<td valign="top">Key Algorithm</td>
+												<td valign="top"><label size="40" id="keyalg"  type="text">
+											</tr>
+										</table>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</td>
+
+				<td  id='loadcert' style="display:none"  >
+						<table  height="95%" width="90%"  cellspacing="0"  cellpadding="3" style="border:1px solid gray" >
+							<thead >
+								<tr  height="20px" class="mediumdark">
+									<th id="menuTitle" align="left" valign="top" nowrap>&nbsp;&nbsp;Load Certificate</th>
+								</tr>
+							</thead>
+							<tbody >
+							<tr>
+								<td valign="top" width="100%" class="light" align="center" >
+									<table  align="center"  border="0"align="center" style="width:70%">
+										<tr>
+											<td>&nbsp;</td>
+										</tr>
+										<tr  >
+											<td>Certificate Path<br>
+											<input id="certificatePath" type="text" class="input"/></td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+										</tr>
+										<tr >
+
+											<td>Alias to be Used<br>
+											<input id="alias" type="text" class="input"/></td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td>
+												<button class="medium" onclick="startloading()">LoadCertificate</button>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</td>
+				</table>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
