@@ -63,8 +63,8 @@
 	<TypeImplementationMappings/>
 	<PropertyPage>
 		<uri
-			id="005056C0-0008-11E0-E7D7-FC0B632A5F40"
-			path="SAP R3 Connector/Web Files/BAC/sap/sap.htm"
+			id="000c29b0-b6c0-11e0-ed68-43a6811a1fad"
+			path="SAP R3 Connector/Web Files/bac/sap/sap.htm"
 			type="com.cordys.cws.documenttypes.hypertextmarkup.Htm"
 		/>
 	</PropertyPage>

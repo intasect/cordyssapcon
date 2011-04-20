@@ -163,7 +163,7 @@
 	<image>
 		<uri
 			id="001D09BE-4863-71DE-8EEE-B89DB8C8A31C"
-			path="SAP R3 Connector/Web Files/BAC/sap/images/sap_icon_cordys_all_sizes_Admin_IDOC.png"
+			path="SAP R3 Connector/Web Files/bac/sap/images/sap_icon_cordys_all_sizes_Admin_IDOC.png"
 			type="com.cordys.cws.documenttypes.image.Png"
 		/>
 	</image>
