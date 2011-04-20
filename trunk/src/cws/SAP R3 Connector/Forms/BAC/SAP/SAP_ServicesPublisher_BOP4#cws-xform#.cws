@@ -65,7 +65,7 @@
 							<id>sapMethodPublisher</id>
 							<description>SAP Method publisher</description>
 							<caption>SAP Method publisher</caption>
-							<url>/cordys/BAC/SAP/WebServiceGenerator.caf</url>
+							<url>/cordys/bac/sap/WebServiceGenerator.caf</url>
 							<frame>frmSAPPublisher</frame>
 						</Application>
 					</xml>
@@ -214,7 +214,7 @@ function validate()
 	<image>
 		<uri
 			id="001D09BE-4863-71DE-8EEE-B89DB8C8A324"
-			path="SAP R3 Connector/Web Files/BAC/sap/images/sap_icon_cordys_all_sizes.png"
+			path="SAP R3 Connector/Web Files/bac/sap/images/sap_icon_cordys_all_sizes.png"
 			type="com.cordys.cws.documenttypes.image.Png"
 		/>
 	</image>
