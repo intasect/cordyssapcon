@@ -5,7 +5,7 @@ VERSION 2.0.5 - Beta (21-04-2011)
 - Change: Underscores are not stripped from web service operation name or web service interface name when generating the web service. (Issue 11)
 - Fix   : Fixed javascript error in SAP connector configuration UI on Linux. (Issue 13)
 - Fix   : Fixed javascript error in User Mapping UI on Linux. (Issue 14)
-- Fix    : Fixed case sensitive issues on Linux. (Issue 15)
+- Fix   : Fixed case sensitive issues on Linux. (Issue 15)
 
 VERSION 2.0.4 - Beta (22-02-2011)
 - Change: First open source version
