@@ -1,5 +1,5 @@
 VERSION 2.0.5 - Beta (21-04-2011)
-- Change: SAP WebService Wizard to provide option to specify Interface name (Issue 7)
+- Change: SAP WebService Wizard to provide option to specify Interface name (Issue 6)
 - Add   : Option to clear cache (Issue 8)
 - Fix   : CONTAINS does not return strings that ends with input string,Fixed. (Issue 10)
 - Change: Underscores are not stripped from web service operation name or web service interface name when generating the web service. (Issue 11)
