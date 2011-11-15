@@ -1,0 +1,42 @@
+
+<Project
+	type="com.cordys.cws.documenttypes.project.Project"
+	typeVersion="0019B980-5ADC-71DF-9C5A-1C9DE0779704"
+	RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B89CEAEE5BFC">
+	<DocumentID>001D09BE-4863-71DE-8EEE-B89CEAEE5BFB</DocumentID>
+	<Name>SAP Binaries</Name>
+	<Description>SAP Binaries</Description>
+	<CreatedBy>pgussow</CreatedBy>
+	<CreationDate>2009-10-14T09:22:04.661</CreationDate>
+	<Notes/>
+	<NamespacePrefix></NamespacePrefix>
+	<SourceFolder>
+		<uri
+			id="005056C0-0008-11E0-E7D7-FC0B6394FF40"
+			path="SAP Binaries"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+	<ISVPackageInfo>
+		<ISVPackageInfo
+			type="com.cordys.cws.packaging.isvp.ISVPackageInfo"
+			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B89CEAEE5BF6">
+			<DocumentID>001D09BE-4863-71DE-8EEE-B89CEAEE5BF5</DocumentID>
+			<Name>Cordys SAP Binaries</Name>
+			<Description>Cordys SAP Binaries</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-10-14T09:22:04.661</CreationDate>
+			<Notes/>
+			<BuildNumber>0</BuildNumber>
+			<ISVPackageFileName>Cordys SAP Binaries 1.0.0</ISVPackageFileName>
+			<Version>1.0</Version>
+			<Product>SAP Binaries</Product>
+			<PostISVLoaderInformation/>
+			<PackageForRuntime>true</PackageForRuntime>
+			<ISVPackageOwner>Cordys</ISVPackageOwner>
+			<LicenseAgreement/>
+			<ThirdPartyAgreement/>
+		</ISVPackageInfo>
+	</ISVPackageInfo>
+	<RuntimeQualifiedName/>
+</Project>

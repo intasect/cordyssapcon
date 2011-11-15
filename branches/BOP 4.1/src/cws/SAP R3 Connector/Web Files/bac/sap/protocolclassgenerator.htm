@@ -1,0 +1,856 @@
+<!--
+Copyright 2001 Cordys R&D B.V. 
+
+This file is part of the Cordys SAP Connector. 
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!--
+ Project  : Cordys WCP
+ File Name : ProtocolClassGenerator.htm
+ Description : This UI is used to generate Java files to make the methods cordys protocol compliant.
+-->
+<HTML xmlns:eibus onselect="fillSoapNodes()">
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<!--<link rel="stylesheet" href="cordys/wcp/style/behaviour.css"/>-->
+<link rel="stylesheet" href="/cordys/wcp/style/behaviors.css"></link>
+<TITLE>Protocol Class Generator</TITLE>
+<SCRIPT LANGUAGE=javascript>
+var ErrorFlag=false;
+var componentXML;
+var BOsXML;
+var releaseValue;
+var BAPIsXML;
+var arrTable=new Array("tfile","tLDAP","tweb");
+var userOrgXML;
+var userDN;
+var orgDN;
+var countR=0;
+var dummyRow;
+var rowBAPIs;
+/*Function Name : fillSoapNodes
+			No Parametars
+			Scope : Fill in the Soap Nodes Names in the first select box.*/
+function fillSoapNodes()
+{
+	//setTitle();
+	var applicationDef = window.event.applicationDefinition;
+	window.application.container.setTitle(applicationDef.selectSingleNode(".//description").text,"BAC for SAP R/3");
+	orgDN=application.organization;
+	dummyRow=tableID.firstChild.firstChild.cloneNode(true);
+	rowBAPIs=tListBAPIDummy.firstChild.firstChild.cloneNode(true);
+	requestGetSOAPProcessors.XMLDocument.selectSingleNode(".//dn").text = orgDN;
+	bdiLDAP.request= requestGetSOAPProcessors.XMLDocument;
+	bdiLDAP.clear();
+	bdiLDAP.reset();
+
+
+
+	var ConfigurationXML = new ActiveXObject("Microsoft.XMLDOM");
+    var SoapProcessorDetails=bdiLDAP.data
+    var tupleNodes=SoapProcessorDetails.getElementsByTagName("entry")
+	var sapNodes=new Array();//the cn of the sap nodes are stored here in this array.
+    var chNodes
+    var count=0
+    var arrayFlag;
+    var confTags;
+    var confNodes;
+    var confText;
+    for(j=0;j<tupleNodes.length;j++)
+    {
+		arrayFlag = false;
+		if(tupleNodes[j].selectSingleNode(".//bussoapprocessorconfiguration"))
+		{
+			confNodes=tupleNodes[j].selectSingleNode(".//bussoapprocessorconfiguration").firstChild
+			confText=String(confNodes.text)
+			ConfigurationXML.loadXML(confText);
+			if(ConfigurationXML.selectSingleNode(".//configuration"))
+			{
+				confTags = ConfigurationXML.selectNodes(".//configuration");
+				for(var confTag = confTags.nextNode;confTag;confTag = confTags.nextNode)
+				{
+					var impl=confTag.getAttribute("implementation")
+					if(impl.substring(impl.lastIndexOf(".")+1,impl.length)=="SAPMapper")
+					{
+
+						dnValue=tupleNodes[j].getAttribute("dn")
+						dnSoapNode=dnValue.substring(dnValue.indexOf(",")+1,dnValue.length)
+						if(sapNodes.length>0)
+						{
+							for(intI=0;intI<sapNodes.length;intI++)
+							{
+								if(dnSoapNode == sapNodes[intI])
+								{
+									arrayFlag = true;
+									break;
+								}
+							}
+
+						}
+						if(!arrayFlag)
+						{
+							sapNodes[count]=dnSoapNode
+							sel_soapnode.options[count+1] = new Option(sapNodes[count].split(",")[0].substring(3),sapNodes[count].split(",")[0].substring(3));
+							//addOption(soapnode,sapNodes[count].split(",")[0].substring(3),sapNodes[count].split(",")[0].substring(3));
+							count=count+1;
+						}
+					}
+				}
+			}
+		}
+
+    }
+
+}
+function getSapDetails()
+{
+	/*bdiLDAP.clear();
+	bdiLDAP.request=getUserIDXML.XMLDocument;
+	bdiLDAP.reset();*/
+	
+	//if(!ErrorFlag)
+	//{
+		//userOrgXML= bdiLDAP.data.cloneNode(true);
+		//getMethodDetails();
+	if(sel_soapnode.value != 0)
+	{
+		bdiSap.receiver = sel_soapnode.value;
+		bdiSap.request=getComponentsXML.XMLDocument;
+		bdiSap.clear();
+		bdiSap.reset();
+		if(!ErrorFlag)
+		{
+			componentXML=bdiSap.data.cloneNode(true);
+			//alert(componentXML.xml);
+			var compNodes = componentXML.selectNodes(".//component");
+			var count = 1;
+			//var count=1;
+			/*while (seComponent.children.length>1)
+			{
+				seComponent.remove(count);
+			}*/
+			//seComponent.options.length = 1;
+			//alert(compNodes.length);
+ 			for (var compNode = compNodes.nextNode(); compNode; compNode = compNode.nextSibling)
+ 			{
+ 				seComponent.options[count] = new Option(compNode.text,compNode.text);
+ 				count++;
+ 			 	//fillInOptions("seComponent",compNode.text,compNode.text);
+ 			}
+
+		}
+	}
+	ErrorFlag=false;
+	//document.getElementsByType(
+
+}
+function getMethodDetails()
+{
+	//userDN=userOrgXML.selectSingleNode(".//tuple/old/entry[objectclass/string='busorganizationaluser']").getAttribute("dn");
+	userDN = system.user.organizations[application.organization].userDN;
+	var soapNodeDN;
+	var orgNodes=userOrgXML.selectNodes(".//tuple/old/entry[objectclass/string='organization']")
+	for(var orgNode=orgNodes.nextNode();orgNode;orgNode=orgNode.nextSibling)
+	{
+		soapNodeDN="cn=soap nodes,o=" + orgNode.selectSingleNode(".//o/string").text + ",cn=cordys,o=vanenburg.com";
+		
+	}
+	return true;
+}
+function getBOs()
+{
+	if(seComponent.value!=0)
+	{
+		var count=1;
+		seBOName.disabled = false;
+		/*while (seBOName.children.length>1)
+		{
+			seBOName.remove(count);
+		}*/
+		seBOName.options.length = 1;
+
+		getBOXML.selectSingleNode(".//component").text=seComponent.value;
+		bdiSap.request=getBOXML.XMLDocument;
+		bdiSap.clear();
+		bdiSap.reset();
+		if(!ErrorFlag)
+		{
+			BOsXML=bdiSap.data.cloneNode(true);
+			var BONodes=BOsXML.selectNodes(".//BusinessObject");
+			//alert(BOsXML.xml);
+			for(var BONode=BONodes.nextNode();BONode;BONode=BONode.nextSibling)
+			{
+				seBOName.options[count] = new Option(BONode.text,BONode.text);
+				count++;
+				//fillInOptions("seBOName",BONode.text,BONode.text);
+			}
+		}
+		var x=componentXML.selectNodes(".//component")
+		for(var comp=x.nextNode();comp;comp=comp.nextSibling)
+		{
+			if(comp.text==seComponent.value)
+			{
+				releaseValue=comp.getAttribute("release");
+				txtRelease.value=releaseValue;
+				break;
+			}
+		}
+		ErrorFlag=false;
+	}
+	else
+	{
+		seBOName.disabled = true;
+		//initializeRelFields();
+	}
+}
+function showError()
+{
+	//window.event.showError = false;
+	//alert(window.event.errorText)
+	ErrorFlag=true;
+	return false;
+}
+
+function fillInOptions(selID,optText,optValue)
+{
+	var objSel=document.getElementById(selID);
+	objSel.add(optText,optValue);
+}
+function showCorrTable()
+{
+	var objTable;
+	if(seXSDSource.value!=0)
+	{
+		//fDetails.style.display="block";
+	//	fLabelHeading.innerText=seXSDSource.value;
+		for(i=0;i<arrTable.length;i++)
+		{
+			objTable=document.getElementById(arrTable[i])
+			if(arrTable[i]=="t"+seXSDSource.value)
+				objTable.style.display="block";
+			else
+				objTable.style.display="none";
+		}
+		if(seXSDSource.value=="web")
+		{
+			tableID.style.display="none";
+			tListBAPI.style.display="block";
+		}
+		else
+		{
+			tableID.style.display="block";
+			tListBAPI.style.display="none";
+		}
+
+
+	}
+	else
+	{
+		tableID.style.display="block";
+		tListBAPI.style.display="none";
+	}
+}
+
+function getBAPIs()
+{
+	if(seBOName.value != 0)
+	{
+		getBAPIsXML.selectSingleNode(".//BO").text=seBOName.value;
+		bdiSap.request=getBAPIsXML.XMLDocument;
+		bdiSap.clear();
+		bdiSap.reset();
+		if(!ErrorFlag)
+		{
+			BAPIsXML=bdiSap.data.cloneNode(true);
+			//alert(BAPIsXML.xml);
+			var BAPINodes=BAPIsXML.selectNodes(".//BAPI");
+			//var count=1;
+			/*while (seBAPI.children.length>1)
+			{
+				seBAPI.remove(count);
+			}*/
+
+			while(tListBAPI.rows.length>0)
+			{
+				tListBAPI.deleteRow(tListBAPI.rows[1]);
+			}
+			for(var BAPINode=BAPINodes.nextNode();BAPINode;BAPINode=BAPINode.nextSibling)
+			{
+				//fillInOptions("seBAPI",BAPINode.text,BAPINode.text);
+				addBAPIsInRow(BAPINode.text);
+			}
+		}
+		ErrorFlag=false;
+	}
+}
+
+function addBAPIsInRow(BAPIName)
+{
+
+	var newRow=rowBAPIs.cloneNode(true);
+	newRow.getElementsByTagName("input")[0].id=BAPIName;
+	newRow.getElementsByTagName("label")[0].innerText=BAPIName;
+	tListBAPI.firstChild.insertBefore(newRow);
+}
+
+	function generate()
+	{
+		if(fnValidate())
+		{
+			//alert("passed");
+			var BO=seBOName.value;
+			var reqForClassGeneration=reqGenerateClassXML.XMLDocument.cloneNode(true);
+			var updatedReq;
+			reqForClassGeneration.selectSingleNode(".//boname").text=BO;
+			reqForClassGeneration.selectSingleNode(".//outdir").text=txtOutDir.value;
+			reqForClassGeneration.selectSingleNode(".//package").text=txtPackage.value;
+			reqForClassGeneration.selectSingleNode(".//inputsource").text=seXSDSource.value;
+			reqForClassGeneration.selectSingleNode(".//user").text=userDN;
+			reqForClassGeneration.selectSingleNode(".//organization").text=orgDN;
+			reqForClassGeneration.selectSingleNode(".//component").text=seComponent.value;
+			if(seXSDSource.value == "LDAP")
+				reqForClassGeneration.selectSingleNode(".//dn").text="cn=" + txtMethodset.value + ", cn=method sets," + orgDN;
+			var strAllBAPIs="";
+			if(seXSDSource.value=="file" || seXSDSource.value=="LDAP")
+			{
+				var tabLength = tableID.rows.length;
+				for(j=0;j<tabLength-1;j++)
+				{
+					//strAllBAPIs=strAllBAPIs + BO +  tableID.rows[j].getElementsByTagName("input")[0].value + "Input.xsd,";
+					if(validText(tableID.rows[j].getElementsByTagName("input")[0],false) != 1)
+					{
+						updatedReq = getUpdatedRequest(reqForClassGeneration,tableID.rows[j].getElementsByTagName("input")[0].value);
+						if(updatedReq.selectSingleNode(".//changeoutputschema").text != "false")
+						{
+							reqForClassGeneration=updatedReq;
+						}
+						else
+						{
+							return;
+						}
+					}
+
+				}
+			}
+			else
+			{
+				reqForClassGeneration.selectSingleNode(".//release").text=txtRelease.value;
+				var allChBAPIs=tListBAPI.getElementsByTagName("input");
+
+				for(k=0;k<allChBAPIs.length;k++)
+				{
+					if(allChBAPIs[k].type=="checkbox" && allChBAPIs[k].checked==true)
+					{
+						/*strAllBAPIs=strAllBAPIs + allChBAPIs[k].id + ",";
+						strInputXSD=BO + "."+  allChBAPIs[k].id + "Input.xsd";
+						strOutPutXSD=BO + "." + allChBAPIs[k].id + "OutPut.xsd";*/
+						updatedReq = getUpdatedRequest(reqForClassGeneration,allChBAPIs[k].id);
+						if(updatedReq.selectSingleNode(".//changeoutputschema").text != "false")
+						{
+							reqForClassGeneration=updatedReq;
+						}
+						else
+						{
+							return;
+						}
+					}
+				}
+			}
+			//alert(reqForClassGeneration.xml);
+			bdiLDAP.request=reqForClassGeneration;
+			bdiLDAP.clear();
+			bdiLDAP.reset();
+			if(!ErrorFlag)
+			{
+				alert("Java file and the XMLs are created in the specified folder");
+			}
+			ErrorFlag = false;
+		}
+	}
+
+	/*Function Name : validText
+	*
+	*	No Parametars
+	*	Scope : This checks for text in the text box..
+	*
+	*/
+	function validText(objElement,alertMsg)
+	{
+		var flag = false;
+		var value = objElement.value;
+		if(value == null || value== "")	flag=false;
+		for(i=0;i<value.length;i++)
+		{
+			if(parseInt(value.charCodeAt(i))!= 32)
+			{
+				flag = true
+				break;
+			}
+		}
+		if(flag == false )
+		{
+			if( alertMsg != false)
+			{
+				alert(alertMsg);
+				objElement.focus();
+				objElement.select();
+			}
+			return 1;
+		}
+	}
+
+	function getUpdatedRequest(request,bapiName)
+	{
+		var strInputXSD;
+		var strOutPutXSD;
+		var BO=seBOName.value;
+		if(seXSDSource.value=="file")
+		{
+			strInputXSD=txtLocalFolder.value + "\\" + BO +  bapiName + "Input.xsd";
+			strOutPutXSD=txtLocalFolder.value + "\\" + BO +  bapiName + "Output.xsd";
+		}
+		else if(seXSDSource.value=="LDAP")
+		{
+			strInputXSD=BO + "."+  bapiName + "Input.xsd";
+			strOutPutXSD=BO + "." + bapiName + "Output.xsd";
+		}
+		else if(seXSDSource.value=="web")
+		{
+			strInputXSD=BO + "."+  bapiName;
+			strOutPutXSD="";
+		}
+		if(bapiName.indexOf("Create")!=-1)
+		{
+			request.selectSingleNode(".//createinputschema").text=strInputXSD;
+			request.selectSingleNode(".//createoutputschema").text=strOutPutXSD;
+		}
+		else if(bapiName.indexOf("Get")!=-1)
+		{
+			request.selectSingleNode(".//getlistinputschema").text=strInputXSD;
+			request.selectSingleNode(".//getlistoutputschema").text=strOutPutXSD;
+		}
+		else if(bapiName.indexOf("Change")!=-1)
+		{
+			request.selectSingleNode(".//changeinputschema").text=strInputXSD;
+			request.selectSingleNode(".//changeoutputschema").text=strOutPutXSD;
+		}
+		else
+		{
+			alert("Please check the spelling or case of the BAPI name");
+			request.selectSingleNode(".//changeoutputschema").text = "false";
+
+		}
+		return request;
+	}
+
+	function fnValidate()
+	{
+		if(seComponent.value==0)
+		{
+			alert("Select the component");
+			seComponent.focus();
+			return false;
+		}
+		else if(seBOName.value==0)
+		{
+			alert("select the BO");
+			seBOName.focus();
+			return false;
+		}
+		else if(seXSDSource.value==0)
+		{
+			alert("select the XSD source");
+			seXSDSource.focus();
+			return false;
+		}
+		else if(seXSDSource.value=="web")
+		{
+			var flag=false;
+			if(tListBAPI.getElementsByTagName("input"))
+			{
+				for(i=0;i<tListBAPI.getElementsByTagName("input").length;i++)
+				{
+					if(tListBAPI.getElementsByTagName("input")[i].type=="checkbox" && tListBAPI.getElementsByTagName("input")[i].checked==true)
+					{
+						flag=true;
+						break;
+					}
+				}
+				if(!flag)
+				{
+					alert("Select at least one BAPI to generate protocol class");
+					tListBAPI.getElementsByTagName("input")[0].focus();
+					return false;
+				}
+			}
+		}
+		else if(seXSDSource.value=="file")
+		{
+			if(validText(txtLocalFolder,"Enter the absolute folder path where the XSDs are placed")==1)
+			{
+				return false;
+			}
+			else
+			{
+				if(validText(tableID.rows[0].getElementsByTagName("input")[0],"Specify any BAPI for the protocol class generation") ==1)
+				{
+					//alert("Specify any BAPI for the protocol class generation");
+					//tableID.rows[0].getElementsByTagName("input")[0].focus();
+					return false;
+				}
+			}
+		}
+		else if(seXSDSource.value=="LDAP")
+		{
+			if(validText(tableID.rows[0].getElementsByTagName("input")[0],"Specify any BAPI for the protocol class generation") ==1)
+			{
+				//alert("Specify any BAPI for the protocol class generation");
+				//tableID.rows[0].getElementsByTagName("input")[0].focus();
+				return false;
+			}
+		}
+
+		if(validText(txtPackage,"Specify the Package")==1)
+		{
+			return false;
+		}
+		else if(validText(txtOutDir,"Specify the Destination Directory where the class should be generated")==1)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+
+
+
+	function addRow()
+	{
+		countR=parseInt(countR)+1;
+		var xRow=dummyRow.cloneNode(true);
+		xRow.getElementsByTagName("input")[0].id=xRow.getElementsByTagName("input")[0].id + countR;
+		xRow.getElementsByTagName("input")[0].value="";
+		tableID.firstChild.insertBefore(xRow);
+		//alert(tabExp.innerHTML);
+	}
+
+	function handleNextRow()
+	{
+		row = event.rowSelected;
+		if (! row) row = getToRow(event.srcElement);
+		//Create a row if clicked on the last row
+		if (row == tableID.rows[tableID.rows.length - 1]) addRow();
+	}
+
+	//This function gets to row, by nagivating to the parent node
+	function getToRow(object, indexed)
+	{
+		if (object && object.tagName.toLowerCase() == "tr")
+		{
+			if (indexed == true)
+			{
+				var rows = tableID.tBodies[0].rows;
+				for (var i = 0; i < rows.length; i++)
+				{
+					if (object == rows[i]) return i;
+				}
+			}
+			else return object;
+		}
+		else if (object) return getToRow(object.parentNode, indexed);
+	}
+
+
+	function deleteRow()
+	{
+		var rowID=getToRow(window.event.srcElement,true);
+		//alert(rowID +"C" + count)
+		if(rowID!=countR)
+		{
+			tableID.firstChild.deleteRow(rowID);
+			countR=countR-1;
+		}
+		else
+		{
+			alert("Cannot delete the last row");
+		}
+
+	}
+
+</SCRIPT>
+
+</HEAD>
+
+<eibus:dataisland
+	id="bdiSap"
+	async="false"
+	automatic="false"
+	onsoapfault="showError()"
+	/>
+<eibus:dataisland
+	id="bdiLDAP"
+	async="false"
+	automatic="false"
+	onsoapfault="showError()"
+	/>
+
+<xml id="getUserIDXML">
+	<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+		<SOAP:Body>
+		   <GetOrganizationsByUser xmlns="http://schemas.cordys.com/1.0/ldap">
+		   </GetOrganizationsByUser>
+		</SOAP:Body>
+	</SOAP:Envelope>
+</xml>
+<xml id="requestGetSOAPProcessors">
+    <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+	  <SOAP:Body>
+	     <GetSoapProcessors xmlns="http://schemas.cordys.com/1.0/ldap">
+	        <dn></dn>
+	     </GetSoapProcessors>
+	  </SOAP:Body>
+	</SOAP:Envelope>
+</xml>
+
+
+<xml id="getComponentsXML">
+    <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+	    <SOAP:Body>
+	        <getComponents xmlns="http://schemas.cordys.com/1.0/sapmetadata">
+	            <fromComponent>a</fromComponent>
+	            <toComponent>zzzzzzzzzzzzzz</toComponent>
+	        </getComponents>
+	    </SOAP:Body>
+	</SOAP:Envelope>
+</xml>
+
+<xml id="getBOXML">
+    <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+        <SOAP:Body>
+            <GetBOs xmlns="http://schemas.cordys.com/1.0/sapmetadata">
+				<component></component>
+                <fromBO>a</fromBO>
+                <toBO>zzzzzzzzzzzzzz</toBO>
+            </GetBOs>
+        </SOAP:Body>
+    </SOAP:Envelope>
+</xml>
+
+<xml id="getBAPIsXML">
+    <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+        <SOAP:Body>
+            <GetBAPIs xmlns="http://schemas.cordys.com/1.0/sapmetadata">
+				<BO></BO>
+                <fromBAPI>a</fromBAPI>
+                <toBAPI>zzzzzzzzzzzzzz</toBAPI>
+            </GetBAPIs>
+        </SOAP:Body>
+    </SOAP:Envelope>
+</xml>
+<xml id="reqGenerateClassXML">
+	<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+		<SOAP:Body>
+	        <generateImplFromSchemas xmlns="http://schemas.cordys.com/1.0/sapimpl">
+	            <boname></boname>
+				<outdir></outdir>
+				<package></package>
+				<createinputschema></createinputschema>
+				<createoutputschema></createoutputschema>
+				<changeinputschema></changeinputschema>
+				<changeoutputschema></changeoutputschema>
+				<getlistinputschema></getlistinputschema>
+				<getlistoutputschema></getlistoutputschema>
+				<inputsource></inputsource>
+				<dn></dn>
+				<organization></organization>
+				<user></user>
+				<component></component>
+				<release></release>
+				<type>bapi</type>
+	         </generateImplFromSchemas>
+	    </SOAP:Body>
+	</SOAP:Envelope>
+</xml>
+
+
+
+<BODY >
+<table style="width:90%;height:90%">
+	<tr>
+	<td width="50%">
+		<label>SOAP Node</label><br>
+		<select id="sel_soapnode" onchange="getSapDetails()" class="input" style="width:80%">
+			<option value="0">Select the SAP SOAP Node</option>
+		</select>
+	</td>
+	<td width="50%" rowspan="3">
+		<fieldset id="fBAPIDetails" style="height:96%;width:80%;"  valign="top"><legend><label>Specify BAPIs</label></legend>
+		<div style="height:350;overflow:auto">
+			<table id="tableID" style="width:100%;border:1 px solid gray" >
+				<tbody>
+					<tr>
+						<td width="10%" align="center"><img src='/cordys/wcp/images/delete.gif' style="cursor:hand" title="Click here to delete this row" onclick="deleteRow()"></td>
+						<td>
+							<input class="input" id="txtLBAPI" style="width:100%" onkeyup="handleNextRow()"/>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table id="tListBAPI" style="width:100%;border:1 px solid gray;display:none">
+				<tbody>
+
+				</tbody>
+			</table>
+			</div>
+		</fieldset>
+
+	</td>
+</tr>
+<tr>
+	<td width="50%">
+		<fieldset  style="height:40%;width:80%;border:1px solid gray"  >
+		<legend>Select Metadata</legend>
+			<table style="width:100%;height:100%" >
+				<tbody>
+					<tr>
+						<td><label>Component</label><br/>
+							<select id="seComponent" class="input" onchange="getBOs()" style="width:100%">
+								<option value="0">select</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label>BOName</label><br/>
+							<select id="seBOName" class="input" style="width:100%" onchange="getBAPIs()" disabled>
+								<option value="0">select</option>
+							</select>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</fieldset>
+	</td>
+</tr>
+<tr>
+	<td >
+		<fieldset id="fDetails" style="width:80%"  valign="top"><legend><label id="fLabelHeading" >Select Source</label></legend>
+			<table style="width:100%;height:98%" valign="top" >
+				<tr>
+					<td valign="top">
+						<label>Source</label><br/>
+						<select id="seXSDSource" class="input" style="width:100%" onchange="showCorrTable()">
+							<option value="0">select</option>
+							<option value="file">Local File</option>
+							<option value="LDAP">LDAP</option>
+							<option value="web">IFR Site</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table id="tfile" style="display:none;width:100%;height:90%">
+							<tbody>
+								<tr>
+									<td><label>Absolute Folder Path</label><br/>
+										<input class="input" id="txtLocalFolder" style="width:100%"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table id="tLDAP" style="display:none;width:100%;height:90%">
+							<tbody>
+								<tr>
+									<td><label>Web Service Interface Name</label><br/>
+										<input class="input" id="txtMethodset" style="width:100%"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<table id="tweb" style="display:none;width:100%;height:90%">
+
+							<tbody>
+								<tr>
+									<td><label>Type</label><br/>
+										<input class="input" id="txtType" value="BAPI" disabled style="width:100%"/>
+									</td>
+								</tr>
+								<tr>
+									<td><label>Release</label><br/>
+
+										<input disabled id="txtRelease" class="input" style="width:100%"/>
+									</td>
+								</tr>
+								<!--<tr>
+									<td><label>BAPI Name </label><br/>
+										<eibus:select id="seBAPI" class="combo" style="width:100%">
+											<div value="0">select</div>
+										</eibus:select>
+									</td>
+								</tr>-->
+							</tbody>
+						</table>
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+
+</td></tr>
+<tr>
+	<td colspan="2">
+		<fieldset  style="width:90%;border:1px solid gray" >
+			<legend>Specify OutPut</legend>
+
+			<table style="width:100%;height:95%">
+
+				<tbody>
+				<tr>
+					<td width="60%"><label>Package</label><br/>
+					<input class="input" id="txtPackage" style="width:70%">
+					</td>
+				<!--</tr>
+				<tr>-->
+					<td ><label>Destination Directory</label><br/>
+						<input class="input" id="txtOutDir" style="width:80%">
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+
+	</td>
+</tr>
+<tr>
+	<td colspan="2" >
+		<button onclick="generate()" class="medium">Generate</button>
+	</td>
+</tr>
+</table>
+
+
+
+<table id="tListBAPIDummy" style="width:100%;border:1 px solid gray;display:none">
+				<tbody>
+					<tr>
+						<td width="10%">
+							<input type="checkbox"  >
+						</td>
+						<td>
+						<label class="input" style="width:100%"></label>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+</BODY>
+</HTML>
