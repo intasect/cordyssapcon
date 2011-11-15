@@ -30,7 +30,7 @@ limitations under the License.
 			</CustomWebserviceView>
 		</xml>
 		<SCRIPT>
-	setPublic(SAPWebserviceView, "BAC.sap.cws");
+	setPublic(SAPWebserviceView, "bac.sap.cws");
 
 	importType("com.cordys.cws.umf.common.Definition");
     importType("com.cordys.cws.umf.views.wizard.StudioUMFWizardView");	
@@ -162,7 +162,7 @@ limitations under the License.
 						//Set the implementing application connector.
 						if (createConnector)
 						{
-							var key = "/Cordys/WCP/Application Connector/com.eibus.applicationconnector.sap.SAPMapper";
+							var key = "BAC.SAP.SAP R3 Connector";
 							var connector = bo.connectors().create("com.cordys.applicationconnector.ApplicationConnectorRuntime");
 	
 							connector.name("SAP R3 Connector Runtime");
@@ -231,7 +231,6 @@ limitations under the License.
 	 */
 	function faultHandler(faultEvent)
 	{
-		debugger;
 		
 		application.showError("Error generating Web Services: " + faultEvent.m_errorResponse.xml);
 		
