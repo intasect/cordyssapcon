@@ -1,30 +1,14 @@
 
 <XFormDesigntime
 	type="com.cordys.xforms.XFormDesigntime"
+	typeVersion="005056C0-0008-11E0-F8FC-5E0A815B7FB8"
 	RuntimeDocumentID="005056C0-0008-71DE-965C-927ACF2CEF68">
 	<DocumentID>005056C0-0008-71DE-965C-927ACF2CEF67</DocumentID>
 	<Name>Demo</Name>
 	<Description>Demo</Description>
 	<CreatedBy>hboecker</CreatedBy>
 	<CreationDate>2009-08-26T20:31:24.546</CreationDate>
-	<LastModifiedBy>pgussow</LastModifiedBy>
-	<LastModifiedDate>2009-10-15T07:40:29.526</LastModifiedDate>
 	<Notes/>
-	<automatic>false</automatic>
-	<caption>SAP Demo</caption>
-	<data/>
-	<height></height>
-	<isInternal>false</isInternal>
-	<isLegacy>false</isLegacy>
-	<left></left>
-	<mode>full</mode>
-	<parameters/>
-	<qualifiedclassname></qualifiedclassname>
-	<showOnStartPage>true</showOnStartPage>
-	<title>true</title>
-	<top></top>
-	<type>XForm</type>
-	<width></width>
 	<XFormContent>
 		<xformhtml
 			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
@@ -133,19 +117,58 @@
 			<xformsscript/>
 		</xformhtml>
 	</XFormContent>
+	<width></width>
+	<automatic>false</automatic>
+	<data/>
 	<XFormWSDL/>
-	<aclFragments/>
-	<CompositeControls/>
-	<deliveryModels/>
-	<Htms/>
+	<caption>SAP Demo</caption>
+	<isInternal>false</isInternal>
+	<type>XForm</type>
+	<taskName></taskName>
+	<mode>full</mode>
+	<title>true</title>
+	<height></height>
+	<isLegacy>false</isLegacy>
+	<left></left>
+	<qualifiedclassname></qualifiedclassname>
+	<parameters/>
+	<showOnStartPage>true</showOnStartPage>
+	<taskDescription></taskDescription>
+	<top></top>
+	<TranslatableUITexts/>
+	<Representations/>
+	<ReferredXForms/>
 	<image/>
-	<Images/>
-	<input/>
-	<Javascripts/>
-	<messageParts/>
-	<output/>
-	<StyleSheets/>
-	<taskParts/>
 	<TranslatableApplications/>
+	<Images/>
+	<messages/>
 	<Webservices/>
+	<StyleSheets/>
+	<input/>
+	<taskParts/>
+	<TranslatableName>
+		<TranslatableText
+			type="com.cordys.translation.TranslatableText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf1bf225fb2">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf1bef19fb1</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf1bef19fb1</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.584</CreationDate>
+			<Notes/>
+			<Identifier>
+				<uri
+					id="00505681-3ba3-11e1-e23a-2bf1bd8e9faf"
+				/>
+			</Identifier>
+		</TranslatableText>
+	</TranslatableName>
+	<aclFragments/>
+	<tagsContainer/>
+	<deliveryModels/>
+	<messageParts/>
+	<InstanceSchemaFragments/>
+	<Htms/>
+	<output/>
+	<Javascripts/>
 </XFormDesigntime>

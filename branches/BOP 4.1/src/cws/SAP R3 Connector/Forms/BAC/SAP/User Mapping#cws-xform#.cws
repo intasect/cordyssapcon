@@ -1,30 +1,14 @@
 
 <XFormDesigntime
 	type="com.cordys.xforms.XFormDesigntime"
+	typeVersion="005056C0-0008-11E0-F8FC-5E0A815B7FB8"
 	RuntimeDocumentID="00059A3C-7800-71DE-9653-8B26111FAC63">
 	<DocumentID>00059A3C-7800-71DE-9653-8B26111FAC62</DocumentID>
 	<Name>User Mapping</Name>
 	<Description>Cordys SAP Administration</Description>
 	<CreatedBy>hboecker</CreatedBy>
 	<CreationDate>2009-08-17T12:04:44.953</CreationDate>
-	<LastModifiedBy>pgussow</LastModifiedBy>
-	<LastModifiedDate>2009-10-15T07:40:34.714</LastModifiedDate>
 	<Notes/>
-	<automatic>false</automatic>
-	<caption>SAP Administration</caption>
-	<data/>
-	<height></height>
-	<isInternal>false</isInternal>
-	<isLegacy>false</isLegacy>
-	<left></left>
-	<mode>full</mode>
-	<parameters/>
-	<qualifiedclassname></qualifiedclassname>
-	<showOnStartPage>true</showOnStartPage>
-	<title>true</title>
-	<top></top>
-	<type>XForm</type>
-	<width></width>
 	<XFormContent>
 		<xformhtml
 			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
@@ -133,25 +117,64 @@
 			<xformsscript/>
 		</xformhtml>
 	</XFormContent>
+	<width></width>
+	<automatic>false</automatic>
+	<data/>
 	<XFormWSDL/>
-	<aclFragments/>
-	<CompositeControls/>
-	<deliveryModels/>
-	<Htms/>
+	<caption>SAP Administration</caption>
+	<isInternal>false</isInternal>
+	<type>XForm</type>
+	<taskName></taskName>
+	<mode>full</mode>
+	<title>true</title>
+	<height></height>
+	<isLegacy>false</isLegacy>
+	<left></left>
+	<qualifiedclassname></qualifiedclassname>
+	<parameters/>
+	<showOnStartPage>true</showOnStartPage>
+	<taskDescription></taskDescription>
+	<top></top>
+	<TranslatableUITexts/>
+	<Representations/>
+	<ReferredXForms/>
 	<image>
 		<uri
-			id="001D09BE-4863-71DE-8EEE-B89DB8C8A320"
+			id="00505681-3ba3-11e1-e23a-2bdf894b1f37"
 			path="SAP R3 Connector/Web Files/bac/sap/images/sap_icon_cordys_all_sizes_Admin.png"
 			type="com.cordys.cws.documenttypes.image.Png"
 		/>
 	</image>
-	<Images/>
-	<input/>
-	<Javascripts/>
-	<messageParts/>
-	<output/>
-	<StyleSheets/>
-	<taskParts/>
 	<TranslatableApplications/>
+	<Images/>
+	<messages/>
 	<Webservices/>
+	<StyleSheets/>
+	<input/>
+	<taskParts/>
+	<TranslatableName>
+		<TranslatableText
+			type="com.cordys.translation.TranslatableText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf208641fe6">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf208349fe5</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf208349fe5</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:55.002</CreationDate>
+			<Notes/>
+			<Identifier>
+				<uri
+					id="00505681-3ba3-11e1-e23a-2bf206b75fe3"
+				/>
+			</Identifier>
+		</TranslatableText>
+	</TranslatableName>
+	<aclFragments/>
+	<tagsContainer/>
+	<deliveryModels/>
+	<messageParts/>
+	<InstanceSchemaFragments/>
+	<Htms/>
+	<output/>
+	<Javascripts/>
 </XFormDesigntime>

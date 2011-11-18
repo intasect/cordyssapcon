@@ -1,6 +1,7 @@
 
 <XFormDesigntime
 	type="com.cordys.xforms.XFormDesigntime"
+	typeVersion="005056C0-0008-11E0-F8FC-5E0A815B7FB8"
 	RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B7083CE0AD67">
 	<DocumentID>001D09BE-4863-71DE-8EEE-B7083CE0AD66</DocumentID>
 	<Name>WebServiceGenerator</Name>
@@ -215,7 +216,8 @@
 						wcpforms:size="730px 70px"
 						wcpforms:labelalign="left">
 						<xforms:label
-							wcpforms:class="groupheader expand">Select the proper SAP R3 Connector</xforms:label>
+							wcpforms:class="groupheader expand"
+							textIdentifier="00505681-3ba3-11e1-e23a-2bf223149fef">Select the proper SAP R3 Connector</xforms:label>
 						<xforms:select1
 							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
 							id="txtServiceContainer"
@@ -229,7 +231,8 @@
 							wcpforms:position="10 13">
 							<xforms:label
 								wcpforms:class="h_label left_align"
-								wcpforms:size="120 null">Service Container</xforms:label>
+								wcpforms:size="120 null"
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf2273b1ff7">Service Container</xforms:label>
 						</xforms:select1>
 					</xforms:group>
 					<xforms:group
@@ -241,7 +244,8 @@
 						wcpforms:size="730px 450px"
 						wcpforms:labelalign="left">
 						<xforms:label
-							wcpforms:class="groupheader">Enter the details for the methods to be generated</xforms:label>
+							wcpforms:class="groupheader"
+							textIdentifier="00505681-3ba3-11e1-e23a-2bf22b9edfff">Enter the details for the methods to be generated</xforms:label>
 						<xforms:input
 							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
 							id="txtWebServiceName"
@@ -253,12 +257,16 @@
 							wcpforms:position="10 10">
 							<xforms:label
 								wcpforms:class="h_label left_align"
-								wcpforms:size="190 null">Web service Binidng Name</xforms:label>
+								wcpforms:size="190 null"
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf22fcf55c9">Web service Binidng Name</xforms:label>
 							<messages
 								xmlns="">
-								<message
+								<Message
 									constraint="required"
-									description="Required">Please enter a name for the Web Service Binding</message>
+									description="Required"
+									id="message.required">
+									<MessageText>Please enter a name for the Web Service Binding</MessageText>
+								</Message>
 							</messages>
 						</xforms:input>
 						<xforms:group
@@ -277,13 +285,15 @@
 								id="rSAPObjectType">
 								<xforms:label
 									wcpforms:class="h_label left_align"
-									wcpforms:size="190 null">Choose SAP object type</xforms:label>
+									wcpforms:size="190 null"
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf233c3d5d1">Choose SAP object type</xforms:label>
 								<xforms:item
 									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRadio"
 									id="radio1_1"
 									wcpforms:class="h_choicebox"
 									wcpforms:size="80px auto">
-									<xforms:label>BAPI</xforms:label>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf237c255d9">BAPI</xforms:label>
 									<xforms:value>BAPI</xforms:value>
 								</xforms:item>
 								<xforms:item
@@ -291,7 +301,8 @@
 									id="radio1_2"
 									wcpforms:class="h_choicebox"
 									wcpforms:size="80px auto">
-									<xforms:label>RFC</xforms:label>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf23e45d5e1">RFC</xforms:label>
 									<xforms:value>RFC</xforms:value>
 								</xforms:item>
 								<xforms:item
@@ -299,7 +310,8 @@
 									id="radio1_3"
 									wcpforms:class="h_choicebox"
 									wcpforms:size="80px auto">
-									<xforms:label>IDOC</xforms:label>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf2429815e9">IDOC</xforms:label>
 									<xforms:value>IDOC</xforms:value>
 								</xforms:item>
 								<xforms:action
@@ -322,7 +334,8 @@
 							wcpforms:position="10 180">
 							<xforms:label
 								wcpforms:class="v_label"
-								wcpforms:size="89 14">Available methods</xforms:label>
+								wcpforms:size="89 14"
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf24688d5f1">Available methods</xforms:label>
 						</xforms:select1>
 						<xforms:select1
 							appearance="compact"
@@ -339,12 +352,16 @@
 							wcpforms:position="400 180">
 							<xforms:label
 								wcpforms:class="v_label"
-								wcpforms:size="87 14">Selected methods</xforms:label>
+								wcpforms:size="87 14"
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf24a9dd5f9">Selected methods</xforms:label>
 							<messages
 								xmlns="">
-								<message
+								<Message
 									constraint="required"
-									description="Required">Please select at least 1 operation</message>
+									description="Required"
+									id="message.required">
+									<MessageText>Please select at least 1 operation</MessageText>
+								</Message>
 							</messages>
 						</xforms:select1>
 						<xforms:group
@@ -362,7 +379,8 @@
 								id="btnMoveToSelected"
 								wcpforms:class="h_button"
 								wcpforms:size="40px 2em">
-								<xforms:label>&gt;&gt;&gt;</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf24ebf5601">&gt;&gt;&gt;</xforms:label>
 								<xforms:action
 									ev:event="xforms-activate">
 									<xforms:btnMoveToSelected_Click/>
@@ -384,7 +402,8 @@
 								id="btnMoveToAvailable"
 								wcpforms:class="h_button"
 								wcpforms:size="40px 2em">
-								<xforms:label>&lt;&lt;&lt;</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf253029609">&lt;&lt;&lt;</xforms:label>
 								<xforms:action
 									ev:event="xforms-activate">
 									<xforms:btnMoveToAvailable_Click/>
@@ -405,22 +424,27 @@
 							wcpforms:position="10 60">
 							<xforms:label
 								wcpforms:class="h_label left_align"
-								wcpforms:size="190 null">Object</xforms:label>
+								wcpforms:size="190 null"
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf2572cd611">Object</xforms:label>
 							<xforms:item
 								xmlns:xforms="http://www.w3.org/2002/xforms/cr">
-								<xforms:label>equals</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf25bfc1619">equals</xforms:label>
 								<xforms:value>EQUALS</xforms:value>
 							</xforms:item>
 							<xforms:item>
-								<xforms:label>contains</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf2603cd621">contains</xforms:label>
 								<xforms:value>CONTAINS</xforms:value>
 							</xforms:item>
 							<xforms:item>
-								<xforms:label>starts with</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf26442d629">starts with</xforms:label>
 								<xforms:value>STARTS_WITH</xforms:value>
 							</xforms:item>
 							<xforms:item>
-								<xforms:label>regex</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf268825631">regex</xforms:label>
 								<xforms:value>REGEX</xforms:value>
 							</xforms:item>
 						</xforms:select1>
@@ -433,7 +457,8 @@
 							wcpforms:anchors="350px 60px 10px null"
 							wcpforms:position="350 60">
 							<xforms:label
-								wcpforms:class="h_label left_align removed">Input20</xforms:label>
+								wcpforms:class="h_label left_align removed"
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf26f3a5639">Input20</xforms:label>
 						</xforms:input>
 						<xforms:select1
 							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
@@ -449,23 +474,28 @@
 							wcpforms:position="10 90">
 							<xforms:label
 								wcpforms:class="h_label left_align"
-								wcpforms:size="190 null">Method</xforms:label>
+								wcpforms:size="190 null"
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf273801641">Method</xforms:label>
 							<xforms:item
 								xmlns:xforms="http://www.w3.org/2002/xforms/cr"
 								xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
-								<xforms:label>equals</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf25bfc1619">equals</xforms:label>
 								<xforms:value>EQUALS</xforms:value>
 							</xforms:item>
 							<xforms:item>
-								<xforms:label>contains</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf2603cd621">contains</xforms:label>
 								<xforms:value>CONTAINS</xforms:value>
 							</xforms:item>
 							<xforms:item>
-								<xforms:label>starts with</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf26442d629">starts with</xforms:label>
 								<xforms:value>STARTS_WITH</xforms:value>
 							</xforms:item>
 							<xforms:item>
-								<xforms:label>regex</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf268825631">regex</xforms:label>
 								<xforms:value>REGEX</xforms:value>
 							</xforms:item>
 						</xforms:select1>
@@ -483,23 +513,28 @@
 							wcpforms:position="10 120">
 							<xforms:label
 								wcpforms:class="h_label left_align"
-								wcpforms:size="190 null">Description</xforms:label>
+								wcpforms:size="190 null"
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf27c25d651">Description</xforms:label>
 							<xforms:item
 								xmlns:xforms="http://www.w3.org/2002/xforms/cr"
 								xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
-								<xforms:label>equals</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf25bfc1619">equals</xforms:label>
 								<xforms:value>EQUALS</xforms:value>
 							</xforms:item>
 							<xforms:item>
-								<xforms:label>contains</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf2603cd621">contains</xforms:label>
 								<xforms:value>CONTAINS</xforms:value>
 							</xforms:item>
 							<xforms:item>
-								<xforms:label>starts with</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf26442d629">starts with</xforms:label>
 								<xforms:value>STARTS_WITH</xforms:value>
 							</xforms:item>
 							<xforms:item>
-								<xforms:label>regex</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf268825631">regex</xforms:label>
 								<xforms:value>REGEX</xforms:value>
 							</xforms:item>
 						</xforms:select1>
@@ -512,7 +547,8 @@
 							wcpforms:anchors="350px 90px 11px null"
 							wcpforms:position="350 90">
 							<xforms:label
-								wcpforms:class="h_label left_align removed">Input20</xforms:label>
+								wcpforms:class="h_label left_align removed"
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf26f3a5639">Input20</xforms:label>
 						</xforms:input>
 						<xforms:input
 							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
@@ -523,7 +559,8 @@
 							wcpforms:anchors="350px 120px 11px null"
 							wcpforms:position="350 120">
 							<xforms:label
-								wcpforms:class="h_label left_align removed">Input20</xforms:label>
+								wcpforms:class="h_label left_align removed"
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf26f3a5639">Input20</xforms:label>
 						</xforms:input>
 						<xforms:group
 							appearance="controlbox"
@@ -540,7 +577,8 @@
 								id="btnSearch"
 								wcpforms:class="h_button"
 								wcpforms:size="160px 2em">
-								<xforms:label>Search metadata</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf28931d669">Search metadata</xforms:label>
 								<xforms:action
 									ev:event="xforms-activate">
 									<xforms:btnSearch_Click/>
@@ -556,13 +594,16 @@
 							wcpforms:size="130px null"
 							wcpforms:anchors="450px 35px 148px null"
 							wcpforms:position="450 35">
-							<xforms:label>Use cache if possible</xforms:label>
+							<xforms:label
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf28d5d5671">Use cache if possible</xforms:label>
 							<xforms:item>
-								<xforms:label>true</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf291509679">true</xforms:label>
 								<xforms:value>true</xforms:value>
 							</xforms:item>
 							<xforms:item>
-								<xforms:label>false</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf295681681">false</xforms:label>
 								<xforms:value>false</xforms:value>
 							</xforms:item>
 						</xforms:select1>
@@ -579,7 +620,8 @@
 							wcpforms:position="198 153">
 							<xforms:label
 								wcpforms:class="h_label left_align"
-								wcpforms:size="150 null">Select object</xforms:label>
+								wcpforms:size="150 null"
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf2996a5689">Select object</xforms:label>
 							<xforms:action
 								ev:event="xforms-value-changed">
 								<xforms:txtContainer_Change/>
@@ -600,7 +642,8 @@
 								id="btnclearcache"
 								wcpforms:class="h_button"
 								wcpforms:size="8em 2em">
-								<xforms:label>Refresh Cache</xforms:label>
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf2a3641691">Refresh Cache</xforms:label>
 								<xforms:action
 									ev:event="xforms-activate">
 									<xforms:btnclearcache_Click/>
@@ -981,22 +1024,1052 @@ function btnclearcache_Click(eventObject)
 			</xforms:action>
 		</xformhtml>
 	</XFormContent>
-	<qualifiedclassname></qualifiedclassname>
-	<XFormWSDL/>
-	<type>XForm</type>
-	<showOnStartPage>false</showOnStartPage>
-	<isInternal>false</isInternal>
-	<parameters/>
-	<caption></caption>
-	<title>true</title>
-	<mode>full</mode>
-	<automatic>false</automatic>
-	<left></left>
-	<top></top>
-	<height></height>
 	<width></width>
+	<automatic>false</automatic>
 	<data/>
+	<XFormWSDL/>
+	<caption></caption>
+	<isInternal>false</isInternal>
+	<type>XForm</type>
+	<taskName></taskName>
+	<mode>full</mode>
+	<title>true</title>
+	<height></height>
 	<isLegacy>false</isLegacy>
+	<left></left>
+	<qualifiedclassname></qualifiedclassname>
+	<parameters/>
+	<showOnStartPage>false</showOnStartPage>
+	<taskDescription></taskDescription>
+	<top></top>
+	<TranslatableUITexts>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf225129ff4">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf224c79ff3</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf224c79ff3</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:38:00.332</CreationDate>
+			<Notes/>
+			<UIRef>grpProcessorSelection</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf22487dff2">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf2245c1ff1</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2245c1ff1</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:54.927</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf223149fef"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf229215ffc">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf228ef5ffb</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf228ef5ffb</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.675</CreationDate>
+			<Notes/>
+			<UIRef>txtServiceContainer</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf228b0dffa">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf228865ff9</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf228865ff9</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:55.017</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf2273b1ff7"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf22da6d5c6">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf22d7c55c5</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf22d7c55c5</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.69</CreationDate>
+			<Notes/>
+			<UIRef>grpGenerationDetails</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf22d3c95c4">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf22ce3d5c3</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf22ce3d5c3</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:38:00.229</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf22b9edfff"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2319655ce">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf2316d15cd</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf2316d15cd</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.762</CreationDate>
+			<Notes/>
+			<UIRef>txtWebServiceName</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2312fd5cc">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf2310555cb</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2310555cb</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:57.586</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf22fcf55c9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf235a795d6">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf2357595d5</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf2357595d5</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:38:00.378</CreationDate>
+			<Notes/>
+			<UIRef>rSAPObjectType</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2352a95d4">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf234fb15d3</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf234fb15d3</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:57.554</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf233c3d5d1"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf23bf055de">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf23bc0d5dd</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf23bc0d5dd</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.79</CreationDate>
+			<Notes/>
+			<UIRef>BAPI</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf23b8115dc">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf23b5415db</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf23b5415db</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:57.785</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf237c255d9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2405555e6">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf24020d5e5</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf24020d5e5</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.542</CreationDate>
+			<Notes/>
+			<UIRef>RFC</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf23fb2d5e4">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf23f8355e3</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf23f8355e3</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:57.734</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf23e45d5e1"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2446555ee">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf2443ad5ed</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf2443ad5ed</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.725</CreationDate>
+			<Notes/>
+			<UIRef>IDOC</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf243f755ec">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf243c695eb</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf243c695eb</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:38:00.356</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf2429815e9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2487555f6">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf2484495f5</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf2484495f5</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.612</CreationDate>
+			<Notes/>
+			<UIRef>lAvailable</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf247fd55f4">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf247d415f3</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf247d415f3</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:57.612</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf24688d5f1"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf24c9d15fe">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf24c73d5fd</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf24c73d5fd</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:38:00.309</CreationDate>
+			<Notes/>
+			<UIRef>lSelected</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf24c3195fc">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf24bddd5fb</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf24bddd5fb</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:57.759</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf24a9dd5f9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf250ae5606">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf25083d605</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf25083d605</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.606</CreationDate>
+			<Notes/>
+			<UIRef>btnMoveToSelected</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2503c9604">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf250045603</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf250045603</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:57.721</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf24ebf5601"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf254e0160e">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf254b6d60d</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf254b6d60d</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:38:00.395</CreationDate>
+			<Notes/>
+			<UIRef>btnMoveToAvailable</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf25466d60c">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf2543d960b</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2543d960b</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:38:00.219</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf253029609"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2590e1616">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf258e39615</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf258e39615</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:38:00.218</CreationDate>
+			<Notes/>
+			<UIRef>txtFirstType</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2589ed614">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf2586a5613</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2586a5613</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:57.676</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf2572cd611"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf25de1161e">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf25db1961d</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf25db1961d</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.591</CreationDate>
+			<Notes/>
+			<UIRef>equals</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf27fc69658">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf27f9c1657</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf27f9c1657</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:38:00.428</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf25bfc1619"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf262141626">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf261ead625</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf261ead625</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:38:00.334</CreationDate>
+			<Notes/>
+			<UIRef>contains</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf261ad9624">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf2617cd623</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2617cd623</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:38:00.422</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf2603cd621"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf26654d62e">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf26629162d</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf26629162d</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.768</CreationDate>
+			<Notes/>
+			<UIRef>starts with</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2798cd64c">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf27962564b</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf27962564b</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:55.147</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf26442d629"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf26ba11636">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf26b705635</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf26b705635</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.687</CreationDate>
+			<Notes/>
+			<UIRef>regex</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf28325165e">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf282f4565d</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf282f4565d</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:38:00.171</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf268825631"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2714b163e">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf27114163d</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf27114163d</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.769</CreationDate>
+			<Notes/>
+			<UIRef>txtFirstValue</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf270c7d63c">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf2709c163b</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2709c163b</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:38:00.363</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf26f3a5639"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf27581d646">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf275589645</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf275589645</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:38:00.237</CreationDate>
+			<Notes/>
+			<UIRef>txtSecondType</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2751b5644">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf274f0d643</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf274f0d643</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:54.974</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf273801641"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf27e2c9656">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf27dfd1655</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf27dfd1655</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:38:00.295</CreationDate>
+			<Notes/>
+			<UIRef>txtThirdType</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf27dbe9654">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf27d671653</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf27d671653</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:57.733</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf27c25d651"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf284831662">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf28459d661</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf28459d661</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:55.089</CreationDate>
+			<Notes/>
+			<UIRef>txtSecondValue</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2841c9660">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf283f2165f</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf283f2165f</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:57.754</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf26f3a5639"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf286eb5666">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf286bf9665</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf286bf9665</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.541</CreationDate>
+			<Notes/>
+			<UIRef>txtThirdValue</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2867c1664">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf286519663</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf286519663</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:38:00.311</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf26f3a5639"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf28b14566e">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf28ae3966d</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf28ae3966d</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:54.977</CreationDate>
+			<Notes/>
+			<UIRef>btnSearch</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf28a96166c">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf28a6b966b</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf28a6b966b</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:54.957</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf28931d669"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf28f245676">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf28ef61675</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf28ef61675</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.671</CreationDate>
+			<Notes/>
+			<UIRef>txtUseCache</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf28eb79674">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf28e881673</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf28e881673</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:38:00.255</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf28d5d5671"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2931f167e">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf292f4967d</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf292f4967d</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:38:00.19</CreationDate>
+			<Notes/>
+			<UIRef>true</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf292b7567c">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf29289167b</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf29289167b</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:55.003</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf291509679"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf297611686">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf297319685</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf297319685</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:38:00.168</CreationDate>
+			<Notes/>
+			<UIRef>false</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf296e91684">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf296b85683</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf296b85683</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:38:00.173</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf295681681"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf29e46168e">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf29b00968d</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf29b00968d</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:54.976</CreationDate>
+			<Notes/>
+			<UIRef>txtContainer</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf29ac3568c">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf29a98d68b</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf29a98d68b</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:38:00.227</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf2996a5689"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2a80f1696">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf2a7dd1695</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf2a7dd1695</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:54.948</CreationDate>
+			<Notes/>
+			<UIRef>btnclearcache</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2a7831694">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf2a74d5693</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2a74d5693</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:55.075</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf2a3641691"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2ad46169e">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf2ad17d69d</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf2ad17d69d</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:55.03</CreationDate>
+			<Notes/>
+			<UIRef>Please enter a name for the Web Service Binding</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2acd5969c">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf2aca3969b</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2aca3969b</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:55.053</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf2ab661699"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2b16016a6">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf2b136d6a5</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf2b136d6a5</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:38:00.228</CreationDate>
+			<Notes/>
+			<UIRef>Please select at least 1 operation</UIRef>
+			<XForm>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2b0f496a4">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf2b0c3d6a3</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2b0c3d6a3</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:57.75</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf2af8656a1"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+	</TranslatableUITexts>
+	<Representations/>
+	<ReferredXForms/>
+	<image/>
+	<TranslatableApplications/>
+	<Images/>
+	<messages/>
 	<Webservices>
 		<uri
 			id="001E3780-4713-71DE-8EF1-C54B4CACCDAF"
@@ -1012,17 +2085,28 @@ function btnclearcache_Click(eventObject)
 		/>
 	</Webservices>
 	<StyleSheets/>
-	<Javascripts/>
-	<Htms/>
-	<CompositeControls/>
-	<TranslatableApplications/>
-	<ReferredXForms/>
-	<Images/>
 	<input/>
-	<output/>
-	<deliveryModels/>
 	<taskParts/>
+	<TranslatableName>
+		<TranslatableText
+			type="com.cordys.translation.TranslatableText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf21bed5fec">
+			<DocumentID>00505681-3ba3-11e1-e23a-2bf21bbddfeb</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf21bbddfeb</Name>
+			<Description/>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-18T10:37:57.591</CreationDate>
+			<Notes/>
+			<Identifier>
+				<uri
+					id="00505681-3ba3-11e1-e23a-2bf21a521fe9"
+				/>
+			</Identifier>
+		</TranslatableText>
+	</TranslatableName>
 	<aclFragments/>
+	<tagsContainer/>
+	<deliveryModels/>
 	<messageParts>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
@@ -1033,9 +2117,9 @@ function btnclearcache_Click(eventObject)
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-10-12T08:29:25.704</CreationDate>
 			<Notes/>
-			<namespace>http://schemas.cordys.com/1.0/xforms/processapi</namespace>
-			<operationName>freeformcontrols</operationName>
 			<isRefExists>false</isRefExists>
+			<operationName>freeformcontrols</operationName>
+			<namespace>http://schemas.cordys.com/1.0/xforms/processapi</namespace>
 		</MessagePart>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
@@ -1046,9 +2130,9 @@ function btnclearcache_Click(eventObject)
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-10-30T13:40:24.806</CreationDate>
 			<Notes/>
-			<namespace>http://schemas.cordys.com/2.0/SAPSchema</namespace>
-			<operationName>SearchObject</operationName>
 			<isRefExists>true</isRefExists>
+			<operationName>SearchObject</operationName>
+			<namespace>http://schemas.cordys.com/2.0/SAPSchema</namespace>
 		</MessagePart>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
@@ -1059,9 +2143,9 @@ function btnclearcache_Click(eventObject)
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-11-11T13:52:18.835</CreationDate>
 			<Notes/>
-			<namespace>http://schemas.cordys.com/1.0/ldap</namespace>
-			<operationName>GetSoapNodes</operationName>
 			<isRefExists>true</isRefExists>
+			<operationName>GetSoapNodes</operationName>
+			<namespace>http://schemas.cordys.com/1.0/ldap</namespace>
 		</MessagePart>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
@@ -1072,9 +2156,9 @@ function btnclearcache_Click(eventObject)
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-11-11T15:45:42.073</CreationDate>
 			<Notes/>
-			<namespace>http://schemas.cordys.com/2.0/SAPSchema</namespace>
-			<operationName>GenerateMethods</operationName>
 			<isRefExists>true</isRefExists>
+			<operationName>GenerateMethods</operationName>
+			<namespace>http://schemas.cordys.com/2.0/SAPSchema</namespace>
 		</MessagePart>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
@@ -1085,10 +2169,13 @@ function btnclearcache_Click(eventObject)
 			<CreatedBy>srkrishnan</CreatedBy>
 			<CreationDate>2011-04-05T12:04:34.149</CreationDate>
 			<Notes/>
-			<namespace>http://schemas.cordys.com/2.0/SAPClearCache</namespace>
-			<operationName>ClearCache</operationName>
 			<isRefExists>true</isRefExists>
+			<operationName>ClearCache</operationName>
+			<namespace>http://schemas.cordys.com/2.0/SAPClearCache</namespace>
 		</MessagePart>
 	</messageParts>
-	<image/>
+	<InstanceSchemaFragments/>
+	<Htms/>
+	<output/>
+	<Javascripts/>
 </XFormDesigntime>
