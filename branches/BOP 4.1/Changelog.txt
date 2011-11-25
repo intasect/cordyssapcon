@@ -1,3 +1,10 @@
+VERSIOM 2.1.0 - Beta (25-11-2012)
+- Change : Unused htm files are removed.
+- Add    : SAP User Mapping and Property page are developed with XForm, Property page is still htm since there is no option to add caf as property page.
+- Change : LDAP Runtime reference was removed and added with BOP 4.1 LDAP Runtime Reference - Reason : Verification Failed error during Publish.
+- Change : Runtime Key is changed to BAC.SAP.SAP R3 Connector
+- Fix    : Browser compatibility changes are made in sapwebserviceview.htm
+
 VERSION 2.0.5 - Beta (21-04-2011)
 - Change: SAP WebService Wizard to provide option to specify Interface name (Issue 6)
 - Add   : Option to clear cache (Issue 8)
