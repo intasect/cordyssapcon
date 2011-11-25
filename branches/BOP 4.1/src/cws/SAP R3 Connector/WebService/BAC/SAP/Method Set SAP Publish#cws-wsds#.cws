@@ -11,7 +11,7 @@
 	<Type></Type>
 	<TargetNamespace>http://schemas.cordys.com/1.0/SAPMethodPublish</TargetNamespace>
 	<TNSPrefix>tns</TNSPrefix>
-	<LocationURI>http://cnl1259:81/cordys/BAC/sap/wsdl/Method%20Set%20SAP%20Publish.wsdl</LocationURI>
+	<LocationURI></LocationURI>
 	<Connectors>
 		<ApplicationConnectorRuntime
 			type="com.cordys.applicationconnector.ApplicationConnectorRuntime"
@@ -25,9 +25,9 @@
 			<Notes/>
 			<BinaryReferenceInfo></BinaryReferenceInfo>
 			<RuntimeInstanceLevel>isv</RuntimeInstanceLevel>
-			<ImplementationClass></ImplementationClass>
+			<ImplementationClass>com.eibus.applicationconnector.sap.SAPMapper</ImplementationClass>
 			<ISVPName></ISVPName>
-			<RuntimeKey>com.eibus.applicationconnector.sap.SAPMapper</RuntimeKey>
+			<RuntimeKey>BAC.SAP.SAP R3 Connector</RuntimeKey>
 			<PackageInformation>
 				<CordysBinaryReferenceISVPInfo
 					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"

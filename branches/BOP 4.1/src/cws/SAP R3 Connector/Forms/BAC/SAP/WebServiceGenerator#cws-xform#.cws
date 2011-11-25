@@ -11,13 +11,12 @@
 	<Notes/>
 	<XFormContent>
 		<xformhtml
-			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
 			xmlns="http://schemas.cordys.com/1.0/xform"
-			xmlns:eibus="http://schemas.cordys.com"
 			xmlns:xforms="http://www.w3.org/2002/xforms/cr"
 			xmlns:ev="http://www.w3.org/2001/xml-events"
 			xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
 			xformsversion="2"
+			key="BAC/SAP/WebServiceGenerator"
 			focusatstartup="true">
 			<xhead>
 				<xforms:model
@@ -65,14 +64,14 @@
 					xmlns:ev="http://www.w3.org/2001/xml-events"
 					xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
 					id="GetSoapNodesOperationModel"
-					wcpforms:businessElement="entry"
 					wcpforms:automatic="false"
 					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
 					singleTransaction="false"
 					promptToSave="false"
 					isConstraintValidation="false"
 					isInitializationRequired="false"
-					isApplyAccessControl="false">
+					isApplyAccessControl="false"
+					wcpforms:businessElement="entry">
 					<xforms:instance
 						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
 						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
@@ -80,7 +79,8 @@
 						<wcpforms:dataset
 							src="http://schemas.cordys.com/1.0/ldap/GetSoapNodes"
 							type="get"
-							wcpforms:wsguid="001E3780-4713-71DE-8EF4-CEC766692546">
+							wcpforms:wsguid="00505681-3ba3-11e1-e2a0-47dcf6dd9f1f"
+							operationName="GetSoapNodes">
 							<dn
 								xmlns="http://schemas.cordys.com/1.0/ldap"
 							/>
@@ -88,6 +88,9 @@
 								xmlns="http://schemas.cordys.com/1.0/ldap"
 							/>
 							<sort
+								xmlns="http://schemas.cordys.com/1.0/ldap"
+							/>
+							<return
 								xmlns="http://schemas.cordys.com/1.0/ldap"
 							/>
 						</wcpforms:dataset>
@@ -204,11 +207,12 @@
 				<xforms:group
 					wcpforms:layout="vertical"
 					id="xbody_group"
-					wcpforms:labelalign="">
+					wcpforms:labelalign="ontop">
 					<xforms:group
 						appearance="box"
 						wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
 						id="grpProcessorSelection"
+						isNavigationEnabled="true"
 						wcpforms:collapsible="true"
 						wcpforms:expanded="false"
 						wcpforms:layout="free"
@@ -216,8 +220,8 @@
 						wcpforms:size="730px 70px"
 						wcpforms:labelalign="left">
 						<xforms:label
-							wcpforms:class="groupheader expand"
-							textIdentifier="00505681-3ba3-11e1-e23a-2bf223149fef">Select the proper SAP R3 Connector</xforms:label>
+							textIdentifier="00505681-3ba3-11e1-e23a-2bf223149fef"
+							wcpforms:class="groupheader expand">Select the proper SAP R3 Connector</xforms:label>
 						<xforms:select1
 							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
 							id="txtServiceContainer"
@@ -226,39 +230,40 @@
 							wcpforms:enumerated="false"
 							multiple="false"
 							wcpforms:class="f_layout"
-							wcpforms:size="703px null"
+							wcpforms:size="auto auto"
 							wcpforms:anchors="10px 13px 15px null"
-							wcpforms:position="10 13">
+							wcpforms:position="10px 13px">
 							<xforms:label
-								wcpforms:class="h_label left_align"
-								wcpforms:size="120 null"
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf2273b1ff7">Service Container</xforms:label>
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf2273b1ff7"
+								wcpforms:size="120px null"
+								wcpforms:class="h_label left_align">Service Container</xforms:label>
 						</xforms:select1>
 					</xforms:group>
 					<xforms:group
 						appearance="box"
 						wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
 						id="grpGenerationDetails"
+						isNavigationEnabled="true"
 						wcpforms:layout="free"
 						wcpforms:class="v_layout"
 						wcpforms:size="730px 450px"
 						wcpforms:labelalign="left">
 						<xforms:label
-							wcpforms:class="groupheader"
-							textIdentifier="00505681-3ba3-11e1-e23a-2bf22b9edfff">Enter the details for the methods to be generated</xforms:label>
+							textIdentifier="00505681-3ba3-11e1-e23a-2bf22b9edfff"
+							wcpforms:class="groupheader">Enter the details for the methods to be generated</xforms:label>
 						<xforms:input
 							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
 							id="txtWebServiceName"
 							doEBIValidate="false"
 							wcpforms:required="true"
 							wcpforms:class="f_layout"
-							wcpforms:size="708px null"
+							wcpforms:size="auto auto"
 							wcpforms:anchors="10px 10px 10px null"
-							wcpforms:position="10 10">
+							wcpforms:position="10px 10px">
 							<xforms:label
-								wcpforms:class="h_label left_align"
-								wcpforms:size="190 null"
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf22fcf55c9">Web service Binidng Name</xforms:label>
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf22fcf55c9"
+								wcpforms:size="190px null"
+								wcpforms:class="h_label left_align">Web service Binidng Name</xforms:label>
 							<messages
 								xmlns="">
 								<Message
@@ -274,19 +279,19 @@
 							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsChoicebox"
 							id="choicebox1"
 							controltype="radio"
+							wcpforms:align="left_align"
 							wcpforms:layout="horizontal"
 							wcpforms:class="f_layout"
-							wcpforms:align="left_align"
 							wcpforms:size="440px 20px"
-							wcpforms:position="10 32">
+							wcpforms:position="10px 32px">
 							<xforms:select1
 								appearance="full"
 								unique-id="1"
 								id="rSAPObjectType">
 								<xforms:label
-									wcpforms:class="h_label left_align"
-									wcpforms:size="190 null"
-									textIdentifier="00505681-3ba3-11e1-e23a-2bf233c3d5d1">Choose SAP object type</xforms:label>
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf233c3d5d1"
+									wcpforms:size="190px null"
+									wcpforms:class="h_label left_align">Choose SAP object type</xforms:label>
 								<xforms:item
 									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRadio"
 									id="radio1_1"
@@ -329,13 +334,12 @@
 							wcpforms:enumerated="false"
 							multiple="true"
 							wcpforms:class="f_layout"
-							wcpforms:size="320px 240px"
+							wcpforms:size="320px auto"
 							wcpforms:anchors="10px 180px null 8px"
-							wcpforms:position="10 180">
+							wcpforms:position="10px 180px">
 							<xforms:label
-								wcpforms:class="v_label"
-								wcpforms:size="89 14"
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf24688d5f1">Available methods</xforms:label>
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf24688d5f1"
+								wcpforms:class="v_label">Available methods</xforms:label>
 						</xforms:select1>
 						<xforms:select1
 							appearance="compact"
@@ -347,13 +351,12 @@
 							multiple="true"
 							wcpforms:required="false"
 							wcpforms:class="f_layout"
-							wcpforms:size="320px 240px"
+							wcpforms:size="auto auto"
 							wcpforms:anchors="400px 180px 8px 8px"
-							wcpforms:position="400 180">
+							wcpforms:position="400px 180px">
 							<xforms:label
-								wcpforms:class="v_label"
-								wcpforms:size="87 14"
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf24a9dd5f9">Selected methods</xforms:label>
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf24a9dd5f9"
+								wcpforms:class="v_label">Selected methods</xforms:label>
 							<messages
 								xmlns="">
 								<Message
@@ -373,7 +376,7 @@
 							wcpforms:class="f_layout"
 							wcpforms:align="left_align"
 							wcpforms:size="60px 30px"
-							wcpforms:position="340 200">
+							wcpforms:position="340px 200px">
 							<xforms:trigger
 								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
 								id="btnMoveToSelected"
@@ -396,7 +399,7 @@
 							wcpforms:class="f_layout"
 							wcpforms:align="left_align"
 							wcpforms:size="60px 30px"
-							wcpforms:position="340 240">
+							wcpforms:position="340px 240px">
 							<xforms:trigger
 								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
 								id="btnMoveToAvailable"
@@ -420,12 +423,12 @@
 							wcpforms:dataType="string"
 							wcpforms:textalign="left_align"
 							wcpforms:class="f_layout"
-							wcpforms:size="330px null"
-							wcpforms:position="10 60">
+							wcpforms:size="330px auto"
+							wcpforms:position="10px 60px">
 							<xforms:label
-								wcpforms:class="h_label left_align"
-								wcpforms:size="190 null"
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf2572cd611">Object</xforms:label>
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf2572cd611"
+								wcpforms:size="190px null"
+								wcpforms:class="h_label left_align">Object</xforms:label>
 							<xforms:item
 								xmlns:xforms="http://www.w3.org/2002/xforms/cr">
 								<xforms:label
@@ -453,12 +456,12 @@
 							id="txtFirstValue"
 							doEBIValidate="false"
 							wcpforms:class="f_layout"
-							wcpforms:size="368px null"
+							wcpforms:size="auto auto"
 							wcpforms:anchors="350px 60px 10px null"
-							wcpforms:position="350 60">
+							wcpforms:position="350px 60px">
 							<xforms:label
-								wcpforms:class="h_label left_align removed"
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf26f3a5639">Input20</xforms:label>
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf26f3a5639"
+								wcpforms:class="h_label left_align removed">Input20</xforms:label>
 						</xforms:input>
 						<xforms:select1
 							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
@@ -470,12 +473,12 @@
 							wcpforms:dataType="string"
 							wcpforms:textalign="left_align"
 							wcpforms:class="f_layout"
-							wcpforms:size="330px null"
-							wcpforms:position="10 90">
+							wcpforms:size="330px auto"
+							wcpforms:position="10px 90px">
 							<xforms:label
-								wcpforms:class="h_label left_align"
-								wcpforms:size="190 null"
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf273801641">Method</xforms:label>
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf273801641"
+								wcpforms:size="190px null"
+								wcpforms:class="h_label left_align">Method</xforms:label>
 							<xforms:item
 								xmlns:xforms="http://www.w3.org/2002/xforms/cr"
 								xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
@@ -509,12 +512,12 @@
 							wcpforms:dataType="string"
 							wcpforms:textalign="left_align"
 							wcpforms:class="f_layout"
-							wcpforms:size="330px null"
-							wcpforms:position="10 120">
+							wcpforms:size="330px auto"
+							wcpforms:position="10px 120px">
 							<xforms:label
-								wcpforms:class="h_label left_align"
-								wcpforms:size="190 null"
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf27c25d651">Description</xforms:label>
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf27c25d651"
+								wcpforms:size="190px null"
+								wcpforms:class="h_label left_align">Description</xforms:label>
 							<xforms:item
 								xmlns:xforms="http://www.w3.org/2002/xforms/cr"
 								xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
@@ -543,24 +546,24 @@
 							id="txtSecondValue"
 							doEBIValidate="false"
 							wcpforms:class="f_layout"
-							wcpforms:size="367px null"
+							wcpforms:size="auto auto"
 							wcpforms:anchors="350px 90px 11px null"
-							wcpforms:position="350 90">
+							wcpforms:position="350px 90px">
 							<xforms:label
-								wcpforms:class="h_label left_align removed"
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf26f3a5639">Input20</xforms:label>
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf26f3a5639"
+								wcpforms:class="h_label left_align removed">Input20</xforms:label>
 						</xforms:input>
 						<xforms:input
 							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
 							id="txtThirdValue"
 							doEBIValidate="false"
 							wcpforms:class="f_layout"
-							wcpforms:size="367px null"
+							wcpforms:size="auto auto"
 							wcpforms:anchors="350px 120px 11px null"
-							wcpforms:position="350 120">
+							wcpforms:position="350px 120px">
 							<xforms:label
-								wcpforms:class="h_label left_align removed"
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf26f3a5639">Input20</xforms:label>
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf26f3a5639"
+								wcpforms:class="h_label left_align removed">Input20</xforms:label>
 						</xforms:input>
 						<xforms:group
 							appearance="controlbox"
@@ -571,7 +574,7 @@
 							wcpforms:class="f_layout"
 							wcpforms:align="left_align"
 							wcpforms:size="10em 26px"
-							wcpforms:position="10 150">
+							wcpforms:position="10px 150px">
 							<xforms:trigger
 								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
 								id="btnSearch"
@@ -591,9 +594,9 @@
 							id="txtUseCache"
 							doEBIValidate="false"
 							wcpforms:class="f_layout"
-							wcpforms:size="130px null"
+							wcpforms:size="auto auto"
 							wcpforms:anchors="450px 35px 148px null"
-							wcpforms:position="450 35">
+							wcpforms:position="450px 35px">
 							<xforms:label
 								textIdentifier="00505681-3ba3-11e1-e23a-2bf28d5d5671">Use cache if possible</xforms:label>
 							<xforms:item>
@@ -615,13 +618,13 @@
 							wcpforms:enumerated="false"
 							multiple="false"
 							wcpforms:class="f_layout"
-							wcpforms:size="520px null"
+							wcpforms:size="auto auto"
 							wcpforms:anchors="198px 153px 10px null"
-							wcpforms:position="198 153">
+							wcpforms:position="198px 153px">
 							<xforms:label
-								wcpforms:class="h_label left_align"
-								wcpforms:size="150 null"
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf2996a5689">Select object</xforms:label>
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf2996a5689"
+								wcpforms:size="150px null"
+								wcpforms:class="h_label left_align">Select object</xforms:label>
 							<xforms:action
 								ev:event="xforms-value-changed">
 								<xforms:txtContainer_Change/>
@@ -630,18 +633,19 @@
 						<xforms:group
 							appearance="controlbox"
 							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbox"
-							id="controlbox5"
+							id="controlbox2"
 							controltype="button"
 							wcpforms:layout="horizontal"
 							wcpforms:class="f_layout"
 							wcpforms:align="left_align"
-							wcpforms:size="110px 22px"
-							wcpforms:position="585 35">
+							wcpforms:size="110px 31px"
+							wcpforms:anchors="null null 36px 365px"
+							wcpforms:position="auto auto">
 							<xforms:trigger
 								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
 								id="btnclearcache"
 								wcpforms:class="h_button"
-								wcpforms:size="8em 2em">
+								wcpforms:size="10.37em 2em">
 								<xforms:label
 									textIdentifier="00505681-3ba3-11e1-e23a-2bf2a3641691">Refresh Cache</xforms:label>
 								<xforms:action
@@ -1000,16 +1004,15 @@ function getGeneratedWSDL(namespace)
         operations.appendChild(xmlOperation);
     }
     
-    
+
     //Send the request to the backend.
     GenerateMethodsModel.setMethodRequest(xmlRequest, "GET");
     GenerateMethodsModel.reset();    
-    
+
     if (GenerateMethodsModel.soapFaultOccurred)
     {
         application.showError("Error generating web service interface.");
     }
-
     return GenerateMethodsModel.getData();
 }
 function btnclearcache_Click(eventObject)
@@ -1963,40 +1966,6 @@ function btnclearcache_Click(eventObject)
 		</TranslatableUIText>
 		<TranslatableUIText
 			type="com.cordys.xforms.TranslatableUIText"
-			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2a80f1696">
-			<DocumentID>00505681-3ba3-11e1-e23a-2bf2a7dd1695</DocumentID>
-			<Name>00505681-3ba3-11e1-e23a-2bf2a7dd1695</Name>
-			<Description/>
-			<CreatedBy>srkrishnan</CreatedBy>
-			<CreationDate>2011-11-18T10:37:54.948</CreationDate>
-			<Notes/>
-			<UIRef>btnclearcache</UIRef>
-			<XForm>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B7083CE0AD66"
-				/>
-			</XForm>
-			<TranslatableName>
-				<TranslatableText
-					type="com.cordys.translation.TranslatableText"
-					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2a7831694">
-					<DocumentID>00505681-3ba3-11e1-e23a-2bf2a74d5693</DocumentID>
-					<Name>00505681-3ba3-11e1-e23a-2bf2a74d5693</Name>
-					<Description/>
-					<CreatedBy>srkrishnan</CreatedBy>
-					<CreationDate>2011-11-18T10:37:55.075</CreationDate>
-					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2a3641691"
-						/>
-					</Identifier>
-				</TranslatableText>
-			</TranslatableName>
-			<TooltipText/>
-		</TranslatableUIText>
-		<TranslatableUIText
-			type="com.cordys.xforms.TranslatableUIText"
 			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf2ad46169e">
 			<DocumentID>00505681-3ba3-11e1-e23a-2bf2ad17d69d</DocumentID>
 			<Name>00505681-3ba3-11e1-e23a-2bf2ad17d69d</Name>
@@ -2078,7 +2047,7 @@ function btnclearcache_Click(eventObject)
 			id="001E3780-4713-71DE-8EF4-CEB0649CDF3A"
 		/>
 		<uri
-			id="001E3780-4713-71DE-8EF4-CEC766692546"
+			id="00505681-3ba3-11e1-e2a0-47dcf6dd9f1f"
 		/>
 		<uri
 			id="005056C0-0008-11E0-EBEF-21FC296ADFC1"

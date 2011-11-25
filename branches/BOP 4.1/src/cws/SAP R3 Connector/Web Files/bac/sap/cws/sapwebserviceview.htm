@@ -17,7 +17,7 @@ limitations under the License.
 -->
 <HTML>
 	<HEAD>
-		<xml id="xmlSAPWebserviceViewDefinitions">	
+		<script type="cordys/xml"  id="xmlSAPWebserviceViewDefinitions">	
 			<CustomWebserviceView>
 				<WebserviceDefinitionSetModel>
 					<BusinessObjectType>
@@ -28,7 +28,7 @@ limitations under the License.
 					</InterfaceObjectType>
 				</WebserviceDefinitionSetModel>
 			</CustomWebserviceView>
-		</xml>
+		</script>
 		<SCRIPT>
 	setPublic(SAPWebserviceView, "bac.sap.cws");
 
@@ -48,7 +48,7 @@ limitations under the License.
 	function SAPWebserviceView()
 	{
 		this.WebserviceSourceWizardView();
-		this.viewDefinition(xmlSAPWebserviceViewDefinitions.documentElement);
+		this.viewDefinition(xmlSAPWebserviceViewDefinitions.XMLDocument.documentElement);
 		
 		this.ID("/cordys/BAC/SAP/SAP_ServicesPublisher_BOP4.caf");
 		
@@ -72,7 +72,7 @@ limitations under the License.
 	/**
 	 * Handler on the onAfterOpen of the application.
 	 */
-	function SAPWebserviceView.prototype.onAfterOpen()
+	SAPWebserviceView.prototype.onAfterOpen = function()
 	{
 		this.inherited(SAPWebserviceView,"onAfterOpen");
 
@@ -97,7 +97,7 @@ limitations under the License.
 	 *
 	 * @return true if all values are filled correctly. Otherwise false.
 	 */
-	function SAPWebserviceView.prototype.onBeforeFinish()
+	SAPWebserviceView.prototype.onBeforeFinish =   function()
 	{
 	    return this.getViewApplication().validate();
 	}
@@ -107,7 +107,7 @@ limitations under the License.
 	 * the WSDLs and the implementations. Then based on the WSDLs it will create the Webservice in CWS.
 	 * Afterwards the implementation (realization) will be added to the generated methods. 
 	 */
-	function SAPWebserviceView.prototype.onFinish( iEventObject )
+	SAPWebserviceView.prototype.onFinish =  function( iEventObject )
 	{
 		//Get the information needed to generate the WSL and realizations.
 		//I need the information which was entered at the first page of the wizard.
@@ -140,7 +140,7 @@ limitations under the License.
 		        else
 		        {
 			        //Import the WSDL into CWS
-		        	bo.fillFromWSDL(wsdl.xml, faultHandler);
+		        	bo.fillFromWSDL(cordys.getXML(wsdl), faultHandler);
 
 		        	//Go through all methods and add the realization to it.
 		        	if(bo.webserviceBindings().iterator().hasNext())
