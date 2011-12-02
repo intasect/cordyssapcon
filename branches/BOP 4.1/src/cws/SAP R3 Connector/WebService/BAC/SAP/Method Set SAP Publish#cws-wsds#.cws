@@ -13,35 +13,7 @@
 	<TNSPrefix>tns</TNSPrefix>
 	<LocationURI></LocationURI>
 	<Connectors>
-		<ApplicationConnectorRuntime
-			type="com.cordys.applicationconnector.ApplicationConnectorRuntime"
-			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
-			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3366DD5612A">
-			<DocumentID>001D09BE-4863-71DE-8EEE-B3366DD56129</DocumentID>
-			<Name>com.eibus.applicationconnector.sap.SAPMapper</Name>
-			<Description>com.eibus.applicationconnector.sap.SAPMapper</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-10-07T11:58:18.312</CreationDate>
-			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<RuntimeInstanceLevel>isv</RuntimeInstanceLevel>
-			<ImplementationClass>com.eibus.applicationconnector.sap.SAPMapper</ImplementationClass>
-			<ISVPName></ISVPName>
-			<RuntimeKey>BAC.SAP.SAP R3 Connector</RuntimeKey>
-			<PackageInformation>
-				<CordysBinaryReferenceISVPInfo
-					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
-					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf3357fd6cc">
-					<DocumentID>00505681-3ba3-11e1-e23a-2bf3354dd6cb</DocumentID>
-					<Name>ISVP Info for</Name>
-					<Description/>
-					<CreatedBy>srkrishnan</CreatedBy>
-					<CreationDate>2011-11-18T10:37:54.939</CreationDate>
-					<Notes/>
-					<ISVPName></ISVPName>
-				</CordysBinaryReferenceISVPInfo>
-			</PackageInformation>
-		</ApplicationConnectorRuntime>
+		
 	</Connectors>
 	<RuntimeSchemaDefinitions>
 		<XMLSchemaDefinitionRuntime

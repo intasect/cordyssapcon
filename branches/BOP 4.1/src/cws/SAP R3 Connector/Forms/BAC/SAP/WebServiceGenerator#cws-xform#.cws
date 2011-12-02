@@ -230,7 +230,7 @@
 							wcpforms:enumerated="false"
 							multiple="false"
 							wcpforms:class="f_layout"
-							wcpforms:size="auto auto"
+							wcpforms:size="auto 15px"
 							wcpforms:anchors="10px 13px 15px null"
 							wcpforms:position="10px 13px">
 							<xforms:label
@@ -257,7 +257,7 @@
 							doEBIValidate="false"
 							wcpforms:required="true"
 							wcpforms:class="f_layout"
-							wcpforms:size="auto auto"
+							wcpforms:size="auto 15px"
 							wcpforms:anchors="10px 10px 10px null"
 							wcpforms:position="10px 10px">
 							<xforms:label
@@ -282,7 +282,7 @@
 							wcpforms:align="left_align"
 							wcpforms:layout="horizontal"
 							wcpforms:class="f_layout"
-							wcpforms:size="440px 20px"
+							wcpforms:size="391px 20px"
 							wcpforms:position="10px 32px">
 							<xforms:select1
 								appearance="full"
@@ -296,7 +296,7 @@
 									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRadio"
 									id="radio1_1"
 									wcpforms:class="h_choicebox"
-									wcpforms:size="80px auto">
+									wcpforms:size="60px auto">
 									<xforms:label
 										textIdentifier="00505681-3ba3-11e1-e23a-2bf237c255d9">BAPI</xforms:label>
 									<xforms:value>BAPI</xforms:value>
@@ -305,7 +305,7 @@
 									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRadio"
 									id="radio1_2"
 									wcpforms:class="h_choicebox"
-									wcpforms:size="80px auto">
+									wcpforms:size="55px auto">
 									<xforms:label
 										textIdentifier="00505681-3ba3-11e1-e23a-2bf23e45d5e1">RFC</xforms:label>
 									<xforms:value>RFC</xforms:value>
@@ -314,7 +314,7 @@
 									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRadio"
 									id="radio1_3"
 									wcpforms:class="h_choicebox"
-									wcpforms:size="80px auto">
+									wcpforms:size="59px auto">
 									<xforms:label
 										textIdentifier="00505681-3ba3-11e1-e23a-2bf2429815e9">IDOC</xforms:label>
 									<xforms:value>IDOC</xforms:value>
@@ -423,7 +423,7 @@
 							wcpforms:dataType="string"
 							wcpforms:textalign="left_align"
 							wcpforms:class="f_layout"
-							wcpforms:size="330px auto"
+							wcpforms:size="330px 15px"
 							wcpforms:position="10px 60px">
 							<xforms:label
 								textIdentifier="00505681-3ba3-11e1-e23a-2bf2572cd611"
@@ -456,7 +456,7 @@
 							id="txtFirstValue"
 							doEBIValidate="false"
 							wcpforms:class="f_layout"
-							wcpforms:size="auto auto"
+							wcpforms:size="auto 0px"
 							wcpforms:anchors="350px 60px 10px null"
 							wcpforms:position="350px 60px">
 							<xforms:label
@@ -473,7 +473,7 @@
 							wcpforms:dataType="string"
 							wcpforms:textalign="left_align"
 							wcpforms:class="f_layout"
-							wcpforms:size="330px auto"
+							wcpforms:size="330px 15px"
 							wcpforms:position="10px 90px">
 							<xforms:label
 								textIdentifier="00505681-3ba3-11e1-e23a-2bf273801641"
@@ -512,7 +512,7 @@
 							wcpforms:dataType="string"
 							wcpforms:textalign="left_align"
 							wcpforms:class="f_layout"
-							wcpforms:size="330px auto"
+							wcpforms:size="330px 15px"
 							wcpforms:position="10px 120px">
 							<xforms:label
 								textIdentifier="00505681-3ba3-11e1-e23a-2bf27c25d651"
@@ -546,7 +546,7 @@
 							id="txtSecondValue"
 							doEBIValidate="false"
 							wcpforms:class="f_layout"
-							wcpforms:size="auto auto"
+							wcpforms:size="auto 0px"
 							wcpforms:anchors="350px 90px 11px null"
 							wcpforms:position="350px 90px">
 							<xforms:label
@@ -558,7 +558,7 @@
 							id="txtThirdValue"
 							doEBIValidate="false"
 							wcpforms:class="f_layout"
-							wcpforms:size="auto auto"
+							wcpforms:size="auto 0px"
 							wcpforms:anchors="350px 120px 11px null"
 							wcpforms:position="350px 120px">
 							<xforms:label
@@ -594,11 +594,12 @@
 							id="txtUseCache"
 							doEBIValidate="false"
 							wcpforms:class="f_layout"
-							wcpforms:size="auto auto"
-							wcpforms:anchors="450px 35px 148px null"
-							wcpforms:position="450px 35px">
+							wcpforms:size="auto 14px"
+							wcpforms:anchors="407px 35px 187.01px null"
+							wcpforms:position="407px 35px">
 							<xforms:label
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf28d5d5671">Use cache if possible</xforms:label>
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf28d5d5671"
+								wcpforms:class="autosuggest">Use cache if possible</xforms:label>
 							<xforms:item>
 								<xforms:label
 									textIdentifier="00505681-3ba3-11e1-e23a-2bf291509679">true</xforms:label>
@@ -618,7 +619,7 @@
 							wcpforms:enumerated="false"
 							multiple="false"
 							wcpforms:class="f_layout"
-							wcpforms:size="auto auto"
+							wcpforms:size="auto 15px"
 							wcpforms:anchors="198px 153px 10px null"
 							wcpforms:position="198px 153px">
 							<xforms:label
@@ -638,8 +639,8 @@
 							wcpforms:layout="horizontal"
 							wcpforms:class="f_layout"
 							wcpforms:align="left_align"
-							wcpforms:size="110px 31px"
-							wcpforms:anchors="null null 36px 365px"
+							wcpforms:size="110px 30px"
+							wcpforms:anchors="null null 68px 368px"
 							wcpforms:position="auto auto">
 							<xforms:trigger
 								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
@@ -1071,11 +1072,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:54.927</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf223149fef"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1105,11 +1102,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:55.017</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2273b1ff7"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1139,11 +1132,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:38:00.229</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf22b9edfff"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1173,11 +1162,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:57.586</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf22fcf55c9"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1207,11 +1192,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:57.554</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf233c3d5d1"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1241,11 +1222,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:57.785</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf237c255d9"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1275,11 +1252,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:57.734</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf23e45d5e1"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1309,11 +1282,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:38:00.356</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2429815e9"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1343,11 +1312,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:57.612</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf24688d5f1"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1377,11 +1342,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:57.759</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf24a9dd5f9"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1411,11 +1372,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:57.721</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf24ebf5601"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1445,11 +1402,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:38:00.219</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf253029609"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1479,11 +1432,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:57.676</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2572cd611"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1513,11 +1462,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:38:00.428</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf25bfc1619"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1547,11 +1492,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:38:00.422</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2603cd621"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1581,11 +1522,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:55.147</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf26442d629"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1615,11 +1552,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:38:00.171</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf268825631"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1649,11 +1582,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:38:00.363</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf26f3a5639"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1683,11 +1612,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:54.974</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf273801641"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1717,11 +1642,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:57.733</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf27c25d651"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1751,11 +1672,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:57.754</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf26f3a5639"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1785,11 +1702,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:38:00.311</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf26f3a5639"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1819,11 +1732,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:54.957</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf28931d669"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1853,11 +1762,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:38:00.255</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf28d5d5671"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1887,11 +1792,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:55.003</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf291509679"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1921,11 +1822,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:38:00.173</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf295681681"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1955,11 +1852,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:38:00.227</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2996a5689"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1989,11 +1882,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:55.053</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2ab661699"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -2023,11 +1912,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>srkrishnan</CreatedBy>
 					<CreationDate>2011-11-18T10:37:57.75</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2af8656a1"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -2056,6 +1941,7 @@ function btnclearcache_Click(eventObject)
 	<StyleSheets/>
 	<input/>
 	<taskParts/>
+	<aclFragments/>
 	<TranslatableName>
 		<TranslatableText
 			type="com.cordys.translation.TranslatableText"
@@ -2066,16 +1952,11 @@ function btnclearcache_Click(eventObject)
 			<CreatedBy>srkrishnan</CreatedBy>
 			<CreationDate>2011-11-18T10:37:57.591</CreationDate>
 			<Notes/>
-			<Identifier>
-				<uri
-					id="00505681-3ba3-11e1-e23a-2bf21a521fe9"
-				/>
-			</Identifier>
+			<Identifier/>
 		</TranslatableText>
 	</TranslatableName>
-	<aclFragments/>
-	<tagsContainer/>
 	<deliveryModels/>
+	<tagsContainer/>
 	<messageParts>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
