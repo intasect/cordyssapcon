@@ -720,7 +720,6 @@ function Form_InitDone(eventObject)
     txtUseCache_check.setValue("true");
     
    l_viewObject = window.parent.viewObject;
-   alert(l_viewObject.getWebserviceInterface());
    
     //Read the current BO from the global data
     if (system.data["bac.sap.currentbo"])
@@ -1131,11 +1130,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-30T09:29:55.237</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e366-a5dcb3c35dd5"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1165,11 +1160,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.487</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2996a5689"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1199,11 +1190,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.482</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf295681681"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1233,11 +1220,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.497</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf27c25d651"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1267,11 +1250,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.477</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2572cd611"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1301,11 +1280,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.476</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf26f3a5639"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1335,11 +1310,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.473</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf24ebf5601"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1369,11 +1340,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.479</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf24688d5f1"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1403,11 +1370,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.475</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2ab661699"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1437,11 +1400,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.481</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf291509679"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1471,11 +1430,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.484</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf26442d629"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1505,11 +1460,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.486</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2603cd621"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1539,11 +1490,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.484</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2273b1ff7"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1573,11 +1520,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.477</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf223149fef"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1607,11 +1550,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.481</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf268825631"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1641,11 +1580,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.479</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf233c3d5d1"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1675,11 +1610,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.476</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2429815e9"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1709,11 +1640,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.48</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf26f3a5639"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1743,11 +1670,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.482</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf28d5d5671"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1777,11 +1700,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.488</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf237c255d9"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1811,11 +1730,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.485</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf273801641"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1845,11 +1760,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.479</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf26f3a5639"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1879,11 +1790,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.485</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf23e45d5e1"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1913,11 +1820,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.482</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf253029609"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1947,11 +1850,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.476</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf25bfc1619"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1981,11 +1880,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.474</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf28931d669"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -2015,11 +1910,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.477</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf24a9dd5f9"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -2049,11 +1940,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.489</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf2af8656a1"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -2083,11 +1970,7 @@ function btnclearcache_Click(eventObject)
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-28T10:16:23.473</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf22b9edfff"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -2126,11 +2009,7 @@ function btnclearcache_Click(eventObject)
 			<CreatedBy>root</CreatedBy>
 			<CreationDate>2011-11-28T10:16:23.488</CreationDate>
 			<Notes/>
-			<Identifier>
-				<uri
-					id="00505681-3ba3-11e1-e23a-2bf21a521fe9"
-				/>
-			</Identifier>
+			<Identifier/>
 		</TranslatableText>
 	</TranslatableName>
 	<aclFragments/>
