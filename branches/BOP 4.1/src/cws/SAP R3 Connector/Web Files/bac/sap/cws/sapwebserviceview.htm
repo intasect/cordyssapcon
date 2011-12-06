@@ -117,7 +117,7 @@ limitations under the License.
 		{
 			bo = iEventObject.businessObject;
 		}
-		
+	
 		var namespace = bo.targetNamespace();
 		
 		//Get SAP generated data
@@ -140,13 +140,15 @@ limitations under the License.
 		        else
 		        {
 			        //Import the WSDL into CWS
-		        	bo.fillFromWSDL(cordys.getXML(wsdl), faultHandler);
+					bo.refresh();
+					bo.fillFromWSDL(cordys.getXML(wsdl), faultHandler);
 
 		        	//Go through all methods and add the realization to it.
-		        	if(bo.webserviceBindings().iterator().hasNext())
+					var bindingsList = bo.webserviceBindings().iterator();
+		        	while(bindingsList.hasNext())
 					{
 						//First we get the binding (we'll have only 1 binding generated.
-						var binding = bo.webserviceBindings().iterator().next();
+						var binding = bindingsList.next();
 
 						//Check if we need to create the reference to the connector.
 						var createConnector = true;
@@ -212,6 +214,7 @@ limitations under the License.
 						}
 						
 						bo.save();
+						bo.refresh();
 					}
 		        }
 	        }
