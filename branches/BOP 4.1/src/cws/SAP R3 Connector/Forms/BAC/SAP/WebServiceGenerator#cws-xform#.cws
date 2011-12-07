@@ -243,9 +243,9 @@
 								wcpforms:anchors="11px 11px 9px null"
 								wcpforms:position="11px 11px">
 								<xforms:label
-									textIdentifier="00505681-3ba3-11e1-e23a-2bf2273b1ff7"
+									textIdentifier="005056C0-0008-11E1-E412-2CB758109D4A"
 									wcpforms:size="143px null"
-									wcpforms:class="h_label left_align">Service Container</xforms:label>
+									wcpforms:class="h_label left_align">Service Group</xforms:label>
 							</xforms:select1>
 						</xforms:group>
 						<xforms:group
@@ -1483,14 +1483,18 @@ function btnclearcache_Click(eventObject)
 			<TranslatableName>
 				<TranslatableText
 					type="com.cordys.translation.TranslatableText"
-					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dcbf175b">
-					<DocumentID>00505681-3ba3-11e1-e334-b051dcc1975c</DocumentID>
-					<Name>00505681-3ba3-11e1-e23a-2bf228865ff9</Name>
-					<Description/>
-					<CreatedBy>root</CreatedBy>
-					<CreationDate>2011-11-28T10:16:23.484</CreationDate>
+					RuntimeDocumentID="005056C0-0008-11E1-E412-2CB758107D4A">
+					<DocumentID>005056C0-0008-11E1-E412-2CB758105D4A</DocumentID>
+					<Name>005056C0-0008-11E1-E412-2CB758105D4A</Name>
+					<Description>005056C0-0008-11E1-E412-2CB758105D4A</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-07T05:13:13.531</CreationDate>
 					<Notes/>
-					<Identifier/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E412-2CB758109D4A"
+						/>
+					</Identifier>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
