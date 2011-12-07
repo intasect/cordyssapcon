@@ -1,0 +1,22 @@
+
+<TranslatedText
+	type="com.cordys.translation.TranslatedText"
+	RuntimeDocumentID="005056C0-0008-11E1-E413-1DEC56D7FD4A">
+	<DocumentID>005056C0-0008-11E1-E413-1DEC56D7DD4A</DocumentID>
+	<Name>005056C0-0008-11E1-E413-1DEC56D7DD4A</Name>
+	<Description>Maximum number of records to be retrieved</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-12-07T06:42:48.907</CreationDate>
+	<Notes/>
+	<Text>Maximum number of records to be retrieved</Text>
+	<Language>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf18b5ddfa5"
+		/>
+	</Language>
+	<TextIdentifier>
+		<uri
+			id="005056C0-0008-11E1-E413-1DEC56D79D4A"
+		/>
+	</TextIdentifier>
+</TranslatedText>

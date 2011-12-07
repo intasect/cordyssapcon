@@ -16,12 +16,9 @@
 			xmlns:ev="http://www.w3.org/2001/xml-events"
 			xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
 			xformsversion="2"
-			key="BAC/SAP/XForms/Rakesh/sap"
+			key="BAC/SAP/sap"
 			focusatstartup="true">
 			<xhead>
-				<script
-					src="/cordys/wcp/application.js"
-				/>
 				<script
 					src="/cordys/wcp/admin/behavior/applicationconnector.js"
 				/>
@@ -1086,11 +1083,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.33</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-0d96cd759758"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText>
@@ -1103,11 +1096,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:59:12.005</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-282dc44d17d1"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TooltipText>
 		</TranslatableUIText>
@@ -1136,11 +1125,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.343</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-0d96cd8c175e"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1170,11 +1155,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.333</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e234-f1a870ea5684"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText>
@@ -1187,11 +1168,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:59:12.005</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-282dc469d7d9"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TooltipText>
 		</TranslatableUIText>
@@ -1220,11 +1197,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.334</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e234-3be79960152e"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText>
@@ -1237,11 +1210,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.329</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-0d96cc04d702"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TooltipText>
 		</TranslatableUIText>
@@ -1270,11 +1239,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.338</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e21b-14d5413f961c"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1304,11 +1269,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.343</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e21b-14d5419e962a"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1338,11 +1299,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.327</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e21b-14d541f75640"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1372,11 +1329,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.331</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e21b-14d5422d164e"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1406,11 +1359,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.329</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-0d96cc511716"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText>
@@ -1423,11 +1372,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:59:12.011</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-282dc309577d"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TooltipText>
 		</TranslatableUIText>
@@ -1456,11 +1401,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.336</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-0d96cc66571c"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText>
@@ -1473,11 +1414,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:59:12.003</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-282dc3365789"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TooltipText>
 		</TranslatableUIText>
@@ -1506,11 +1443,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.328</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-0d96cc809722"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText/>
@@ -1540,11 +1473,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.341</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-0d96cc985728"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText>
@@ -1557,11 +1486,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:59:12.006</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-282dc3559791"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TooltipText>
 		</TranslatableUIText>
@@ -1590,11 +1515,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.325</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-0d96ccaed72e"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText>
@@ -1607,11 +1528,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:59:12.005</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-282dc3725799"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TooltipText>
 		</TranslatableUIText>
@@ -1640,11 +1557,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.341</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-0d96ccc55734"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText>
@@ -1657,11 +1570,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:59:12.007</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-282dc39557a1"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TooltipText>
 		</TranslatableUIText>
@@ -1690,11 +1599,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.329</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-0d96ccdbd73a"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText>
@@ -1707,11 +1612,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:59:12.007</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-282dc3b357a9"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TooltipText>
 		</TranslatableUIText>
@@ -1740,11 +1641,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.336</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-0d96ccf11740"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText>
@@ -1757,11 +1654,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:59:12.003</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-282dc3d157b1"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TooltipText>
 		</TranslatableUIText>
@@ -1790,11 +1683,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.338</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-0d96cd0b5746"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText>
@@ -1807,11 +1696,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:59:12.011</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-282dc3ef57b9"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TooltipText>
 		</TranslatableUIText>
@@ -1840,11 +1725,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.34</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-0d96cd23174c"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText>
@@ -1857,11 +1738,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:59:12.007</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-282dc41117c1"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TooltipText>
 		</TranslatableUIText>
@@ -1890,11 +1767,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:50:31.34</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-0d96cd3ad752"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TranslatableName>
 			<TooltipText>
@@ -1907,11 +1780,7 @@ function raiseConfigurationChanges()
 					<CreatedBy>root</CreatedBy>
 					<CreationDate>2011-11-18T05:59:12.003</CreationDate>
 					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e235-282dc42f17c9"
-						/>
-					</Identifier>
+					<Identifier/>
 				</TranslatableText>
 			</TooltipText>
 		</TranslatableUIText>
@@ -1936,11 +1805,7 @@ function raiseConfigurationChanges()
 			<CreatedBy>root</CreatedBy>
 			<CreationDate>2011-11-17T08:16:50.859</CreationDate>
 			<Notes/>
-			<Identifier>
-				<uri
-					id="00505681-3ba3-11e1-e21c-ba862658d72b"
-				/>
-			</Identifier>
+			<Identifier/>
 		</TranslatableText>
 	</TranslatableName>
 	<aclFragments/>

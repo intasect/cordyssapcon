@@ -4,16 +4,13 @@
 	RuntimeDocumentID="005056C0-0008-71DE-965C-92849343B0B5">
 	<DocumentID>005056C0-0008-71DE-965C-92849343B0B4</DocumentID>
 	<Name>SAP Demo</Name>
-	<Description>SAP Demo Role for BOP4</Description>
+	<Description>SAP Demo Role for BOP4.1</Description>
 	<CreatedBy>hboecker</CreatedBy>
 	<CreationDate>2009-08-26T21:12:20.625</CreationDate>
-	<LastModifiedBy>pgussow</LastModifiedBy>
-	<LastModifiedDate>2009-10-14T08:51:09.803</LastModifiedDate>
 	<Notes/>
-	<CommonName>SAP Demo</CommonName>
-	<DistinguishedName>cn=#roleName#, cn=#ISVPName#, #LDAPRoot#</DistinguishedName>
 	<isFunctionalRole>true</isFunctionalRole>
 	<type>Functional</type>
+	<DistinguishedName>cn=#roleName#, cn=#ISVPName#, #LDAPRoot#</DistinguishedName>
 	<configuredTasks>
 		<ConfiguredTask
 			type="com.cordys.task.ConfiguredTask"
@@ -23,15 +20,11 @@
 			<Description>SAP_Demo_005056C0-0008-71DE-965C-92849343B0AA</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-26T21:12:29.765</CreationDate>
-			<LastModifiedBy>hboecker</LastModifiedBy>
-			<LastModifiedDate>2009-10-14T08:43:47.643</LastModifiedDate>
 			<Notes/>
 			<configuredTaskParts/>
 			<uiTask>
 				<uri
 					id="005056C0-0008-71DE-965C-927ACF2CEF67"
-					path="SAP R3 Connector/Forms/BAC/SAP/DemoPage"
-					type="com.cordys.xforms.XFormDesigntime"
 				/>
 			</uiTask>
 		</ConfiguredTask>

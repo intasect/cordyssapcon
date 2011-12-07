@@ -11,14 +11,12 @@
 	<Notes/>
 	<XFormContent>
 		<xformhtml
-			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
 			xmlns="http://schemas.cordys.com/1.0/xform"
-			xmlns:eibus="http://schemas.cordys.com"
 			xmlns:xforms="http://www.w3.org/2002/xforms/cr"
 			xmlns:ev="http://www.w3.org/2001/xml-events"
 			xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
 			xformsversion="2"
-			key="Cordys/SAP/BOP4/SAP_Demo"
+			key="BAC/SAP/Demo"
 			focusatstartup="true">
 			<xhead>
 				<xml
@@ -30,12 +28,12 @@
 							title="false"
 							dockable="true"
 							inPreferences="false"
-							registerViewAs="self"
-							clientattr:sync_id="2">
+							registerViewAs="self">
 							<description>Customer GetList</description>
 							<caption>SAP Demo GetList</caption>
 							<id>customerGetList_SapDemo</id>
-							<url>/cordys/bac/sap/demo/customergetlist.htm</url>
+							<url
+								documentID="005056C0-0008-11E1-E419-6ADFB4A19D4A">/cordys/BAC/SAP/Currency_GetList.caf</url>
 							<data/>
 							<region
 								docked="true"
@@ -52,12 +50,12 @@
 							title="false"
 							dockable="true"
 							inPreferences="false"
-							registerViewAs="self"
-							clientattr:sync_id="2">
+							registerViewAs="self">
 							<description>Create Customer in SAP</description>
 							<caption>SAP Demo Create Customer </caption>
 							<id>customerCreateFromData_SapDemo</id>
-							<url>/cordys/bac/sap/demo/customercreatefromdata.htm</url>
+							<url
+								documentID="005056C0-0008-11E1-E419-ADAB05A95D4A">/cordys/BAC/SAP/Currency_GetDecimals.caf</url>
 							<data/>
 							<region
 								docked="true"
@@ -77,6 +75,7 @@
 					<xforms:group
 						appearance="regionset"
 						wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRegionSet"
+						visibility="hidden"
 						wcpforms:layout="vertical"
 						wcpforms:class="regionset"
 						wcpforms:labelalign="ontop">
@@ -135,9 +134,51 @@
 	<showOnStartPage>true</showOnStartPage>
 	<taskDescription></taskDescription>
 	<top></top>
-	<TranslatableUITexts/>
+	<TranslatableUITexts>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-E419-B6C17ECA9D4A">
+			<DocumentID>005056C0-0008-11E1-E419-B6C17ECA7D4A</DocumentID>
+			<Name>005056C0-0008-11E1-E419-B6C17ECA7D4A</Name>
+			<Description>005056C0-0008-11E1-E419-B6C17ECA7D4A</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-07T12:20:11.269</CreationDate>
+			<Notes/>
+			<UIRef>apppalette2</UIRef>
+			<XForm>
+				<uri
+					id="005056C0-0008-71DE-965C-927ACF2CEF67"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E419-E2F27B505D4A">
+					<DocumentID>005056C0-0008-11E1-E419-E2F27B503D4A</DocumentID>
+					<Name>005056C0-0008-11E1-E419-E2F27B503D4A</Name>
+					<Description>005056C0-0008-11E1-E419-E2F27B503D4A</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-07T12:30:40.135</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E419-B6C17ECAFD4A"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+	</TranslatableUITexts>
 	<Representations/>
-	<ReferredXForms/>
+	<ReferredXForms>
+		<uri
+			id="005056C0-0008-11E1-E419-6ADFB4A19D4A"
+		/>
+		<uri
+			id="005056C0-0008-11E1-E419-ADAB05A95D4A"
+		/>
+	</ReferredXForms>
 	<image/>
 	<TranslatableApplications/>
 	<Images/>

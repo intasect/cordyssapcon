@@ -13,7 +13,7 @@
 	<RuntimeQualifiedName/>
 	<SourceFolder>
 		<uri
-			id="00505681-3ba3-11e1-e23a-2ba5eeb3962c"
+			id="005056C0-0008-11E1-E412-3DC3E01CFD4A"
 			path="SAP R3 Connector"
 			type="com.cordys.cws.runtime.types.folder.StudioFolder"
 		/>
@@ -23,18 +23,18 @@
 			type="com.cordys.cws.packaging.isvp.ISVPackageInfo"
 			RuntimeDocumentID="005056C0-0008-71DE-9657-8CC2DDF3A0E8">
 			<DocumentID>005056C0-0008-71DE-9657-8CC2DDF3A0E7</DocumentID>
-			<Name>Cordys SAP R3 2.1.0</Name>
-			<Description>Cordys SAP R3 2.1.0</Description>
+			<Name>Cordys SAP R3 2.1.1</Name>
+			<Description>Cordys SAP R3 2.1.1</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-19T14:08:59.671</CreationDate>
 			<Notes/>
 			<Product>SAP R3 Connector </Product>
-			<BuildNumber>0</BuildNumber>
+			<BuildNumber>1</BuildNumber>
 			<PostISVLoaderInformation/>
 			<ISVPackageOwner>Cordys</ISVPackageOwner>
 			<PackageForRuntime>true</PackageForRuntime>
 			<Version>2.1</Version>
-			<ISVPackageFileName>Cordys SAP R3 2.1.0</ISVPackageFileName>
+			<ISVPackageFileName>Cordys SAP R3 2.1.1</ISVPackageFileName>
 			<ThirdPartyAgreement/>
 			<LicenseAgreement/>
 		</ISVPackageInfo>
