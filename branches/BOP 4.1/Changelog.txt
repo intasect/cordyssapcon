@@ -1,3 +1,12 @@
+VERSIOM 2.1.1 (07-12-2012)
+- Fix    : Updated coelib.jar, now SAP Connector consumes less memory
+- Fix    : Fixed Web Service publish issue. If we directly use SAP BOP-4 web services in BOP 4.1 it will give "Verification Failed" error.
+- Fix    : Solved Add/Update Web service Interfaces issue. Issue was implementation will be empty for the newly added/updated web services.
+- Change : List SAP Objects in Alphabetical order in SAP Web Service Generator wizard.
+- Change : Now SAP Web service generator wizard is not showing empty objects when user clicks "Search Metadata".
+- change : Removed horizontal scrollbar for SAP Web Service Generator wizard.
+- Change : Demo pages are completely migrated to XForm (Currency: GetList and GetDecimal)
+
 VERSIOM 2.1.0 - Beta (25-11-2012)
 - Change : Unused htm files are removed.
 - Add    : SAP User Mapping and Property page are developed with XForm, Property page is still htm since there is no option to add caf as property page.
