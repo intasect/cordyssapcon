@@ -2,12 +2,12 @@
 <XFormDesigntime
 	type="com.cordys.xforms.XFormDesigntime"
 	typeVersion="005056C0-0008-11E0-F8FC-5E0A815B7FB8"
-	RuntimeDocumentID="005056C0-0008-71DE-965C-927ACF2CEF68">
-	<DocumentID>005056C0-0008-71DE-965C-927ACF2CEF67</DocumentID>
+	RuntimeDocumentID="005056C0-0008-11E1-E42A-F7869CB0FBA9">
+	<DocumentID>005056C0-0008-11E1-E42A-F7869CB0DBA9</DocumentID>
 	<Name>Demo</Name>
 	<Description>Demo</Description>
-	<CreatedBy>hboecker</CreatedBy>
-	<CreationDate>2009-08-26T20:31:24.546</CreationDate>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-12-08T04:51:02.344</CreationDate>
 	<Notes/>
 	<XFormContent>
 		<xformhtml
@@ -19,111 +19,336 @@
 			key="BAC/SAP/Demo"
 			focusatstartup="true">
 			<xhead>
-				<xml
-					xmlns="">
-					<xml
-						id="customerGetList_SapDemo">
-						<Application
-							xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/"
-							title="false"
-							dockable="true"
-							inPreferences="false"
-							registerViewAs="self">
-							<description>Customer GetList</description>
-							<caption>SAP Demo GetList</caption>
-							<id>customerGetList_SapDemo</id>
-							<url
-								documentID="005056C0-0008-11E1-E419-6ADFB4A19D4A">/cordys/BAC/SAP/Currency_GetList.caf</url>
-							<data/>
-							<region
-								docked="true"
-								top=""
-								left=""
-								width=""
-								height="">region1</region>
-						</Application>
-					</xml>
-					<xml
-						id="customerCreateFromData_SapDemo">
-						<Application
-							xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/"
-							title="false"
-							dockable="true"
-							inPreferences="false"
-							registerViewAs="self">
-							<description>Create Customer in SAP</description>
-							<caption>SAP Demo Create Customer </caption>
-							<id>customerCreateFromData_SapDemo</id>
-							<url
-								documentID="005056C0-0008-11E1-E419-ADAB05A95D4A">/cordys/BAC/SAP/Currency_GetDecimals.caf</url>
-							<data/>
-							<region
-								docked="true"
-								top=""
-								left=""
-								width=""
-								height="">region1</region>
-						</Application>
-					</xml>
-				</xml>
+				<xforms:model
+					xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+					xmlns:ev="http://www.w3.org/2001/xml-events"
+					xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+					id="Currency_GetListModel"
+					wcpforms:businessElement="tns:Currency_GetListResponse"
+					wcpforms:automatic="true"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
+					wcpforms:nontransactional="true"
+					singleTransaction="false"
+					promptToSave="true"
+					isConstraintValidation="false"
+					isInitializationRequired="false"
+					isApplyAccessControl="false">
+					<xforms:instance
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+						wcpforms:iteratorSize="50">
+						<wcpforms:dataset
+							src="http://demo.sapconnector/2.1/Currency_GetList"
+							operationName="Currency_GetList"
+							type="get"
+							wcpforms:wsguid="005056C0-0008-11E1-E419-D5BEFD64DD4A">
+							<CURRENCY_LIST
+								xmlns="http://demo.sapconnector/2.1">
+								<item>
+									<CURRENCY/>
+									<CURRENCY_ISO/>
+									<ALT_CURR/>
+									<VALID_TO/>
+									<LONG_TEXT/>
+								</item>
+							</CURRENCY_LIST>
+						</wcpforms:dataset>
+					</xforms:instance>
+					<wcpforms:xpathmetainfo
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms">
+						<wcpforms:namespace
+							prefix="xmlns">http://demo.sapconnector/2.1</wcpforms:namespace>
+						<wcpforms:namespace
+							prefix="tns">http://demo.sapconnector/2.1</wcpforms:namespace>
+					</wcpforms:xpathmetainfo>
+					<wcpforms:instanceschema/>
+				</xforms:model>
+				<xforms:model
+					xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+					xmlns:ev="http://www.w3.org/2001/xml-events"
+					xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+					id="Currency_GetDecimalsModel"
+					wcpforms:businessElement="tns:Currency_GetDecimalsResponse"
+					wcpforms:automatic="false"
+					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
+					wcpforms:nontransactional="true"
+					singleTransaction="false"
+					promptToSave="true"
+					isConstraintValidation="false"
+					isInitializationRequired="false"
+					isApplyAccessControl="false">
+					<xforms:instance
+						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
+						wcpforms:iteratorSize="">
+						<wcpforms:dataset
+							src="http://demo.sapconnector/2.1/Currency_GetDecimals"
+							operationName="Currency_GetDecimals"
+							type="get"
+							wcpforms:wsguid="005056C0-0008-11E1-E419-D5BEFD62DD4A">
+							<CURRENCY
+								xmlns="http://demo.sapconnector/2.1"
+							/>
+						</wcpforms:dataset>
+					</xforms:instance>
+					<wcpforms:xpathmetainfo
+						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms">
+						<wcpforms:namespace
+							prefix="xmlns">http://demo.sapconnector/2.1</wcpforms:namespace>
+						<wcpforms:namespace
+							prefix="tns">http://demo.sapconnector/2.1</wcpforms:namespace>
+					</wcpforms:xpathmetainfo>
+					<wcpforms:instanceschema/>
+				</xforms:model>
 			</xhead>
 			<xbody>
 				<xforms:group
-					wcpforms:layout="free"
+					wcpforms:layout="vertical"
 					id="xbody_group"
 					wcpforms:labelalign="ontop">
 					<xforms:group
-						appearance="regionset"
-						wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRegionSet"
-						visibility="hidden"
-						wcpforms:layout="vertical"
-						wcpforms:class="regionset"
-						wcpforms:labelalign="ontop">
+						appearance="tabgroup"
+						wcpforms:orientation="left"
+						wcpforms:textDirection="vertical"
+						wcpforms:scrollBy="roller"
+						wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsTabGroup"
+						id="tabgroup1"
+						isNavigationEnabled="true"
+						showSingleTab="true"
+						resizable="true"
+						wcpforms:class="v_layout"
+						wcpforms:size="693px 346px">
 						<xforms:group
-							appearance="region"
-							wcpforms:scrollBy="roller"
-							wcpforms:resizable="yes"
-							wcpforms:multipleAppPalettes="true"
-							wcpforms:visibility="hidden"
-							wcpforms:orientation="left"
-							wcpforms:textDirection="vertical"
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRegion"
-							wcpforms:type="left"
-							id="region1"
-							wcpforms:offset="713"
-							wcpforms:appPalettes="true"
-							wcpforms:appPaletteDefinitions=" customerGetList_SapDemo customerCreateFromData_SapDemo"
+							appearance="tabpage"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsTabPage"
+							id="tabpage1"
 							wcpforms:layout="vertical"
-							wcpforms:class="region"
-						/>
+							wcpforms:class="simplecontainer">
+							<xforms:label
+								textIdentifier="005056C0-0008-11E1-E42A-F7869CAC1BA9">Currency List</xforms:label>
+							<xforms:group
+								appearance="box"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
+								id="Currency_GetListResponseGroup"
+								model="Currency_GetListModel"
+								wcpforms:layout="vertical"
+								wcpforms:class="v_layout"
+								wcpforms:size="642px 286px"
+								wcpforms:labelalign="ontop">
+								<xforms:label
+									textIdentifier="005056C0-0008-11E1-E418-D41B235F9D4A"
+									wcpforms:class="groupheader removed">Currency_GetListResponse</xforms:label>
+								<xforms:group
+									appearance="box"
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
+									id="groupbox3"
+									ref="tns:CURRENCY_LIST"
+									isNavigationEnabled="true"
+									wcpforms:layout="vertical"
+									wcpforms:class="v_layout"
+									wcpforms:size="604px 262px"
+									wcpforms:labelalign="ontop">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-E42A-D165E4A33BA9"
+										wcpforms:class="groupheader">List Of Currencies</xforms:label>
+									<xforms:repeat
+										wcpforms:displayContextMenu="true"
+										wcpforms:toggleColumns="true"
+										wcpforms:movableColumns="false"
+										wcpforms:saveState="false"
+										wcpforms:autoInsert="true"
+										wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsTable"
+										id="table1"
+										nodeset="tns:item"
+										wcpforms:gridtype="displaygrid"
+										wcpforms:checkboxes="false"
+										wcpforms:layout="vertical"
+										wcpforms:class="v_layout"
+										wcpforms:size="574px 210px">
+										<xforms:input
+											wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+											id="currency"
+											ref="tns:CURRENCY"
+											wcpforms:textalign="left_align"
+											wcpforms:dataType="string"
+											wcpforms:maxLength="5"
+											wcpforms:size="100px 21px">
+											<xforms:label
+												textIdentifier="005056C0-0008-11E1-E42A-D165E4A27BA9">Currency</xforms:label>
+										</xforms:input>
+										<xforms:input
+											wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+											id="currency_iso"
+											ref="tns:CURRENCY_ISO"
+											wcpforms:textalign="left_align"
+											wcpforms:dataType="string"
+											wcpforms:maxLength="3"
+											wcpforms:size="100px 21px">
+											<xforms:label
+												textIdentifier="005056C0-0008-11E1-E42A-D165E4A1BBA9">Currency ISO</xforms:label>
+										</xforms:input>
+										<xforms:input
+											wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+											id="alt_curr"
+											ref="tns:ALT_CURR"
+											wcpforms:textalign="left_align"
+											wcpforms:dataType="string"
+											wcpforms:maxLength="3"
+											wcpforms:size="100px 21px">
+											<xforms:label
+												textIdentifier="005056C0-0008-11E1-E42A-D165E4A0FBA9">ALT Currency</xforms:label>
+										</xforms:input>
+										<xforms:input
+											wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+											id="valid_to"
+											ref="tns:VALID_TO"
+											wcpforms:textalign="left_align"
+											wcpforms:dataType="string"
+											wcpforms:pattern="....-..-.."
+											wcpforms:size="100px 21px">
+											<xforms:label
+												textIdentifier="005056C0-0008-11E1-E42B-0BD1F8A51BA9">Valied To</xforms:label>
+										</xforms:input>
+										<xforms:input
+											wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+											id="long_text"
+											ref="tns:LONG_TEXT"
+											wcpforms:textalign="left_align"
+											wcpforms:dataType="string"
+											wcpforms:maxLength="40"
+											wcpforms:size="auto 21px">
+											<xforms:label
+												textIdentifier="005056C0-0008-11E1-E42A-D165E49F7BA9">Long Text</xforms:label>
+										</xforms:input>
+									</xforms:repeat>
+								</xforms:group>
+							</xforms:group>
+						</xforms:group>
 						<xforms:group
-							appearance="region"
-							wcpforms:scrollBy="roller"
-							wcpforms:resizable="yes"
-							wcpforms:multipleAppPalettes="true"
-							wcpforms:visibility="hidden"
-							wcpforms:orientation="left"
-							wcpforms:textDirection="vertical"
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRegion"
-							id="region2"
-							wcpforms:appPalettes="false"
+							appearance="tabpage"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsTabPage"
+							id="tabpage2"
 							wcpforms:layout="vertical"
-							wcpforms:class="region"
-						/>
+							wcpforms:class="simplecontainer"
+							wcpforms:labelalign="ontop">
+							<xforms:label
+								textIdentifier="005056C0-0008-11E1-E42A-F7869CAB5BA9">Currency Decimals</xforms:label>
+							<xforms:input
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+								id="currency1"
+								ref="tns:CURRENCY"
+								wcpforms:textalign="left_align"
+								doEBIValidate="false"
+								wcpforms:class="v_layout"
+								wcpforms:size="11.46em auto">
+								<xforms:label
+									textIdentifier="005056C0-0008-11E1-E42A-D165E4A27BA9"
+									wcpforms:class="v_label">Currency</xforms:label>
+							</xforms:input>
+							<xforms:group
+								appearance="controlbox"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbox"
+								id="controlbox3"
+								controltype="button"
+								wcpforms:layout="vertical"
+								wcpforms:class="h_layout autoextent"
+								wcpforms:align="left_align"
+								wcpforms:size="30.91% auto">
+								<xforms:trigger
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
+									id="Currency_GetDecimalsButton"
+									wcpforms:class="v_button"
+									wcpforms:size="170px 2em">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-E42B-185FF7ACBBA9">Get Decimals of Currency</xforms:label>
+									<xforms:action
+										ev:event="xforms-activate">
+										<xforms:Currency_GetDecimalsButton_Click/>
+									</xforms:action>
+								</xforms:trigger>
+							</xforms:group>
+							<xforms:group
+								appearance="box"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
+								id="groupbox11"
+								ref="tns:CURRENCY_DECIMALS"
+								model="Currency_GetDecimalsModel"
+								isNavigationEnabled="true"
+								wcpforms:layout="free"
+								wcpforms:class="v_layout"
+								wcpforms:size="546px 80px"
+								wcpforms:labelalign="ontop">
+								<xforms:label
+									textIdentifier="005056C0-0008-11E1-E42B-4FC8C5C4BBA9"
+									wcpforms:class="groupheader">Currency Decimals Details</xforms:label>
+								<xforms:output
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsOutput"
+									id="currency2"
+									ref="tns:CURRENCY"
+									wcpforms:textalign="left_align"
+									wcpforms:dataType="string"
+									wcpforms:maxLength="5"
+									wcpforms:class="h_layout"
+									wcpforms:size="9.91em auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-E42A-D165E4A27BA9"
+										wcpforms:class="v_label">Currency</xforms:label>
+								</xforms:output>
+								<xforms:output
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsOutput"
+									id="curdecimals"
+									ref="tns:CURDECIMALS"
+									wcpforms:textalign="right_align"
+									wcpforms:dataType="unsignedByte"
+									wcpforms:class="h_layout"
+									wcpforms:size="104px auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-E42A-F7869CAB5BA9"
+										wcpforms:class="v_label">Currency Decimals</xforms:label>
+								</xforms:output>
+								<xforms:output
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsOutput"
+									id="currency_iso1"
+									ref="tns:CURRENCY_ISO"
+									wcpforms:textalign="left_align"
+									wcpforms:dataType="string"
+									wcpforms:maxLength="5"
+									wcpforms:class="h_layout"
+									wcpforms:size="10.37em auto">
+									<xforms:label
+										textIdentifier="005056C0-0008-11E1-E42A-D165E4A1BBA9"
+										wcpforms:class="v_label">Currency ISO</xforms:label>
+								</xforms:output>
+							</xforms:group>
+						</xforms:group>
 					</xforms:group>
 				</xforms:group>
 			</xbody>
-			<xformsscript/>
+			<xformsscript>
+				<![CDATA[function Currency_GetDecimalsButton_Click(eventObject)
+{
+    cordys.setNodeText(Currency_GetDecimalsModel.getMethodRequest(),".//*[local-name()='CURRENCY']",currency1.getValue(),"");
+    Currency_GetDecimalsModel.reset();
+}
+function Form_InitDone(eventObject)
+{
+    application.container.maximize();
+}]]>
+			</xformsscript>
+			<xforms:action
+				ev:event="xforms-initialize-done">
+				<xforms:Form_InitDone/>
+			</xforms:action>
 		</xformhtml>
 	</XFormContent>
 	<width></width>
 	<automatic>false</automatic>
 	<data/>
 	<XFormWSDL/>
-	<caption>SAP Demo</caption>
+	<caption>Demo</caption>
 	<isInternal>false</isInternal>
 	<type>XForm</type>
-	<taskName></taskName>
+	<taskName>Demo</taskName>
 	<mode>full</mode>
 	<title>true</title>
 	<height></height>
@@ -132,37 +357,479 @@
 	<qualifiedclassname></qualifiedclassname>
 	<parameters/>
 	<showOnStartPage>true</showOnStartPage>
-	<taskDescription></taskDescription>
+	<taskDescription>Demo</taskDescription>
 	<top></top>
 	<TranslatableUITexts>
 		<TranslatableUIText
 			type="com.cordys.xforms.TranslatableUIText"
-			RuntimeDocumentID="005056C0-0008-11E1-E419-B6C17ECA9D4A">
-			<DocumentID>005056C0-0008-11E1-E419-B6C17ECA7D4A</DocumentID>
-			<Name>005056C0-0008-11E1-E419-B6C17ECA7D4A</Name>
-			<Description>005056C0-0008-11E1-E419-B6C17ECA7D4A</Description>
+			RuntimeDocumentID="005056C0-0008-11E1-E42A-F7869CAE7BA9">
+			<DocumentID>005056C0-0008-11E1-E42A-F7869CAE5BA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42A-F7869CAE5BA9</Name>
+			<Description>005056C0-0008-11E1-E42A-F7869CAE5BA9</Description>
 			<CreatedBy>srkrishnan</CreatedBy>
-			<CreationDate>2011-12-07T12:20:11.269</CreationDate>
+			<CreationDate>2011-12-08T04:51:02.345</CreationDate>
 			<Notes/>
-			<UIRef>apppalette2</UIRef>
+			<UIRef>tabpage2</UIRef>
 			<XForm>
 				<uri
-					id="005056C0-0008-71DE-965C-927ACF2CEF67"
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
 				/>
 			</XForm>
 			<TranslatableName>
 				<TranslatableText
 					type="com.cordys.translation.TranslatableText"
-					RuntimeDocumentID="005056C0-0008-11E1-E419-E2F27B505D4A">
-					<DocumentID>005056C0-0008-11E1-E419-E2F27B503D4A</DocumentID>
-					<Name>005056C0-0008-11E1-E419-E2F27B503D4A</Name>
-					<Description>005056C0-0008-11E1-E419-E2F27B503D4A</Description>
+					RuntimeDocumentID="005056C0-0008-11E1-E42A-F7869CAB3BA9">
+					<DocumentID>005056C0-0008-11E1-E42A-F7869CAB1BA9</DocumentID>
+					<Name>005056C0-0008-11E1-E42A-F7869CAB1BA9</Name>
+					<Description>005056C0-0008-11E1-E42A-F7869CAB1BA9</Description>
 					<CreatedBy>srkrishnan</CreatedBy>
-					<CreationDate>2011-12-07T12:30:40.135</CreationDate>
+					<CreationDate>2011-12-08T04:54:38.939</CreationDate>
 					<Notes/>
 					<Identifier>
 						<uri
-							id="005056C0-0008-11E1-E419-B6C17ECAFD4A"
+							id="005056C0-0008-11E1-E42A-F7869CAB5BA9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-E42A-F7869CAF7BA9">
+			<DocumentID>005056C0-0008-11E1-E42A-F7869CAF5BA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42A-F7869CAF5BA9</Name>
+			<Description>005056C0-0008-11E1-E42A-F7869CAF5BA9</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T04:51:02.335</CreationDate>
+			<Notes/>
+			<UIRef>tabpage1</UIRef>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E42A-F7869CABFBA9">
+					<DocumentID>005056C0-0008-11E1-E42A-F7869CABDBA9</DocumentID>
+					<Name>005056C0-0008-11E1-E42A-F7869CABDBA9</Name>
+					<Description>005056C0-0008-11E1-E42A-F7869CABDBA9</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-08T04:54:38.943</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E42A-F7869CAC1BA9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A2FBA9">
+			<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A2DBA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42B-0BD1F8A2DBA9</Name>
+			<Description>005056C0-0008-11E1-E42B-0BD1F8A2DBA9</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T05:04:42.869</CreationDate>
+			<Notes/>
+			<UIRef>currency1</UIRef>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E42B-185FF7AC5BA9">
+					<DocumentID>005056C0-0008-11E1-E42B-185FF7AC3BA9</DocumentID>
+					<Name>005056C0-0008-11E1-E42B-185FF7AC3BA9</Name>
+					<Description>005056C0-0008-11E1-E42B-185FF7AC3BA9</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-08T05:04:42.869</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E42A-D165E4A27BA9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A67BA9">
+			<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A65BA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42B-0BD1F8A65BA9</Name>
+			<Description>005056C0-0008-11E1-E42B-0BD1F8A65BA9</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T04:54:38.946</CreationDate>
+			<Notes/>
+			<UIRef>groupbox3</UIRef>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A47BA9">
+					<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A45BA9</DocumentID>
+					<Name>005056C0-0008-11E1-E42B-0BD1F8A45BA9</Name>
+					<Description>005056C0-0008-11E1-E42B-0BD1F8A45BA9</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-08T04:54:38.942</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E42A-D165E4A33BA9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A77BA9">
+			<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A75BA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42B-0BD1F8A75BA9</Name>
+			<Description>005056C0-0008-11E1-E42B-0BD1F8A75BA9</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T04:54:38.935</CreationDate>
+			<Notes/>
+			<UIRef>long_text</UIRef>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A4BBA9">
+					<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A49BA9</DocumentID>
+					<Name>005056C0-0008-11E1-E42B-0BD1F8A49BA9</Name>
+					<Description>005056C0-0008-11E1-E42B-0BD1F8A49BA9</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-08T04:54:38.947</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E42A-D165E49F7BA9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A7FBA9">
+			<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A7DBA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42B-0BD1F8A7DBA9</Name>
+			<Description>005056C0-0008-11E1-E42B-0BD1F8A7DBA9</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T04:54:38.949</CreationDate>
+			<Notes/>
+			<UIRef>valid_to</UIRef>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A4FBA9">
+					<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A4DBA9</DocumentID>
+					<Name>005056C0-0008-11E1-E42B-0BD1F8A4DBA9</Name>
+					<Description>005056C0-0008-11E1-E42B-0BD1F8A4DBA9</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-08T04:54:38.938</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E42B-0BD1F8A51BA9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A87BA9">
+			<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A85BA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42B-0BD1F8A85BA9</Name>
+			<Description>005056C0-0008-11E1-E42B-0BD1F8A85BA9</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T04:54:38.937</CreationDate>
+			<Notes/>
+			<UIRef>alt_curr</UIRef>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A5BBA9">
+					<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A59BA9</DocumentID>
+					<Name>005056C0-0008-11E1-E42B-0BD1F8A59BA9</Name>
+					<Description>005056C0-0008-11E1-E42B-0BD1F8A59BA9</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-08T04:54:38.95</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E42A-D165E4A0FBA9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A8FBA9">
+			<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A8DBA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42B-0BD1F8A8DBA9</Name>
+			<Description>005056C0-0008-11E1-E42B-0BD1F8A8DBA9</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T04:54:38.948</CreationDate>
+			<Notes/>
+			<UIRef>currency_iso</UIRef>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A5FBA9">
+					<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A5DBA9</DocumentID>
+					<Name>005056C0-0008-11E1-E42B-0BD1F8A5DBA9</Name>
+					<Description>005056C0-0008-11E1-E42B-0BD1F8A5DBA9</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-08T04:54:38.94</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E42A-D165E4A1BBA9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A97BA9">
+			<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A95BA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42B-0BD1F8A95BA9</Name>
+			<Description>005056C0-0008-11E1-E42B-0BD1F8A95BA9</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T04:54:38.944</CreationDate>
+			<Notes/>
+			<UIRef>currency</UIRef>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A63BA9">
+					<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A61BA9</DocumentID>
+					<Name>005056C0-0008-11E1-E42B-0BD1F8A61BA9</Name>
+					<Description>005056C0-0008-11E1-E42B-0BD1F8A61BA9</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-08T04:54:38.936</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E42A-D165E4A27BA9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8AE7BA9">
+			<DocumentID>005056C0-0008-11E1-E42B-0BD1F8AE5BA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42B-0BD1F8AE5BA9</Name>
+			<Description>005056C0-0008-11E1-E42B-0BD1F8AE5BA9</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T04:54:38.939</CreationDate>
+			<Notes/>
+			<UIRef>Currency_GetListResponseGroup</UIRef>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E42A-F7869CAA7BA9">
+					<DocumentID>005056C0-0008-11E1-E42B-0BD1F8AE9BA9</DocumentID>
+					<Name>005056C0-0008-11E1-E42B-0BD1F8AE9BA9</Name>
+					<Description>005056C0-0008-11E1-E42B-0BD1F8AE9BA9</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-08T04:54:38.945</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E418-D41B235F9D4A"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-185FF7AE1BA9">
+			<DocumentID>005056C0-0008-11E1-E42B-185FF7ADFBA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42B-185FF7ADFBA9</Name>
+			<Description>005056C0-0008-11E1-E42B-185FF7ADFBA9</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T05:04:42.867</CreationDate>
+			<Notes/>
+			<UIRef>groupbox11</UIRef>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E42B-4FC8C5C49BA9">
+					<DocumentID>005056C0-0008-11E1-E42B-4FC8C5C47BA9</DocumentID>
+					<Name>005056C0-0008-11E1-E42B-4FC8C5C47BA9</Name>
+					<Description>005056C0-0008-11E1-E42B-4FC8C5C47BA9</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-08T05:09:55.953</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E42B-4FC8C5C4BBA9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-185FF7B41BA9">
+			<DocumentID>005056C0-0008-11E1-E42B-185FF7B3FBA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42B-185FF7B3FBA9</Name>
+			<Description>005056C0-0008-11E1-E42B-185FF7B3FBA9</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T05:04:42.863</CreationDate>
+			<Notes/>
+			<UIRef>currency_iso1</UIRef>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E42B-185FF7AB9BA9">
+					<DocumentID>005056C0-0008-11E1-E42B-185FF7AB7BA9</DocumentID>
+					<Name>005056C0-0008-11E1-E42B-185FF7AB7BA9</Name>
+					<Description>005056C0-0008-11E1-E42B-185FF7AB7BA9</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-08T05:04:42.865</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E42A-D165E4A1BBA9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-185FF7B49BA9">
+			<DocumentID>005056C0-0008-11E1-E42B-185FF7B47BA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42B-185FF7B47BA9</Name>
+			<Description>005056C0-0008-11E1-E42B-185FF7B47BA9</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T05:04:42.87</CreationDate>
+			<Notes/>
+			<UIRef>curdecimals</UIRef>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E42B-185FF7ABDBA9">
+					<DocumentID>005056C0-0008-11E1-E42B-185FF7ABBBA9</DocumentID>
+					<Name>005056C0-0008-11E1-E42B-185FF7ABBBA9</Name>
+					<Description>005056C0-0008-11E1-E42B-185FF7ABBBA9</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-08T05:04:42.861</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E42A-F7869CAB5BA9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-185FF7B51BA9">
+			<DocumentID>005056C0-0008-11E1-E42B-185FF7B4FBA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42B-185FF7B4FBA9</Name>
+			<Description>005056C0-0008-11E1-E42B-185FF7B4FBA9</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T05:04:42.868</CreationDate>
+			<Notes/>
+			<UIRef>currency2</UIRef>
+			<XForm>
+				<uri
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E42B-185FF7AC1BA9">
+					<DocumentID>005056C0-0008-11E1-E42B-185FF7ABFBA9</DocumentID>
+					<Name>005056C0-0008-11E1-E42B-185FF7ABFBA9</Name>
+					<Description>005056C0-0008-11E1-E42B-185FF7ABFBA9</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-08T05:04:42.86</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E42A-D165E4A27BA9"
 						/>
 					</Identifier>
 				</TranslatableText>
@@ -171,35 +838,35 @@
 		</TranslatableUIText>
 	</TranslatableUITexts>
 	<Representations/>
-	<ReferredXForms>
-		<uri
-			id="005056C0-0008-11E1-E419-6ADFB4A19D4A"
-		/>
-		<uri
-			id="005056C0-0008-11E1-E419-ADAB05A95D4A"
-		/>
-	</ReferredXForms>
+	<ReferredXForms/>
 	<image/>
 	<TranslatableApplications/>
 	<Images/>
 	<messages/>
-	<Webservices/>
+	<Webservices>
+		<uri
+			id="005056C0-0008-11E1-E419-D5BEFD62DD4A"
+		/>
+		<uri
+			id="005056C0-0008-11E1-E419-D5BEFD64DD4A"
+		/>
+	</Webservices>
 	<StyleSheets/>
 	<input/>
 	<taskParts/>
 	<TranslatableName>
 		<TranslatableText
 			type="com.cordys.translation.TranslatableText"
-			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf1bf225fb2">
-			<DocumentID>00505681-3ba3-11e1-e23a-2bf1bef19fb1</DocumentID>
-			<Name>00505681-3ba3-11e1-e23a-2bf1bef19fb1</Name>
-			<Description/>
+			RuntimeDocumentID="005056C0-0008-11E1-E42A-F7869CADBBA9">
+			<DocumentID>005056C0-0008-11E1-E42A-F7869CAD9BA9</DocumentID>
+			<Name>005056C0-0008-11E1-E42A-F7869CAD9BA9</Name>
+			<Description>005056C0-0008-11E1-E42A-F7869CAD9BA9</Description>
 			<CreatedBy>srkrishnan</CreatedBy>
-			<CreationDate>2011-11-18T10:37:57.584</CreationDate>
+			<CreationDate>2011-12-08T04:51:02.336</CreationDate>
 			<Notes/>
 			<Identifier>
 				<uri
-					id="00505681-3ba3-11e1-e23a-2bf1bd8e9faf"
+					id="005056C0-0008-11E1-E42A-F7869CADDBA9"
 				/>
 			</Identifier>
 		</TranslatableText>
@@ -207,7 +874,47 @@
 	<aclFragments/>
 	<tagsContainer/>
 	<deliveryModels/>
-	<messageParts/>
+	<messageParts>
+		<MessagePart
+			type="com.cordys.task.MessagePart"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A3FBA9">
+			<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A3DBA9</DocumentID>
+			<Name>freeformcontrols</Name>
+			<Description>freeformcontrols</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T04:54:38.936</CreationDate>
+			<Notes/>
+			<isRefExists>false</isRefExists>
+			<operationName>freeformcontrols</operationName>
+			<namespace>http://schemas.cordys.com/1.0/xforms/processapi</namespace>
+		</MessagePart>
+		<MessagePart
+			type="com.cordys.task.MessagePart"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A43BA9">
+			<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A41BA9</DocumentID>
+			<Name>Currency_GetListModel</Name>
+			<Description>Currency_GetListModel</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T04:54:38.952</CreationDate>
+			<Notes/>
+			<isRefExists>true</isRefExists>
+			<operationName>Currency_GetList</operationName>
+			<namespace>http://demo.sapconnector/2.1</namespace>
+		</MessagePart>
+		<MessagePart
+			type="com.cordys.task.MessagePart"
+			RuntimeDocumentID="005056C0-0008-11E1-E42B-185FF7AB5BA9">
+			<DocumentID>005056C0-0008-11E1-E42B-185FF7AB3BA9</DocumentID>
+			<Name>Currency_GetDecimalsModel</Name>
+			<Description>Currency_GetDecimalsModel</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T05:04:42.864</CreationDate>
+			<Notes/>
+			<isRefExists>true</isRefExists>
+			<operationName>Currency_GetDecimals</operationName>
+			<namespace>http://demo.sapconnector/2.1</namespace>
+		</MessagePart>
+	</messageParts>
 	<InstanceSchemaFragments/>
 	<Htms/>
 	<output/>
