@@ -1,3 +1,6 @@
+VERSIOM 2.1.2 (08-12-2012)
+- Fix    : Fixed issue id 31 - "PCDATA invalid Char value...." when RFC XML is parsed by NOM
+
 VERSIOM 2.1.1 (07-12-2012)
 - Fix    : Updated coelib.jar, now SAP Connector consumes less memory
 - Fix    : Fixed Web Service publish issue. If we directly use SAP BOP-4 web services in BOP 4.1 it will give "Verification Failed" error.

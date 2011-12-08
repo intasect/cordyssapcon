@@ -51,7 +51,7 @@ import javax.xml.namespace.QName;
 public class JCoMethodGenerator extends MethodGenerator
 {
     /**
-     * Holds the name of the tag 'ítem'.
+     * Holds the name of the tag 'item'.
      */
     private static final String TAG_ITEM = "item";
     /**
