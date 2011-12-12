@@ -342,7 +342,7 @@ public class SAPJCoRequestSender
 
         JCO.Response sapResponse = executeFunction(client, sapRequest);
         // Not checking the RETURN parameter. Returning the response as it is.
-        int responseNode = convertSAPResponseToXML(sapResponse, doc);
+        int responseNode = convertSAPResponseToXML(sapResponse, doc, false);
 
         // Removing RETURN parameter from the response
         Node.setName(responseNode, responseNodeName);
@@ -460,7 +460,7 @@ public class SAPJCoRequestSender
             // Not checking the RETURN parameter. Returning the response as it is.
             if (isFunctionCallSuccessful(sapResponse, errorMessage))
             {
-                int responseNode = convertSAPResponseToXML(sapResponse, doc);
+                int responseNode = convertSAPResponseToXML(sapResponse, doc, true);
                 // Removing RETURN parameter from the response
                 BACUtil.deleteNode(Find.firstMatch(responseNode,
                                                    "<" + Node.getName(responseNode) + "><RETURN>"));
@@ -780,8 +780,8 @@ public class SAPJCoRequestSender
      *
      * @throws  SAPConnectorException  In case of any exceptions
      */
-    private int convertSAPResponseToXML(JCO.Response sapResponse, Document doc)
-                                 throws SAPConnectorException
+    private int convertSAPResponseToXML(JCO.Response sapResponse, Document doc, 
+            boolean stripIllegalXMLChars) throws SAPConnectorException
     {
         if (LOG.isDebugEnabled())
         {
@@ -790,14 +790,22 @@ public class SAPJCoRequestSender
 
         try
         {
-            String sapResponseXML = stripNonValidXMLCharacters(sapResponse.toXML());
-
+            String sapResponseXML = "";
+            if (stripIllegalXMLChars == true)
+            {
+                sapResponseXML = stripNonValidXMLCharacters(sapResponse.toXML());
+            }
+            else
+            {
+                sapResponseXML = new String (sapResponse.toXML());
+            }
+            //sapResponse.writeXML("sapresponse.xml");
             if (LOG.isDebugEnabled())
             {
                 LOG.debug("Response from SAP converted to XML String:" + sapResponseXML);
             }
-
-            int responseNode = doc.parseString(sapResponseXML);
+            int responseNode = 0;
+            responseNode = doc.parseString(sapResponseXML);
 
             return responseNode;
         }
