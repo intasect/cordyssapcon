@@ -1,0 +1,23 @@
+
+<TextIdentifier
+	type="com.cordys.translation.TextIdentifier"
+	typeVersion="55890f21-u239-76j6-988a-92j7opq6ws09"
+	RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf273b99642">
+	<DocumentID>00505681-3ba3-11e1-e23a-2bf273801641</DocumentID>
+	<Name>00505681-3ba3-11e1-e23a-2bf273801641</Name>
+	<Description>Method</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-11-18T10:37:57.542</CreationDate>
+	<Notes/>
+	<DefaultText>Method</DefaultText>
+	<Translations>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf272b4563f"
+		/>
+	</Translations>
+	<TranslationInformation>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf181ca9f9b"
+		/>
+	</TranslationInformation>
+</TextIdentifier>

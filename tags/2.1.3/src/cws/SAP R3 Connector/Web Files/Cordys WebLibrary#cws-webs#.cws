@@ -1,0 +1,21 @@
+
+<WebSource
+	type="com.cordys.cws.documenttypes.websource.WebSource"
+	RuntimeDocumentID="005056C0-0008-71DE-965B-91401FC83A3F">
+	<DocumentID>005056C0-0008-71DE-965B-91401FC83A3E</DocumentID>
+	<Name>Cordys WebLibrary</Name>
+	<Description>Cordys WebLibrary</Description>
+	<CreatedBy>hboecker</CreatedBy>
+	<CreationDate>2009-08-25T06:49:15.843</CreationDate>
+	<LastModifiedBy>pgussow</LastModifiedBy>
+	<LastModifiedDate>2009-09-30T07:44:44.737</LastModifiedDate>
+	<Notes/>
+	<NamespacePrefix></NamespacePrefix>
+	<SourceFolder>
+		<uri
+			id="001E3780-4713-71DE-8EEA-ACFC3520F6B7"
+			path="SAP R3 Connector/Web Files"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+</WebSource>

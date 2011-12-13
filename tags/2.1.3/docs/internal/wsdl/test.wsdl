@@ -1,0 +1,1108 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://aa.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://aa.com">
+        <wsdl:types>
+          <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://aa.com" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://aa.com">
+            <xsd:element name="Customer.Create">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element minOccurs="0" name="INIT_KUNNR">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="1" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Customer.CreateResponse">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="CUSTOMER">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="10" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="CUSTOMERNO">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="10" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="RETURN" type="tns:BAPIRET1" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Customer.CreateFromData">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="PI_ADDRESS" type="tns:BAPIKNA101" />
+                  <xsd:element name="PI_COPYREFERENCE" type="tns:BAPIKNA102" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Customer.CreateFromDataResponse">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="CUSTOMERNO">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="10" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="PE_CUSTOMER">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="10" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="RETURN" type="tns:BAPIRETURN" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Customer.CreateFromData1">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="PI_COMPANYDATA" type="tns:BAPIKNA106" />
+                  <xsd:element minOccurs="0" name="PI_CONSUMEREN">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="1" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="PI_COPYREFERENCE" type="tns:BAPIKNA102" />
+                  <xsd:element minOccurs="0" name="PI_CREDIT_CONTROL_FLAG">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="1" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="PI_OPT_COMPANYDATA" type="tns:BAPIKNA105" />
+                  <xsd:element name="PI_OPT_PERSONALDATA" type="tns:BAPIKNA105" />
+                  <xsd:element name="PI_PERSONALDATA" type="tns:BAPIKNA101_1" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="Customer.CreateFromData1Response">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="CUSTOMERNO">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:maxLength value="10" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:element>
+                  <xsd:element name="RETURN" type="tns:BAPIRETURN1" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:complexType name="BAPIRET1">
+              <xsd:sequence>
+                <xsd:element name="TYPE">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="1" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="ID">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="20" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="NUMBER">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:pattern value="\d+" />
+                      <xsd:maxLength value="3" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="220" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="LOG_NO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="20" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="LOG_MSG_NO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:pattern value="\d+" />
+                      <xsd:maxLength value="6" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE_V1">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="50" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE_V2">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="50" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE_V3">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="50" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE_V4">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="50" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="BAPIKNA101">
+              <xsd:sequence>
+                <xsd:element name="FORM_OF_AD">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="30" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="FIRST_NAME">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="35" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="NAME">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="35" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="NAME_3">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="35" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="NAME_4">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="35" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="DATE_BIRTH">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:pattern value="....-..-.." />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="STREET">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="35" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="POSTL_CODE">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="CITY">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="35" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="REGION">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="3" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="COUNTRY">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="3" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="COUNTRNISO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="3" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="COUNTRAISO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="3" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="INTERNET">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="130" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="FAX_NUMBER">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="31" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="TELEPHONE">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="16" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="TELEPHONE2">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="16" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="LANGU">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="1" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="LANGU_ISO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="2" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="CURRENCY">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="5" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="CURRENCY_ISO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="3" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="COUNTRYISO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="2" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="ONLY_CHANGE_COMADDRESS">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="1" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="BAPIKNA102">
+              <xsd:sequence>
+                <xsd:element name="SALESORG">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="4" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="DISTR_CHAN">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="2" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="DIVISION">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="2" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="REF_CUSTMR">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="BAPIRETURN">
+              <xsd:sequence>
+                <xsd:element name="TYPE">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="1" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="CODE">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="5" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="220" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="LOG_NO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="20" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="LOG_MSG_NO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:pattern value="\d+" />
+                      <xsd:maxLength value="6" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE_V1">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="50" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE_V2">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="50" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE_V3">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="50" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE_V4">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="50" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="BAPIKNA106">
+              <xsd:sequence>
+                <xsd:element name="TITLE">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="30" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="TITLE_KEY">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="4" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="NAME">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="NAME_2">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="NAME_3">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="NAME_4">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="C_O_NAME">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="CITY">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="DISTRICT">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="CITY_NO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="12" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="POSTL_COD1">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="POSTL_COD2">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="POSTL_COD3">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="PO_BOX">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="PO_BOX_CIT">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="DELIV_DIS">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="15" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="STREET">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="HOUSE_NO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="BUILDING">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="FLOOR">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="ROOM_NO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="COUNTRY">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="3" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="LANGU">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="1" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="REGION">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="3" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="TEL1_NUMBR">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="30" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="TEL1_EXT">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="FAX_NUMBER">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="30" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="FAX_EXTENS">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="E_MAIL">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="241" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="COUNTRYISO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="2" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="LANGU_ISO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="2" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="CURRENCY">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="5" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="CURRENCY_ISO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="3" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="BAPIKNA105">
+              <xsd:sequence>
+                <xsd:element name="TRANSPZONE">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="CONTROL_ACCOUNT">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="PMNTTRMS">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="4" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="SHIP_COND">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="2" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="DELYG_PLNT">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="4" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="PART_DLV">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="1" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="C_CTR_AREA">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="4" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="TAXJURCODE">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="15" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="BAPIKNA101_1">
+              <xsd:sequence>
+                <xsd:element name="TITLE_P">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="30" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="FIRSTNAME">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="LASTNAME">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MIDDLENAME">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="SECONDNAME">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="DATE_BIRTH">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:pattern value="....-..-.." />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="CITY">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="DISTRICT">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="POSTL_COD1">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="POSTL_COD2">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="PO_BOX">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="PO_BOX_CIT">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="40" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="STREET">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="60" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="HOUSE_NO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="BUILDING">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="20" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="FLOOR">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="ROOM_NO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="COUNTRY">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="3" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="COUNTRYISO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="2" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="REGION">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="3" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="TEL1_NUMBR">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="30" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="TEL1_EXT">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="FAX_NUMBER">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="30" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="FAX_EXTENS">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="10" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="E_MAIL">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="241" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="LANGU_P">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="1" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="LANGUP_ISO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="2" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="CURRENCY">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="5" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="CURRENCY_ISO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="3" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="TITLE_KEY">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="4" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="ONLY_CHANGE_COMADDRESS">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="1" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="BAPIRETURN1">
+              <xsd:sequence>
+                <xsd:element name="TYPE">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="1" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="ID">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="20" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="NUMBER">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:pattern value="\d+" />
+                      <xsd:maxLength value="3" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="220" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="LOG_NO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="20" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="LOG_MSG_NO">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:pattern value="\d+" />
+                      <xsd:maxLength value="6" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE_V1">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="50" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE_V2">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="50" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE_V3">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="50" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+                <xsd:element name="MESSAGE_V4">
+                  <xsd:simpleType>
+                    <xsd:restriction base="xsd:string">
+                      <xsd:maxLength value="50" />
+                    </xsd:restriction>
+                  </xsd:simpleType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:schema>
+        </wsdl:types>
+        <wsdl:message name="Customer.CreateFromData1">
+          <wsdl:part name="body" element="tns:Customer.CreateFromData1" />
+        </wsdl:message>
+        <wsdl:message name="Customer.CreateResponse">
+          <wsdl:part name="body" element="tns:Customer.CreateResponse" />
+        </wsdl:message>
+        <wsdl:message name="Customer.CreateFromDataResponse">
+          <wsdl:part name="body" element="tns:Customer.CreateFromDataResponse" />
+        </wsdl:message>
+        <wsdl:message name="Customer.CreateFromData">
+          <wsdl:part name="body" element="tns:Customer.CreateFromData" />
+        </wsdl:message>
+        <wsdl:message name="Customer.Create">
+          <wsdl:part name="body" element="tns:Customer.Create" />
+        </wsdl:message>
+        <wsdl:message name="Customer.CreateFromData1Response">
+          <wsdl:part name="body" element="tns:Customer.CreateFromData1Response" />
+        </wsdl:message>
+        <wsdl:portType name="TestinterfacePortType">
+          <wsdl:operation name="Customer.CreateOperation">
+            <wsdl:input message="tns:Customer.Create" />
+            <wsdl:output message="tns:Customer.CreateResponse" />
+          </wsdl:operation>
+          <wsdl:operation name="Customer.CreateFromDataOperation">
+            <wsdl:input message="tns:Customer.CreateFromData" />
+            <wsdl:output message="tns:Customer.CreateFromDataResponse" />
+          </wsdl:operation>
+          <wsdl:operation name="Customer.CreateFromData1Operation">
+            <wsdl:input message="tns:Customer.CreateFromData1" />
+            <wsdl:output message="tns:Customer.CreateFromData1Response" />
+          </wsdl:operation>
+        </wsdl:portType>
+        <wsdl:binding name="TestinterfaceBinding" type="tns:TestinterfacePortType">
+          <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+          <wsdl:operation name="Customer.CreateOperation">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input>
+              <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+              <soap:body use="literal" />
+            </wsdl:output>
+          </wsdl:operation>
+          <wsdl:operation name="Customer.CreateFromDataOperation">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input>
+              <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+              <soap:body use="literal" />
+            </wsdl:output>
+          </wsdl:operation>
+          <wsdl:operation name="Customer.CreateFromData1Operation">
+            <soap:operation soapAction="" style="document" />
+            <wsdl:input>
+              <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+              <soap:body use="literal" />
+            </wsdl:output>
+          </wsdl:operation>
+        </wsdl:binding>
+        <wsdl:service name="TestinterfaceService">
+          <wsdl:port name="TestinterfacePort" binding="tns:TestinterfaceBinding">
+            <soap:address location="com.eibus.web.soap.Gateway.wcp" />
+          </wsdl:port>
+        </wsdl:service>
+      </wsdl:definitions>

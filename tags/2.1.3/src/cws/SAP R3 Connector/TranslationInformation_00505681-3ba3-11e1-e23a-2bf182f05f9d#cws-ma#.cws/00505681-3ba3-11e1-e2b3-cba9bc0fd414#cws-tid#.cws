@@ -1,0 +1,23 @@
+
+<TextIdentifier
+	type="com.cordys.translation.TextIdentifier"
+	typeVersion="55890f21-u239-76j6-988a-92j7opq6ws09"
+	RuntimeDocumentID="00505681-3ba3-11e1-e2b3-cba9bc139415">
+	<DocumentID>00505681-3ba3-11e1-e2b3-cba9bc0fd414</DocumentID>
+	<Name>00505681-3ba3-11e1-e2b3-cba9bc0fd414</Name>
+	<Description>Button1</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-11-23T08:14:21.153</CreationDate>
+	<Notes/>
+	<DefaultText>Button1</DefaultText>
+	<Translations>
+		<uri
+			id="00505681-3ba3-11e1-e2b3-cba9bc161416"
+		/>
+	</Translations>
+	<TranslationInformation>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf181ca9f9b"
+		/>
+	</TranslationInformation>
+</TextIdentifier>
