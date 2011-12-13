@@ -1,0 +1,22 @@
+
+<TranslatedText
+	type="com.cordys.translation.TranslatedText"
+	RuntimeDocumentID="005056C0-0008-11E1-E412-2CB75810FD4A">
+	<DocumentID>005056C0-0008-11E1-E412-2CB75810DD4A</DocumentID>
+	<Name>005056C0-0008-11E1-E412-2CB75810DD4A</Name>
+	<Description>Service Group</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-12-07T05:13:13.531</CreationDate>
+	<Notes/>
+	<Text>Service Group</Text>
+	<Language>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf18b5ddfa5"
+		/>
+	</Language>
+	<TextIdentifier>
+		<uri
+			id="005056C0-0008-11E1-E412-2CB758109D4A"
+		/>
+	</TextIdentifier>
+</TranslatedText>

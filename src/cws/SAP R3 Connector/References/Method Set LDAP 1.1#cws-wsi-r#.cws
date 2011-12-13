@@ -1,248 +1,393 @@
 
 <WebserviceInterfaceRuntime
 	type="com.cordys.wsdl.WebserviceInterfaceRuntime"
-	RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEAFFFEAB9C8">
-	<DocumentID>001E3780-4713-71DE-8EF4-CEAFFFEAB9C7</DocumentID>
+	typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+	RuntimeDocumentID="00505681-3ba3-11e1-e2a0-19328b9315f9">
+	<DocumentID>00505681-3ba3-11e1-e2a0-19328b8f55f8</DocumentID>
 	<Name>Method Set LDAP 1.1</Name>
 	<Description>Method Set LDAP 1.1</Description>
-	<CreatedBy>pgussow</CreatedBy>
-	<CreationDate>2009-11-11T13:37:22.67</CreationDate>
-	<LastModifiedBy>pgussow</LastModifiedBy>
-	<LastModifiedDate>2009-11-11T13:37:23.123</LastModifiedDate>
+	<CreatedBy>root</CreatedBy>
+	<CreationDate>2011-11-22T12:05:29.234</CreationDate>
 	<Notes/>
 	<BinaryReferenceInfo></BinaryReferenceInfo>
-	<ISVPName>Cordys LDAP Connector</ISVPName>
+	<ISVPName></ISVPName>
 	<RuntimeKey>Method Set LDAP 1.1</RuntimeKey>
+	<PackageInformation>
+		<CordysBinaryReferenceISVPInfo
+			type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+			RuntimeDocumentID="00505681-3ba3-11e1-e2a0-19328b8415f5">
+			<DocumentID>00505681-3ba3-11e1-e2a0-19328b8055f4</DocumentID>
+			<Name>Untitled CordysBinaryReferenceISVPInfo</Name>
+			<Description>Untitled CordysBinaryReferenceISVPInfo</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-22T12:05:29.235</CreationDate>
+			<Notes/>
+			<ISVPName>Cordys LDAP Connector</ISVPName>
+		</CordysBinaryReferenceISVPInfo>
+	</PackageInformation>
 	<WebserviceOperations>
 		<WebserviceOperationRuntime
 			type="com.cordys.wsdl.WebserviceOperationRuntime"
-			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE4138">
-			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE4137</DocumentID>
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48a9eafedfb1">
+			<DocumentID>00505681-3ba3-11e1-e2a0-48a9ea6b5fb0</DocumentID>
 			<Name>GetACLForISVPackage</Name>
-			<Description>Runtime reference for Web Service Operation GetACLForISVPackage in Web Service Method Set LDAP 1.1</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-11-11T13:37:23.358</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-11-11T13:37:23.358</LastModifiedDate>
+			<Description>Runtime reference for Web Service Operation GetACLForISVPackage in Web ServiceMethod Set LDAP 1.1</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-22T12:05:29.549</CreationDate>
 			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
 			<ImplementationType>LDAP</ImplementationType>
-			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ISVPName></ISVPName>
 			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetACLForISVPackage</RuntimeKey>
 			<WebserviceInterface>
 				<uri
-					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
-					path="SAP R3 Connector/References/Method Set LDAP 1.1"
-					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+					id="00505681-3ba3-11e1-e2a0-19328b8f55f8"
 				/>
 			</WebserviceInterface>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48a9ec771fb4">
+					<DocumentID>00505681-3ba3-11e1-e2a0-48a9ec2fdfb3</DocumentID>
+					<Name>00505681-3ba3-11e1-e2a0-48a9ec2fdfb3</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-22T12:05:29.547</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys LDAP Connector</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</WebserviceOperationRuntime>
 		<WebserviceOperationRuntime
 			type="com.cordys.wsdl.WebserviceOperationRuntime"
-			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE413C">
-			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE413B</DocumentID>
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aa1c2b9fb9">
+			<DocumentID>00505681-3ba3-11e1-e2a0-48aa1ba21fb8</DocumentID>
 			<Name>GetACLForService</Name>
-			<Description>Runtime reference for Web Service Operation GetACLForService in Web Service Method Set LDAP 1.1</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-11-11T13:37:23.373</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-11-11T13:37:23.373</LastModifiedDate>
+			<Description>Runtime reference for Web Service Operation GetACLForService in Web ServiceMethod Set LDAP 1.1</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-22T12:05:29.547</CreationDate>
 			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
 			<ImplementationType>LDAP</ImplementationType>
-			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ISVPName></ISVPName>
 			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetACLForService</RuntimeKey>
 			<WebserviceInterface>
 				<uri
-					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
-					path="SAP R3 Connector/References/Method Set LDAP 1.1"
-					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+					id="00505681-3ba3-11e1-e2a0-19328b8f55f8"
 				/>
 			</WebserviceInterface>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aa1da3dfbb">
+					<DocumentID>00505681-3ba3-11e1-e2a0-48aa1d669fba</DocumentID>
+					<Name>00505681-3ba3-11e1-e2a0-48aa1d669fba</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-22T12:05:29.548</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys LDAP Connector</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</WebserviceOperationRuntime>
 		<WebserviceOperationRuntime
 			type="com.cordys.wsdl.WebserviceOperationRuntime"
-			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE4140">
-			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE413F</DocumentID>
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aa35a75fbf">
+			<DocumentID>00505681-3ba3-11e1-e2a0-48aa352e1fbe</DocumentID>
 			<Name>GetACLForUser</Name>
-			<Description>Runtime reference for Web Service Operation GetACLForUser in Web Service Method Set LDAP 1.1</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-11-11T13:37:23.373</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-11-11T13:37:23.373</LastModifiedDate>
+			<Description>Runtime reference for Web Service Operation GetACLForUser in Web ServiceMethod Set LDAP 1.1</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-22T12:05:29.55</CreationDate>
 			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
 			<ImplementationType>LDAP</ImplementationType>
-			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ISVPName></ISVPName>
 			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetACLForUser</RuntimeKey>
 			<WebserviceInterface>
 				<uri
-					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
-					path="SAP R3 Connector/References/Method Set LDAP 1.1"
-					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+					id="00505681-3ba3-11e1-e2a0-19328b8f55f8"
 				/>
 			</WebserviceInterface>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aa36b91fc1">
+					<DocumentID>00505681-3ba3-11e1-e2a0-48aa367f9fc0</DocumentID>
+					<Name>00505681-3ba3-11e1-e2a0-48aa367f9fc0</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-22T12:05:29.548</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys LDAP Connector</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</WebserviceOperationRuntime>
 		<WebserviceOperationRuntime
 			type="com.cordys.wsdl.WebserviceOperationRuntime"
-			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE4144">
-			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE4143</DocumentID>
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aa4e86dfc5">
+			<DocumentID>00505681-3ba3-11e1-e2a0-48aa4e219fc4</DocumentID>
 			<Name>Update</Name>
-			<Description>Runtime reference for Web Service Operation Update in Web Service Method Set LDAP 1.1</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-11-11T13:37:23.358</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-11-11T13:37:23.358</LastModifiedDate>
+			<Description>Runtime reference for Web Service Operation Update in Web ServiceMethod Set LDAP 1.1</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-22T12:05:29.551</CreationDate>
 			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
 			<ImplementationType>LDAP</ImplementationType>
-			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ISVPName></ISVPName>
 			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/Update</RuntimeKey>
 			<WebserviceInterface>
 				<uri
-					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
-					path="SAP R3 Connector/References/Method Set LDAP 1.1"
-					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+					id="00505681-3ba3-11e1-e2a0-19328b8f55f8"
 				/>
 			</WebserviceInterface>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aa4f7a9fc7">
+					<DocumentID>00505681-3ba3-11e1-e2a0-48aa4f439fc6</DocumentID>
+					<Name>00505681-3ba3-11e1-e2a0-48aa4f439fc6</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-22T12:05:29.551</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys LDAP Connector</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</WebserviceOperationRuntime>
 		<WebserviceOperationRuntime
 			type="com.cordys.wsdl.WebserviceOperationRuntime"
-			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE4148">
-			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE4147</DocumentID>
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aa6547dfcb">
+			<DocumentID>00505681-3ba3-11e1-e2a0-48aa64e01fca</DocumentID>
 			<Name>GetAuthenticatedUsers</Name>
-			<Description>Runtime reference for Web Service Operation GetAuthenticatedUsers in Web Service Method Set LDAP 1.1</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-11-11T13:37:23.358</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-11-11T13:37:23.358</LastModifiedDate>
+			<Description>Runtime reference for Web Service Operation GetAuthenticatedUsers in Web ServiceMethod Set LDAP 1.1</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-22T12:05:29.549</CreationDate>
 			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
 			<ImplementationType>LDAP</ImplementationType>
-			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ISVPName></ISVPName>
 			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetAuthenticatedUsers</RuntimeKey>
 			<WebserviceInterface>
 				<uri
-					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
-					path="SAP R3 Connector/References/Method Set LDAP 1.1"
-					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+					id="00505681-3ba3-11e1-e2a0-19328b8f55f8"
 				/>
 			</WebserviceInterface>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aa664bdfcd">
+					<DocumentID>00505681-3ba3-11e1-e2a0-48aa66175fcc</DocumentID>
+					<Name>00505681-3ba3-11e1-e2a0-48aa66175fcc</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-22T12:05:29.55</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys LDAP Connector</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</WebserviceOperationRuntime>
 		<WebserviceOperationRuntime
 			type="com.cordys.wsdl.WebserviceOperationRuntime"
-			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE414C">
-			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE414B</DocumentID>
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aa8c109fd1">
+			<DocumentID>00505681-3ba3-11e1-e2a0-48aa8b8fdfd0</DocumentID>
 			<Name>GetOrganizationalUsers</Name>
-			<Description>Runtime reference for Web Service Operation GetOrganizationalUsers in Web Service Method Set LDAP 1.1</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-11-11T13:37:23.358</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-11-11T13:37:23.358</LastModifiedDate>
+			<Description>Runtime reference for Web Service Operation GetOrganizationalUsers in Web ServiceMethod Set LDAP 1.1</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-22T12:05:29.549</CreationDate>
 			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
 			<ImplementationType>LDAP</ImplementationType>
-			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ISVPName></ISVPName>
 			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetOrganizationalUsers</RuntimeKey>
 			<WebserviceInterface>
 				<uri
-					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
-					path="SAP R3 Connector/References/Method Set LDAP 1.1"
-					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+					id="00505681-3ba3-11e1-e2a0-19328b8f55f8"
 				/>
 			</WebserviceInterface>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aa8d2edfd3">
+					<DocumentID>00505681-3ba3-11e1-e2a0-48aa8cf7dfd2</DocumentID>
+					<Name>00505681-3ba3-11e1-e2a0-48aa8cf7dfd2</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-22T12:05:29.549</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys LDAP Connector</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</WebserviceOperationRuntime>
 		<WebserviceOperationRuntime
 			type="com.cordys.wsdl.WebserviceOperationRuntime"
-			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE4150">
-			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE414F</DocumentID>
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aaa6fe5fd7">
+			<DocumentID>00505681-3ba3-11e1-e2a0-48aaa68ddfd6</DocumentID>
 			<Name>GetRolesByType</Name>
-			<Description>Runtime reference for Web Service Operation GetRolesByType in Web Service Method Set LDAP 1.1</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-11-11T13:37:23.373</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-11-11T13:37:23.373</LastModifiedDate>
+			<Description>Runtime reference for Web Service Operation GetRolesByType in Web ServiceMethod Set LDAP 1.1</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-22T12:05:29.548</CreationDate>
 			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
 			<ImplementationType>LDAP</ImplementationType>
-			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ISVPName></ISVPName>
 			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetRolesByType</RuntimeKey>
 			<WebserviceInterface>
 				<uri
-					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
-					path="SAP R3 Connector/References/Method Set LDAP 1.1"
-					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+					id="00505681-3ba3-11e1-e2a0-19328b8f55f8"
 				/>
 			</WebserviceInterface>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aaa80edfd9">
+					<DocumentID>00505681-3ba3-11e1-e2a0-48aaa7d05fd8</DocumentID>
+					<Name>00505681-3ba3-11e1-e2a0-48aaa7d05fd8</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-22T12:05:29.55</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys LDAP Connector</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</WebserviceOperationRuntime>
 		<WebserviceOperationRuntime
 			type="com.cordys.wsdl.WebserviceOperationRuntime"
-			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE4154">
-			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE4153</DocumentID>
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aac2eedfdd">
+			<DocumentID>00505681-3ba3-11e1-e2a0-48aac2871fdc</DocumentID>
 			<Name>GetToolbar</Name>
-			<Description>Runtime reference for Web Service Operation GetToolbar in Web Service Method Set LDAP 1.1</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-11-11T13:37:23.358</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-11-11T13:37:23.358</LastModifiedDate>
+			<Description>Runtime reference for Web Service Operation GetToolbar in Web ServiceMethod Set LDAP 1.1</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-22T12:05:29.548</CreationDate>
 			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
 			<ImplementationType>LDAP</ImplementationType>
-			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ISVPName></ISVPName>
 			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetToolbar</RuntimeKey>
 			<WebserviceInterface>
 				<uri
-					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
-					path="SAP R3 Connector/References/Method Set LDAP 1.1"
-					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+					id="00505681-3ba3-11e1-e2a0-19328b8f55f8"
 				/>
 			</WebserviceInterface>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aac4059fdf">
+					<DocumentID>00505681-3ba3-11e1-e2a0-48aac3cfdfde</DocumentID>
+					<Name>00505681-3ba3-11e1-e2a0-48aac3cfdfde</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-22T12:05:29.55</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys LDAP Connector</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</WebserviceOperationRuntime>
 		<WebserviceOperationRuntime
 			type="com.cordys.wsdl.WebserviceOperationRuntime"
-			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE4158">
-			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE4157</DocumentID>
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aadc0f5fe3">
+			<DocumentID>00505681-3ba3-11e1-e2a0-48aadbaa1fe2</DocumentID>
 			<Name>GetUserDetails</Name>
-			<Description>Runtime reference for Web Service Operation GetUserDetails in Web Service Method Set LDAP 1.1</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-11-11T13:37:23.373</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-11-11T13:37:23.373</LastModifiedDate>
+			<Description>Runtime reference for Web Service Operation GetUserDetails in Web ServiceMethod Set LDAP 1.1</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-22T12:05:29.552</CreationDate>
 			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
 			<ImplementationType>LDAP</ImplementationType>
-			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ISVPName></ISVPName>
 			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetUserDetails</RuntimeKey>
 			<WebserviceInterface>
 				<uri
-					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
-					path="SAP R3 Connector/References/Method Set LDAP 1.1"
-					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+					id="00505681-3ba3-11e1-e2a0-19328b8f55f8"
 				/>
 			</WebserviceInterface>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aadd4b9fe5">
+					<DocumentID>00505681-3ba3-11e1-e2a0-48aadd149fe4</DocumentID>
+					<Name>00505681-3ba3-11e1-e2a0-48aadd149fe4</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-22T12:05:29.552</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys LDAP Connector</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</WebserviceOperationRuntime>
 		<WebserviceOperationRuntime
 			type="com.cordys.wsdl.WebserviceOperationRuntime"
-			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEC756AE415C">
-			<DocumentID>001E3780-4713-71DE-8EF4-CEC756AE415B</DocumentID>
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aaf49c5fe9">
+			<DocumentID>00505681-3ba3-11e1-e2a0-48aaf4349fe8</DocumentID>
 			<Name>FlushLDAPCache</Name>
-			<Description>Runtime reference for Web Service Operation FlushLDAPCache in Web Service Method Set LDAP 1.1</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-11-11T13:37:23.373</CreationDate>
-			<LastModifiedBy>pgussow</LastModifiedBy>
-			<LastModifiedDate>2009-11-11T13:37:23.373</LastModifiedDate>
+			<Description>Runtime reference for Web Service Operation FlushLDAPCache in Web ServiceMethod Set LDAP 1.1</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-22T12:05:29.551</CreationDate>
 			<Notes/>
-			<BinaryReferenceInfo></BinaryReferenceInfo>
 			<ImplementationType>LDAP</ImplementationType>
-			<ISVPName>Cordys LDAP Connector</ISVPName>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ISVPName></ISVPName>
 			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/FlushLDAPCache</RuntimeKey>
 			<WebserviceInterface>
 				<uri
-					id="001E3780-4713-71DE-8EF4-CEAFFFEAB9C7"
-					path="SAP R3 Connector/References/Method Set LDAP 1.1"
-					type="com.cordys.wsdl.WebserviceInterfaceRuntime"
+					id="00505681-3ba3-11e1-e2a0-19328b8f55f8"
 				/>
 			</WebserviceInterface>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48aaf5d4dfeb">
+					<DocumentID>00505681-3ba3-11e1-e2a0-48aaf59ddfea</DocumentID>
+					<Name>00505681-3ba3-11e1-e2a0-48aaf59ddfea</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-22T12:05:29.55</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys LDAP Connector</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
+		</WebserviceOperationRuntime>
+		<WebserviceOperationRuntime
+			type="com.cordys.wsdl.WebserviceOperationRuntime"
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48ab0cf75fef">
+			<DocumentID>00505681-3ba3-11e1-e2a0-48ab0c971fee</DocumentID>
+			<Name>GetUsersForRole</Name>
+			<Description>Runtime reference for Web Service Operation GetUsersForRole in Web ServiceMethod Set LDAP 1.1</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-22T12:05:29.551</CreationDate>
+			<Notes/>
+			<ImplementationType>LDAP</ImplementationType>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<ISVPName></ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/1.1/ldap/GetUsersForRole</RuntimeKey>
+			<WebserviceInterface>
+				<uri
+					id="00505681-3ba3-11e1-e2a0-19328b8f55f8"
+				/>
+			</WebserviceInterface>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e2a0-48ab0e11dff1">
+					<DocumentID>00505681-3ba3-11e1-e2a0-48ab0dd85ff0</DocumentID>
+					<Name>00505681-3ba3-11e1-e2a0-48ab0dd85ff0</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-22T12:05:29.547</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys LDAP Connector</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</WebserviceOperationRuntime>
 	</WebserviceOperations>
 </WebserviceInterfaceRuntime>

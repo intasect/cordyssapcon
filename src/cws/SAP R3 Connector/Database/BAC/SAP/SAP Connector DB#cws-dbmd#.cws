@@ -8,11 +8,13 @@
 	<CreatedBy>pgussow</CreatedBy>
 	<CreationDate>2009-09-29T13:47:49.501</CreationDate>
 	<Notes/>
+	<ProductName></ProductName>
 	<DataBaseName>sapconnector</DataBaseName>
+	<SecurityDescriptor/>
 	<RuntimeSchemaDefinitions>
 		<XMLSchemaDefinitionRuntime
 			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B"
+			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B 0019B981-E9E3-11DF-FAD3-F797D376BD43"
 			RuntimeDocumentID="001E3780-4713-71DE-8EEA-ACFEAC95B6C1">
 			<DocumentID>001E3780-4713-71DE-8EEA-ACFEAC95B6C0</DocumentID>
 			<Name>XMLSchema_Binary_Reference_WSAppServerSchema.xsd</Name>
@@ -20,12 +22,10 @@
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 			<Notes/>
-			<RuntimeKey>http://schemas.cordys.com/WS-AppServer/1.0/WSAppServerSchema.xsd</RuntimeKey>
-			<ISVPName>Cordys WS-AppServer</ISVPName>
 			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<TargetNamespace></TargetNamespace>
 			<NamespaceReferencePrefix>tns</NamespaceReferencePrefix>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<TargetNamespace></TargetNamespace>
+			<Location></Location>
 			<XmlNode>
 				<xsd:schema
 					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
@@ -38,7 +38,11 @@
 					/>
 				</xsd:schema>
 			</XmlNode>
-			<Location></Location>
+			<ISVPName>Cordys WS-AppServer</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/WS-AppServer/1.0/WSAppServerSchema.xsd</RuntimeKey>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<DefinitionSet/>
+			<SchemaReferences/>
 			<SchemaFragments>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -49,8 +53,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>UpdateMethodAttributes</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>UpdateMethodAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -119,15 +124,14 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Type>attributeGroup</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6C0"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -138,8 +142,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>tupleAttributes</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>tupleAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -151,15 +156,14 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Type>attributeGroup</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6C0"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -170,8 +174,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>seqId</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>seqId</FragmentName>
+					<Type>attribute</Type>
 					<DefinitionXML>
 						<xsd:attribute
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -180,15 +185,14 @@
 							type="xsd:int"
 						/>
 					</DefinitionXML>
-					<Type>attribute</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6C0"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -199,8 +203,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.798</CreationDate>
 					<Notes/>
-					<FragmentName>oldObjectAttributes</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>oldObjectAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -223,15 +228,14 @@
 							</xsd:attribute>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Type>attributeGroup</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6C0"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -242,8 +246,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>nestedObjectAttributes</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>nestedObjectAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -255,15 +260,14 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Type>attributeGroup</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6C0"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -274,8 +278,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>newObjectAttributes</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>newObjectAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -334,15 +339,14 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Type>attributeGroup</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6C0"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -353,8 +357,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>GetMethodAttributes</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>GetMethodAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -408,15 +413,14 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Type>attributeGroup</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6C0"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -427,8 +431,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>elementAttributes</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>elementAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -440,15 +445,14 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Type>attributeGroup</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6C0"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -459,8 +463,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>values</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>values</FragmentName>
+					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -497,15 +502,14 @@
 							</xsd:complexType>
 						</xsd:element>
 					</DefinitionXML>
-					<Type>element</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6C0"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -516,8 +520,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>cursor</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>cursor</FragmentName>
+					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -552,22 +557,33 @@
 							</xsd:complexType>
 						</xsd:element>
 					</DefinitionXML>
-					<Type>element</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6C0"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 			</SchemaFragments>
-			<DefinitionSet/>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2befdb1edf2c">
+					<DocumentID>00505681-3ba3-11e1-e23a-2befda9f5f2b</DocumentID>
+					<Name>ISVP Info forCordys WS-AppServer</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:57.546</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys WS-AppServer</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</XMLSchemaDefinitionRuntime>
 		<XMLSchemaDefinitionRuntime
 			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B"
+			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B 0019B981-E9E3-11DF-FAD3-F797D376BD43"
 			RuntimeDocumentID="001E3780-4713-71DE-8EEA-ACFEAC95B6D9">
 			<DocumentID>001E3780-4713-71DE-8EEA-ACFEAC95B6D8</DocumentID>
 			<Name>XMLSchema_Binary_Reference_DBConnectorAttributes.xsd</Name>
@@ -575,12 +591,10 @@
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 			<Notes/>
-			<RuntimeKey>http://schemas.cordys.com/dbconnectors/schemas/1.0/DBConnectorAttributes.xsd</RuntimeKey>
-			<ISVPName>Cordys WS-AppServer</ISVPName>
 			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<TargetNamespace></TargetNamespace>
 			<NamespaceReferencePrefix>tns</NamespaceReferencePrefix>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<TargetNamespace></TargetNamespace>
+			<Location></Location>
 			<XmlNode>
 				<xsd:schema
 					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
@@ -589,7 +603,11 @@
 					elementFormDefault="qualified"
 				/>
 			</XmlNode>
-			<Location></Location>
+			<ISVPName>Cordys WS-AppServer</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/dbconnectors/schemas/1.0/DBConnectorAttributes.xsd</RuntimeKey>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<DefinitionSet/>
+			<SchemaReferences/>
 			<SchemaFragments>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -600,8 +618,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>CommonAttributes</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>CommonAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -666,15 +685,14 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Type>attributeGroup</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6D8"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -685,8 +703,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>CursorAttributes</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>CursorAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -709,15 +728,14 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Type>attributeGroup</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6D8"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -728,8 +746,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.798</CreationDate>
 					<Notes/>
-					<FragmentName>QueryAttributes</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>QueryAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -771,15 +790,14 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Type>attributeGroup</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6D8"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -790,8 +808,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>UpdateAttributes</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>UpdateAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -815,22 +834,33 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Type>attributeGroup</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6D8"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 			</SchemaFragments>
-			<DefinitionSet/>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2befec71df32">
+					<DocumentID>00505681-3ba3-11e1-e23a-2befec425f31</DocumentID>
+					<Name>ISVP Info forCordys WS-AppServer</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:54.978</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys WS-AppServer</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</XMLSchemaDefinitionRuntime>
 		<XMLSchemaDefinitionRuntime
 			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B"
+			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B 0019B981-E9E3-11DF-FAD3-F797D376BD43"
 			RuntimeDocumentID="001E3780-4713-71DE-8EEA-ACFEAC95B6E5">
 			<DocumentID>001E3780-4713-71DE-8EEA-ACFEAC95B6E4</DocumentID>
 			<Name>XMLSchema_Binary_Reference_ClientAttributes.xsd</Name>
@@ -838,12 +868,10 @@
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-09-29T13:47:51.798</CreationDate>
 			<Notes/>
-			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//ClientAttributes.xsd</RuntimeKey>
-			<ISVPName>Cordys ESBServer</ISVPName>
 			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<TargetNamespace>http://schemas.cordys.com/General/ClientAttributes/</TargetNamespace>
 			<NamespaceReferencePrefix></NamespaceReferencePrefix>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<TargetNamespace>http://schemas.cordys.com/General/ClientAttributes/</TargetNamespace>
+			<Location></Location>
 			<XmlNode>
 				<xsd:schema
 					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
@@ -853,7 +881,11 @@
 					attributeFormDefault="unqualified"
 				/>
 			</XmlNode>
-			<Location></Location>
+			<ISVPName>Cordys ESBServer</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//ClientAttributes.xsd</RuntimeKey>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<DefinitionSet/>
+			<SchemaReferences/>
 			<SchemaFragments>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -864,8 +896,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.798</CreationDate>
 					<Notes/>
-					<FragmentName>sync_id</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>sync_id</FragmentName>
+					<Type>attribute</Type>
 					<DefinitionXML>
 						<xsd:attribute
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -874,15 +907,14 @@
 							type="xsd:string"
 						/>
 					</DefinitionXML>
-					<Type>attribute</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6E4"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -893,8 +925,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>current_model</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>current_model</FragmentName>
+					<Type>attribute</Type>
 					<DefinitionXML>
 						<xsd:attribute
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -903,15 +936,14 @@
 							type="xsd:string"
 						/>
 					</DefinitionXML>
-					<Type>attribute</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6E4"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -922,8 +954,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>reorder</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>reorder</FragmentName>
+					<Type>attribute</Type>
 					<DefinitionXML>
 						<xsd:attribute
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -932,15 +965,14 @@
 							type="xsd:boolean"
 						/>
 					</DefinitionXML>
-					<Type>attribute</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6E4"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -951,8 +983,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>related</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>related</FragmentName>
+					<Type>attribute</Type>
 					<DefinitionXML>
 						<xsd:attribute
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -961,15 +994,14 @@
 							type="xsd:string"
 						/>
 					</DefinitionXML>
-					<Type>attribute</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6E4"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -980,8 +1012,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.798</CreationDate>
 					<Notes/>
-					<FragmentName>selected</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>selected</FragmentName>
+					<Type>attribute</Type>
 					<DefinitionXML>
 						<xsd:attribute
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -990,15 +1023,14 @@
 							type="xsd:boolean"
 						/>
 					</DefinitionXML>
-					<Type>attribute</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6E4"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1009,8 +1041,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.798</CreationDate>
 					<Notes/>
-					<FragmentName>activebusinessobject</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>activebusinessobject</FragmentName>
+					<Type>attribute</Type>
 					<DefinitionXML>
 						<xsd:attribute
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1019,22 +1052,33 @@
 							type="xsd:boolean"
 						/>
 					</DefinitionXML>
-					<Type>attribute</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6E4"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 			</SchemaFragments>
-			<DefinitionSet/>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2befc6059f2a">
+					<DocumentID>00505681-3ba3-11e1-e23a-2befc5681f29</DocumentID>
+					<Name>ISVP Info forCordys ESBServer</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:57.686</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys ESBServer</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</XMLSchemaDefinitionRuntime>
 		<XMLSchemaDefinitionRuntime
 			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B"
+			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B 0019B981-E9E3-11DF-FAD3-F797D376BD43"
 			RuntimeDocumentID="001E3780-4713-71DE-8EEA-ACFEAC95B6F5">
 			<DocumentID>001E3780-4713-71DE-8EEA-ACFEAC95B6F4</DocumentID>
 			<Name>XMLSchema_Binary_Reference_CordysLocalizableMessage.xsd</Name>
@@ -1042,12 +1086,10 @@
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-09-29T13:47:51.798</CreationDate>
 			<Notes/>
-			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//CordysLocalizableMessage.xsd</RuntimeKey>
-			<ISVPName>Cordys ESBServer</ISVPName>
 			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<TargetNamespace>http://schemas.cordys.com/General/1.0/</TargetNamespace>
 			<NamespaceReferencePrefix>cordys</NamespaceReferencePrefix>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<TargetNamespace>http://schemas.cordys.com/General/1.0/</TargetNamespace>
+			<Location></Location>
 			<XmlNode>
 				<xsd:schema
 					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
@@ -1057,7 +1099,11 @@
 					elementFormDefault="qualified"
 				/>
 			</XmlNode>
-			<Location></Location>
+			<ISVPName>Cordys ESBServer</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//CordysLocalizableMessage.xsd</RuntimeKey>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<DefinitionSet/>
+			<SchemaReferences/>
 			<SchemaFragments>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1068,8 +1114,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.798</CreationDate>
 					<Notes/>
-					<FragmentName>LocalizableMessage</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>LocalizableMessage</FragmentName>
+					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1094,15 +1141,14 @@
 							</xsd:complexType>
 						</xsd:element>
 					</DefinitionXML>
-					<Type>element</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6F4"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1113,8 +1159,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 					<Notes/>
-					<FragmentName>NestedMessage</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>NestedMessage</FragmentName>
+					<Type>complexType</Type>
 					<DefinitionXML>
 						<xsd:complexType
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1146,22 +1193,33 @@
 							</xsd:sequence>
 						</xsd:complexType>
 					</DefinitionXML>
-					<Type>complexType</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6F4"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 			</SchemaFragments>
-			<DefinitionSet/>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2befe8055f30">
+					<DocumentID>00505681-3ba3-11e1-e23a-2befe7d0df2f</DocumentID>
+					<Name>ISVP Info forCordys ESBServer</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:57.657</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys ESBServer</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</XMLSchemaDefinitionRuntime>
 		<XMLSchemaDefinitionRuntime
 			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
-			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B"
+			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B 0019B981-E9E3-11DF-FAD3-F797D376BD43"
 			RuntimeDocumentID="001E3780-4713-71DE-8EEA-ACFEAC95B6FC">
 			<DocumentID>001E3780-4713-71DE-8EEA-ACFEAC95B6FB</DocumentID>
 			<Name>XMLSchema_Binary_Reference_CordysFaultDetails.xsd</Name>
@@ -1169,12 +1227,10 @@
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-09-29T13:47:51.813</CreationDate>
 			<Notes/>
-			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//CordysFaultDetails.xsd</RuntimeKey>
-			<ISVPName>Cordys ESBServer</ISVPName>
 			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<TargetNamespace>http://schemas.cordys.com/General/1.0/</TargetNamespace>
 			<NamespaceReferencePrefix>cordys</NamespaceReferencePrefix>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<TargetNamespace>http://schemas.cordys.com/General/1.0/</TargetNamespace>
+			<Location></Location>
 			<XmlNode>
 				<xsd:schema
 					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
@@ -1186,7 +1242,11 @@
 						schemaLocation="http://schemas.cordys.com/CordysSchemas//CordysLocalizableMessage.xsd"> </xsd:include>
 				</xsd:schema>
 			</XmlNode>
-			<Location></Location>
+			<ISVPName>Cordys ESBServer</ISVPName>
+			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//CordysFaultDetails.xsd</RuntimeKey>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<DefinitionSet/>
+			<SchemaReferences/>
 			<SchemaFragments>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1197,8 +1257,9 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-09-29T13:47:51.798</CreationDate>
 					<Notes/>
-					<FragmentName>FaultDetails</FragmentName>
 					<AnnotationSpecificationXML/>
+					<FragmentName>FaultDetails</FragmentName>
+					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1214,20 +1275,32 @@
 							</xsd:complexType>
 						</xsd:element>
 					</DefinitionXML>
-					<Type>element</Type>
 					<Realizations/>
 					<DecisionCases/>
-					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001E3780-4713-71DE-8EEA-ACFEAC95B6FB"
 						/>
 					</SchemaDefinition>
+					<Rules/>
 				</BusinessObjectDocument>
 			</SchemaFragments>
-			<DefinitionSet/>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2befe00adf2e">
+					<DocumentID>00505681-3ba3-11e1-e23a-2befdfda1f2d</DocumentID>
+					<Name>ISVP Info forCordys ESBServer</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:55.015</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys ESBServer</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 		</XMLSchemaDefinitionRuntime>
 	</RuntimeSchemaDefinitions>
+	<DBProcedures/>
 	<DBTables>
 		<DBTable
 			type="com.cordys.dbschema.DBTable"
@@ -1351,5 +1424,4 @@
 		</DBTable>
 	</DBTables>
 	<DBViews/>
-	<DBProcedures/>
 </DBSchema>

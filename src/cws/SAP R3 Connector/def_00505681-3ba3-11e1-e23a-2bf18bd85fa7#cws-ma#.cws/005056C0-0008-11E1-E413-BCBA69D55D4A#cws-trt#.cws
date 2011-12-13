@@ -1,0 +1,22 @@
+
+<TranslatedText
+	type="com.cordys.translation.TranslatedText"
+	RuntimeDocumentID="005056C0-0008-11E1-E413-BCBA69D57D4A">
+	<DocumentID>005056C0-0008-11E1-E413-BCBA69D55D4A</DocumentID>
+	<Name>005056C0-0008-11E1-E413-BCBA69D55D4A</Name>
+	<Description>Enter X for one time customer</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-12-07T06:42:48.904</CreationDate>
+	<Notes/>
+	<Text>Enter X for one time customer</Text>
+	<Language>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf18b5ddfa5"
+		/>
+	</Language>
+	<TextIdentifier>
+		<uri
+			id="005056C0-0008-11E1-E413-BCBA69D51D4A"
+		/>
+	</TextIdentifier>
+</TranslatedText>
