@@ -1,0 +1,22 @@
+
+<TranslatedText
+	type="com.cordys.translation.TranslatedText"
+	RuntimeDocumentID="00505681-3ba3-11e1-e27f-ae997c8f1f24">
+	<DocumentID>00505681-3ba3-11e1-e27f-ae997c8c9f23</DocumentID>
+	<Name>00505681-3ba3-11e1-e27f-ae997c8c9f23</Name>
+	<Description>SAP Service Group</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-11-21T05:36:33.761</CreationDate>
+	<Notes/>
+	<Text>SAP Service Group</Text>
+	<Language>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf18b5ddfa5"
+		/>
+	</Language>
+	<TextIdentifier>
+		<uri
+			id="00505681-3ba3-11e1-e27f-ae997c851f21"
+		/>
+	</TextIdentifier>
+</TranslatedText>

@@ -1,22 +1,22 @@
 
 <XFormDesigntime
 	type="com.cordys.xforms.XFormDesigntime"
-	RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B7083CE0AD67">
-	<DocumentID>001D09BE-4863-71DE-8EEE-B7083CE0AD66</DocumentID>
+	typeVersion="005056C0-0008-11E0-F8FC-5E0A815B7FB8"
+	RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dd37177b">
+	<DocumentID>00505681-3ba3-11e1-e334-b051dd3ad77c</DocumentID>
 	<Name>WebServiceGenerator</Name>
 	<Description>WebServiceGenerator</Description>
-	<CreatedBy>pgussow</CreatedBy>
-	<CreationDate>2009-10-12T08:24:09.403</CreationDate>
+	<CreatedBy>root</CreatedBy>
+	<CreationDate>2011-11-28T10:16:23.489</CreationDate>
 	<Notes/>
 	<XFormContent>
 		<xformhtml
-			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
 			xmlns="http://schemas.cordys.com/1.0/xform"
-			xmlns:eibus="http://schemas.cordys.com"
 			xmlns:xforms="http://www.w3.org/2002/xforms/cr"
 			xmlns:ev="http://www.w3.org/2001/xml-events"
 			xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
 			xformsversion="2"
+			key="BAC/SAP/WebServiceGenerator"
 			focusatstartup="true">
 			<xhead>
 				<xforms:model
@@ -64,14 +64,14 @@
 					xmlns:ev="http://www.w3.org/2001/xml-events"
 					xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
 					id="GetSoapNodesOperationModel"
-					wcpforms:businessElement="entry"
 					wcpforms:automatic="false"
 					wcpforms:gateway="com.eibus.web.soap.Gateway.wcp"
 					singleTransaction="false"
 					promptToSave="false"
 					isConstraintValidation="false"
 					isInitializationRequired="false"
-					isApplyAccessControl="false">
+					isApplyAccessControl="false"
+					wcpforms:businessElement="entry">
 					<xforms:instance
 						xmlns:xforms="http://www.w3.org/2002/xforms/cr"
 						xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
@@ -79,7 +79,8 @@
 						<wcpforms:dataset
 							src="http://schemas.cordys.com/1.0/ldap/GetSoapNodes"
 							type="get"
-							wcpforms:wsguid="001E3780-4713-71DE-8EF4-CEC766692546">
+							wcpforms:wsguid="00505681-3ba3-11e1-e2a0-47dcf6dd9f1f"
+							operationName="GetSoapNodes">
 							<dn
 								xmlns="http://schemas.cordys.com/1.0/ldap"
 							/>
@@ -87,6 +88,9 @@
 								xmlns="http://schemas.cordys.com/1.0/ldap"
 							/>
 							<sort
+								xmlns="http://schemas.cordys.com/1.0/ldap"
+							/>
+							<return
 								xmlns="http://schemas.cordys.com/1.0/ldap"
 							/>
 						</wcpforms:dataset>
@@ -203,409 +207,469 @@
 				<xforms:group
 					wcpforms:layout="vertical"
 					id="xbody_group"
-					wcpforms:labelalign="">
+					wcpforms:labelalign="ontop">
 					<xforms:group
-						appearance="box"
-						wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
-						id="grpProcessorSelection"
-						wcpforms:collapsible="true"
-						wcpforms:expanded="false"
-						wcpforms:layout="free"
-						wcpforms:class="v_layout"
-						wcpforms:size="730px 70px"
-						wcpforms:labelalign="left">
-						<xforms:label
-							wcpforms:class="groupheader expand">Select the proper SAP R3 Connector</xforms:label>
-						<xforms:select1
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
-							id="txtServiceContainer"
-							doEBIValidate="false"
-							initializeValueSets="0"
-							wcpforms:enumerated="false"
-							multiple="false"
-							wcpforms:class="f_layout"
-							wcpforms:size="703px null"
-							wcpforms:anchors="10px 13px 15px null"
-							wcpforms:position="10 13">
-							<xforms:label
-								wcpforms:class="h_label left_align"
-								wcpforms:size="120 null">Service Container</xforms:label>
-						</xforms:select1>
-					</xforms:group>
-					<xforms:group
-						appearance="box"
-						wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
-						id="grpGenerationDetails"
-						wcpforms:layout="free"
-						wcpforms:class="v_layout"
-						wcpforms:size="730px 450px"
-						wcpforms:labelalign="left">
-						<xforms:label
-							wcpforms:class="groupheader">Enter the details for the methods to be generated</xforms:label>
-						<xforms:input
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
-							id="txtWebServiceName"
-							doEBIValidate="false"
-							wcpforms:required="true"
-							wcpforms:class="f_layout"
-							wcpforms:size="708px null"
-							wcpforms:anchors="10px 10px 10px null"
-							wcpforms:position="10 10">
-							<xforms:label
-								wcpforms:class="h_label left_align"
-								wcpforms:size="190 null">Web service Binidng Name</xforms:label>
-							<messages
-								xmlns="">
-								<message
-									constraint="required"
-									description="Required">Please enter a name for the Web Service Binding</message>
-							</messages>
-						</xforms:input>
+						appearance="group"
+						wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroup"
+						id="group1"
+						wcpforms:layout="vertical"
+						wcpforms:class="f_layout"
+						wcpforms:size="551px 480px"
+						wcpforms:position="30px 2px"
+						wcpforms:labelalign="ontop">
 						<xforms:group
-							appearance="choicebox"
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsChoicebox"
-							id="choicebox1"
-							controltype="radio"
-							wcpforms:layout="horizontal"
-							wcpforms:class="f_layout"
-							wcpforms:align="left_align"
-							wcpforms:size="440px 20px"
-							wcpforms:position="10 32">
+							appearance="box"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
+							id="grpProcessorSelection"
+							isNavigationEnabled="true"
+							wcpforms:collapsible="true"
+							wcpforms:expanded="false"
+							wcpforms:layout="free"
+							wcpforms:class="v_layout_i"
+							wcpforms:size="546px 61px"
+							wcpforms:labelalign="left">
+							<xforms:label
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf223149fef"
+								wcpforms:class="groupheader expand">Select the proper SAP R3 Connector</xforms:label>
 							<xforms:select1
-								appearance="full"
-								unique-id="1"
-								id="rSAPObjectType">
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
+								id="txtServiceContainer"
+								doEBIValidate="false"
+								initializeValueSets="0"
+								wcpforms:enumerated="false"
+								multiple="false"
+								wcpforms:class="f_layout"
+								wcpforms:size="auto auto"
+								wcpforms:anchors="11px 11px 9px null"
+								wcpforms:position="11px 11px">
 								<xforms:label
-									wcpforms:class="h_label left_align"
-									wcpforms:size="190 null">Choose SAP object type</xforms:label>
-								<xforms:item
-									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRadio"
-									id="radio1_1"
-									wcpforms:class="h_choicebox"
-									wcpforms:size="80px auto">
-									<xforms:label>BAPI</xforms:label>
-									<xforms:value>BAPI</xforms:value>
-								</xforms:item>
-								<xforms:item
-									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRadio"
-									id="radio1_2"
-									wcpforms:class="h_choicebox"
-									wcpforms:size="80px auto">
-									<xforms:label>RFC</xforms:label>
-									<xforms:value>RFC</xforms:value>
-								</xforms:item>
-								<xforms:item
-									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRadio"
-									id="radio1_3"
-									wcpforms:class="h_choicebox"
-									wcpforms:size="80px auto">
-									<xforms:label>IDOC</xforms:label>
-									<xforms:value>IDOC</xforms:value>
-								</xforms:item>
-								<xforms:action
-									ev:event="xforms-value-changed">
-									<xforms:rSAPObjectType_Change/>
-								</xforms:action>
+									textIdentifier="005056C0-0008-11E1-E412-2CB758109D4A"
+									wcpforms:size="143px null"
+									wcpforms:class="h_label left_align">Service Group</xforms:label>
 							</xforms:select1>
 						</xforms:group>
-						<xforms:select1
-							appearance="compact"
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsList"
-							id="lAvailable"
-							doEBIValidate="false"
-							initializeValueSets="0"
-							wcpforms:enumerated="false"
-							multiple="true"
-							wcpforms:class="f_layout"
-							wcpforms:size="320px 240px"
-							wcpforms:anchors="10px 180px null 8px"
-							wcpforms:position="10 180">
-							<xforms:label
-								wcpforms:class="v_label"
-								wcpforms:size="89 14">Available methods</xforms:label>
-						</xforms:select1>
-						<xforms:select1
-							appearance="compact"
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsList"
-							id="lSelected"
-							doEBIValidate="false"
-							initializeValueSets="0"
-							wcpforms:enumerated="false"
-							multiple="true"
-							wcpforms:required="false"
-							wcpforms:class="f_layout"
-							wcpforms:size="320px 240px"
-							wcpforms:anchors="400px 180px 8px 8px"
-							wcpforms:position="400 180">
-							<xforms:label
-								wcpforms:class="v_label"
-								wcpforms:size="87 14">Selected methods</xforms:label>
-							<messages
-								xmlns="">
-								<message
-									constraint="required"
-									description="Required">Please select at least 1 operation</message>
-							</messages>
-						</xforms:select1>
 						<xforms:group
-							appearance="controlbox"
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbox"
-							id="controlbox1"
-							controltype="button"
-							wcpforms:layout="horizontal"
-							wcpforms:class="f_layout"
-							wcpforms:align="left_align"
-							wcpforms:size="60px 30px"
-							wcpforms:position="340 200">
-							<xforms:trigger
-								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
-								id="btnMoveToSelected"
-								wcpforms:class="h_button"
-								wcpforms:size="40px 2em">
-								<xforms:label>&gt;&gt;&gt;</xforms:label>
+							appearance="box"
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
+							id="grpGenerationDetails"
+							isNavigationEnabled="true"
+							wcpforms:layout="free"
+							wcpforms:class="v_layout_i"
+							wcpforms:size="547px 404px"
+							wcpforms:labelalign="left">
+							<xforms:label
+								textIdentifier="00505681-3ba3-11e1-e23a-2bf22b9edfff"
+								wcpforms:class="groupheader">Enter the details for the methods to be generated</xforms:label>
+							<xforms:select1
+								appearance="compact"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsList"
+								id="lAvailable"
+								doEBIValidate="false"
+								initializeValueSets="0"
+								wcpforms:enumerated="false"
+								multiple="true"
+								wcpforms:class="f_layout"
+								wcpforms:size="225px 151px"
+								wcpforms:position="10px 220px">
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf24688d5f1"
+									wcpforms:class="v_label">Available methods</xforms:label>
+							</xforms:select1>
+							<xforms:select1
+								appearance="compact"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsList"
+								id="lSelected"
+								doEBIValidate="false"
+								initializeValueSets="0"
+								wcpforms:enumerated="false"
+								multiple="true"
+								wcpforms:required="false"
+								wcpforms:class="f_layout"
+								wcpforms:size="225px 151px"
+								wcpforms:position="310px 220px">
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf24a9dd5f9"
+									wcpforms:class="v_label">Selected methods</xforms:label>
+								<messages
+									xmlns="">
+									<Message
+										constraint="required"
+										description="Required"
+										id="message.required">
+										<MessageText>Please select at least 1 operation</MessageText>
+									</Message>
+								</messages>
+							</xforms:select1>
+							<xforms:group
+								appearance="controlbox"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbox"
+								id="controlbox1"
+								controltype="button"
+								wcpforms:layout="horizontal"
+								wcpforms:class="f_layout"
+								wcpforms:align="left_align"
+								wcpforms:size="53px 30px"
+								wcpforms:position="250px 260px">
+								<xforms:trigger
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
+									id="btnMoveToSelected"
+									wcpforms:class="h_button"
+									wcpforms:size="40px 2em">
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf24ebf5601">&gt;&gt;&gt;</xforms:label>
+									<xforms:action
+										ev:event="xforms-activate">
+										<xforms:btnMoveToSelected_Click/>
+									</xforms:action>
+								</xforms:trigger>
+							</xforms:group>
+							<xforms:group
+								appearance="controlbox"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbox"
+								id="controlbox3"
+								controltype="button"
+								wcpforms:layout="horizontal"
+								wcpforms:class="f_layout"
+								wcpforms:align="left_align"
+								wcpforms:size="53px 30px"
+								wcpforms:position="250px 300px">
+								<xforms:trigger
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
+									id="btnMoveToAvailable"
+									wcpforms:class="h_button"
+									wcpforms:size="40px 2em">
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf253029609">&lt;&lt;&lt;</xforms:label>
+									<xforms:action
+										ev:event="xforms-activate">
+										<xforms:btnMoveToAvailable_Click/>
+									</xforms:action>
+								</xforms:trigger>
+							</xforms:group>
+							<xforms:select1
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
+								id="txtFirstType"
+								doEBIValidate="false"
+								initializeValueSets="0"
+								wcpforms:enumerated="false"
+								multiple="false"
+								wcpforms:dataType="string"
+								wcpforms:textalign="left_align"
+								wcpforms:class="f_layout"
+								wcpforms:size="277px auto"
+								wcpforms:position="10px 100px">
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf2572cd611"
+									wcpforms:size="136px null"
+									wcpforms:class="h_label left_align">Object</xforms:label>
+								<xforms:item
+									xmlns:xforms="http://www.w3.org/2002/xforms/cr">
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf25bfc1619">equals</xforms:label>
+									<xforms:value>EQUALS</xforms:value>
+								</xforms:item>
+								<xforms:item>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf2603cd621">contains</xforms:label>
+									<xforms:value>CONTAINS</xforms:value>
+								</xforms:item>
+								<xforms:item>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf26442d629">starts with</xforms:label>
+									<xforms:value>STARTS_WITH</xforms:value>
+								</xforms:item>
+								<xforms:item>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf268825631">regex</xforms:label>
+									<xforms:value>REGEX</xforms:value>
+								</xforms:item>
+							</xforms:select1>
+							<xforms:select1
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
+								id="txtSecondType"
+								doEBIValidate="false"
+								initializeValueSets="0"
+								wcpforms:enumerated="false"
+								multiple="false"
+								wcpforms:dataType="string"
+								wcpforms:textalign="left_align"
+								wcpforms:class="f_layout"
+								wcpforms:size="277px auto"
+								wcpforms:position="10px 130px">
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf273801641"
+									wcpforms:size="137px null"
+									wcpforms:class="h_label left_align">Method</xforms:label>
+								<xforms:item
+									xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+									xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf25bfc1619">equals</xforms:label>
+									<xforms:value>EQUALS</xforms:value>
+								</xforms:item>
+								<xforms:item>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf2603cd621">contains</xforms:label>
+									<xforms:value>CONTAINS</xforms:value>
+								</xforms:item>
+								<xforms:item>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf26442d629">starts with</xforms:label>
+									<xforms:value>STARTS_WITH</xforms:value>
+								</xforms:item>
+								<xforms:item>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf268825631">regex</xforms:label>
+									<xforms:value>REGEX</xforms:value>
+								</xforms:item>
+							</xforms:select1>
+							<xforms:select1
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
+								id="txtThirdType"
+								doEBIValidate="false"
+								initializeValueSets="0"
+								wcpforms:enumerated="false"
+								multiple="false"
+								wcpforms:dataType="string"
+								wcpforms:textalign="left_align"
+								wcpforms:class="f_layout"
+								wcpforms:size="277px auto"
+								wcpforms:position="10px 160px">
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf27c25d651"
+									wcpforms:size="138px null"
+									wcpforms:class="h_label left_align">Description</xforms:label>
+								<xforms:item
+									xmlns:xforms="http://www.w3.org/2002/xforms/cr"
+									xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf25bfc1619">equals</xforms:label>
+									<xforms:value>EQUALS</xforms:value>
+								</xforms:item>
+								<xforms:item>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf2603cd621">contains</xforms:label>
+									<xforms:value>CONTAINS</xforms:value>
+								</xforms:item>
+								<xforms:item>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf26442d629">starts with</xforms:label>
+									<xforms:value>STARTS_WITH</xforms:value>
+								</xforms:item>
+								<xforms:item>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf268825631">regex</xforms:label>
+									<xforms:value>REGEX</xforms:value>
+								</xforms:item>
+							</xforms:select1>
+							<xforms:input
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+								id="txtSecondValue"
+								doEBIValidate="false"
+								wcpforms:class="f_layout"
+								wcpforms:size="235px auto"
+								wcpforms:position="300px 131px">
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf26f3a5639"
+									wcpforms:class="h_label left_align removed">Input20</xforms:label>
+							</xforms:input>
+							<xforms:input
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+								id="txtThirdValue"
+								doEBIValidate="false"
+								wcpforms:class="f_layout"
+								wcpforms:size="235px auto"
+								wcpforms:position="300px 161px">
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf26f3a5639"
+									wcpforms:class="h_label left_align removed">Input20</xforms:label>
+							</xforms:input>
+							<xforms:group
+								appearance="controlbox"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbox"
+								id="controlbox4"
+								controltype="button"
+								wcpforms:layout="horizontal"
+								wcpforms:class="f_layout"
+								wcpforms:align="left_align"
+								wcpforms:size="10em 26px"
+								wcpforms:position="10px 190px">
+								<xforms:trigger
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
+									id="btnSearch"
+									wcpforms:class="h_button"
+									wcpforms:size="160px 2em">
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf28931d669">Search metadata</xforms:label>
+									<xforms:action
+										ev:event="xforms-activate">
+										<xforms:btnSearch_Click/>
+									</xforms:action>
+								</xforms:trigger>
+							</xforms:group>
+							<xforms:select1
+								appearance="check"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsCheck"
+								id="txtUseCache"
+								doEBIValidate="false"
+								wcpforms:class="f_layout"
+								wcpforms:size="auto auto"
+								wcpforms:anchors="211px 71px 384px null"
+								wcpforms:position="211px 71px">
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf28d5d5671">Use cache if possible</xforms:label>
+								<xforms:item>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf291509679">true</xforms:label>
+									<xforms:value>true</xforms:value>
+								</xforms:item>
+								<xforms:item>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf295681681">false</xforms:label>
+									<xforms:value>false</xforms:value>
+								</xforms:item>
+							</xforms:select1>
+							<xforms:select1
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
+								id="txtContainer"
+								doEBIValidate="false"
+								initializeValueSets="0"
+								wcpforms:enumerated="false"
+								multiple="false"
+								wcpforms:class="f_layout"
+								wcpforms:size="342px auto"
+								wcpforms:position="192px 193px">
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf2996a5689"
+									wcpforms:size="96px null"
+									wcpforms:class="h_label left_align">Select object</xforms:label>
 								<xforms:action
-									ev:event="xforms-activate">
-									<xforms:btnMoveToSelected_Click/>
+									ev:event="xforms-value-changed">
+									<xforms:txtContainer_Change/>
 								</xforms:action>
-							</xforms:trigger>
-						</xforms:group>
-						<xforms:group
-							appearance="controlbox"
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbox"
-							id="controlbox3"
-							controltype="button"
-							wcpforms:layout="horizontal"
-							wcpforms:class="f_layout"
-							wcpforms:align="left_align"
-							wcpforms:size="60px 30px"
-							wcpforms:position="340 240">
-							<xforms:trigger
-								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
-								id="btnMoveToAvailable"
-								wcpforms:class="h_button"
-								wcpforms:size="40px 2em">
-								<xforms:label>&lt;&lt;&lt;</xforms:label>
-								<xforms:action
-									ev:event="xforms-activate">
-									<xforms:btnMoveToAvailable_Click/>
-								</xforms:action>
-							</xforms:trigger>
-						</xforms:group>
-						<xforms:select1
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
-							id="txtFirstType"
-							doEBIValidate="false"
-							initializeValueSets="0"
-							wcpforms:enumerated="false"
-							multiple="false"
-							wcpforms:dataType="string"
-							wcpforms:textalign="left_align"
-							wcpforms:class="f_layout"
-							wcpforms:size="330px null"
-							wcpforms:position="10 60">
-							<xforms:label
-								wcpforms:class="h_label left_align"
-								wcpforms:size="190 null">Object</xforms:label>
-							<xforms:item
-								xmlns:xforms="http://www.w3.org/2002/xforms/cr">
-								<xforms:label>equals</xforms:label>
-								<xforms:value>EQUALS</xforms:value>
-							</xforms:item>
-							<xforms:item>
-								<xforms:label>contains</xforms:label>
-								<xforms:value>CONTAINS</xforms:value>
-							</xforms:item>
-							<xforms:item>
-								<xforms:label>starts with</xforms:label>
-								<xforms:value>STARTS_WITH</xforms:value>
-							</xforms:item>
-							<xforms:item>
-								<xforms:label>regex</xforms:label>
-								<xforms:value>REGEX</xforms:value>
-							</xforms:item>
-						</xforms:select1>
-						<xforms:input
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
-							id="txtFirstValue"
-							doEBIValidate="false"
-							wcpforms:class="f_layout"
-							wcpforms:size="368px null"
-							wcpforms:anchors="350px 60px 10px null"
-							wcpforms:position="350 60">
-							<xforms:label
-								wcpforms:class="h_label left_align removed">Input20</xforms:label>
-						</xforms:input>
-						<xforms:select1
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
-							id="txtSecondType"
-							doEBIValidate="false"
-							initializeValueSets="0"
-							wcpforms:enumerated="false"
-							multiple="false"
-							wcpforms:dataType="string"
-							wcpforms:textalign="left_align"
-							wcpforms:class="f_layout"
-							wcpforms:size="330px null"
-							wcpforms:position="10 90">
-							<xforms:label
-								wcpforms:class="h_label left_align"
-								wcpforms:size="190 null">Method</xforms:label>
-							<xforms:item
-								xmlns:xforms="http://www.w3.org/2002/xforms/cr"
-								xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
-								<xforms:label>equals</xforms:label>
-								<xforms:value>EQUALS</xforms:value>
-							</xforms:item>
-							<xforms:item>
-								<xforms:label>contains</xforms:label>
-								<xforms:value>CONTAINS</xforms:value>
-							</xforms:item>
-							<xforms:item>
-								<xforms:label>starts with</xforms:label>
-								<xforms:value>STARTS_WITH</xforms:value>
-							</xforms:item>
-							<xforms:item>
-								<xforms:label>regex</xforms:label>
-								<xforms:value>REGEX</xforms:value>
-							</xforms:item>
-						</xforms:select1>
-						<xforms:select1
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
-							id="txtThirdType"
-							doEBIValidate="false"
-							initializeValueSets="0"
-							wcpforms:enumerated="false"
-							multiple="false"
-							wcpforms:dataType="string"
-							wcpforms:textalign="left_align"
-							wcpforms:class="f_layout"
-							wcpforms:size="330px null"
-							wcpforms:position="10 120">
-							<xforms:label
-								wcpforms:class="h_label left_align"
-								wcpforms:size="190 null">Description</xforms:label>
-							<xforms:item
-								xmlns:xforms="http://www.w3.org/2002/xforms/cr"
-								xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/">
-								<xforms:label>equals</xforms:label>
-								<xforms:value>EQUALS</xforms:value>
-							</xforms:item>
-							<xforms:item>
-								<xforms:label>contains</xforms:label>
-								<xforms:value>CONTAINS</xforms:value>
-							</xforms:item>
-							<xforms:item>
-								<xforms:label>starts with</xforms:label>
-								<xforms:value>STARTS_WITH</xforms:value>
-							</xforms:item>
-							<xforms:item>
-								<xforms:label>regex</xforms:label>
-								<xforms:value>REGEX</xforms:value>
-							</xforms:item>
-						</xforms:select1>
-						<xforms:input
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
-							id="txtSecondValue"
-							doEBIValidate="false"
-							wcpforms:class="f_layout"
-							wcpforms:size="367px null"
-							wcpforms:anchors="350px 90px 11px null"
-							wcpforms:position="350 90">
-							<xforms:label
-								wcpforms:class="h_label left_align removed">Input20</xforms:label>
-						</xforms:input>
-						<xforms:input
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
-							id="txtThirdValue"
-							doEBIValidate="false"
-							wcpforms:class="f_layout"
-							wcpforms:size="367px null"
-							wcpforms:anchors="350px 120px 11px null"
-							wcpforms:position="350 120">
-							<xforms:label
-								wcpforms:class="h_label left_align removed">Input20</xforms:label>
-						</xforms:input>
-						<xforms:group
-							appearance="controlbox"
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbox"
-							id="controlbox4"
-							controltype="button"
-							wcpforms:layout="horizontal"
-							wcpforms:class="f_layout"
-							wcpforms:align="left_align"
-							wcpforms:size="10em 26px"
-							wcpforms:position="10 150">
-							<xforms:trigger
-								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
-								id="btnSearch"
-								wcpforms:class="h_button"
-								wcpforms:size="160px 2em">
-								<xforms:label>Search metadata</xforms:label>
-								<xforms:action
-									ev:event="xforms-activate">
-									<xforms:btnSearch_Click/>
-								</xforms:action>
-							</xforms:trigger>
-						</xforms:group>
-						<xforms:select1
-							appearance="check"
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsCheck"
-							id="txtUseCache"
-							doEBIValidate="false"
-							wcpforms:class="f_layout"
-							wcpforms:size="130px null"
-							wcpforms:anchors="450px 35px 148px null"
-							wcpforms:position="450 35">
-							<xforms:label>Use cache if possible</xforms:label>
-							<xforms:item>
-								<xforms:label>true</xforms:label>
-								<xforms:value>true</xforms:value>
-							</xforms:item>
-							<xforms:item>
-								<xforms:label>false</xforms:label>
-								<xforms:value>false</xforms:value>
-							</xforms:item>
-						</xforms:select1>
-						<xforms:select1
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsSelect"
-							id="txtContainer"
-							doEBIValidate="false"
-							initializeValueSets="0"
-							wcpforms:enumerated="false"
-							multiple="false"
-							wcpforms:class="f_layout"
-							wcpforms:size="520px null"
-							wcpforms:anchors="198px 153px 10px null"
-							wcpforms:position="198 153">
-							<xforms:label
-								wcpforms:class="h_label left_align"
-								wcpforms:size="150 null">Select object</xforms:label>
-							<xforms:action
-								ev:event="xforms-value-changed">
-								<xforms:txtContainer_Change/>
-							</xforms:action>
-						</xforms:select1>
-						<xforms:group
-							appearance="controlbox"
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbox"
-							id="controlbox5"
-							controltype="button"
-							wcpforms:layout="horizontal"
-							wcpforms:class="f_layout"
-							wcpforms:align="left_align"
-							wcpforms:size="110px 22px"
-							wcpforms:position="585 35">
-							<xforms:trigger
-								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
-								id="btnclearcache"
-								wcpforms:class="h_button"
-								wcpforms:size="8em 2em">
-								<xforms:label>Refresh Cache</xforms:label>
-								<xforms:action
-									ev:event="xforms-activate">
-									<xforms:btnclearcache_Click/>
-								</xforms:action>
-							</xforms:trigger>
+							</xforms:select1>
+							<xforms:group
+								appearance="controlbox"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsControlbox"
+								id="controlbox2"
+								controltype="button"
+								wcpforms:layout="horizontal"
+								wcpforms:class="f_layout"
+								wcpforms:align="left_align"
+								wcpforms:size="110px 31px"
+								wcpforms:position="150px 60px">
+								<xforms:trigger
+									wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsButton"
+									id="btnclearcache"
+									wcpforms:class="h_button"
+									wcpforms:size="11.82em 2em">
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf2a3641691">Refresh Cache</xforms:label>
+									<xforms:action
+										ev:event="xforms-activate">
+										<xforms:btnclearcache_Click/>
+									</xforms:action>
+								</xforms:trigger>
+							</xforms:group>
+							<xforms:input
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+								id="txtFirstValue"
+								doEBIValidate="false"
+								wcpforms:class="f_layout"
+								wcpforms:size="235px auto"
+								wcpforms:position="300px 101px">
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf26f3a5639"
+									wcpforms:class="h_label left_align removed">Input20</xforms:label>
+							</xforms:input>
+							<xforms:group
+								appearance="choicebox"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsChoicebox"
+								id="choicebox1"
+								controltype="radio"
+								wcpforms:align="left_align"
+								wcpforms:layout="horizontal"
+								wcpforms:class="f_layout"
+								wcpforms:size="502px 20px"
+								wcpforms:position="13px 36px">
+								<xforms:select1
+									appearance="full"
+									unique-id="1"
+									id="rSAPObjectType">
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf233c3d5d1"
+										wcpforms:size="190px null"
+										wcpforms:class="h_label left_align">Choose SAP object type</xforms:label>
+									<xforms:item
+										wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRadio"
+										id="radio1_4"
+										wcpforms:class="h_choicebox"
+										wcpforms:size="80px auto">
+										<xforms:label
+											textIdentifier="00505681-3ba3-11e1-e23a-2bf237c255d9">BAPI</xforms:label>
+										<xforms:value>BAPI</xforms:value>
+									</xforms:item>
+									<xforms:item
+										wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRadio"
+										id="radio1_1"
+										wcpforms:class="h_choicebox"
+										wcpforms:size="80px auto">
+										<xforms:label
+											textIdentifier="00505681-3ba3-11e1-e23a-2bf23e45d5e1">RFC</xforms:label>
+										<xforms:value>RFC</xforms:value>
+									</xforms:item>
+									<xforms:action
+										xmlns:ev="http://www.w3.org/2001/xml-events"
+										ev:event="xforms-value-changed">
+										<xforms:rSAPObjectType_Change/>
+									</xforms:action>
+								</xforms:select1>
+							</xforms:group>
+							<xforms:select1
+								appearance="check"
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsCheck"
+								id="txtUseCache_check"
+								doEBIValidate="false"
+								wcpforms:class="f_layout"
+								wcpforms:size="130px auto"
+								wcpforms:position="13px 68px">
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e23a-2bf28d5d5671"
+									wcpforms:class="autosuggest">Use cache if possible</xforms:label>
+								<xforms:item>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf291509679">true</xforms:label>
+									<xforms:value>true</xforms:value>
+								</xforms:item>
+								<xforms:item>
+									<xforms:label
+										textIdentifier="00505681-3ba3-11e1-e23a-2bf295681681">false</xforms:label>
+									<xforms:value>false</xforms:value>
+								</xforms:item>
+							</xforms:select1>
+							<xforms:input
+								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+								id="txtWebServiceName"
+								doEBIValidate="false"
+								wcpforms:required="true"
+								wcpforms:class="f_layout"
+								wcpforms:size="auto auto"
+								wcpforms:anchors="8px 10px 10px null"
+								wcpforms:position="8px 10px">
+								<xforms:label
+									textIdentifier="00505681-3ba3-11e1-e366-a5dcb3c35dd5"
+									wcpforms:size="146px null"
+									wcpforms:class="h_label left_align">Web service Interface Name</xforms:label>
+								<messages
+									xmlns="">
+									<Message
+										constraint="required"
+										description="Required"
+										id="message.required">
+										<MessageText>Please enter a name for the Web Service Binding</MessageText>
+									</Message>
+								</messages>
+							</xforms:input>
 						</xforms:group>
 					</xforms:group>
 				</xforms:group>
@@ -653,8 +717,10 @@ function Form_InitDone(eventObject)
     txtFirstType.setValue("CONTAINS");
     txtSecondType.setValue("CONTAINS");
     txtThirdType.setValue("CONTAINS");
-    txtUseCache.setValue("true");
+    txtUseCache_check.setValue("true");
     
+   l_viewObject = window.parent.viewObject;
+   
     //Read the current BO from the global data
     if (system.data["bac.sap.currentbo"])
     {
@@ -707,7 +773,7 @@ function btnSearch_Click(eventObject)
     var xmlRequest = SearchObjectModel.getMethodRequest("GET");
     
     cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:type", NAMESPACES), rSAPObjectType.getValue());
-    cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:read_from_sap", NAMESPACES), (txtUseCache.getValue() == "true" ? "false" : true));
+    cordys.setTextContent(cordys.selectXMLNode(xmlRequest, "//ns:read_from_sap", NAMESPACES), (txtUseCache_check.getValue() == "true" ? "false" : true));
     
     //Clean up existing filter entries
     var xmlFilters = cordys.selectXMLNode(xmlRequest, "//ns:filters", NAMESPACES);
@@ -715,7 +781,11 @@ function btnSearch_Click(eventObject)
     {
         xmlFilters.removeChild(xmlFilters.childNodes[0]);
     }
+
+    //Clean the objects list
+    txtContainer.removeOptions(txtContainer.getAllOptions(), false);
     
+        
     //Now we can create the filters.
     var firstFieldname = "object";
     var secondFieldname = "method";
@@ -739,28 +809,63 @@ function btnSearch_Click(eventObject)
     //Execute the search
     SearchObjectModel.setMethodRequest(xmlRequest, "GET");
     SearchObjectModel.reset();
-    
     if (!SearchObjectModel.soapFaultOccurred)
     {
         //Get all the containers in the response
         var sapObjects = cordys.selectXMLNodes(SearchObjectModel.getData(), "//ns:tuple/ns:old/ns:sapobject", NAMESPACES);
         
         //Add all objects to the select
-        txtContainer.removeOptions(txtContainer.getAllOptions);
         
+        var sapObjectsArray = {};
         for (var count = 0; count < sapObjects.length; count++)
         {
             var sValue = cordys.getTextContent(cordys.selectXMLNode(sapObjects[count], "ns:value", NAMESPACES));
             var sDescription = cordys.getTextContent(cordys.selectXMLNode(sapObjects[count], "ns:displayname", NAMESPACES));
             
-            var option = {value: sValue, description: sDescription, xmlObject: sapObjects[count]};
-            txtContainer.addOption(option);
+            //var option = {value: sValue, description: sDescription, xmlObject: sapObjects[count]};
+            //txtContainer.addOption(option);
+            
+            sapObjectsArray[sValue] = sDescription;
         }
-        
+        sortObj(sapObjectsArray);
+
         //Make sure the lists are updated with the proper items.
         txtContainer_Change();
     }
 }
+
+function sortObj(arr){
+
+    // Setup Arrays
+    var sortedKeys = new Array();
+    var sortedObj = {};
+
+    // Separate keys and sort them
+    for (var i in arr){
+        sortedKeys.push(arr[i]);
+    }
+
+    sortedKeys.sort();
+    
+    // Reconstruct sorted obj based on keys
+    for (var i in sortedKeys){
+        sortedObj[findIndex(arr,sortedKeys[i])] = sortedKeys[i];
+
+        var option = {value: findIndex(arr,sortedKeys[i]), description: sortedKeys[i]};
+        txtContainer.addOption(option);
+    }
+    return sortedObj;
+}
+
+function findIndex(arr, value){
+var ctr = "";
+for (var i in arr) {
+if (arr[i] == value) {
+return i;
+}
+}
+return ctr;
+};
 
 /**
  * This method creates the filter XML for the request.
@@ -830,6 +935,7 @@ function txtContainer_Change(eventObject)
         lAvailable.removeOptions(lAvailable.getAllOptions());
         lSelected.removeOptions(lSelected.getAllOptions());
         
+                    
         for (var count = 0; count < items.length; count++)
         {
             var sValue = cordys.getTextContent(cordys.selectXMLNode(items[count], "ns:value", NAMESPACES));
@@ -957,16 +1063,15 @@ function getGeneratedWSDL(namespace)
         operations.appendChild(xmlOperation);
     }
     
-    
+
     //Send the request to the backend.
     GenerateMethodsModel.setMethodRequest(xmlRequest, "GET");
     GenerateMethodsModel.reset();    
-    
+
     if (GenerateMethodsModel.soapFaultOccurred)
     {
         application.showError("Error generating web service interface.");
     }
-
     return GenerateMethodsModel.getData();
 }
 function btnclearcache_Click(eventObject)
@@ -981,22 +1086,906 @@ function btnclearcache_Click(eventObject)
 			</xforms:action>
 		</xformhtml>
 	</XFormContent>
-	<qualifiedclassname></qualifiedclassname>
-	<XFormWSDL/>
-	<type>XForm</type>
-	<showOnStartPage>false</showOnStartPage>
-	<isInternal>false</isInternal>
-	<parameters/>
-	<caption></caption>
-	<title>true</title>
-	<mode>full</mode>
-	<automatic>false</automatic>
-	<left></left>
-	<top></top>
-	<height></height>
 	<width></width>
+	<automatic>false</automatic>
 	<data/>
+	<XFormWSDL/>
+	<caption></caption>
+	<isInternal>false</isInternal>
+	<type>XForm</type>
+	<taskName></taskName>
+	<mode>full</mode>
+	<title>true</title>
+	<height></height>
 	<isLegacy>false</isLegacy>
+	<left></left>
+	<qualifiedclassname></qualifiedclassname>
+	<parameters/>
+	<showOnStartPage>false</showOnStartPage>
+	<taskDescription></taskDescription>
+	<top></top>
+	<TranslatableUITexts>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e335-409e70b85669">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dc0c572e</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf2316d15cd</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.473</CreationDate>
+			<Notes/>
+			<UIRef>txtWebServiceName</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e366-a5dcb3bf9dd4">
+					<DocumentID>00505681-3ba3-11e1-e366-a5dcb3bbddd3</DocumentID>
+					<Name>00505681-3ba3-11e1-e366-a5dcb3bbddd3</Name>
+					<Description>00505681-3ba3-11e1-e366-a5dcb3bbddd3</Description>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-30T09:29:55.237</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc219731">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dc255732</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf29b00968d</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.474</CreationDate>
+			<Notes/>
+			<UIRef>txtContainer</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc1a172f">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dc1dd730</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf29a98d68b</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.487</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc309735">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dc345736</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf297319685</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.486</CreationDate>
+			<Notes/>
+			<UIRef>false</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc291733">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dc2cd734</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf296b85683</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.482</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc3e5739">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dc42173a</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf27dfd1655</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.48</CreationDate>
+			<Notes/>
+			<UIRef>txtThirdType</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc36d737">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dc3a9738</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf27d671653</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.497</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc4d573d">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dc51173e</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf258e39615</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.474</CreationDate>
+			<Notes/>
+			<UIRef>txtFirstType</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc47173b">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dc49973c</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2586a5613</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.477</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc5c5741">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dc601742</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf27114163d</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.478</CreationDate>
+			<Notes/>
+			<UIRef>txtFirstValue</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc54d73f">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dc589740</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2709c163b</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.476</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc6a1745">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dc6dd746</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf25083d605</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.477</CreationDate>
+			<Notes/>
+			<UIRef>btnMoveToSelected</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc629743">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dc665744</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf250045603</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.473</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc791749">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dc7b974a</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf2484495f5</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.478</CreationDate>
+			<Notes/>
+			<UIRef>lAvailable</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc719747">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dc755748</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf247d415f3</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.479</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc86d74d">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dc8a974e</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf2ad17d69d</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.474</CreationDate>
+			<Notes/>
+			<UIRef>Please enter a name for the Web Service Binding</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc7f574b">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dc83174c</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2aca3969b</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.475</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc9ad751">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dc9e9752</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf292f4967d</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.485</CreationDate>
+			<Notes/>
+			<UIRef>true</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dc8e574f">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dc921750</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf29289167b</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.481</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dca89755">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dcac5756</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf26629162d</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.474</CreationDate>
+			<Notes/>
+			<UIRef>starts with</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dca25753">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dca61754</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf27962564b</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.484</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dcb79759">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dcbb575a</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf261ead625</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.482</CreationDate>
+			<Notes/>
+			<UIRef>contains</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dcb01757">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dcb3d758</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2617cd623</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.486</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dcc5575d">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dcc9175e</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf228ef5ffb</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.475</CreationDate>
+			<Notes/>
+			<UIRef>txtServiceContainer</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="005056C0-0008-11E1-E412-2CB758107D4A">
+					<DocumentID>005056C0-0008-11E1-E412-2CB758105D4A</DocumentID>
+					<Name>005056C0-0008-11E1-E412-2CB758105D4A</Name>
+					<Description>005056C0-0008-11E1-E412-2CB758105D4A</Description>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-12-07T05:13:13.531</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="005056C0-0008-11E1-E412-2CB758109D4A"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dcd45761">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dcd81762</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf224c79ff3</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.486</CreationDate>
+			<Notes/>
+			<UIRef>grpProcessorSelection</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dcce175f">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dcd09760</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2245c1ff1</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.477</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dce35765">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dce71766</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf26b705635</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.483</CreationDate>
+			<Notes/>
+			<UIRef>regex</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dcdbd763">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dcdf9764</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf282f4565d</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.481</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dcf11769">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dcf4d76a</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf2357595d5</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.478</CreationDate>
+			<Notes/>
+			<UIRef>rSAPObjectType</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dce99767">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dced5768</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf234fb15d3</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.479</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dd00176d">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dd02976e</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf2443ad5ed</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.48</CreationDate>
+			<Notes/>
+			<UIRef>IDOC</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dcf8976b">
+					<DocumentID>00505681-3ba3-11e1-e334-b051dcfc576c</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf243c695eb</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.476</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e335-409e6fd4d639">
+			<DocumentID>00505681-3ba3-11e1-e335-409e6fd8963a</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf286bf9665</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.487</CreationDate>
+			<Notes/>
+			<UIRef>txtThirdValue</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e335-409e6fce9637">
+					<DocumentID>00505681-3ba3-11e1-e335-409e6fd11638</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf286519663</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.48</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e335-409e6fe3d63d">
+			<DocumentID>00505681-3ba3-11e1-e335-409e6fe7963e</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf28ef61675</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.485</CreationDate>
+			<Notes/>
+			<UIRef>txtUseCache</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e335-409e6fdc563b">
+					<DocumentID>00505681-3ba3-11e1-e335-409e6fe0163c</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf28e881673</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.482</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e335-409e6ff19641">
+			<DocumentID>00505681-3ba3-11e1-e335-409e6ff55642</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf23bc0d5dd</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.481</CreationDate>
+			<Notes/>
+			<UIRef>BAPI</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e335-409e6feb563f">
+					<DocumentID>00505681-3ba3-11e1-e335-409e6fedd640</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf23b5415db</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.488</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e335-409e70009645">
+			<DocumentID>00505681-3ba3-11e1-e335-409e70045646</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf275589645</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.475</CreationDate>
+			<Notes/>
+			<UIRef>txtSecondType</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e335-409e6ff91643">
+					<DocumentID>00505681-3ba3-11e1-e335-409e6ffcd644</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf274f0d643</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.485</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e335-409e70135649">
+			<DocumentID>00505681-3ba3-11e1-e335-409e7018564a</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf28459d661</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.484</CreationDate>
+			<Notes/>
+			<UIRef>txtSecondValue</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e335-409e70081647">
+					<DocumentID>00505681-3ba3-11e1-e335-409e700bd648</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf283f2165f</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.479</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e335-409e7022564d">
+			<DocumentID>00505681-3ba3-11e1-e335-409e7026164e</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf24020d5e5</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.475</CreationDate>
+			<Notes/>
+			<UIRef>RFC</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e335-409e701ad64b">
+					<DocumentID>00505681-3ba3-11e1-e335-409e701e964c</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf23f8355e3</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.485</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e335-409e70419651">
+			<DocumentID>00505681-3ba3-11e1-e335-409e70469652</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf254b6d60d</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.489</CreationDate>
+			<Notes/>
+			<UIRef>btnMoveToAvailable</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e335-409e7029d64f">
+					<DocumentID>00505681-3ba3-11e1-e335-409e702d9650</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2543d960b</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.482</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e335-409e70509655">
+			<DocumentID>00505681-3ba3-11e1-e335-409e70545656</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf25db1961d</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.481</CreationDate>
+			<Notes/>
+			<UIRef>equals</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e335-409e704a5653">
+					<DocumentID>00505681-3ba3-11e1-e335-409e704e1654</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf27f9c1657</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.476</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e335-409e7060d659">
+			<DocumentID>00505681-3ba3-11e1-e335-409e7063565a</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf28ae3966d</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.483</CreationDate>
+			<Notes/>
+			<UIRef>btnSearch</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e335-409e70595657">
+					<DocumentID>00505681-3ba3-11e1-e335-409e705d1658</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf28a6b966b</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.474</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e335-409e706e965d">
+			<DocumentID>00505681-3ba3-11e1-e335-409e7072565e</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf24c73d5fd</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.484</CreationDate>
+			<Notes/>
+			<UIRef>lSelected</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e335-409e7067165b">
+					<DocumentID>00505681-3ba3-11e1-e335-409e706ad65c</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf24bddd5fb</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.477</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e335-409e709a5661">
+			<DocumentID>00505681-3ba3-11e1-e335-409e709e1662</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf2b136d6a5</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.483</CreationDate>
+			<Notes/>
+			<UIRef>Please select at least 1 operation</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e335-409e7092d65f">
+					<DocumentID>00505681-3ba3-11e1-e335-409e70969660</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf2b0c3d6a3</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.489</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e335-409e70a95665">
+			<DocumentID>00505681-3ba3-11e1-e335-409e70ad1666</DocumentID>
+			<Name>00505681-3ba3-11e1-e23a-2bf22d7c55c5</Name>
+			<Description/>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.479</CreationDate>
+			<Notes/>
+			<UIRef>grpGenerationDetails</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="00505681-3ba3-11e1-e335-409e70a1d663">
+					<DocumentID>00505681-3ba3-11e1-e335-409e70a59664</DocumentID>
+					<Name>00505681-3ba3-11e1-e23a-2bf22ce3d5c3</Name>
+					<Description/>
+					<CreatedBy>root</CreatedBy>
+					<CreationDate>2011-11-28T10:16:23.473</CreationDate>
+					<Notes/>
+					<Identifier/>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+	</TranslatableUITexts>
+	<Representations/>
+	<ReferredXForms/>
+	<image/>
+	<TranslatableApplications/>
+	<Images/>
+	<messages/>
 	<Webservices>
 		<uri
 			id="001E3780-4713-71DE-8EF1-C54B4CACCDAF"
@@ -1005,90 +1994,100 @@ function btnclearcache_Click(eventObject)
 			id="001E3780-4713-71DE-8EF4-CEB0649CDF3A"
 		/>
 		<uri
-			id="001E3780-4713-71DE-8EF4-CEC766692546"
+			id="00505681-3ba3-11e1-e2a0-47dcf6dd9f1f"
 		/>
 		<uri
 			id="005056C0-0008-11E0-EBEF-21FC296ADFC1"
 		/>
 	</Webservices>
 	<StyleSheets/>
-	<Javascripts/>
-	<Htms/>
-	<CompositeControls/>
-	<TranslatableApplications/>
-	<ReferredXForms/>
-	<Images/>
 	<input/>
-	<output/>
-	<deliveryModels/>
 	<taskParts/>
+	<TranslatableName>
+		<TranslatableText
+			type="com.cordys.translation.TranslatableText"
+			RuntimeDocumentID="00505681-3ba3-11e1-e335-409e6fcad636">
+			<DocumentID>00505681-3ba3-11e1-e335-409e6fc71635</DocumentID>
+			<Name>00505681-3ba3-11e1-e335-409e6fc71635</Name>
+			<Description>00505681-3ba3-11e1-e335-409e6fc71635</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.488</CreationDate>
+			<Notes/>
+			<Identifier/>
+		</TranslatableText>
+	</TranslatableName>
 	<aclFragments/>
+	<tagsContainer/>
+	<deliveryModels/>
 	<messageParts>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
-			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B7083CE0AD61">
-			<DocumentID>001D09BE-4863-71DE-8EEE-B7083CE0AD60</DocumentID>
-			<Name>freeformcontrols</Name>
-			<Description>freeformcontrols</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-10-12T08:29:25.704</CreationDate>
-			<Notes/>
-			<namespace>http://schemas.cordys.com/1.0/xforms/processapi</namespace>
-			<operationName>freeformcontrols</operationName>
-			<isRefExists>false</isRefExists>
-		</MessagePart>
-		<MessagePart
-			type="com.cordys.task.MessagePart"
-			RuntimeDocumentID="001E3780-4713-71DE-8EF1-C5597FFF35A2">
-			<DocumentID>001E3780-4713-71DE-8EF1-C5597FFF35A1</DocumentID>
-			<Name>SearchObjectModel</Name>
-			<Description>SearchObjectModel</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-10-30T13:40:24.806</CreationDate>
-			<Notes/>
-			<namespace>http://schemas.cordys.com/2.0/SAPSchema</namespace>
-			<operationName>SearchObject</operationName>
-			<isRefExists>true</isRefExists>
-		</MessagePart>
-		<MessagePart
-			type="com.cordys.task.MessagePart"
-			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CEAFFFEAB9BB">
-			<DocumentID>001E3780-4713-71DE-8EF4-CEAFFFEAB9BA</DocumentID>
-			<Name>GetSoapNodesOperationModel</Name>
-			<Description>GetSoapNodesOperationModel</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-11-11T13:52:18.835</CreationDate>
-			<Notes/>
-			<namespace>http://schemas.cordys.com/1.0/ldap</namespace>
-			<operationName>GetSoapNodes</operationName>
-			<isRefExists>true</isRefExists>
-		</MessagePart>
-		<MessagePart
-			type="com.cordys.task.MessagePart"
-			RuntimeDocumentID="001E3780-4713-71DE-8EF4-CED5B6230AC8">
-			<DocumentID>001E3780-4713-71DE-8EF4-CED5B6230AC7</DocumentID>
-			<Name>GenerateMethodsModel</Name>
-			<Description>GenerateMethodsModel</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-11-11T15:45:42.073</CreationDate>
-			<Notes/>
-			<namespace>http://schemas.cordys.com/2.0/SAPSchema</namespace>
-			<operationName>GenerateMethods</operationName>
-			<isRefExists>true</isRefExists>
-		</MessagePart>
-		<MessagePart
-			type="com.cordys.task.MessagePart"
-			RuntimeDocumentID="005056C0-0008-11E0-EBEF-4C7759F29FC1">
-			<DocumentID>005056C0-0008-11E0-EBEF-4C7759F27FC1</DocumentID>
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dd0dd771">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dd155772</DocumentID>
 			<Name>ClearCacheModel</Name>
 			<Description>ClearCacheModel</Description>
-			<CreatedBy>srkrishnan</CreatedBy>
-			<CreationDate>2011-04-05T12:04:34.149</CreationDate>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.476</CreationDate>
 			<Notes/>
-			<namespace>http://schemas.cordys.com/2.0/SAPClearCache</namespace>
-			<operationName>ClearCache</operationName>
 			<isRefExists>true</isRefExists>
+			<operationName>ClearCache</operationName>
+			<namespace>http://schemas.cordys.com/2.0/SAPClearCache</namespace>
+		</MessagePart>
+		<MessagePart
+			type="com.cordys.task.MessagePart"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dd1a5773">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dd1e1774</DocumentID>
+			<Name>GenerateMethodsModel</Name>
+			<Description>GenerateMethodsModel</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.487</CreationDate>
+			<Notes/>
+			<isRefExists>true</isRefExists>
+			<operationName>GenerateMethods</operationName>
+			<namespace>http://schemas.cordys.com/2.0/SAPSchema</namespace>
+		</MessagePart>
+		<MessagePart
+			type="com.cordys.task.MessagePart"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dd21d775">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dd245776</DocumentID>
+			<Name>freeformcontrols</Name>
+			<Description>freeformcontrols</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.486</CreationDate>
+			<Notes/>
+			<isRefExists>false</isRefExists>
+			<operationName>freeformcontrols</operationName>
+			<namespace>http://schemas.cordys.com/1.0/xforms/processapi</namespace>
+		</MessagePart>
+		<MessagePart
+			type="com.cordys.task.MessagePart"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dd281777">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dd2bd778</DocumentID>
+			<Name>GetSoapNodesOperationModel</Name>
+			<Description>GetSoapNodesOperationModel</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.488</CreationDate>
+			<Notes/>
+			<isRefExists>true</isRefExists>
+			<operationName>GetSoapNodes</operationName>
+			<namespace>http://schemas.cordys.com/1.0/ldap</namespace>
+		</MessagePart>
+		<MessagePart
+			type="com.cordys.task.MessagePart"
+			RuntimeDocumentID="00505681-3ba3-11e1-e334-b051dd2f9779">
+			<DocumentID>00505681-3ba3-11e1-e334-b051dd33577a</DocumentID>
+			<Name>SearchObjectModel</Name>
+			<Description>SearchObjectModel</Description>
+			<CreatedBy>root</CreatedBy>
+			<CreationDate>2011-11-28T10:16:23.48</CreationDate>
+			<Notes/>
+			<isRefExists>true</isRefExists>
+			<operationName>SearchObject</operationName>
+			<namespace>http://schemas.cordys.com/2.0/SAPSchema</namespace>
 		</MessagePart>
 	</messageParts>
-	<image/>
+	<InstanceSchemaFragments/>
+	<Htms/>
+	<output/>
+	<Javascripts/>
 </XFormDesigntime>

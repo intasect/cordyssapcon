@@ -1,0 +1,23 @@
+
+<TextIdentifier
+	type="com.cordys.translation.TextIdentifier"
+	typeVersion="55890f21-u239-76j6-988a-92j7opq6ws09"
+	RuntimeDocumentID="00505681-3ba3-11e1-e299-599ea7e3d671">
+	<DocumentID>00505681-3ba3-11e1-e299-599ea7e01670</DocumentID>
+	<Name>00505681-3ba3-11e1-e299-599ea7e01670</Name>
+	<Description>Password</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-11-22T05:33:21.484</CreationDate>
+	<Notes/>
+	<DefaultText>Password</DefaultText>
+	<Translations>
+		<uri
+			id="00505681-3ba3-11e1-e299-599ea7e79672"
+		/>
+	</Translations>
+	<TranslationInformation>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf181ca9f9b"
+		/>
+	</TranslationInformation>
+</TextIdentifier>
