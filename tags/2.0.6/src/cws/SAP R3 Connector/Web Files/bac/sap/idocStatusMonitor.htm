@@ -1,0 +1,1140 @@
+<!--
+Copyright 2003 Cordys R&D B.V. 
+
+This file is part of the Cordys SAP Connector. 
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!--
+ Project  : Cordys SAP Connector
+ File Name : SAPJCOMethodPublisher.htm
+ Description : This page is used to read SAP Message Types.
+ author : Vijaya Gopal ??
+ ======================== adjustment for BOP4 compliance ===============================================
+ **                                                                                                   **
+ ** changed: 14.aug2009: Mikko Poyhonen - xmlns:eibus="xmlns:eibus"                                   **
+ ** changed: 14.aug2009: Mikko Poyhonen - moved the  tag </head> from end of dataisland before script **
+ ** changed: 14.aug2009: Mikko Poyhonen - added application.js                                        **
+ ** changed: 14.aug2009: Mikko Poyhonen - removed link to behaviors.css                               **
+ **                                                                                                   **
+ ** changed: 26.aug2009: Helmut Boecker - window.application.container.maximize()                     **
+ ** changed: 26.aug2009: Helmut Boecker - selLocalStatus.getValue() -  instead of value               **
+ ** changed: 26.aug2009: Helmut Boecker - <url>\cordys\abc\getMessageType.htm</url> to <url>\cordys\BAC\sap\getMessageType.htm</url>   **
+ ** changed: 26.aug2009: Helmut Boecker - <url>\cordys\abc\IdocRecordViewer.htm</url> to <url>\cordys\BAC\sap\IdocRecordViewer.htm</url>   **
+ **                                                                                                   **
+ **                                                                                                   **
+-->
+
+<html xmlns:eibus="xmlns:eibus" onselect="doMaximize()">
+	<head>
+		<script src="/cordys/wcp/application.js"></script>
+		<style>
+			label {	 font-size:11; font-family:verdana; font-weight:normal; }
+			input {	 font-size:11; font-family:verdana; font-weight:normal;}
+			eibus\:select {font-size:11; font-family:verdana; } 
+			button { font-size:11; font-family:verdana; width:95px}	
+		</style>
+	</head>
+	
+		<script language="JavaScript">
+		
+			var mes_type;		//Variable for getting selected message type from getMessageType form
+			var IDOCNum_id;		//IDOCNum variable for getting control as well as Data Record
+			var row_num;		//Total number of rows present in the table
+			var navigate_loc=0;	//This is for our current record position
+			var position=0;		//This is for cursor position
+			var id;				//This is for sending application id from current page to getMessageType window
+			var request="";		//This is to send SOAP request depends upon search criteria
+			var rowXmlId="";	//This is to select which method has to call for Navigation in grid
+			var dataXmlId="";			
+			
+			//This function is used to make the window maximize and load data into grid  at the load time
+			function doMaximize()
+			{
+				window.application.container.maximize();
+				disable_backbuttons();
+				disable_nextbuttons();
+				//getRows_init();
+				id=application.container.applicationId;
+			}
+			
+/*			//This function is for getting number of rows present in database at the initialization
+			function getRows_init()
+			{				
+				dataXmlId=constructor_Idocs;
+				rowXmlId=constructor_row;
+				bdiIdocs.request= rowXmlId.XMLDocument;
+				bdiIdocs.reset();
+				row_num=bdiIdocs.data.selectSingleNode(".//alias").text;
+
+				if(row_num==0)
+				{
+					disable_nextbuttons();
+					disable_backbuttons();
+					window.alert("No Data found!");
+					return;
+				}
+				else if(row_num<=15)
+				{
+					disable_nextbuttons();
+					disable_backbuttons();		
+				}
+				getIdocs();
+			}*/
+
+			//This function is used to collapse the search window
+			function collapse()
+			{	
+				search_window.style.display="none";
+				div_extend.style.display="inline";
+				grid_button.style.left="2.7%";
+				gridIdocMonitor.style.left="2%";				
+				gridIdocMonitor.style.width="99.5%";
+				grid_button.style.width="100%";
+			}
+			
+			//This function is used to expand the search window
+			function expand()
+			{
+				search_window.style.display="inline";
+				div_extend.style.display="none";
+				grid_button.style.left="31.7%";
+				gridIdocMonitor.style.left="31%"				
+				search_window.style.width="31.5%";				
+				gridIdocMonitor.style.width="70%";
+				grid_button.style.width="70.5%";				
+			}
+			
+			//This function is used to change the mouse pointer whenever put mouse on collapse and expand icons
+			function pointer_change()
+			{
+				icon_extend.style.cursor="hand";
+				icon_collapse.style.cursor="hand";
+			}
+			
+			
+			//This function is used for getting number of rows present in database for navigation			
+			function getRows()
+			{
+				if(fromDateFld.value!="" && toDateFld.value!="")
+				{
+					rowXmlId.selectSingleNode(".//fromCreationDate").text=fromDateFld.value+"T00:00:00.000";
+					rowXmlId.selectSingleNode(".//toCreationDate").text=toDateFld.value+"T23:59:59.999";
+				}
+				rowXmlId.selectSingleNode(".//Direction").text=sel_direction.value+"%";
+				rowXmlId.selectSingleNode(".//SenderLS").text=senderLogicSystem.value+"%";
+				rowXmlId.selectSingleNode(".//ReceiverLS").text=receiverLogicSystem.value+"%";
+				rowXmlId.selectSingleNode(".//LocalStatus").text=selLocalStatus.getValue()+"%";   // ** hb: 26.aug2009 - getValue() instead of value
+				rowXmlId.selectSingleNode(".//MESType").text=MessageType.value+"%";
+				if(sel_IdocType.options[sel_IdocType.getSelectedIndex()].innerText==".......Select Idoc.......")
+					rowXmlId.selectSingleNode(".//IDOCType").text="%";
+				else					
+					rowXmlId.selectSingleNode(".//IDOCType").text=sel_IdocType.options[sel_IdocType.getSelectedIndex()].innerText+"%";
+				
+				bdiIdocs.request= rowXmlId.XMLDocument;
+				bdiIdocs.reset();
+					
+				//var response=".//"+rowXmlId+"Response";
+				//window.alert(response);
+				if((bdiIdocs.data.selectSingleNode(".//getRowsCommonResponse"))||(bdiIdocs.data.selectSingleNode(".//getRowsCommonDateResponse")))
+				{
+					//window.alert(row_num);
+					row_num=bdiIdocs.data.selectSingleNode(".//alias").text;
+				//	window.alert(row_num);
+					enable_nextbuttons();
+					enable_Buttons();
+					
+				}
+				else
+				{						
+					disable_backbuttons();
+					disable_nextbuttons();
+					disable_Buttons();
+				//	window.alert(gridIdocMonitor.rows.length);						
+					row_num=null;
+				}
+			}			
+				
+			//This function is used to send request to bus data island
+		/*	function getIdocs()
+			{
+				position=0;
+				request=dataXmlId.XMLDocument;
+				if(row_num<=15)
+					disable_nextbuttons();
+				else
+					enable_nextbuttons();		
+				
+				disable_backbuttons();
+
+				dataXmlId.selectSingleNode(".//cursor").setAttribute("position",position);				
+				bdiIdocs.request= request;//constructor_Idocs.XMLDocument.cloneNode(true);
+				bdiIdocs.reset();
+				gridIdocMonitor.redraw();
+			}*/
+			
+						
+			//This function is used to fill the Idoc combo box cooresponding to Message type
+			function IdocType()
+			{
+				constructor_IdocType.selectSingleNode(".//MESTYPE").text = MessageType.value;
+				bdiIdocs.request= constructor_IdocType.XMLDocument;
+				bdiIdocs.reset();
+				fillcombo();
+			}
+			
+			
+			//This function is used to fill the Idoc Types in combo depends upon Message types
+			function fillcombo()
+			{
+				var num=0;
+				var  idocs = bdiIdocs.data.selectNodes(".//item");
+				var Idoc = sel_IdocType.firstChild.cloneNode(true);
+							
+				for (var n=sel_IdocType.options.length;n>=1;n--)
+					sel_IdocType.remove(n);
+
+				for (var count = 0; count < idocs.length;count++)
+					sel_IdocType.add(idocs[count].getAttribute("IDOCTYP"),idocs[count].getAttribute("IDOCTYP"));
+			}			
+						
+			//This function us used to Show records of particular IDOC in XML form
+			
+			//This function is for popping up the Message type window
+			function ShowMessage()
+			{
+				var xml_Find_Message = FindMessage.XMLDocument.documentElement;				
+				application.select(xml_Find_Message,id);
+			}
+			
+			
+			//This function is to provide search criteria
+			function searchCriteria()
+			{	
+										
+				if(fromDateFld.value!="" && toDateFld!="")
+				{	
+					dataXmlId=constructor_commonDate;
+					rowXmlId=constructor_getRowsCommonDate;
+					dataXmlId.selectSingleNode(".//fromCreationDate").text=fromDateFld.value+"T00:00:00.000";
+					dataXmlId.selectSingleNode(".//toCreationDate").text=toDateFld.value+"T23:59:59.999";
+				}
+
+				else 
+				{
+					dataXmlId=constructor_common;
+					rowXmlId=constructor_getRowsCommon;
+				}
+
+				dataXmlId.selectSingleNode(".//Direction").text=sel_direction.value+"%";
+				dataXmlId.selectSingleNode(".//SenderLS").text=senderLogicSystem.value+"%";
+				dataXmlId.selectSingleNode(".//ReceiverLS").text=receiverLogicSystem.value+"%";
+				dataXmlId.selectSingleNode(".//LocalStatus").text=selLocalStatus.getValue()+"%";   // ** hb: 26.aug2009 - getValue() instead of value
+				dataXmlId.selectSingleNode(".//MESType").text=MessageType.value+"%";
+				if(sel_IdocType.options[sel_IdocType.getSelectedIndex()].innerText==".......Select Idoc.......")
+					dataXmlId.selectSingleNode(".//IDOCType").text="%";
+				else					
+					dataXmlId.selectSingleNode(".//IDOCType").text=sel_IdocType.options[sel_IdocType.getSelectedIndex()].innerText+"%";				
+
+				disable_backbuttons();
+				position=0;
+				getRows();
+				
+				if(row_num!=null)
+				{
+					if(row_num==0)
+					{
+						disable_nextbuttons();
+						disable_backbuttons();
+						window.alert("No Data found!");
+						return;
+					}
+					else
+					{
+						dataXmlId.selectSingleNode(".//cursor").setAttribute("position",position);				
+						bdiIdocs.request=dataXmlId.XMLDocument;
+						bdiIdocs.reset();
+				
+						if(row_num<=15)
+							disable_nextbuttons();
+						else
+							enable_nextbuttons();
+							
+						disable_backbuttons();	
+						showErrorTitle();		
+					}
+				
+					gridIdocMonitor.redraw();
+				}				
+
+			}
+			
+			
+			//This function is to reset all the search fields
+			function resetAll()
+			{
+				sel_direction.setSelectedIndex(0);
+				fromDateFld.value="";
+				toDateFld.value="";
+				MessageType.value="";
+				for (var i=sel_IdocType.options.length;i>=1;i--)
+					sel_IdocType.remove(i);
+				sel_IdocType.setSelectedIndex(0);	
+				
+				senderLogicSystem.value="";
+				receiverLogicSystem.value="";
+				selLocalStatus.setSelectedIndex(0);
+			}
+			
+			//This function is to check whether rows in grid is selected
+			function isAnySelected()
+			{
+				var checkedRows = window.document.getElementsByName("chkRow");
+				for (iCtr=0; iCtr < checkedRows.length ; iCtr++)
+				{
+					if (checkedRows[iCtr].checked  == true)
+						return true;
+				}
+				return false;
+			}
+			
+			function selectAllRecords()
+			{				
+				var rowCount=grid_body.rows.length;
+				if(rowCount>1)
+				{
+					if(selectAllRows.value=="off")
+					{
+						for(var i=0;i<rowCount;i++)
+						{
+							chkRow[i].checked=true;
+							chkRow[i].value="on";
+						}
+						selectAllRows.value="on";
+						
+					}
+					
+					else //if(selectAllRows.checked=="false")
+					{
+						for(var i=0;i<rowCount;i++)
+						{
+							chkRow[i].checked=false;
+							chkRow[i].value="off";
+						}
+						selectAllRows.value="off";	
+					}
+				}
+				
+				else if(rowCount==1)
+				{
+					//window.alert(IDOCNum_Grid.value);
+					if(IDOCNum_Grid.innerHTML=="")
+						return;
+					else
+					{
+						if(selectAllRows.value=="off")
+						{
+							chkRow.checked=true;
+							chkRow.value="on";
+							
+							selectAllRows.value="on";							
+						}
+					
+						else
+						{
+							chkRow.checked=false;
+							chkRow.value="off";
+							
+							selectAllRows.value="off";							
+						}
+					}
+				}
+			}
+						
+			function checkAllRows()
+			{
+				var rowCount=grid_body.rows.length;
+				if((rowCount==1)&&(IDOCNum_Grid.innerHTML!=""))
+				{
+					if(chkRow.value=="off")
+					{
+						chkRow.checked=true;
+						chkRow.value="on";
+						
+						selectAllRows.checked=true;
+						selectAllRows.value="on";
+					}
+					
+					else if(chkRow.value=="on")
+					{
+						chkRow.checked=false;
+						chkRow.value="off";
+						
+						selectAllRows.checked=false;
+						selectAllRows.value="off";
+					}
+				}
+				
+				else if(rowCount>1)
+				{					
+					var counter=0;					
+					var checkedRows = window.document.getElementsByName("chkRow");
+					for (var iCtr=0; iCtr < checkedRows.length ; iCtr++)
+					{
+						if (checkedRows[iCtr].checked)
+							counter++;
+					}					
+					if(counter==15)
+					{				
+						selectAllRows.checked=true;
+						selectAllRows.value="on";
+					}
+					
+					else
+					{
+						selectAllRows.checked=false;
+						selectAllRows.value="off";
+					}
+					
+				}
+			}
+			
+			
+							
+			//This function is for synchronization
+			function synchronizeIdoc()
+			{			
+				var idocNum_Synchronize;
+				var nameSpace="http://schemas.cordys.com/1.0/SAPSchema";
+				if (isAnySelected() == true && bdiIdocs.data.selectSingleNode("//tuple") && confirm("Do you want to Synchronize the selected Idoc(s)?"))
+				{
+					var checkedRows = window.document.getElementsByName("chkRow");
+					for (var iCtr=0; iCtr < checkedRows.length ; iCtr++)
+					{
+						if (checkedRows[iCtr].checked)
+						{			
+							if(grid_body.rows.length==1)
+								idocNum_Synchronize=IDOCNum_Grid.value;
+							
+							else
+								idocNum_Synchronize=IDOCNum_Grid[iCtr].value;
+								
+							SynchronizeIDOCStatusNode=newSynchornization.createElement("SynchronizeIDOCStatus");
+							
+							IDOCNumNode=newSynchornization.createElement("IDOCNum");							
+							IDOCNumData=newSynchornization.createTextNode(idocNum_Synchronize);
+							IDOCNumNode.appendChild(IDOCNumData);
+							SynchronizeIDOCStatusNode.appendChild(IDOCNumNode);
+							newSynchornization.appendChild(SynchronizeIDOCStatusNode);
+							
+							root_newSynchronization=newSynchornization.firstChild;
+							root_newSynchronization.setAttribute("xmlns",nameSpace);
+							root=constructor_Synchronization.selectSingleNode(".//SOAP:Body");
+							root.appendChild(root_newSynchronization);					
+						}
+					}
+					bdiIdocs.request=constructor_Synchronization.XMLDocument;
+					bdiIdocs.reset();
+
+					var synchronizeNodes=constructor_Synchronization.selectNodes(".//SynchronizeIDOCStatus");
+					synchronizeNodes.removeAll();
+				}
+				
+			}
+			
+			
+			function showIdoc()
+			{				
+				var counter=0;
+				if (isAnySelected() == true && bdiIdocs.data.selectSingleNode("//tuple"))
+				{
+					var checkedRows = window.document.getElementsByName("chkRow");
+
+					for (var iCtr=0; iCtr < checkedRows.length ; iCtr++)
+					{
+						if (checkedRows[iCtr].checked)
+						{
+							counter++;
+							if(grid_body.rows.length==1)
+							{
+								IDOCNum_id=IDOCNum_Grid.value;
+							}
+							else
+								IDOCNum_id=IDOCNum_Grid[iCtr].value;							
+						}
+					}
+				}
+				if(counter==1 && confirm("Do you want to see the record for selected Idoc?"))
+				{
+					
+					var xml_Idoc_Records = IdocRecords.XMLDocument.documentElement;
+					application.select(xml_Idoc_Records,id);
+					return;
+				}
+				if(counter>1)
+				{
+					window.alert("Please Select only one Idoc.");
+					return;
+				}
+
+			}
+			
+			//This function is used to delete one or more Idoc
+			function deleteIdocs()
+			{
+				if (isAnySelected() == true && bdiIdocs.data.selectSingleNode("//tuple") && confirm("Do you want to delete the selected Idoc(s)?"))
+				{
+					var checkedRows = window.document.getElementsByName("chkRow");
+					for (var iCtr=0; iCtr < checkedRows.length ; iCtr++)
+					{
+						if (checkedRows[iCtr].checked)
+						{
+							bdiIdocs.remove(checkedRows[iCtr].xml);
+						}
+					}
+					bdiIdocs.synchronize();
+					getRows();
+					
+					selectAllRows.checked=false;
+					selectAllRows.value="off";
+					
+					if((row_num%15==0)||(row_num==15))
+					{
+						moveprevious();
+						disable_nextbuttons();
+					}
+					else
+					{
+						dataXmlId.selectSingleNode(".//cursor").setAttribute("position",position);
+						bdiIdocs.request= dataXmlId.XMLDocument;
+						bdiIdocs.reset();
+						gridIdocMonitor.redraw();
+					}
+				}
+			}
+
+			//This function is used for Move first in Grid
+			function movefirst()
+			{
+				getRows();
+				position=0;
+
+				if(row_num<=15)//we are showing 15 rows at a time in grid
+					disable_nextbuttons();
+				else
+					enable_nextbuttons();
+
+				disable_backbuttons();
+
+				dataXmlId.selectSingleNode(".//cursor").setAttribute("position",position);
+				bdiIdocs.request= dataXmlId.XMLDocument;
+				bdiIdocs.reset();
+				gridIdocMonitor.redraw();
+				
+				showErrorTitle();
+			}
+
+			//This is for move previous in Grid
+			function moveprevious()
+			{
+				getRows();
+				position=position-15;
+
+				dataXmlId.selectSingleNode(".//cursor").setAttribute("position",position);
+				bdiIdocs.request=dataXmlId.XMLDocument;
+				bdiIdocs.reset();
+				if(position==0)
+					disable_backbuttons();
+				
+				enable_nextbuttons();
+				gridIdocMonitor.redraw();
+				
+				showErrorTitle();
+			}
+
+			//This function is used for Move next in Grid
+			function movenext()
+			{
+				getRows();
+				var last_record=row_num%15;//we are showing 15 rows at a time in grid
+				var button_disable;
+
+				button_disable=row_num-last_record;
+				position=position+15;
+				dataXmlId.selectSingleNode(".//cursor").setAttribute("position",position);
+				bdiIdocs.request= dataXmlId.XMLDocument;
+				bdiIdocs.reset();
+				gridIdocMonitor.redraw();
+				enable_backbuttons();
+
+				if((row_num-position<=15)||(position==button_disable))
+					disable_nextbuttons();
+				showErrorTitle();
+			}
+
+			//This is for move last or to show last set of data in Grid
+			function movelast()
+			{
+				getRows();
+				var last_record=row_num%15;
+
+				disable_nextbuttons();
+				enable_backbuttons();	
+
+				if(last_record>0)
+					position=row_num-last_record;
+				else
+					position=row_num-15;
+
+				dataXmlId.selectSingleNode(".//cursor").setAttribute("position",position);
+				bdiIdocs.request= dataXmlId.XMLDocument;
+				bdiIdocs.reset();
+				gridIdocMonitor.redraw();
+				
+				showErrorTitle();
+			}
+			
+			
+			function showErrorTitle()
+			{				
+				var rowCount=grid_body.rows.length;
+				
+				if((rowCount==1)&&(errorTextGrid.value!=""))
+					errorTextGrid.title=errorTextGrid.innerText;
+				
+				else if(rowCount>1)				
+				{
+					for(var i=0;i<rowCount;i++)
+					{
+						if(errorTextGrid[i].innerHTML!="")
+							errorTextGrid[i].title=errorTextGrid[i].innerText;							
+					}	
+				}
+				
+			}
+			//This function is for disabling movepreivous and movefirst buttons
+			function disable_backbuttons()
+			{
+				first_button.disabled=true;
+				movefirst_img.style.filter = "alpha(opacity=20)";
+
+				previous_button.disabled=true;
+				moveprevious_img.style.filter = "alpha(opacity=20)";
+			}
+
+			//This function is for disabling movenext and movelast buttons
+			function disable_nextbuttons()
+			{
+				next_button.disabled=true;
+				movenext_img.style.filter = "alpha(opacity=20)";
+
+				last_button.disabled=true;
+				movelast_img.style.filter = "alpha(opacity=20)";
+			}
+
+			//This function is for enabling moveprevious and movefirst buttons
+			function enable_backbuttons()
+			{
+				first_button.disabled=false;
+				movefirst_img.style.filter = "alpha(opacity=100)";
+
+				previous_button.disabled=false;
+				moveprevious_img.style.filter = "alpha(opacity=100)";
+			}
+
+			//This function is for enabling movenext and movelast buttons
+			function enable_nextbuttons()
+			{
+				next_button.disabled=false;
+				movenext_img.style.filter = "alpha(opacity=100)";
+
+				last_button.disabled=false;
+				movelast_img.style.filter = "alpha(opacity=100)";
+			}
+			
+			function disable_Buttons()
+			{
+				sync_button.disabled=true;
+				sync_img.style.filter = "alpha(opacity=20)";
+			
+				resend_button.disabled=true;
+				resend_img.style.filter = "alpha(opacity=20)";
+			
+				delete_button.disabled=true;
+				delete_img.style.filter = "alpha(opacity=20)";				
+			}
+			
+			
+			function enable_Buttons()
+			{
+				sync_button.disabled=false;
+				sync_img.style.filter = "alpha(opacity=100)";
+			
+				resend_button.disabled=false;
+				resend_img.style.filter = "alpha(opacity=100)";
+			
+				delete_button.disabled=false;
+				delete_img.style.filter = "alpha(opacity=100)";				
+			}
+
+		</script>
+	
+<!--------------------Bus data island for getting Idoc Details--------------------->
+	<eibus:dataisland id="bdiIdocs" async="false" automatic="false">
+		
+		<!------SOAP request for getting number of rows present in Database---->
+		<xml id="constructor_row">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<getAllRows xmlns="http://schemas.cordys.com/sap/IDOCTable">
+					</getAllRows>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+		<!---------------------------------------------------------------------->
+		
+		<xml id="constructor_getRowsCommon">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<getRowsCommon xmlns="http://schemas.cordys.com/sap/IDOCTable">
+						<Direction></Direction>
+						<SenderLS></SenderLS>
+						<ReceiverLS></ReceiverLS>
+						<MESType></MESType>
+						<IDOCType></IDOCType>
+						<LocalStatus></LocalStatus>
+					</getRowsCommon>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+		
+		
+		<xml id="constructor_getRowsCommonDate">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<getRowsCommonDate xmlns="http://schemas.cordys.com/sap/IDOCTable">
+						<Direction></Direction>
+						<SenderLS></SenderLS>
+						<ReceiverLS></ReceiverLS>
+						<MESType></MESType>
+						<IDOCType></IDOCType>
+						<LocalStatus></LocalStatus>
+						<fromCreationDate></fromCreationDate>
+						<toCreationDate></toCreationDate>
+					</getRowsCommonDate>
+  				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+		
+				
+		
+		<!-------------------SOAP request for getting all Idocs-------------------->
+		<xml id="constructor_Idocs">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<getAllIdocs xmlns="http://schemas.cordys.com/sap/IDOCTable">
+						<cursor numRows="15"/>
+					</getAllIdocs>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+		<!---------------------------------------------------------------------->
+				
+		<xml id="constructor_common">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					    <getIdocsCommon xmlns="http://schemas.cordys.com/sap/IDOCTable">
+							<cursor numRows="15"/>
+							<Direction></Direction>
+							<SenderLS></SenderLS>
+							<ReceiverLS></ReceiverLS>
+							<MESType></MESType>
+							<IDOCType></IDOCType>
+							<LocalStatus></LocalStatus>
+						</getIdocsCommon>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+		<!---------------------------------------------------------------------->
+				
+		<xml id="constructor_commonDate">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<getIdocsCommonDate xmlns="http://schemas.cordys.com/sap/IDOCTable">
+						<cursor numRows="15"/>
+						<Direction></Direction>
+						<SenderLS></SenderLS>
+						<ReceiverLS></ReceiverLS>
+						<MESType></MESType>
+						<IDOCType></IDOCType>
+						<LocalStatus></LocalStatus>
+						<fromCreationDate></fromCreationDate>
+						<toCreationDate></toCreationDate>
+					</getIdocsCommonDate>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+		
+		<!---------------------------------------------------------------------->		
+		<!-------------------SOAP request for getting Idoc Types-------------------->
+		<xml id="constructor_IdocType">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<GetIDOCTypesForMesType xmlns="http://schemas.cordys.com/1.0/SAPSchema">
+						<MESTYPE></MESTYPE>
+						<overwrite>false</overwrite>
+					</GetIDOCTypesForMesType>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+		<!---------------------------------------------------------------------->
+		
+		
+		<xml id="constructor_Synchronization">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+		
+		<xml id="newSynchornization">
+		
+		</xml>
+		
+	</eibus:dataisland>
+	
+<!--------------------------------------------------------------------------------------->
+
+
+<!----------------------Specification for Message Type windows------------------------>
+		<xml id="FindMessage">
+		<Application>
+			<description></description>
+            <url>\cordys\BAC\sap\getMessageType.htm</url>
+            <caption>Select message type</caption>
+            <frame docked="false" height="650" left="300" top="100" width="460"></frame>
+            <id>FindMessageID</id>            
+            <data></data>
+            <desc></desc>
+            <icon></icon>
+		</Application>
+	</xml>
+
+<!--------------------------------------------------------------------------------->
+
+<!------------------------Specification for Record Viewer------------------------->
+	<xml id="IdocRecords">
+		<Application>
+			<description></description>
+            <url>\cordys\BAC\sap\IdocRecordViewer.htm</url>
+            <caption>Idoc Record Viewer</caption>
+            <id>IdocRecordID</id>
+            <frame>main</frame>
+            <data></data>
+            <desc></desc>
+            <icon></icon>
+		</Application>
+	</xml>
+
+<!--------------------------------------------------------------------------------->
+	
+	<body>
+		<eibus:calendar id="cal" showInputBox="false" showTitle="false" filter="[\w +-/]" displayFormat="YYYY-MM-DD" style="position:absolute;display:none;width:150px;height:137px"/>
+		<eibus:validate id="validate"/>
+		
+			
+		<div id ="search_window" class="input mainbody" style="font-size:85%;left:0%;width:31.5%;cursor:default;position:absolute;top:10px;height:95%;background-repeat:repeat; background-attachment:scroll">
+			<div id="div_collapse" class="medium" style="left:0%;width:100%;position:absolute;height:18">
+				<font color=white><b>Search Parameters</b></font>
+				<img id="icon_collapse" align="absMiddle" height="10" src="/cordys/wcp/images/clickchoice/leftarrow.gif" width="10" style="position:absolute;LEFT:95%;TOP:4px" title="collapse Window" onmouseover="pointer_change()"  onclick="collapse()">
+			</div>
+
+			<table border="0" width ="100%" height="100%">
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+
+				<tr>
+					<td align="right">
+						<label>Direction</label>
+					</td>
+
+					<td>
+						<eibus:select class="input" id="sel_direction" style="WIDTH: 85%">
+							<div value="">....Select direction....</div>
+							<div value="I">Inbound</div>
+							<div value="O">Outbound</div>	
+						</eibus:select>
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">
+						<label>Date</label>
+					</td>
+
+					<td>From
+						<br>
+						<input id="fromDateFld" class="input" readonly="true" fieldType="date"  filter="[\w +-/]" displayFormat="YYYY-MM-DD">&nbsp;
+						<button onclick="cal.openCalendar(fromDateFld)"  style="width:18px;height:18px;left:250" class="lightmedium" title=" From Date">
+							<img align="absMiddle" src="/cordys/BAC/sap/images/calendar.gif">
+						</button>
+					</td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td>To
+						<br>
+						<input id="toDateFld" class="input" readonly="true" fieldType="date"  filter="[\w +-/]" displayFormat="YYYY-MM-DD">&nbsp;
+						<button onclick="cal.openCalendar(toDateFld)" style="width:18px;height:18px" class="lightmedium" title="To Date">
+							<img align="absMiddle" src="/cordys/BAC/sap/images/calendar.gif" >
+						</button>					
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">
+						<label>Message Type</label>
+					</td>
+
+					<td>
+						<input class="input" style="TEXT-ALIGN: left" id="MessageType" onBlur="IdocType()">&nbsp;
+						<button style="width:18px;height:18px" class="lightmedium" onclick="ShowMessage()" title="Message Types">
+							<img align="absMiddle" src="/cordys/BAC/sap/images/lookup.gif">
+						</button>
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">
+						<label>Idoc Type</label>
+					</td>
+
+					<td>
+						<eibus:select class="input" id="sel_IdocType" style="WIDTH: 85%" selectType="single" editable="true">
+							<div value="">.......Select Idoc.......</div>
+						</eibus:select>
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">
+						<label>Sender Logic System</label>
+					</td>
+
+					<td>
+						<input class="input" style="TEXT-ALIGN: left" id="senderLogicSystem">
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">
+						<label>Receiver Logic System</label>
+					</td>
+
+					<td>
+						<input class="input" style="TEXT-ALIGN: left" id="receiverLogicSystem">
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">
+						<label>Local Status</label>
+					</td>
+
+					<td>
+						<eibus:select class="input" id="selLocalStatus" style="WIDTH: 85%">
+							<div value="">......Select Status......</div>
+							<div value="Dispatched">Dispatched</div>
+							<div value="Error">Error</div>
+						</eibus:select>
+					</td>
+				</tr>
+
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+
+				<tr>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+				</tr>
+
+				<tr>
+					<td align="right">
+						<input class="medium" type="button" value="Search" onClick="searchCriteria()">
+					</td>
+
+					<td>
+						<input class="medium" type="button" value="Reset" onClick="resetAll()">
+					</td>
+				</tr>
+
+			</table>
+		</div>
+
+		<div id ="div_extend" class="input mainbody" style="BORDER-RIGHT:1px solid;FONT-SIZE: 85%; LEFT: 0%; WIDTH:15; CURSOR: default; BORDER-BOTTOM: 1px solid; POSITION: absolute;top:10px;HEIGHT:95%;display:none">
+			<div  class="medium" style="font-size:85%;background-attachment:scroll;left:0%;width:100%;cursor:default;background-repeat:repeat;position:absolute;height:3.5%">
+				<img id ="icon_extend" align="absMiddle" src="/cordys/wcp/images/clickchoice/rightarrow.gif" style="LEFT:0px;TOP:7;width:10;height:10" title="Expand" onmouseover="pointer_change()"  onclick="expand()">
+			</div>
+		</div>
+
+		<table id="grid_button" style="position: absolute;left:31.7%;width:70.5%;height:5%;top:8.5%">
+ 			<tr>
+ 				<td width="1%">
+ 					<button class="lightmedium" id="sync_button" style="WIDTH:18px; TOP: 20px; HEIGHT:18px;background-color:transparent" onclick="showIdoc()" title="Idoc Record">
+						<img align="absMiddle" id="sync_img" src="/cordys/BAC/sap/images/sync12.gif">
+					</button>
+				</td>
+
+				<td width="1%">
+					<button class="lightmedium" id="resend_button"  style="WIDTH:18px;TOP:20px;HEIGHT:18px;background-color:transparent" onclick="synchronizeIdoc()">
+						<img align="absMiddle" id="resend_img" src="/cordys/BAC/sap/images/resend12.gif">
+					</button>
+				</td>
+
+				<td width="1%">
+					<button class="lightmedium" id="delete_button" style="WIDTH:18px;TOP:20px;HEIGHT:18px;background-color:transparent" onclick="deleteIdocs()" title="Delete Idoc(s)">
+						<img align="absMiddle" id="delete_img" src="/cordys/BAC/sap/images/delete12.gif">
+					</button>
+				</td>
+
+				<td width="62%" align="right" id="gridButtonRow">
+					<button style="WIDTH: 18px; TOP: 20px; HEIGHT:18px;background-color:transparent "  id="first_button" title="Move First" onclick="movefirst()">
+						<img align="absMiddle" src="/cordys/BAC/sap/images/first12.gif" id="movefirst_img">
+					</button>
+				</td>
+
+				<td width="1%">
+					<button class="lightmedium" style="WIDTH:18px;TOP:20px;HEIGHT:18px;background-color:transparent" title="Move Previous" id="previous_button" onclick="moveprevious()">
+						<img align="absMiddle" src="/cordys/BAC/sap/images/previous12.gif" id="moveprevious_img">
+					</button>
+				</td>
+
+				<td width="1%">
+					<button  class="lightmedium" style="WIDTH:18px; TOP: 20px; HEIGHT:18px;background-color:transparent" id="next_button" title="Move Next" onclick="movenext()">
+						<img align="absMiddle" src="/cordys/BAC/sap/images/next12.gif" id="movenext_img">
+					</button>
+				</td>
+
+				<td width="2%">
+					<button class="lightmedium" style="WIDTH:18px;TOP:20px;HEIGHT:18px;background-color:transparent" id="last_button" title="Move Last" onclick="movelast()">
+						<img align="absMiddle" src="/cordys/BAC/sap/images/last12.gif" id="movelast_img">
+					</button>
+				</td>
+			</tr>
+		</table>
+
+		<table class="grid" id="gridIdocMonitor" style="left:31%;width:70%;top:10.25%" border="1" bordercolor = "darkgray"  style="top:5px" movableColumns="true"  saveState="false" selectType="multiple" shadeClasses="light lightmedium" sortable="false">
+			<thead align="middle">
+				<tr class="medium">
+					<td align="center" width="3%">
+						<input id="selectAllRows" title="Select All" value="off" type="checkbox" onclick="selectAllRecords()">
+					</td>
+
+					<td width="6%">
+						<label>Direction</label>
+					</td>
+
+					<td width="13%">
+						<label>Idoc No.</label>
+					</td>
+
+   					<td width="14%">
+						<label>Creation Date</label>
+					</td>
+
+					<td width="8%">
+						<label>Idoc Type</label>
+					</td>
+
+					<td width="9%">
+						<label>Sender</label>
+					</td>
+
+		   			<td width="9%">
+						<label>Receiver</label>
+					</td>
+
+					<td width="7%">
+						<label>Local Status</label>
+					</td>
+
+					<td width="8%">
+						<label>Error Text</label>
+					</td>
+
+					<td width="7%">
+						<label>Destination Status</label>
+					</td>
+
+					<td width="7%">
+						<label>Target System</label>
+					</td>					
+				</tr>
+			</thead>
+
+			<tbody class="BusControl" id="grid_body">
+				<tr BusDataIsland="bdiIdocs" xql=".">
+					<td align="center">
+						<input id="chkRow" title="DeleteIdocs" type="checkbox" xql="." value="off" onclick="checkAllRows()">
+					</td>
+
+					<td nowrap="true">
+						<label class="input"  id="directionGrid" style="background-color:transparent;border:none;width:100%" xql="Direction/textnode()"></label>
+					</td>
+
+					<td nowrap="true">
+						<label class="input"  id="IDOCNum_Grid" style="background-color:transparent;border:none;width:100%" xql="IDOCNum/textnode()"></label>
+					</td>
+
+					<td nowrap="true">
+						<label class="input"  id="creationDateGrid" style="background-color:transparent;border:none;width:100%" xql="CreationDate/textnode()"></label>
+					</td>
+
+					<td nowrap="true">
+						<label class="input"  style="background-color:transparent;border:none;width:100%" xql="IDOCType/textnode()"></label>
+					</td>
+
+					<td nowrap="true">
+						<label class="input" style="background-color:transparent;border:none;width:100%" xql="SenderLS/textnode()"></label>
+					</td>
+
+          			<td nowrap="true">
+						<label class="input"  style="background-color:transparent;border:none;width:100%" xql="ReceiverLS/textnode()"></label>
+					</td>
+
+					<td nowrap="true">
+						<label class="input" style="background-color:transparent;border:none;width:100%" xql="LocalStatus/textnode()"></label>
+					</td>
+
+					<td nowrap="true">
+						<label class="input"  id="errorTextGrid"  style="background-color:transparent;border:none" xql="ErrorText/textnode()"></label>
+					</td>
+
+                    <td nowrap="true">
+						<label class="input"  style="background-color:transparent;border:none;width:100%" xql="DestinationStatus/textnode()"></label>
+					</td>
+
+					<td nowrap="true">
+						<label class="input"  style="background-color:transparent;border:none;width:100%" xql="TargetSystem/textnode()"></label>
+					</td>				
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

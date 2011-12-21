@@ -1,0 +1,40 @@
+
+<RoleDesignTime
+	type="com.cordys.organization.role.RoleDesignTime"
+	RuntimeDocumentID="00059A3C-7800-71DE-9653-8AF640C2ABE5">
+	<DocumentID>00059A3C-7800-71DE-9653-8AF640C2ABE4</DocumentID>
+	<Name>SAP User Mapping</Name>
+	<Description>SAP User Mapping</Description>
+	<CreatedBy>hboecker</CreatedBy>
+	<CreationDate>2009-08-17T09:37:36.14</CreationDate>
+	<LastModifiedBy>pgussow</LastModifiedBy>
+	<LastModifiedDate>2009-10-14T08:53:05.366</LastModifiedDate>
+	<Notes/>
+	<CommonName>SAP User Mapping</CommonName>
+	<DistinguishedName>cn=#roleName#, cn=#ISVPName#, #LDAPRoot#</DistinguishedName>
+	<isFunctionalRole>true</isFunctionalRole>
+	<type>Functional</type>
+	<configuredTasks>
+		<ConfiguredTask
+			type="com.cordys.task.ConfiguredTask"
+			RuntimeDocumentID="00059A3C-7800-71DE-9654-8B31AAE5AF7E">
+			<DocumentID>00059A3C-7800-71DE-9654-8B31AAE5AF7D</DocumentID>
+			<Name>SAP_Admin_BOP4_00059A3C-7800-71DE-9654-8B31AAE5AF7D</Name>
+			<Description>Cordys SAP Administration_00059A3C-7800-71DE-9654-8B31AAE5AF7D</Description>
+			<CreatedBy>hboecker</CreatedBy>
+			<CreationDate>2009-08-17T14:19:28.734</CreationDate>
+			<LastModifiedBy>hboecker</LastModifiedBy>
+			<LastModifiedDate>2009-10-14T08:43:47.674</LastModifiedDate>
+			<Notes/>
+			<configuredTaskParts/>
+			<uiTask>
+				<uri
+					id="00059A3C-7800-71DE-9653-8B26111FAC62"
+					path="SAP R3 Connector/Forms/BAC/SAP/UserMapping"
+					type="com.cordys.xforms.XFormDesigntime"
+				/>
+			</uiTask>
+		</ConfiguredTask>
+	</configuredTasks>
+	<Subroles/>
+</RoleDesignTime>
