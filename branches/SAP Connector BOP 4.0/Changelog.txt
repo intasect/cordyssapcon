@@ -1,3 +1,8 @@
+VERSION 2.0.6 - (21-12-2011)
+- Fix   : Memory issue is fixed by using latest coelib.jar.
+- Fix   : Fixed issue id 31 - "PCDATA invalid Char value...." when RFC XML is parsed by NOM.
+- Change: All cache files will be created only in the directory specified in the SAP Properties, if not specified it uses default path (BAC/SAP/cache).
+
 VERSION 2.0.5 - Beta (21-04-2011)
 - Change: SAP WebService Wizard to provide option to specify Interface name (Issue 6)
 - Add   : Option to clear cache (Issue 8)
