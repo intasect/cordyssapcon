@@ -1,10 +1,10 @@
-VERSIOM 2.1.3 (12-12-2012)
+VERSIOM 2.1.3 (12-12-2011)
 - Change : Removal of Invalid XML Characters will be done only for the SAP Metadata. It will NOT be done for the business data.
 
-VERSIOM 2.1.2 (08-12-2012)
+VERSIOM 2.1.2 (08-12-2011)
 - Fix    : Fixed issue id 31 - "PCDATA invalid Char value...." when RFC XML is parsed by NOM
 
-VERSIOM 2.1.1 (07-12-2012)
+VERSIOM 2.1.1 (07-12-2011)
 - Fix    : Updated coelib.jar, now SAP Connector consumes less memory
 - Fix    : Fixed Web Service publish issue. If we directly use SAP BOP-4 web services in BOP 4.1 it will give "Verification Failed" error.
 - Fix    : Solved Add/Update Web service Interfaces issue. Issue was implementation will be empty for the newly added/updated web services.
@@ -13,7 +13,7 @@ VERSIOM 2.1.1 (07-12-2012)
 - change : Removed horizontal scrollbar for SAP Web Service Generator wizard.
 - Change : Demo pages are completely migrated to XForm (Currency: GetList and GetDecimal)
 
-VERSIOM 2.1.0 - Beta (25-11-2012)
+VERSIOM 2.1.0 - Beta (25-11-2011)
 - Change : Unused htm files are removed.
 - Add    : SAP User Mapping and Property page are developed with XForm, Property page is still htm since there is no option to add caf as property page.
 - Change : LDAP Runtime reference was removed and added with BOP 4.1 LDAP Runtime Reference - Reason : Verification Failed error during Publish.
