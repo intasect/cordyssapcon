@@ -35,6 +35,11 @@ import java.util.logging.Logger;
 public class ClearCache extends BaseMethod{
 
     ISAPConfiguration config;
+    
+    /**
+     * Holds the Local Cache Directory
+     */
+    private static String local_cacheDirectory;
 
     /**
      * Constructor.
@@ -48,11 +53,18 @@ public class ClearCache extends BaseMethod{
         this.config = config;
     }
 
+    public static String getLocal_cacheDirectory() {
+        return local_cacheDirectory;
+    }
+
+    public static void setLocal_cacheDirectory(String local_cacheDirectory) {
+        ClearCache.local_cacheDirectory = local_cacheDirectory;
+    }
+
     public void deleteCacheFiles() {
         try {
             String cachedir;
-            File m_rootFolder = new File(EIBProperties.getInstallDir(),
-                                SAPConnectorConstants.ROOT_CACHE_FOLDER);
+            File m_rootFolder = new File(getLocal_cacheDirectory());
             
             deleteFile(m_rootFolder.getAbsolutePath());
             cachedir = config.getCacheDirectory() + "\\" + config.getIDOCCacheRoot();
