@@ -1,14 +1,30 @@
 
 <XFormDesigntime
 	type="com.cordys.xforms.XFormDesigntime"
-	typeVersion="005056C0-0008-11E0-F8FC-5E0A815B7FB8"
 	RuntimeDocumentID="00059A3C-7800-71DE-9652-88EB61A41E7D">
 	<DocumentID>00059A3C-7800-71DE-9652-88EB61A41E7C</DocumentID>
 	<Name>SAP_ServicesPublisher_BOP4</Name>
 	<Description>SAP ServicesPublisher</Description>
 	<CreatedBy>hboecker</CreatedBy>
 	<CreationDate>2009-08-14T16:16:23.546</CreationDate>
+	<LastModifiedBy>pgussow</LastModifiedBy>
+	<LastModifiedDate>2009-10-14T08:56:27.102</LastModifiedDate>
 	<Notes/>
+	<automatic>false</automatic>
+	<caption>SAP Service Generator</caption>
+	<data/>
+	<height></height>
+	<isInternal>false</isInternal>
+	<isLegacy>false</isLegacy>
+	<left></left>
+	<mode>full</mode>
+	<parameters/>
+	<qualifiedclassname></qualifiedclassname>
+	<showOnStartPage>false</showOnStartPage>
+	<title>true</title>
+	<top></top>
+	<type>XForm</type>
+	<width></width>
 	<XFormContent>
 		<xformhtml
 			xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
@@ -78,8 +94,7 @@
 							wcpforms:layout="free"
 							wcpforms:class="simplecontainer"
 							wcpforms:labelalign="ontop">
-							<xforms:label
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf1d1655fbb">SAP Method Publisher Details</xforms:label>
+							<xforms:label>SAP Method Publisher Details</xforms:label>
 							<xforms:group
 								appearance="frame"
 								wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsFrame"
@@ -107,8 +122,7 @@
 							id="buttonPrevious"
 							wcpforms:class="h_button"
 							wcpforms:size="50px 2em">
-							<xforms:label
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf1df895fc3">Previous</xforms:label>
+							<xforms:label>Previous</xforms:label>
 						</xforms:trigger>
 					</xforms:group>
 					<xforms:group
@@ -126,8 +140,7 @@
 							id="buttonNext"
 							wcpforms:class="h_button"
 							wcpforms:size="50px 2em">
-							<xforms:label
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf1e3da5fcb">Next</xforms:label>
+							<xforms:label>Next</xforms:label>
 						</xforms:trigger>
 					</xforms:group>
 					<xforms:group
@@ -145,8 +158,7 @@
 							id="buttonFinish"
 							wcpforms:class="h_button"
 							wcpforms:size="50px 2em">
-							<xforms:label
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf1e88b9fd3">Finish</xforms:label>
+							<xforms:label>Finish</xforms:label>
 						</xforms:trigger>
 					</xforms:group>
 					<xforms:group
@@ -164,8 +176,7 @@
 							id="buttonCancel"
 							wcpforms:class="h_button"
 							wcpforms:size="50px 2em">
-							<xforms:label
-								textIdentifier="00505681-3ba3-11e1-e23a-2bf1ed05dfdb">Cancel</xforms:label>
+							<xforms:label>Cancel</xforms:label>
 						</xforms:trigger>
 					</xforms:group>
 				</xforms:group>
@@ -195,232 +206,21 @@ function validate()
 			/>
 		</xformhtml>
 	</XFormContent>
-	<width></width>
-	<automatic>false</automatic>
-	<data/>
 	<XFormWSDL/>
-	<caption>SAP Service Generator</caption>
-	<isInternal>false</isInternal>
-	<type>XForm</type>
-	<taskName></taskName>
-	<mode>full</mode>
-	<title>true</title>
-	<height></height>
-	<isLegacy>false</isLegacy>
-	<left></left>
-	<qualifiedclassname></qualifiedclassname>
-	<parameters/>
-	<showOnStartPage>false</showOnStartPage>
-	<taskDescription></taskDescription>
-	<top></top>
-	<TranslatableUITexts>
-		<TranslatableUIText
-			type="com.cordys.xforms.TranslatableUIText"
-			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf1dcb31fc0">
-			<DocumentID>00505681-3ba3-11e1-e23a-2bf1dc6f9fbf</DocumentID>
-			<Name>00505681-3ba3-11e1-e23a-2bf1dc6f9fbf</Name>
-			<Description/>
-			<CreatedBy>srkrishnan</CreatedBy>
-			<CreationDate>2011-11-18T10:37:55.018</CreationDate>
-			<Notes/>
-			<UIRef>tabpage1</UIRef>
-			<XForm>
-				<uri
-					id="00059A3C-7800-71DE-9652-88EB61A41E7C"
-				/>
-			</XForm>
-			<TranslatableName>
-				<TranslatableText
-					type="com.cordys.translation.TranslatableText"
-					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf1dbb7dfbe">
-					<DocumentID>00505681-3ba3-11e1-e23a-2bf1db0c9fbd</DocumentID>
-					<Name>00505681-3ba3-11e1-e23a-2bf1db0c9fbd</Name>
-					<Description/>
-					<CreatedBy>srkrishnan</CreatedBy>
-					<CreationDate>2011-11-18T10:38:00.231</CreationDate>
-					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf1d1655fbb"
-						/>
-					</Identifier>
-				</TranslatableText>
-			</TranslatableName>
-			<TooltipText/>
-		</TranslatableUIText>
-		<TranslatableUIText
-			type="com.cordys.xforms.TranslatableUIText"
-			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf1e1b45fc8">
-			<DocumentID>00505681-3ba3-11e1-e23a-2bf1e1889fc7</DocumentID>
-			<Name>00505681-3ba3-11e1-e23a-2bf1e1889fc7</Name>
-			<Description/>
-			<CreatedBy>srkrishnan</CreatedBy>
-			<CreationDate>2011-11-18T10:37:57.691</CreationDate>
-			<Notes/>
-			<UIRef>buttonPrevious</UIRef>
-			<XForm>
-				<uri
-					id="00059A3C-7800-71DE-9652-88EB61A41E7C"
-				/>
-			</XForm>
-			<TranslatableName>
-				<TranslatableText
-					type="com.cordys.translation.TranslatableText"
-					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf1e14a1fc6">
-					<DocumentID>00505681-3ba3-11e1-e23a-2bf1e11e5fc5</DocumentID>
-					<Name>00505681-3ba3-11e1-e23a-2bf1e11e5fc5</Name>
-					<Description/>
-					<CreatedBy>srkrishnan</CreatedBy>
-					<CreationDate>2011-11-18T10:37:55.145</CreationDate>
-					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf1df895fc3"
-						/>
-					</Identifier>
-				</TranslatableText>
-			</TranslatableName>
-			<TooltipText/>
-		</TranslatableUIText>
-		<TranslatableUIText
-			type="com.cordys.xforms.TranslatableUIText"
-			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf1e5fddfd0">
-			<DocumentID>00505681-3ba3-11e1-e23a-2bf1e5cd1fcf</DocumentID>
-			<Name>00505681-3ba3-11e1-e23a-2bf1e5cd1fcf</Name>
-			<Description/>
-			<CreatedBy>srkrishnan</CreatedBy>
-			<CreationDate>2011-11-18T10:37:57.763</CreationDate>
-			<Notes/>
-			<UIRef>buttonNext</UIRef>
-			<XForm>
-				<uri
-					id="00059A3C-7800-71DE-9652-88EB61A41E7C"
-				/>
-			</XForm>
-			<TranslatableName>
-				<TranslatableText
-					type="com.cordys.translation.TranslatableText"
-					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf1e5849fce">
-					<DocumentID>00505681-3ba3-11e1-e23a-2bf1e5551fcd</DocumentID>
-					<Name>00505681-3ba3-11e1-e23a-2bf1e5551fcd</Name>
-					<Description/>
-					<CreatedBy>srkrishnan</CreatedBy>
-					<CreationDate>2011-11-18T10:37:55.12</CreationDate>
-					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf1e3da5fcb"
-						/>
-					</Identifier>
-				</TranslatableText>
-			</TranslatableName>
-			<TooltipText/>
-		</TranslatableUIText>
-		<TranslatableUIText
-			type="com.cordys.xforms.TranslatableUIText"
-			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf1eaa79fd8">
-			<DocumentID>00505681-3ba3-11e1-e23a-2bf1ea7bdfd7</DocumentID>
-			<Name>00505681-3ba3-11e1-e23a-2bf1ea7bdfd7</Name>
-			<Description/>
-			<CreatedBy>srkrishnan</CreatedBy>
-			<CreationDate>2011-11-18T10:37:55.022</CreationDate>
-			<Notes/>
-			<UIRef>buttonFinish</UIRef>
-			<XForm>
-				<uri
-					id="00059A3C-7800-71DE-9652-88EB61A41E7C"
-				/>
-			</XForm>
-			<TranslatableName>
-				<TranslatableText
-					type="com.cordys.translation.TranslatableText"
-					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf1ea349fd6">
-					<DocumentID>00505681-3ba3-11e1-e23a-2bf1e9dbdfd5</DocumentID>
-					<Name>00505681-3ba3-11e1-e23a-2bf1e9dbdfd5</Name>
-					<Description/>
-					<CreatedBy>srkrishnan</CreatedBy>
-					<CreationDate>2011-11-18T10:37:55.001</CreationDate>
-					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf1e88b9fd3"
-						/>
-					</Identifier>
-				</TranslatableText>
-			</TranslatableName>
-			<TooltipText/>
-		</TranslatableUIText>
-		<TranslatableUIText
-			type="com.cordys.xforms.TranslatableUIText"
-			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf1ef105fe0">
-			<DocumentID>00505681-3ba3-11e1-e23a-2bf1eec19fdf</DocumentID>
-			<Name>00505681-3ba3-11e1-e23a-2bf1eec19fdf</Name>
-			<Description/>
-			<CreatedBy>srkrishnan</CreatedBy>
-			<CreationDate>2011-11-18T10:37:54.974</CreationDate>
-			<Notes/>
-			<UIRef>buttonCancel</UIRef>
-			<XForm>
-				<uri
-					id="00059A3C-7800-71DE-9652-88EB61A41E7C"
-				/>
-			</XForm>
-			<TranslatableName>
-				<TranslatableText
-					type="com.cordys.translation.TranslatableText"
-					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf1ee831fde">
-					<DocumentID>00505681-3ba3-11e1-e23a-2bf1ee525fdd</DocumentID>
-					<Name>00505681-3ba3-11e1-e23a-2bf1ee525fdd</Name>
-					<Description/>
-					<CreatedBy>srkrishnan</CreatedBy>
-					<CreationDate>2011-11-18T10:37:54.985</CreationDate>
-					<Notes/>
-					<Identifier>
-						<uri
-							id="00505681-3ba3-11e1-e23a-2bf1ed05dfdb"
-						/>
-					</Identifier>
-				</TranslatableText>
-			</TranslatableName>
-			<TooltipText/>
-		</TranslatableUIText>
-	</TranslatableUITexts>
-	<Representations/>
-	<ReferredXForms/>
+	<aclFragments/>
+	<CompositeControls/>
+	<deliveryModels/>
+	<Htms/>
 	<image>
 		<uri
-			id="00505681-3ba3-11e1-e23a-2bdfba331f3f"
+			id="001D09BE-4863-71DE-8EEE-B89DB8C8A324"
 			path="SAP R3 Connector/Web Files/bac/sap/images/sap_icon_cordys_all_sizes.png"
 			type="com.cordys.cws.documenttypes.image.Png"
 		/>
 	</image>
-	<TranslatableApplications/>
 	<Images/>
-	<messages/>
-	<Webservices/>
-	<StyleSheets/>
 	<input/>
-	<taskParts/>
-	<TranslatableName>
-		<TranslatableText
-			type="com.cordys.translation.TranslatableText"
-			RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf1cdeb5fb8">
-			<DocumentID>00505681-3ba3-11e1-e23a-2bf1cdbf9fb7</DocumentID>
-			<Name>00505681-3ba3-11e1-e23a-2bf1cdbf9fb7</Name>
-			<Description/>
-			<CreatedBy>srkrishnan</CreatedBy>
-			<CreationDate>2011-11-18T10:37:57.579</CreationDate>
-			<Notes/>
-			<Identifier>
-				<uri
-					id="00505681-3ba3-11e1-e23a-2bf1cc759fb5"
-				/>
-			</Identifier>
-		</TranslatableText>
-	</TranslatableName>
-	<aclFragments/>
-	<tagsContainer/>
-	<deliveryModels/>
+	<Javascripts/>
 	<messageParts>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
@@ -430,10 +230,12 @@ function validate()
 			<Description>WebserviceDefinitionSetModel</Description>
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-10-12T09:39:03.028</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-10-14T08:43:48.596</LastModifiedDate>
 			<Notes/>
 			<isRefExists>false</isRefExists>
-			<operationName></operationName>
 			<namespace>http://schemas.cordys.com/1.0/xforms/processapi</namespace>
+			<operationName></operationName>
 		</MessagePart>
 		<MessagePart
 			type="com.cordys.task.MessagePart"
@@ -443,14 +245,17 @@ function validate()
 			<Description>freeformcontrols</Description>
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-10-12T09:37:55.478</CreationDate>
+			<LastModifiedBy>pgussow</LastModifiedBy>
+			<LastModifiedDate>2009-10-14T08:43:48.596</LastModifiedDate>
 			<Notes/>
 			<isRefExists>false</isRefExists>
-			<operationName>freeformcontrols</operationName>
 			<namespace>http://schemas.cordys.com/1.0/xforms/processapi</namespace>
+			<operationName>freeformcontrols</operationName>
 		</MessagePart>
 	</messageParts>
-	<InstanceSchemaFragments/>
-	<Htms/>
 	<output/>
-	<Javascripts/>
+	<StyleSheets/>
+	<taskParts/>
+	<TranslatableApplications/>
+	<Webservices/>
 </XFormDesigntime>
