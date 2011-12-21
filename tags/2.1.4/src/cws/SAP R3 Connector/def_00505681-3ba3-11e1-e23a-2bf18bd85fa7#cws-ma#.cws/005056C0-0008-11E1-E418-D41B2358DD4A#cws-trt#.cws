@@ -1,0 +1,22 @@
+
+<TranslatedText
+	type="com.cordys.translation.TranslatedText"
+	RuntimeDocumentID="005056C0-0008-11E1-E418-D41B2358FD4A">
+	<DocumentID>005056C0-0008-11E1-E418-D41B2358DD4A</DocumentID>
+	<Name>005056C0-0008-11E1-E418-D41B2358DD4A</Name>
+	<Description>MESSAGE_V2</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-12-07T11:29:19.668</CreationDate>
+	<Notes/>
+	<Text>MESSAGE_V2</Text>
+	<Language>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf18b5ddfa5"
+		/>
+	</Language>
+	<TextIdentifier>
+		<uri
+			id="005056C0-0008-11E1-E418-D41B23589D4A"
+		/>
+	</TextIdentifier>
+</TranslatedText>

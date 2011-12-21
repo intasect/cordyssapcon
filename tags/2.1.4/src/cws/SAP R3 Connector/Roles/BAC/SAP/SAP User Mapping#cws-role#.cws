@@ -1,0 +1,33 @@
+
+<RoleDesignTime
+	type="com.cordys.organization.role.RoleDesignTime"
+	RuntimeDocumentID="00059A3C-7800-71DE-9653-8AF640C2ABE5">
+	<DocumentID>00059A3C-7800-71DE-9653-8AF640C2ABE4</DocumentID>
+	<Name>SAP User Mapping</Name>
+	<Description>SAP User Mapping</Description>
+	<CreatedBy>hboecker</CreatedBy>
+	<CreationDate>2009-08-17T09:37:36.14</CreationDate>
+	<Notes/>
+	<isFunctionalRole>true</isFunctionalRole>
+	<type>Functional</type>
+	<DistinguishedName>cn=#roleName#, cn=#ISVPName#, #LDAPRoot#</DistinguishedName>
+	<configuredTasks>
+		<ConfiguredTask
+			type="com.cordys.task.ConfiguredTask"
+			RuntimeDocumentID="00505681-3ba3-11e1-e2b9-32592463df97">
+			<DocumentID>00505681-3ba3-11e1-e2b9-325924615f96</DocumentID>
+			<Name>SAP User Mapping_00505681-3ba3-11e1-e2b9-325924615f96</Name>
+			<Description>SAP User Mapping_00505681-3ba3-11e1-e2b9-325924615f96</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-11-23T11:55:31.186</CreationDate>
+			<Notes/>
+			<configuredTaskParts/>
+			<uiTask>
+				<uri
+					id="00505681-3ba3-11e1-e29f-4512d3d6143d"
+				/>
+			</uiTask>
+		</ConfiguredTask>
+	</configuredTasks>
+	<Subroles/>
+</RoleDesignTime>

@@ -1,0 +1,21 @@
+
+<QualifiedNameRoot
+	type="com.cordys.cws.namespace.qualifiedname.QualifiedNameRoot"
+	RuntimeDocumentID="005056C0-0008-71DE-9657-8CC2DDF3A0D4">
+	<DocumentID>005056C0-0008-71DE-9657-8CC2DDF3A0D3</DocumentID>
+	<Name>QualifiedNameRoot_Forms</Name>
+	<Description>QualifiedNameRoot_Forms</Description>
+	<CreatedBy>hboecker</CreatedBy>
+	<CreationDate>2009-08-19T14:15:02.296</CreationDate>
+	<LastModifiedBy>hboecker</LastModifiedBy>
+	<LastModifiedDate>2009-08-19T14:15:02.296</LastModifiedDate>
+	<Notes/>
+	<DesigntimeQNRFolder/>
+	<RuntimeQNRFolder>
+		<uri
+			id="005056C0-0008-71DE-9657-8CCA8983FC73"
+			path="SAP R3 Connector/Forms"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</RuntimeQNRFolder>
+</QualifiedNameRoot>

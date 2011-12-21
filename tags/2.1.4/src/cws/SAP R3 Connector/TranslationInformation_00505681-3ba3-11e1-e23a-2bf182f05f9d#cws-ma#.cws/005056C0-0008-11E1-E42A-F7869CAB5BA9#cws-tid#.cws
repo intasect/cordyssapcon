@@ -1,0 +1,23 @@
+
+<TextIdentifier
+	type="com.cordys.translation.TextIdentifier"
+	typeVersion="55890f21-u239-76j6-988a-92j7opq6ws09"
+	RuntimeDocumentID="005056C0-0008-11E1-E42A-F7869CAB7BA9">
+	<DocumentID>005056C0-0008-11E1-E42A-F7869CAB5BA9</DocumentID>
+	<Name>005056C0-0008-11E1-E42A-F7869CAB5BA9</Name>
+	<Description>Currency Decimals</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-12-08T04:54:38.941</CreationDate>
+	<Notes/>
+	<DefaultText>Currency Decimals</DefaultText>
+	<Translations>
+		<uri
+			id="005056C0-0008-11E1-E42A-F7869CAB9BA9"
+		/>
+	</Translations>
+	<TranslationInformation>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf181ca9f9b"
+		/>
+	</TranslationInformation>
+</TextIdentifier>

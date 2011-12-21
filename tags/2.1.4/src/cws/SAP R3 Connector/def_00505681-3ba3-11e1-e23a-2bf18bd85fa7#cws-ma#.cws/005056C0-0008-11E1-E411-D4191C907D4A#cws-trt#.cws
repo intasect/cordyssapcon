@@ -1,0 +1,22 @@
+
+<TranslatedText
+	type="com.cordys.translation.TranslatedText"
+	RuntimeDocumentID="005056C0-0008-11E1-E411-D4191C909D4A">
+	<DocumentID>005056C0-0008-11E1-E411-D4191C907D4A</DocumentID>
+	<Name>005056C0-0008-11E1-E411-D4191C907D4A</Name>
+	<Description>CURRENCY</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-12-07T11:29:19.661</CreationDate>
+	<Notes/>
+	<Text>CURRENCY</Text>
+	<Language>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf18b5ddfa5"
+		/>
+	</Language>
+	<TextIdentifier>
+		<uri
+			id="005056C0-0008-11E1-E411-D4191C903D4A"
+		/>
+	</TextIdentifier>
+</TranslatedText>
