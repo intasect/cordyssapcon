@@ -1,0 +1,114 @@
+<data>
+	<tuple>
+		<old>
+			<sapobject>
+				<type>bapi</type>
+				<displayname>CompanyCode</displayname>
+				<value>BUS0002</value>
+				<items>
+					<item>
+						<displayname>ExistenceCheck</displayname>
+						<value>BAPI_COMPANYCODE_EXISTENCECHK</value>
+						<detail>
+							<bapi>
+								<method>EXISTENCECHECK</method>
+								<methodname>ExistenceCheck</methodname>
+								<description>Check CCde existence</description>
+								<shorttext>Check if company code exists</shorttext>
+								<function>BAPI_COMPANYCODE_EXISTENCECHK</function>
+								<classverb></classverb>
+								<apitype></apitype>
+							</bapi>
+						</detail>
+					</item>
+					<item>
+						<displayname>GetList</displayname>
+						<value>BAPI_COMPANYCODE_GETLIST</value>
+						<detail>
+							<bapi>
+								<method>GETLIST</method>
+								<methodname>GetList</methodname>
+								<description>List Company Codes</description>
+								<shorttext>List of Company Codes</shorttext>
+								<function>BAPI_COMPANYCODE_GETLIST</function>
+								<classverb>X</classverb>
+								<apitype></apitype>
+							</bapi>
+						</detail>
+					</item>
+				</items>
+			</sapobject>
+		</old>
+	</tuple>
+	<tuple>
+		<old>
+			<sapobject>
+				<type>rfc</type>
+				<displayname>search criteria</displayname>
+				<value>search criteria</value>
+				<items>
+					<item>
+						<displayname>AAA_ACTIVITY_GROUP_ENQUEUE</displayname>
+						<value>AAA_ACTIVITY_GROUP_ENQUEUE</value>
+						<detail>
+							<rfc>
+								<function>AAA_ACTIVITY_GROUP_ENQUEUE</function>
+								<groupname>S_AUTH_TOOL_2</groupname>
+								<application>S</application>
+								<host></host>
+								<stext></stext>
+							</rfc>
+						</detail>
+					</item>
+					<item>
+						<displayname>ADD_JOB_MSQ</displayname>
+						<value>ADD_JOB_MSQ</value>
+						<detail>
+							<rfc>
+								<function>ADD_JOB_MSQ</function>
+								<groupname>SFMSS_JOBS</groupname>
+								<application>S</application>
+								<host></host>
+								<stext>MS SQL server function to add a sql server job</stext>
+							</rfc>
+						</detail>
+					</item>
+				</items>
+			</sapobject>
+		</old>
+	</tuple>
+	<tuple>
+		<old>
+			<sapobject>
+				<type>idoc</type>
+				<displayname>ACC_ACT_ALLOC: Accounting: Post activity allocation</displayname>
+				<value>ACC_ACT_ALLOC</value>
+				<description>Accounting: Post activity allocation</description>
+				<items>
+					<item>
+						<displayname>ACC_ACT_ALLOC01</displayname>
+						<value>ACC_ACT_ALLOC01</value>
+						<detail>
+							<idoc>
+								<type>ACC_ACT_ALLOC01</type>
+								<cimtype></cimtype>
+								<released>40A</released>
+							</idoc>
+						</detail>
+					</item>
+					<item>
+						<displayname>ACC_ACT_ALLOC02</displayname>
+						<value>ACC_ACT_ALLOC02</value>
+						<detail>
+							<idoc>
+								<type>ACC_ACT_ALLOC02</type>
+								<cimtype></cimtype>
+								<released>40C</released>
+							</idoc>
+						</detail>
+					</item>
+				</items>
+			</sapobject>
+		</old>
+	</tuple>
+</data>
