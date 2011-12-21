@@ -27,6 +27,7 @@ import com.eibus.applicationconnector.sap.metadata.ESAPObjectType;
 import com.eibus.applicationconnector.sap.metadata.IMetadataCache;
 import com.eibus.applicationconnector.sap.metadata.types.ITypeContainer;
 import com.eibus.applicationconnector.sap.metadata.types.SAPMetadataFactory;
+import com.eibus.applicationconnector.sap.soap.ClearCache;
 import com.eibus.applicationconnector.sap.util.BACUtil;
 
 import com.eibus.util.logger.CordysLogger;
@@ -74,8 +75,7 @@ class FileSystemStorage
     {
         m_organization = organization;
 
-        m_rootFolder = new File(EIBProperties.getInstallDir(),
-                                SAPConnectorConstants.ROOT_CACHE_FOLDER);
+        m_rootFolder = new File(ClearCache.getLocal_cacheDirectory());
 
         if (!m_rootFolder.exists())
         {

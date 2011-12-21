@@ -36,6 +36,7 @@ import com.eibus.applicationconnector.sap.metadata.IMetadataCache;
 import com.eibus.applicationconnector.sap.metadata.MetadataCacheFactory;
 import com.eibus.applicationconnector.sap.metadata.storage.CacheStorageFactory;
 import com.eibus.applicationconnector.sap.metadata.storage.ICacheStorage;
+import com.eibus.applicationconnector.sap.soap.ClearCache;
 import com.eibus.applicationconnector.sap.usermapping.IUserMapping;
 import com.eibus.applicationconnector.sap.usermapping.UserMappingFactory;
 import com.eibus.applicationconnector.sap.util.Util;
@@ -336,10 +337,12 @@ class ProcessorConfig
         {
             // Default it to the installation folder
             File cacheFolder = new File(EIBProperties.getInstallDir(),
-                                        SAPConnectorConstants.DEPLOY_PATH);
+                                        SAPConnectorConstants.ROOT_CACHE_FOLDER);
             m_cacheDirectory = cacheFolder.getAbsolutePath();
         }
 
+        ClearCache.setLocal_cacheDirectory(m_cacheDirectory);
+        
         // Now we need to do the relative paths for the cache folders.
         // TODO: make it configurable.
         m_idocCacheRoot = DEFAULT_INTERFACES_IDOC;
