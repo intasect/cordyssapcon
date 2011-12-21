@@ -1,17 +1,17 @@
 
 <XFormDesigntime
 	type="com.cordys.xforms.XFormDesigntime"
-	RuntimeDocumentID="005056C0-0008-71DE-965C-927ACF2CEF68">
-	<DocumentID>005056C0-0008-71DE-965C-927ACF2CEF67</DocumentID>
-	<Name>Demo</Name>
-	<Description>Demo</Description>
+	RuntimeDocumentID="00059A3C-7800-71DE-9653-8B26111FAC63">
+	<DocumentID>00059A3C-7800-71DE-9653-8B26111FAC62</DocumentID>
+	<Name>User Mapping</Name>
+	<Description>Cordys SAP Administration</Description>
 	<CreatedBy>hboecker</CreatedBy>
-	<CreationDate>2009-08-26T20:31:24.546</CreationDate>
+	<CreationDate>2009-08-17T12:04:44.953</CreationDate>
 	<LastModifiedBy>pgussow</LastModifiedBy>
-	<LastModifiedDate>2009-10-15T07:40:29.526</LastModifiedDate>
+	<LastModifiedDate>2009-10-15T07:40:34.714</LastModifiedDate>
 	<Notes/>
 	<automatic>false</automatic>
-	<caption>SAP Demo</caption>
+	<caption>SAP Administration</caption>
 	<data/>
 	<height></height>
 	<isInternal>false</isInternal>
@@ -34,24 +34,24 @@
 			xmlns:ev="http://www.w3.org/2001/xml-events"
 			xmlns:wcpforms="http://schemas.cordys.com/wcp/xforms"
 			xformsversion="2"
-			key="Cordys/SAP/BOP4/SAP_Demo"
+			key="Cordys/SAP/BOP4/SAP_Admin_BOP4"
 			focusatstartup="true">
 			<xhead>
 				<xml
 					xmlns="">
 					<xml
-						id="customerGetList_SapDemo">
+						id="sap_idocstatusmonitor_bop4">
 						<Application
 							xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/"
 							title="false"
 							dockable="true"
 							inPreferences="false"
 							registerViewAs="self"
-							clientattr:sync_id="2">
-							<description>Customer GetList</description>
-							<caption>SAP Demo GetList</caption>
-							<id>customerGetList_SapDemo</id>
-							<url>/cordys/bac/sap/demo/customergetlist.htm</url>
+							clientattr:sync_id="3">
+							<description>IDOC Status Monitor</description>
+							<caption>AppPalette8</caption>
+							<id>sap_idocstatusmonitor_bop4</id>
+							<url>/cordys/bac/sap/idocStatusMonitor.htm</url>
 							<data/>
 							<region
 								docked="true"
@@ -62,18 +62,18 @@
 						</Application>
 					</xml>
 					<xml
-						id="customerCreateFromData_SapDemo">
+						id="sapuermapping_bop4">
 						<Application
 							xmlns:clientattr="http://schemas.cordys.com/General/ClientAttributes/"
 							title="false"
 							dockable="true"
 							inPreferences="false"
 							registerViewAs="self"
-							clientattr:sync_id="2">
-							<description>Create Customer in SAP</description>
-							<caption>SAP Demo Create Customer </caption>
-							<id>customerCreateFromData_SapDemo</id>
-							<url>/cordys/bac/sap/demo/customercreatefromdata.htm</url>
+							clientattr:sync_id="4">
+							<description>SAP User Mapping</description>
+							<caption>AppPalette9</caption>
+							<id>sapuermapping_bop4</id>
+							<url>/cordys/bac/sap/sapusermapping.htm</url>
 							<data/>
 							<region
 								docked="true"
@@ -89,7 +89,7 @@
 				<xforms:group
 					wcpforms:layout="free"
 					id="xbody_group"
-					wcpforms:labelalign="ontop">
+					wcpforms:labelalign="">
 					<xforms:group
 						appearance="regionset"
 						wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRegionSet"
@@ -107,9 +107,9 @@
 							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRegion"
 							wcpforms:type="left"
 							id="region1"
-							wcpforms:offset="713"
+							wcpforms:offset="982"
 							wcpforms:appPalettes="true"
-							wcpforms:appPaletteDefinitions=" customerGetList_SapDemo customerCreateFromData_SapDemo"
+							wcpforms:appPaletteDefinitions=" sapuermapping_bop4"
 							wcpforms:layout="vertical"
 							wcpforms:class="region"
 						/>
@@ -138,7 +138,13 @@
 	<CompositeControls/>
 	<deliveryModels/>
 	<Htms/>
-	<image/>
+	<image>
+		<uri
+			id="001D09BE-4863-71DE-8EEE-B89DB8C8A320"
+			path="SAP R3 Connector/Web Files/bac/sap/images/sap_icon_cordys_all_sizes_Admin.png"
+			type="com.cordys.cws.documenttypes.image.Png"
+		/>
+	</image>
 	<Images/>
 	<input/>
 	<Javascripts/>
