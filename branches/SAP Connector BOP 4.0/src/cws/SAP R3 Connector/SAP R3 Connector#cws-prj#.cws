@@ -12,7 +12,7 @@
 	<NamespacePrefix></NamespacePrefix>
 	<SourceFolder>
 		<uri
-			id="000c29a8-8d12-11e1-e560-c417c9779f21"
+			id="000c29a8-8d12-11e1-e8cb-993a915116a2"
 			path="SAP R3 Connector"
 			type="com.cordys.cws.runtime.types.folder.StudioFolder"
 		/>
@@ -22,13 +22,13 @@
 			type="com.cordys.cws.packaging.isvp.ISVPackageInfo"
 			RuntimeDocumentID="005056C0-0008-71DE-9657-8CC2DDF3A0E8">
 			<DocumentID>005056C0-0008-71DE-9657-8CC2DDF3A0E7</DocumentID>
-			<Name>Cordys SAP R3 2.0.6</Name>
-			<Description>Cordys SAP R3 2.0.6</Description>
+			<Name>Cordys SAP R3 2.0.7</Name>
+			<Description>Cordys SAP R3 2.0.7</Description>
 			<CreatedBy>hboecker</CreatedBy>
 			<CreationDate>2009-08-19T14:08:59.671</CreationDate>
 			<Notes/>
-			<BuildNumber>6</BuildNumber>
-			<ISVPackageFileName>Cordys SAP R3 2.0.6</ISVPackageFileName>
+			<BuildNumber>7</BuildNumber>
+			<ISVPackageFileName>Cordys SAP R3 2.0.7</ISVPackageFileName>
 			<Version>2.0</Version>
 			<Product>SAP R3 Connector </Product>
 			<PostISVLoaderInformation/>

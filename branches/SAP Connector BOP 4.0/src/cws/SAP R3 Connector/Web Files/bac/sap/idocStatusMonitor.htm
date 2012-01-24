@@ -29,8 +29,8 @@ limitations under the License.
  **                                                                                                   **
  ** changed: 26.aug2009: Helmut Boecker - window.application.container.maximize()                     **
  ** changed: 26.aug2009: Helmut Boecker - selLocalStatus.getValue() -  instead of value               **
- ** changed: 26.aug2009: Helmut Boecker - <url>\cordys\abc\getMessageType.htm</url> to <url>\cordys\BAC\sap\getMessageType.htm</url>   **
- ** changed: 26.aug2009: Helmut Boecker - <url>\cordys\abc\IdocRecordViewer.htm</url> to <url>\cordys\BAC\sap\IdocRecordViewer.htm</url>   **
+ ** changed: 26.aug2009: Helmut Boecker - <url>\cordys\abc\getMessageType.htm</url> to <url>\cordys\bac\sap\getMessageType.htm</url>   **
+ ** changed: 26.aug2009: Helmut Boecker - <url>\cordys\abc\IdocRecordViewer.htm</url> to <url>\cordys\bac\sap\IdocRecordViewer.htm</url>   **
  **                                                                                                   **
  **                                                                                                   **
 -->
@@ -821,7 +821,7 @@ limitations under the License.
 		<xml id="FindMessage">
 		<Application>
 			<description></description>
-            <url>\cordys\BAC\sap\getMessageType.htm</url>
+            <url>\cordys\bac\sap\getMessageType.htm</url>
             <caption>Select message type</caption>
             <frame docked="false" height="650" left="300" top="100" width="460"></frame>
             <id>FindMessageID</id>            
@@ -837,7 +837,7 @@ limitations under the License.
 	<xml id="IdocRecords">
 		<Application>
 			<description></description>
-            <url>\cordys\BAC\sap\IdocRecordViewer.htm</url>
+            <url>\cordys\bac\sap\IdocRecordViewer.htm</url>
             <caption>Idoc Record Viewer</caption>
             <id>IdocRecordID</id>
             <frame>main</frame>
@@ -889,7 +889,7 @@ limitations under the License.
 						<br>
 						<input id="fromDateFld" class="input" readonly="true" fieldType="date"  filter="[\w +-/]" displayFormat="YYYY-MM-DD">&nbsp;
 						<button onclick="cal.openCalendar(fromDateFld)"  style="width:18px;height:18px;left:250" class="lightmedium" title=" From Date">
-							<img align="absMiddle" src="/cordys/BAC/sap/images/calendar.gif">
+							<img align="absMiddle" src="/cordys/bac/sap/images/calendar.gif">
 						</button>
 					</td>
 				</tr>
@@ -900,7 +900,7 @@ limitations under the License.
 						<br>
 						<input id="toDateFld" class="input" readonly="true" fieldType="date"  filter="[\w +-/]" displayFormat="YYYY-MM-DD">&nbsp;
 						<button onclick="cal.openCalendar(toDateFld)" style="width:18px;height:18px" class="lightmedium" title="To Date">
-							<img align="absMiddle" src="/cordys/BAC/sap/images/calendar.gif" >
+							<img align="absMiddle" src="/cordys/bac/sap/images/calendar.gif" >
 						</button>					
 					</td>
 				</tr>
@@ -913,7 +913,7 @@ limitations under the License.
 					<td>
 						<input class="input" style="TEXT-ALIGN: left" id="MessageType" onBlur="IdocType()">&nbsp;
 						<button style="width:18px;height:18px" class="lightmedium" onclick="ShowMessage()" title="Message Types">
-							<img align="absMiddle" src="/cordys/BAC/sap/images/lookup.gif">
+							<img align="absMiddle" src="/cordys/bac/sap/images/lookup.gif">
 						</button>
 					</td>
 				</tr>
@@ -997,43 +997,43 @@ limitations under the License.
  			<tr>
  				<td width="1%">
  					<button class="lightmedium" id="sync_button" style="WIDTH:18px; TOP: 20px; HEIGHT:18px;background-color:transparent" onclick="showIdoc()" title="Idoc Record">
-						<img align="absMiddle" id="sync_img" src="/cordys/BAC/sap/images/sync12.gif">
+						<img align="absMiddle" id="sync_img" src="/cordys/bac/sap/images/sync12.gif">
 					</button>
 				</td>
 
 				<td width="1%">
 					<button class="lightmedium" id="resend_button"  style="WIDTH:18px;TOP:20px;HEIGHT:18px;background-color:transparent" onclick="synchronizeIdoc()">
-						<img align="absMiddle" id="resend_img" src="/cordys/BAC/sap/images/resend12.gif">
+						<img align="absMiddle" id="resend_img" src="/cordys/bac/sap/images/resend12.gif">
 					</button>
 				</td>
 
 				<td width="1%">
 					<button class="lightmedium" id="delete_button" style="WIDTH:18px;TOP:20px;HEIGHT:18px;background-color:transparent" onclick="deleteIdocs()" title="Delete Idoc(s)">
-						<img align="absMiddle" id="delete_img" src="/cordys/BAC/sap/images/delete12.gif">
+						<img align="absMiddle" id="delete_img" src="/cordys/bac/sap/images/delete12.gif">
 					</button>
 				</td>
 
 				<td width="62%" align="right" id="gridButtonRow">
 					<button style="WIDTH: 18px; TOP: 20px; HEIGHT:18px;background-color:transparent "  id="first_button" title="Move First" onclick="movefirst()">
-						<img align="absMiddle" src="/cordys/BAC/sap/images/first12.gif" id="movefirst_img">
+						<img align="absMiddle" src="/cordys/bac/sap/images/first12.gif" id="movefirst_img">
 					</button>
 				</td>
 
 				<td width="1%">
 					<button class="lightmedium" style="WIDTH:18px;TOP:20px;HEIGHT:18px;background-color:transparent" title="Move Previous" id="previous_button" onclick="moveprevious()">
-						<img align="absMiddle" src="/cordys/BAC/sap/images/previous12.gif" id="moveprevious_img">
+						<img align="absMiddle" src="/cordys/bac/sap/images/previous12.gif" id="moveprevious_img">
 					</button>
 				</td>
 
 				<td width="1%">
 					<button  class="lightmedium" style="WIDTH:18px; TOP: 20px; HEIGHT:18px;background-color:transparent" id="next_button" title="Move Next" onclick="movenext()">
-						<img align="absMiddle" src="/cordys/BAC/sap/images/next12.gif" id="movenext_img">
+						<img align="absMiddle" src="/cordys/bac/sap/images/next12.gif" id="movenext_img">
 					</button>
 				</td>
 
 				<td width="2%">
 					<button class="lightmedium" style="WIDTH:18px;TOP:20px;HEIGHT:18px;background-color:transparent" id="last_button" title="Move Last" onclick="movelast()">
-						<img align="absMiddle" src="/cordys/BAC/sap/images/last12.gif" id="movelast_img">
+						<img align="absMiddle" src="/cordys/bac/sap/images/last12.gif" id="movelast_img">
 					</button>
 				</td>
 			</tr>
