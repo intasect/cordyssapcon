@@ -1,0 +1,1114 @@
+<!--
+Copyright 2003 Cordys R&D B.V. 
+
+This file is part of the Cordys SAP Connector. 
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!--
+ Project  : Cordys SAP Connector
+ File Name : targetMapping.htm
+ Description : This page is used to define Target Mappings; saved in XMLStore.
+ author : Vijaya Gopal  ??
+ ======================== adjustment for BOP4 compliance ===============================================
+ **                                                                                                   **
+ ** changed: 14.aug2009: Mikko Poyhonen - xmlns:eibus="xmlns:eibus"                                   **
+ ** changed: 14.aug2009: Mikko Poyhonen - moved the  tag </head> from end of dataisland before script **
+ ** changed: 14.aug2009: Mikko Poyhonen - window.application.container.close()                        **
+ ** changed: 14.aug2009: Mikko Poyhonen - added application.js                                        **
+ ** changed: 14.aug2009: Mikko Poyhonen - removed link to behaviors.css                               **
+ ** changed: 14.aug2009: Mikko Poyhonen - changed "window.event.data" to "application.event.data"     **
+ ** changed: 26.aug2009: Helmut Boecker - adjusted  ShowCreatMapping() to use getValue()              ** 
+-->
+
+<html xmlns:eibus="xmlns:eibus"  onselect="applicationID();fillgrid()" onbeforeapplicationclose="checkSave()">
+	<head>
+		<title>Target mapping</title>
+		<script src="/cordys/wcp/application.js"></script>
+		
+		<style>
+			label {font-size:11; font-family:verdana; font-weight:normal;}
+			input {font-size:11; font-family:verdana; font-weight:normal;}
+			eibus\:select {font-size:11; font-family:verdana;}
+			button {font-size:11; font-family:verdana;width:95px}
+		</style>
+	</head>	
+	
+	<script language="JavaScript">
+		var name,mesType,idocType,recipient,organisationDN,soapNode,soapNodeDN,methodSet,methodSetDN,methods,methodsDN,nameSpaceDN;
+		var mappingNode,rowNumber=0,searchPattern_Update=""; //,lastModifiedAttribute;
+		var row;//This is to store copy of first row of the grid
+		var appID;//This is to store id of an application
+		var saveFlag=0;//This is to check the status whether the changes made by him/her have been saved or not
+		
+		//This function is used to get Application id whenever application will load at first
+		function applicationID()
+		{	
+			appID=application.container.applicationId;			
+			disableDeleteMappingButton();
+			disableRefreshMappingButton();
+		}		
+
+		/*This is to check what user has selected search preference and will paas to 
+		 *getMessageType as its parentId form
+		 */
+		function ShowCreatMapping()
+		{
+			//if(searchPattern.value=="")  // ** hb: 26.aug2009 replaced with getValue()
+			if(searchPattern.getValue() == "")
+      { 
+				window.alert("Please select Search Pattern");
+      }
+
+			else
+			{
+				var xml_CreateMapping = createMappingID.XMLDocument.documentElement;
+				constructor_parameter.selectSingleNode(".//parentID").text=appID;
+				constructor_parameter.selectSingleNode(".//searchpattern").text=searchPattern.getValue();
+				var xml_passParameter = constructor_parameter.XMLDocument;
+				application.select(xml_CreateMapping,xml_passParameter);
+			}
+		}
+
+		//This is to hide the grid, buttons and controls as per user search pattern
+		function searchPatternDisplay()
+		{
+			if(searchPattern_Update.text=="DEFAULT")
+			{
+				defaultContents.style.display="inline";
+				tMappingDetails.style.display="none";
+				buttonTables.style.display="none";		
+			}
+
+			else
+			{
+				defaultContents.style.display="none";
+				tMappingDetails.style.display="inline";
+				buttonTables.style.display="inline";
+			}
+		}
+
+		/*This is to check what the search pattern user has selected then accordingly it will
+		 *show grid(in case of User-Ordered) or simple controls(in case of default)
+		 */
+		function search_pattern()
+		{
+			if(searchPattern.getValue()=="DEFAULT")
+			{
+				if(searchPattern_Update.text!="DEFAULT")
+				{
+					window.alert("No default mapping found.");
+					return;
+				}
+				else
+				{
+					defaultContents.style.display="inline";
+					tMappingDetails.style.display="none";
+					buttonTables.style.display="none";				
+				}
+			}
+			else
+			{
+				if(searchPattern_Update.text=="DEFAULT")
+				{
+					window.alert("Only default mapping found.");
+					return;
+				}
+				else
+				{
+					defaultContents.style.display="none";
+					tMappingDetails.style.display="inline";
+					buttonTables.style.display="inline";
+				}
+			}
+		}
+
+		//This function is used to retrieve User mapping detail from XML store
+
+		function getXMLData()
+		{
+			bdiTargetMapping.request=constructor_GetXMLStore.XMLDocument.cloneNode(true);
+			bdiTargetMapping.reset();
+      searchPattern_Update = "";  // hb: 26.aug2009
+
+			mappingNode=bdiTargetMapping.data.selectSingleNode(".//TargetMappings");
+
+			if(mappingNode==null)
+				window.alert("No Data found.");
+			else
+			{
+				//lastModifiedAttribute=bdiTargetMapping.data.selectSingleNode(".//tuple").getAttribute("lastModified");
+				searchPattern_Update=bdiTargetMapping.data.selectSingleNode(".//SearchPattern");
+        if (searchPattern_Update.text.length == 0)  // hb
+        {
+          searchPattern_Update.text = "DEFAULT";  // hb
+        }
+//alert("searchPattern_Update: " + searchPattern_Update.text);
+				searchPatternDisplay();
+			}
+		}
+
+		/*This function is used to fill the grid with User mapping details, if user selected
+		 *"User-Ordered" or to show User mapping detail in controls if user selected "Default"
+		 *as a Search Pattern
+		 */
+
+		function fillgrid()
+		{
+			for(var i=5;i<10;i++)
+				tMappingDetails.hideColumn(i);
+
+			var rowGrid=tMappingDetails.rows.length;
+
+			for(var i=rowGrid-1;i>=2;i--)
+				tMappingDetails.deleteRow(i);
+
+			disable_nextbuttons();
+			disable_backbuttons();
+
+			getXMLData();
+
+			searchPattern.setValue(searchPattern_Update.text);
+			if(searchPattern_Update.text=="DEFAULT")
+			{
+				var nameOrganization=bdiTargetMapping.data.selectSingleNode(".//OrgDN");
+				var soapNodeDefault=bdiTargetMapping.data.selectSingleNode(".//SOAPNodeDN");
+				var methodSetDefault=bdiTargetMapping.data.selectSingleNode(".//MethodSet");
+				var methodDefault=bdiTargetMapping.data.selectSingleNode(".//Method");
+				var nameSpaceDefault=bdiTargetMapping.data.selectSingleNode(".//Namespace");
+
+				defaultOrganization.value=nameOrganization.text.split(",")[0].substring(2);
+				defaultSoapNode.value=soapNodeDefault.text.split(",")[0].substring(3);
+				defaultMethodSet.value=methodSetDefault.text.split(",")[0].substring(3);
+				defaultMethod.value=methodDefault.text;
+
+				disableDeleteMappingButton();
+				disableRefreshMappingButton();
+			}
+
+			else
+			{			
+				var  itemsName = bdiTargetMapping.data.selectNodes(".//Name");
+				var  itemsMessageType = bdiTargetMapping.data.selectNodes(".//MESType");
+				var  itemsIDoc = bdiTargetMapping.data.selectNodes(".//IDOCType");
+				var  itemsRecipient = bdiTargetMapping.data.selectNodes(".//RecipientLS");
+				var  itemsOrganizationDN=bdiTargetMapping.data.selectNodes(".//OrgDN");
+				var  itemsSoapNodeDN = bdiTargetMapping.data.selectNodes(".//SOAPNodeDN");
+				var  itemsMethodSetDN=bdiTargetMapping.data.selectNodes(".//MethodSet");
+				var  itemsMethodDN = bdiTargetMapping.data.selectNodes(".//Method");
+				var  itemsNameSpaceDN= bdiTargetMapping.data.selectNodes(".//Namespace");
+
+				if(mappingNode==null)
+				{
+					disableRefreshMappingButton();
+					disableDeleteMappingButton();
+				}
+
+				if(tBody.rows.length!=0 || mappingNode==null)
+					row = tBody.firstChild.cloneNode(true);
+
+				//To move each column of grid
+				var chk=row.firstChild;
+				var nameElement=chk.nextSibling;
+				var messageTypeElement=nameElement.nextSibling;
+				var idocTypeElement=messageTypeElement.nextSibling;
+				var recipientElement=idocTypeElement.nextSibling;
+				var organizationDNElement=recipientElement.nextSibling;
+				var soapNodeDNElement=organizationDNElement.nextSibling;
+				var methodSetDNElement=soapNodeDNElement.nextSibling;
+				var methodDNElement=methodSetDNElement.nextSibling;
+				var nameSpaceDNElement=methodDNElement.nextSibling;
+				var soapNodeElement=nameSpaceDNElement.nextSibling;
+				var methodElement=soapNodeElement.nextSibling;
+
+				if(tBody.rows.length!=0 && mappingNode!=null)
+					tBody.removeChild(tBody.firstChild);					
+
+				for (var count = 0; count < itemsName.length;count++)
+				{
+					nameElement.firstChild.value = itemsName[count].text;
+					organizationDNElement.firstChild.value = itemsOrganizationDN[count].text;
+					messageTypeElement.firstChild.value = itemsMessageType[count].text;
+					idocTypeElement.firstChild.value = itemsIDoc[count].text;
+					recipientElement.firstChild.value = itemsRecipient[count].text;
+					soapNodeElement.firstChild.value = itemsSoapNodeDN[count].text.split(",")[0].substring(3);
+					soapNodeDNElement.firstChild.value = itemsSoapNodeDN[count].text;
+					methodSetDNElement.firstChild.value= itemsMethodSetDN[count].text;
+					methodDNElement.firstChild.value = itemsMethodDN[count].text;
+					methodElement.firstChild.value = itemsMethodDN[count].text;//.split(",")[0].substring(3);
+					nameSpaceDNElement.firstChild.value=itemsNameSpaceDN[count].text;
+
+					tBody.appendChild(row.cloneNode(true));					
+				}
+			}
+		}
+
+		/*This function is to get the position of selected row in grid and to check whether
+		 *one or more than row is selected, so that navigation buttons can be enabled or
+		 *disabled as per conditions
+		 */
+		function Navigation()
+		{
+			var count=0,iCtr;
+			var rowNo=0;
+			enableDeleteMappingButton();
+
+			if (isAnySelected() == true)
+			{
+				var checkedRows = window.document.getElementsByName("chkRow");
+				for (iCtr=0; iCtr < checkedRows.length ; iCtr++)
+				{
+					if (checkedRows[iCtr].checked)
+					{
+						count++;
+						rowNo=iCtr;
+					}				
+				}
+
+				if(count>1||tBody.rows.length==1)
+				{
+					disable_backbuttons();
+					disable_nextbuttons();			
+				}
+				else
+				{
+					rowNumber=rowNo;
+					if(rowNumber==0)
+					{
+						disable_backbuttons();
+						enable_nextbuttons();
+					}
+					else if(rowNumber==tBody.rows.length-1)
+					{
+						disable_nextbuttons();
+						enable_backbuttons();						
+					}
+					else
+					{
+						enable_nextbuttons();
+						enable_backbuttons();
+					}
+				}
+			}
+
+			else
+			{
+				disableDeleteMappingButton();
+				disable_nextbuttons();
+				disable_backbuttons();				
+			}
+
+		}
+
+		//This function will check whether any row of grid is selected, if yes then it wiil return true
+		function isAnySelected()
+		{
+			var checkedRows = window.document.getElementsByName("chkRow");
+			for (iCtr=0; iCtr < checkedRows.length ; iCtr++)
+			{
+				if (checkedRows[iCtr].checked  == true)
+					return true;
+			}
+			return false;
+		}
+		
+		function selectAllRecords()
+		{				
+			var rowCount=tBody.rows.length;
+			if(rowCount>1)
+			{
+				if(selectAllRows.value=="off")
+				{
+					for(var i=0;i<rowCount;i++)
+					{
+						chkRow[i].checked=true;
+						chkRow[i].value="on";
+					}
+					selectAllRows.value="on";
+					enableDeleteMappingButton();
+					
+				}
+				
+				else 
+				{
+					for(var i=0;i<rowCount;i++)
+					{
+						chkRow[i].checked=false;
+						chkRow[i].value="off";
+					}
+					selectAllRows.value="off";
+					disableDeleteMappingButton();
+				}
+			}
+			
+			else if(rowCount==1)
+			{					
+				if(soapNode_Grid.value=="")
+					return;
+				else
+				{
+					if(selectAllRows.value=="off")
+					{
+						chkRow.checked=true;
+						chkRow.value="on";							
+						selectAllRows.value="on";
+						enableDeleteMappingButton();
+					}
+				
+					else
+					{
+						chkRow.checked=false;
+						chkRow.value="off";
+						selectAllRows.value="off";
+						disableDeleteMappingButton();
+					}
+				}
+			}
+		}
+		
+		function checkAllRows()
+		{
+			var rowCount=tBody.rows.length;
+			if((rowCount==1)&&(soapNode_Grid.value!=""))
+			{
+				if(chkRow.value=="off")
+				{
+					chkRow.checked=true;
+					chkRow.value="on";
+					
+					selectAllRows.checked=true;
+					selectAllRows.value="on";
+				}
+				
+				else if(chkRow.value=="on")
+				{
+					chkRow.checked=false;
+					chkRow.value="off";
+					
+					selectAllRows.checked=false;
+					selectAllRows.value="off";
+				}
+			}
+			
+			else if(rowCount>1)
+			{		
+				var counter=0;					
+				var checkedRows = window.document.getElementsByName("chkRow");
+				for (var iCtr=0; iCtr < checkedRows.length ; iCtr++)
+				{
+					if (checkedRows[iCtr].checked)
+						counter++;
+				}					
+				if(counter==rowCount)
+				{				
+					selectAllRows.checked=true;
+					selectAllRows.value="on";
+				}
+				
+				else
+				{
+					selectAllRows.checked=false;
+					selectAllRows.value="off";
+				}
+				
+			}
+		}
+		
+			
+		//This function is for moving selected row of grid to be first row in grid
+		function moveFirst_rows()
+		{
+			tBody.moveRow(rowNumber,0);
+			disable_backbuttons();
+			disable_nextbuttons();	
+			disableDeleteMappingButton();
+			enableRefreshMappingButton();
+			saveFlag=1;
+		}
+
+		//This function is for moving selected row of grid to move one row up in grid
+		function moveUp_rows()
+		{
+			tBody.moveRow(rowNumber,rowNumber-1)
+			rowNumber=rowNumber-1;
+			/*if(rowNumber==0)
+			{
+				disable_backbuttons();
+				enable_nextbuttons();
+			}*/
+			disable_nextbuttons();
+			disable_backbuttons();
+			disableDeleteMappingButton();
+			enableRefreshMappingButton();
+			saveFlag=1;
+		}
+
+		//This function is for moving selected row of grid to move one row down in grid
+		function moveDown_rows()
+		{
+			tBody.moveRow(rowNumber,rowNumber+1);
+			rowNumber=rowNumber+1;
+			/*if(rowNumber==tBody.rows.length-1)
+			{
+				disable_nextbuttons();
+				enable_backbuttons();
+			}*/
+			disable_nextbuttons();
+			disable_backbuttons();
+			disableDeleteMappingButton();
+			enableRefreshMappingButton();
+			saveFlag=1;
+		}
+
+		//This function is for moving selected row of grid to be last row up in grid
+		function moveLast_rows()
+		{
+			tBody.moveRow(rowNumber,tBody.rows.length-1);
+			disable_nextbuttons();
+			disable_backbuttons();
+			disableDeleteMappingButton();
+			enableRefreshMappingButton();
+			saveFlag=1;
+		}
+		
+		//This function  is to store changes made by user in mappings in XML store
+		function updateXmlStore()
+		{
+			var targetMappingNode,searchPatternNode;
+			var root_old,root;
+			var gridRows=tBody.rows.length;
+
+			disableRefreshMappingButton();
+
+			saveFlag=0;
+			if(gridRows==0)
+			{
+				//constructor_InsertXMLStore.selectSingleNode(".//tuple").setAttribute("lastModified",lastModifiedAttribute);
+				bdiTargetMapping.request=constructor_InsertXMLStore.XMLDocument;
+				bdiTargetMapping.reset();
+				mappingNode=null;
+				disableDeleteMappingButton();
+				window.alert("Mapping has been Updated.");
+				return;
+			}
+
+			else
+			{
+				var targetMappindNode=updateXML.createElement("TargetMappings");
+				var searchPatternNode=updateXML.createElement("SearchPattern");
+				updateXML.appendChild(targetMappindNode);
+				root_updateXML=updateXML.firstChild;
+				root_updateXML.appendChild(searchPatternNode);
+
+				if(gridRows>1)
+				{
+					for(var i=0;i<gridRows;i++)
+					{
+						nameNode=newTag.createElement("Name");
+						nameData=newTag.createTextNode(name_Grid[i].value);
+						nameNode.appendChild(nameData);
+
+						mesTypeNode=newTag.createElement("MESType");
+						mesTypeData=newTag.createTextNode(messageType_Grid[i].value);
+						mesTypeNode.appendChild(mesTypeData);
+
+						idocTypeNode=newTag.createElement("IDOCType");
+						idocTypeData=newTag.createTextNode(idoc_Grid[i].value);
+						idocTypeNode.appendChild(idocTypeData);
+
+						recipientNode=newTag.createElement("RecipientLS");
+						recipientData=newTag.createTextNode(recipient_Grid[i].value);
+						recipientNode.appendChild(recipientData);
+
+						organisationNode=newTag.createElement("OrgDN");
+						organisationData=newTag.createTextNode(organizationDN_Grid[i].value);
+						organisationNode.appendChild(organisationData);
+
+						soapNodeNode=newTag.createElement("SOAPNodeDN");
+						soapNodeData=newTag.createTextNode(soapNodeDN_Grid[i].value);
+						soapNodeNode.appendChild(soapNodeData);
+
+						methodSetNode=newTag.createElement("MethodSet");
+						methodSetData=newTag.createTextNode(methodSetDN_Grid[i].value);
+						methodSetNode.appendChild(methodSetData);
+
+						methodsNode=newTag.createElement("Method");
+						methodsData=newTag.createTextNode(method_Grid[i].value);
+						methodsNode.appendChild(methodsData);
+
+						nameSpaceNode=newTag.createElement("Namespace");
+						nameSpaceData=newTag.createTextNode(nameSpaceDN_Grid[i].value);
+						nameSpaceNode.appendChild(nameSpaceData);
+
+						root=newTag.firstChild;
+
+						root.appendChild(nameNode);
+						root.appendChild(mesTypeNode);
+						root.appendChild(idocTypeNode);
+						root.appendChild(recipientNode);
+						root.appendChild(organisationNode);
+						root.appendChild(soapNodeNode);
+						root.appendChild(methodSetNode);
+						root.appendChild(methodsNode);
+						root.appendChild(nameSpaceNode);
+
+						root_updateXML.appendChild(root);
+
+						MappingNode=newTag.createElement("Mapping");
+						MappingData=newTag.createTextNode("");
+						MappingNode.appendChild(MappingData);
+						newTag.appendChild(MappingNode);
+					}
+				}
+
+				else
+				{
+					nameNode=newTag.createElement("Name");
+					nameData=newTag.createTextNode(name_Grid.value);
+					nameNode.appendChild(nameData);
+
+					mesTypeNode=newTag.createElement("MESType");
+					mesTypeData=newTag.createTextNode(messageType_Grid.value);
+					mesTypeNode.appendChild(mesTypeData);
+
+					idocTypeNode=newTag.createElement("IDOCType");
+					idocTypeData=newTag.createTextNode(idoc_Grid.value);
+					idocTypeNode.appendChild(idocTypeData);
+
+					recipientNode=newTag.createElement("RecipientLS");
+					recipientData=newTag.createTextNode(recipient_Grid.value);
+					recipientNode.appendChild(recipientData);
+
+					organisationNode=newTag.createElement("OrgDN");
+					organisationData=newTag.createTextNode(organizationDN_Grid.value);
+					organisationNode.appendChild(organisationData);
+
+					soapNodeNode=newTag.createElement("SOAPNodeDN");
+					soapNodeData=newTag.createTextNode(soapNodeDN_Grid.value);
+					soapNodeNode.appendChild(soapNodeData);
+
+					methodSetNode=newTag.createElement("MethodSet");
+					methodSetData=newTag.createTextNode(methodSetDN_Grid.value);
+					methodSetNode.appendChild(methodSetData);
+
+					methodsNode=newTag.createElement("Method");
+					methodsData=newTag.createTextNode(methodDN_Grid.value);
+					methodsNode.appendChild(methodsData);
+
+					nameSpaceNode=newTag.createElement("Namespace");
+					nameSpaceData=newTag.createTextNode(nameSpaceDN_Grid.value);
+					nameSpaceNode.appendChild(nameSpaceData);
+
+					root=newTag.firstChild;
+
+					root.appendChild(nameNode);
+					root.appendChild(mesTypeNode);
+					root.appendChild(idocTypeNode);
+					root.appendChild(recipientNode);
+					root.appendChild(organisationNode);
+					root.appendChild(soapNodeNode);
+					root.appendChild(methodSetNode);
+					root.appendChild(methodsNode);
+					root.appendChild(nameSpaceNode);
+
+					root_updateXML.appendChild(root);
+
+					MappingNode=newTag.createElement("Mapping");
+					MappingData=newTag.createTextNode("");
+					MappingNode.appendChild(MappingData);
+					newTag.appendChild(MappingNode);
+				}
+
+				root_updateXML.selectSingleNode(".//SearchPattern").text=searchPattern_Update.text;
+
+				root_old=constructor_InsertXMLStore.selectSingleNode(".//new");
+				root_old.appendChild(root_updateXML);
+
+				bdiTargetMapping.request=constructor_InsertXMLStore.XMLDocument;
+				bdiTargetMapping.reset();
+
+				var targetMappings = constructor_InsertXMLStore.selectSingleNode(".//TargetMappings");
+				targetMappings.parentNode.removeChild(targetMappings);
+
+				fillgrid();
+			}
+
+			disableRefreshMappingButton();
+			disableDeleteMappingButton();
+			window.alert("Mapping has been Updated.");
+		}
+
+		//This is function is for deleting the selected mapping
+		function deleteMapping()
+		{
+			var count=0;
+
+			row=tBody.firstChild.cloneNode(true);
+			if (isAnySelected() == true && bdiTargetMapping.data.selectSingleNode("//tuple") && confirm("Do you want to delete the selected Mapping(s)?"))
+			{
+				var checkedRows = window.document.getElementsByName("chkRow");
+
+				for (var iCtr=checkedRows.length-1; iCtr>=0;iCtr--)
+				{
+					if (checkedRows[iCtr].checked)
+						tBody.deleteRow(iCtr);
+				}
+				
+				//saveFlag=1;
+				updateXmlStore();
+				//enableRefreshMappingButton();
+			}
+			else
+			{
+				disableDeleteMappingButton();
+				if(tBody.rows.length==1)
+				{
+					chkRow.checked=false;
+					chkRow.value="off";
+				}
+				else if(tBody.rows.length>1)
+				{
+					var rowNums=tBody.rows.length;
+					//var checkedRows = window.document.getElementsByName("chkRow");		
+					//for (var iCtr=checkedRows.length-1; iCtr>=0;iCtr--)
+					//	checkedRows[iCtr].checked=false;
+					//	chkRow[iCtr].value="off";
+					
+					for(var iCtr=0;iCtr< rowNums;iCtr++)
+					{
+						chkRow[iCtr].checked=false;
+						chkRow[iCtr].value="off";
+					}
+				}				
+				
+			}
+			
+			selectAllRows.checked=false;
+			selectAllRows.value="off";
+			
+			disableDeleteMappingButton();
+			
+			disable_backbuttons();
+			disable_nextbuttons();
+		}
+
+		//This function is for refreshing SOAP cache
+		function refreshSoapCache()
+		{
+			bdiTargetMapping.request=constructor_refreshSoapCache.XMLDocument;
+			bdiTargetMapping.reset();
+			if(bdiTargetMapping.data.selectSingleNode(".//ReloadTargetMappingsResponse"))
+				window.alert("Soap Cache has been refreshed Succesfully.");
+		}
+		
+		/*This function is used to check whether the changes made by user is being saved or not
+		  whenever user will exit from screen*/
+		function checkSave()
+		{
+			if(saveFlag==1 && confirm("Mappings have changed. Do you want to save the Mapping(s)?"))
+				updateXmlStore();
+		}
+
+		//This function is for disabling delete icon in toolbar
+		function disableDeleteMappingButton()
+		{
+			deleteMapping.disabled=true;
+			deleteImage.style.filter="alpha(opacity=20)";
+		}
+
+		//This function is for enabling delete icon in toolbar
+		function enableDeleteMappingButton()
+		{
+			deleteMapping.disabled=false;
+			deleteImage.style.filter="alpha(opacity=100)";
+		}
+
+		//This function is for disabling refresh icon in toolbar
+		function disableRefreshMappingButton()
+		{
+			refreshMapping.disabled=true;
+			refreshImage.style.filter="alpha(opacity=20)";
+		}
+
+		//This function is for enabling refresh icon in toolbar
+		function enableRefreshMappingButton()
+		{
+			refreshMapping.disabled=false;
+			refreshImage.style.filter="alpha(opacity=100)";
+		}
+		
+		//This function is for disabling movepreivous and movefirst buttons
+		function disable_backbuttons()
+		{
+			moveTop_button.disabled=true;
+			moveTop_img.style.filter = "alpha(opacity=20)";
+
+			moveUp_button.disabled=true;
+			moveUp_img.style.filter = "alpha(opacity=20)";
+		}
+
+		//This function is for disabling movenext and movelast buttons
+		function disable_nextbuttons()
+		{
+			moveDown_button.disabled=true;
+			moveDown_img.style.filter = "alpha(opacity=20)";
+
+			moveBottom_button.disabled=true;
+			moveBottom_img.style.filter = "alpha(opacity=20)";
+		}
+
+		//This function is for enabling moveprevious and movefirst buttons
+		function enable_backbuttons()
+		{
+			moveTop_button.disabled=false;
+			moveTop_img.style.filter = "alpha(opacity=100)";
+
+			moveUp_button.disabled=false;
+			moveUp_img.style.filter = "alpha(opacity=100)";
+		}
+
+		//This function is for enabling movenext and movelast buttons
+		function enable_nextbuttons()
+		{
+			moveDown_button.disabled=false;
+			moveDown_img.style.filter = "alpha(opacity=100)";
+
+			moveBottom_button.disabled=false;
+			moveBottom_img.style.filter = "alpha(opacity=100)";	
+		}
+
+	</script>
+	
+<!-------------------Bus data island for getting Idoc Types----------------------->
+	<eibus:dataisland id="bdiTargetMapping" async="false" automatic="false">
+
+		<xml id="constructor_InsertXMLStore">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>	
+					<UpdateXMLObject xmlns="http://schemas.cordys.com/1.0/xmlstore">
+						<tuple key="/cordys/bac/sap/targetmappings" unconditional="true">
+							<new>
+							</new>
+						</tuple>
+					</UpdateXMLObject>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+
+		<xml id="constructor_GetXMLStore">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<GetXMLObject xmlns="http://schemas.cordys.com/1.0/xmlstore">
+						<key>/cordys/bac/sap/targetmappings</key>
+					</GetXMLObject>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+
+		<xml id="constructor_soapnode">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<GetSoapNodes xmlns="http://schemas.cordys.com/1.0/ldap">
+						<dn></dn>
+						<namespace>*</namespace>
+						<sort>ascending</sort>
+					</GetSoapNodes>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+
+		<xml id="constructor_methods">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<GetMethodsForMethodSet xmlns="http://schemas.cordys.com/1.0/ldap">
+						<methodset></methodset>
+						<sort>ascending</sort>
+					</GetMethodsForMethodSet>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+
+		<xml id="constructor_nameSpace">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<GetLDAPObject xmlns="http://schemas.cordys.com/1.0/ldap">
+						<dn></dn>
+					</GetLDAPObject>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+
+		<xml id="newTag">
+			<Mapping></Mapping>
+		</xml>
+
+		<xml id="updateXML">
+
+		</xml>
+
+		<xml id="constructor_refreshSoapCache">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<ReloadTargetMappings xmlns="http://schemas.cordys.com/1.0/SAPSchema">
+					</ReloadTargetMappings>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+
+	</eibus:dataisland>
+
+<!------------------------------------------------------------------------------->
+
+	<xml id="constructor_parameter">
+		<parameters>
+			<parentID></parentID>
+			<searchpattern></searchpattern>
+		</parameters>
+	</xml>
+
+	<xml id="createMappingID">
+		<Application>
+			<description></description>
+            <id>CreateTargetMappingID</id>
+            <url>\cordys\bac\sap\target_mappingPopUp.htm</url>
+            <caption>Create target mapping</caption>
+            <frame docked="false" height="650" left="250" top="50" width="390">main</frame>
+            <data></data>
+            <desc></desc>
+            <icon></icon>
+		</Application>
+	</xml>
+
+	<body>
+
+		<table style="LEFT:7%; WIDTH: 40%; POSITION: absolute; TOP: 6%;z-index:1">
+			<tr>
+				<td>
+					<label align="right">Search Pattern</label>
+					<br>
+					<eibus:select class="input" id="searchPattern" style="WIDTH: 55%" onchange="search_pattern()">
+						<div value="">....Select Pattern....</div>
+						<div value="DEFAULT">Default</div>
+						<div value="USER-ORDERED">User-ordered</div>
+						<div value="BAC">Bac</div>
+					</eibus:select>
+				</td>
+			</tr>
+		</table>
+
+		<table id="defaultContents" style="LEFT:2%;WIDTH:40%;POSITION:absolute;TOP:28%;display:none">
+			<tr>
+				<td align="right">
+					<label>Organization</label>
+				</td>
+
+				<td>
+					<input class="input" id="defaultOrganization" style="background:transparent;width:100%" readonly>
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right">
+					<label>Service Group</label>
+				</td>
+
+				<td>
+					<input class="input" id="defaultSoapNode" style="background:transparent;width:100%" readonly>
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right">
+					<label>Web Service Interface</label>
+				</td>
+
+				<td>
+					<input class="input" id="defaultMethodSet" style="background:transparent;width:100%" readonly>
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right">
+					<label>Web Service</label>
+				</td>
+
+				<td>
+					<input class="input" id="defaultMethod" style="background:transparent;width:100%" readonly>
+				</td>
+			</tr>
+		</table>
+
+		<hr style="LEFT:2%;WIDTH:95%;POSITION:absolute;TOP:22%;height:1px" class="light medium">
+
+		<table class="grid" id="tMappingDetails" border="1" style="LEFT:1%;WIDTH:95%;POSITION:absolute;TOP:25%" bordercolor="darkgray" sortable="false" movableColumns="false" displayContextMenu="false">
+			<thead>
+				<tr align="middle" class="light">
+					<td width="3%" align="middle">
+						<input id="selectAllRows" title="Select All" value="off" type="checkbox" onclick="selectAllRecords()">
+					</td>
+
+					<td width="15%">
+						<label>Mapping name</label>
+					</td>
+
+					<td width="13%">
+						<label>Message type</label>
+					</td>
+
+					<td width="14%">
+						<label>IDoc type</label>
+					</td>
+
+					<td width="16%">
+						<label>Recipient logical system</label>
+					</td>
+
+					<td>
+						<label>Organization</label>
+					</td>
+
+					<td>
+						<label>Service Group</label>
+					</td>
+
+					<td>
+						<label>Web Service Interface</label>
+					</td>
+
+					<td>
+						<label>Web Service Operations</label>
+					</td>
+
+					<td>
+						<label>Namespace</label>
+					</td>
+
+					<td width="21%">
+						<label>Service Group</label>
+					</td>
+
+					<td width="20%">
+						<label>Web Service</label>
+					</td>
+				</tr>
+			</thead>
+
+			<tbody id="tBody" Class="body">
+				<tr>
+					<td style="border:1px solid gray" align="middle">
+						<input id="chkRow" type="checkbox" value="on" onClick="Navigation();checkAllRows()">
+					</td>
+
+					<td style="border:1px solid gray">
+						<input  id="name_Grid" style="background-color:transparent;border:none;width:100%">
+					</td>
+
+					<td style="border:1px solid gray">
+						<input id="messageType_Grid" style="background-color:transparent;border:none;width:100%">
+					</td>
+
+					<td style="border:1px solid gray">
+						<input id="idoc_Grid" style="background-color:transparent;border:none;width:100%">
+					</td>
+
+					<td style="border:1px solid gray">
+						<input id="recipient_Grid" class=input style="background-color:transparent;border:none;width:100%">
+					</td>
+
+					<td style="border:1px solid gray">
+						<input id="organizationDN_Grid" class=input style="background-color:transparent;border:none;width:100%">
+					</td>
+
+					<td style="border:1px solid gray">
+						<input id="soapNodeDN_Grid" class=input style="background-color:transparent;border:none;width:100%">
+					</td>
+
+					<td style="border:1px solid gray">
+						<input id="methodSetDN_Grid" class=input style="background-color:transparent;border:none;width:100%">
+					</td>
+
+					<td style="border:1px solid gray">
+						<label id="methodDN_Grid" class=input style="background-color:transparent;border:none;width:100%">
+					</td>
+
+					<td style="border:1px solid gray">
+						<input id="nameSpaceDN_Grid" class=input style="background-color:transparent;border:none;width:100%">
+					</td>
+
+					<td style="border:1px solid gray">
+						<input id="soapNode_Grid" class=input style="background-color:transparent;border:none;width:100%">
+					</td>
+
+					<td style="border:1px solid gray">
+						<input id="method_Grid" class=input style="background-color:transparent;border:none;width:100%">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table style="LEFT: 95%; WIDTH: 3.5%; POSITION: absolute; TOP: 45%; height:20%" id="buttonTables">
+			<tr>
+				<td>
+					<button style="WIDTH: 100%; HEIGHT:100%; BACKGROUND-COLOR: transparent;width:18px;height:18px" id="moveTop_button" onclick="moveFirst_rows()">
+						<img align="absMiddle" src="/cordys/bac/sap/images/movetop.gif" id="moveTop_img" >
+					</button>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<button class="lightmedium" style="WIDTH: 100%; HEIGHT: 100%; BACKGROUND-COLOR:transparent;width:18px;height:18px" id="moveUp_button" onclick="moveUp_rows()">
+						<img align="absMiddle" src="/cordys/bac/sap/images/moveup.gif" id="moveUp_img">
+					</button>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<button  class="lightmedium" style="WIDTH: 100%; HEIGHT: 100%; BACKGROUND-COLOR:transparent;width:18px;height:18px" id="moveDown_button" onclick="moveDown_rows()">
+						<img align="absMiddle" src="/cordys/bac/sap/images/movedown.gif" id="moveDown_img">
+					</button>
+				</td>
+			</tr>
+
+			<tr>
+				<td>		
+					<button class="lightmedium" style="WIDTH: 100%; HEIGHT: 100%; BACKGROUND-COLOR:transparent;width:18px;height:18px" id="moveBottom_button" onclick="moveLast_rows()">
+						<img align="absMiddle" src="/cordys/bac/sap/images/movebottom.gif" id="moveBottom_img">
+					</button>
+				</td>
+			</tr>
+		</table>
+
+		<eibus:toolbar id="toolbar" class="mainbody" style="WIDTH: 104%; POSITION: absolute;left:0; TOP: 0px">
+        	<span style="VERTICAL-ALIGN: middle" id="newMappping" onclick="ShowCreatMapping()">
+				<img align="absMiddle" title="New Mapping" src="/cordys/wcp/images/new.gif">
+			</span>
+
+			<span style="VERTICAL-ALIGN: middle" id="deleteMapping" onclick="deleteMapping()">
+				<img align="absMiddle" title="Delete Mapping" id="deleteImage" src="/cordys/bac/sap/images/delete12.gif">
+			</span>
+
+			<span style="VERTICAL-ALIGN: middle" id="refreshMapping" title="Update Mappings" onclick="updateXmlStore()">
+				<img align="absMiddle" id="refreshImage" src="/cordys/wcp/images/refreshicon.gif">
+			</span>
+
+			<span style="VERTICAL-ALIGN: middle" separator="true">
+			</span>
+
+			<span style="VERTICAL-ALIGN: middle" id="refreshSoapCache" title="Referesh SOAP processor" onclick="refreshSoapCache()">
+				<img align="absMiddle" title="Refresh SOAP cache" src="/cordys/bac/sap/images/refresh-sp1.gif">
+			</span>
+		</eibus:toolbar>
+	</body>
+</html>

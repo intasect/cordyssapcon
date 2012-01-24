@@ -1,0 +1,738 @@
+<!--
+Copyright 2003 Cordys R&D B.V. 
+
+This file is part of the Cordys SAP Connector. 
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!--
+ Project  : Cordys SAP Connector
+ File Name : target_mappingPopUp.htm
+ Description : This page is used to publish the sap methods and method sets.
+ author : Vijaya Gopal  ??
+ ======================== adjustment for BOP4 compliance ===============================================
+ **                                                                                                   **
+ ** changed: 14.aug2009: Mikko Poyhonen - xmlns:eibus="xmlns:eibus"                                   **
+ ** changed: 14.aug2009: Mikko Poyhonen - moved the  tag </head> from end of dataisland before script **
+ ** changed: 14.aug2009: Mikko Poyhonen - window.application.container.close()                        **
+ ** changed: 14.aug2009: Mikko Poyhonen - added application.js                                        **
+ ** changed: 14.aug2009: Mikko Poyhonen - removed link to behaviors.css                               **
+ ** changed: 14.aug2009: Mikko Poyhonen - changed "window.event.data" to "application.event.data"     **
+ ** added:   26.aug2009: Helmut Boecker - added getSAPSoapNodes()                                     **
+ ** added:   26.aug2009: Helmut Boecker - added getSOAPNodesInOrganization()                          **
+ ** added:   26.aug2009: Helmut Boecker - added var organizationDN, sapNodes_org, sapNodes_sys        **
+ ** changed: 26.aug2009: Helmut Boecker - changed getOrganization() to not use "vanenburg"            **
+ ** added:   26.aug2009: Helmut Boecker - added fillSoapNodes(), removeOptions()                      **
+ ** changed: 26.aug2009: Helmut Boecker - adjusted getOrganization(),                                 ** 
+ ** changed: 26.aug2009: Helmut Boecker - adjusted fillSoapNodes(), getSAPSoapNodes(),                ** 
+ ** changed: 26.aug2009: Helmut Boecker - getValue() for all occurences completed                     ** 
+-->
+
+<html xmlns:eibus="xmlns:eibus" onselect="objectDisplay()">
+	<head>
+		<script src="/cordys/wcp/application.js"></script>
+		<style>
+			label {	 font-size:11; font-family:verdana; font-weight:normal; }
+			input {	 font-size:11; font-family:verdana; font-weight:normal;}
+			eibus\:select {font-size:11; font-family:verdana; } 
+			button { font-size:11; font-family:verdana; width:95px}	
+		</style>
+	</head>
+	
+		<script language="JavaScript">
+		
+			
+			var nameSpace;	//This is to store nameSpace associated with methodSet
+			var mappingNode;//This is to check whether data is already available in XML store
+			var searchPattern;//This is used to store the Search Pattern chosen by User
+			var searchPatternUserPreference;
+			var entryNodes;	//This is used to store the response from GetSoapNode, so that we can get methodsets associated with those SOAP node
+			var getXML;
+			var parentId;
+      var organizationDN; // to store the DN of the current organization. ** 26.aug2009 - hb
+      var sapNodes_org=new Array();//the cn's of the sap nodes under current organization are stored here in this array. ** 26.aug2009 - hb
+      var sapNodes_sys=new Array();// if current organization is not system. ** 26.aug2009 - hb
+			
+			
+			function objectDisplay()
+			{			
+				getXML=application.event.data;
+				searchPattern=getXML.selectSingleNode(".//searchpattern").text;
+				parentId=getXML.selectSingleNode(".//parentID").text;
+								
+				if(searchPattern!="DEFAULT")
+				{
+					mappingName_tr.style.display="inline";
+					messageType_tr.style.display="inline";
+					idocType_tr.style.display="inline";					
+					recipientLogicSystem_tr.style.display="inline";					
+				}
+				getOrganization();
+      	getSAPSoapNodes();  // ** hb: 26.aug2009
+			}
+					
+			
+			function ShowMessage()
+			{				
+				var xml_Find_Message = FindMessage.XMLDocument.documentElement;						
+				var id=application.container.applicationId;				
+				application.select(xml_Find_Message,id);				
+			}
+			
+			function IdocType()
+			{
+				constructor_IdocType.selectSingleNode(".//MESTYPE").text = MessageType.value;
+				bdiTargetMapping.request= constructor_IdocType.XMLDocument;
+				bdiTargetMapping.reset();
+				fill_idocCombo();
+			}
+			
+			function fill_idocCombo()
+			{
+				var num=0;
+				var  idocs = bdiTargetMapping.data.selectNodes(".//item");
+				var Idoc = sel_IdocType.firstChild.cloneNode(true);
+							
+				for (var n=sel_IdocType.options.length;n>=1;n--)
+					sel_IdocType.remove(n);				
+
+				for (var count = 0; count < idocs.length;count++)
+					sel_IdocType.add(idocs[count].getAttribute("IDOCTYP"),idocs[count].getAttribute("IDOCTYP"));												
+			}
+			
+			function getOrganization()
+			{
+				var userOrganization = application.organization; 				
+        organizationDN = application.organization; // ** hb: 26.aug2009
+				var systemDN = "o=system" + "," + userOrganization.split(",")[1] + "," + userOrganization.split(",")[2] + "," + userOrganization.split(",")[3]; 
+				if(userOrganization.split(",")[0].substring(2)!="system")
+				{
+					systemOrganization.add(userOrganization.split(",")[0].substring(2),userOrganization);
+          systemOrganization.add("system","o=system" + "," + userOrganization.split(",")[1] + "," + userOrganization.split(",")[2] + "," + userOrganization.split(",")[3]); // ** hb: 26.aug2009
+					//systemOrganization.add("system","o=system,cn=cordys,o=vanenburg.com");
+				}
+				else
+					systemOrganization.add(userOrganization.split(",")[0].substring(2),systemDN);					
+			}
+			
+			function getSoapNode()
+			{				
+				constructor_soapnode.selectSingleNode(".//dn").text=systemOrganization.getValue();				
+				bdiTargetMapping.request=constructor_soapnode.XMLDocument.cloneNode(true);
+				bdiTargetMapping.reset();
+				entryNodes = bdiTargetMapping.data.selectNodes("data/GetSoapNodesResponse/tuple/old/entry");
+				fill_soapNodeCombo();
+			}
+			
+      // To get all the SAP JCO Soap Nodes, both in system and in current organization.
+      // **copied from sapmethodpublisher.htm by h. boecker - 26.aug2009
+      function getSAPSoapNodes()
+      {
+				organizationDN = application.organization; 	// ** hb - 26.aug2009		
+      	if (organizationDN.split(",")[0].substring(2)=="system")    // ** hb: 26.aug2009
+      	{
+      		var systemDN = "o=system" + "," + organizationDN.split(",")[1] + "," + organizationDN.split(",")[2] + "," + organizationDN.split(",")[3];
+      		getSOAPNodesInOrganization(systemDN, sapNodes_sys);
+        } 
+
+      	if (organizationDN.split(",")[0].substring(2)!="system")
+      	{
+        	getSOAPNodesInOrganization(organizationDN, sapNodes_org);
+      	}
+      }
+
+      // **copied from sapmethodpublisher.htm by h. boecker - 26.aug2009
+      // This function gets the SAP soap nodes in the given organization and stores them in the given array.
+      function getSOAPNodesInOrganization(organization, soapNodeArray)
+      {
+      	var clone_requestGetSOAPProcessors = requestGetSOAPProcessors.XMLDocument.cloneNode(true);
+      	clone_requestGetSOAPProcessors.selectSingleNode(".//dn").text = organization;
+      	bdiTargetMapping.request = clone_requestGetSOAPProcessors ;
+      	bdiTargetMapping.clear();
+      	bdiTargetMapping.parameters.receiver = null;
+      	bdiTargetMapping.reset();
+      	if(bdiTargetMapping.data.selectSingleNode(".//entry"))
+      	{
+      		var ConfigurationXML = new ActiveXObject("Microsoft.XMLDOM");
+      		var SoapProcessorDetails = bdiTargetMapping.data;
+      		var tupleNodes = SoapProcessorDetails.getElementsByTagName("entry");
+         	var chNodes;
+      		var count = 0;
+      		var arrayFlag_SOAPFault;
+      		var confNodes;
+      		var confDet;
+      		var confTags;
+      		for(j = 0;j<tupleNodes.length;j++)
+      		{
+      			arrayFlag_SOAPFault = false;
+      			if(tupleNodes[j].selectSingleNode(".//bussoapprocessorconfiguration"))
+      			{
+      				confNodes = tupleNodes[j].selectSingleNode(".//bussoapprocessorconfiguration").firstChild;
+      				confDet = String(confNodes.text);
+      				ConfigurationXML.loadXML(confDet);
+      				if(ConfigurationXML.selectSingleNode(".//configuration"))
+      				{
+      					confTags = ConfigurationXML.selectNodes(".//configuration");
+      					for(var confTag = confTags.nextNode;confTag;confTag = confTags.nextNode)
+      					{
+      						var impl = confTag.getAttribute("implementation");
+      						if(impl == null) continue;
+      						if(impl.substring(impl.lastIndexOf(".")+1,impl.length)=="SAPMapper")
+      						{
+      							dnValue = tupleNodes[j].getAttribute("dn")
+      							dnSoapNode = dnValue.substring(dnValue.indexOf(",")+1,dnValue.length)
+      							if(sapNodes_org.length>0)
+      							{
+      								for(intI = 0; intI< sapNodes_org.length ; intI++)
+      								{
+      									if(dnSoapNode == sapNodes_org[intI])
+      									{
+      										arrayFlag_SOAPFault = true;
+      										break;
+      									}
+      								}
+      							}
+      							if(!arrayFlag_SOAPFault)
+      							{
+                      //alert("dnSoapNode: " + dnSoapNode);
+      								soapNodeArray[count] = dnSoapNode;
+      								count = count+1;
+      							}
+      
+      						}
+      					}
+      				}
+      			}
+      		}
+      	}
+      }
+
+      // **copied from sapmethodpublisher.htm by h. boecker - 26.aug2009
+      // To fill in the Soap Nodes Names in the select box depending on the organization selected.
+      function fillSoapNodes()
+      {
+      	getSAPSoapNodes();  // ** hb: 26.aug2009  - this does NOT get fired in objectDisplay() ...
+
+      	removeOptions(soapNode,1);
+
+        var selectedOrg = systemOrganization.options[systemOrganization.getSelectedIndex()].innerText;   // ** hb 26.aug2009
+        var selectedOrgDN = systemOrganization.getValue();   // ** hb 26.aug2009
+
+        if (selectedOrg != "Select organization" ) // ** hb 26.aug2009
+      	{
+        	if (selectedOrgDN == organizationDN  && selectedOrg != "system" )
+        	{
+        		for(var i=0;i<sapNodes_org.length;i++)
+        		{
+      	  		soapNode.add(sapNodes_org[i].split(",")[0].substring(3),sapNodes_org[i]);
+      		  }
+        	}
+        	else 
+          if (selectedOrg == "system" )
+        	{
+      	  	for(var i=0;i<sapNodes_sys.length;i++)
+      		  {
+      			  soapNode.add(sapNodes_sys[i].split(",")[0].substring(3),sapNodes_sys[i]);
+        		}
+        	}
+        } // if not "Select organization"
+      }
+
+      // **copied from sapmethodpublisher.htm by h. boecker - 26.aug2009
+      //This function removes all the options from the select box.*/
+      function removeOptions(idCombo,optlength)
+      {
+      	while(optlength < idCombo.options.length)
+      		idCombo.remove(optlength);
+      }
+
+			function fill_soapNodeCombo()
+			{
+				var num=0;
+				var  response = bdiTargetMapping.data.selectNodes(".//entry");
+				var node = soapNode.firstChild.cloneNode(true);
+							
+				for (var n=soapNode.options.length;n>=1;n--)
+					soapNode.remove(n);				
+
+				for (var count = 0; count < response.length;count++)
+				{
+					var soaptext=response[count].getAttribute("dn");				
+					soapNode.add(soaptext.split(",")[0].substring(3),response[count].getAttribute("dn"));					
+				}
+			}
+			
+			function fill_methodSetCombo()
+			{
+				var methodNodes;						
+										
+				for (var n=methodSet.options.length;n>=1;n--)
+					methodSet.remove(n);								
+				
+        // ** hb - 26.aug2009 - extracted from getSoapNode()    ==>
+				constructor_soapnode.selectSingleNode(".//dn").text=systemOrganization.getValue();	  // ** hb: getValue() instead of value
+				bdiTargetMapping.request=constructor_soapnode.XMLDocument.cloneNode(true);
+				bdiTargetMapping.reset();
+				entryNodes = bdiTargetMapping.data.selectNodes("data/GetSoapNodesResponse/tuple/old/entry");
+        // ** <== hb - 26.aug2009 - extracted from getSoapNode().
+
+				for(var i=0; i<entryNodes.length; i++)
+				{
+					var entryNode = entryNodes[i];
+					//if(entryNode.getAttribute("dn") == soapNode.value)  // ** hb: 26.aug2009 - getValue() instead of value
+					if(entryNode.getAttribute("dn") == soapNode.getValue())
+						break;						
+				}
+				
+				methodNodes=entryNode.selectNodes(".//busmethodsets/string");
+				for(var i=0; i<methodNodes.length; i++)
+				{
+					var methodNode = methodNodes[i];
+					var methodSetText=methodNode.text;										
+					methodSet.add(methodSetText.split(",")[0].substring(3),methodNode.text);											
+				}
+			}
+			
+			function getmethods()
+			{
+				var methodsComboData;
+				constructor_methods.selectSingleNode(".//methodset").text=methodSet.getValue();
+				bdiTargetMapping.request=constructor_methods.XMLDocument.cloneNode(true);
+				bdiTargetMapping.reset();
+				fill_methodsCombo();				
+			}
+						
+			function fill_methodsCombo()
+			{
+				var response=bdiTargetMapping.data.selectNodes(".//entry");
+				for (var n=methods.options.length;n>=1;n--)
+					methods.remove(n);				
+
+				for (var count = 0; count < response.length;count++)
+				{
+					var methodtext=response[count].getAttribute("dn");						
+					methods.add(methodtext.split(",")[0].substring(3),response[count].getAttribute("dn"));					
+				}
+				getNameSpace();
+			}			
+			
+			function getNameSpace()
+			{				
+				constructor_nameSpace.selectSingleNode(".//dn").text=methodSet.getValue();
+				bdiTargetMapping.request=constructor_nameSpace.XMLDocument.cloneNode(true);
+				bdiTargetMapping.reset();				
+				nameSpace=bdiTargetMapping.data.selectSingleNode(".//labeleduri/string").text;						
+			}
+			
+			function pressOK()
+			{
+				if(searchPattern=="DEFAULT")
+				{
+					if(systemOrganization.getValue()=="" || soapNode.getValue()=="" || methodSet.getValue()=="" || methods.getValue()=="")    // ** hb: 26.aug2009 - replaced with getValue()
+						window.alert("Please select the values");
+					else
+						saveXML();
+				}
+					
+				else
+				{    // ** hb: 26.aug2009 - replaced with getValue()  ==>
+					if(mappingName.value=="" || systemOrganization.getValue()=="" || soapNode.getValue()=="" || methodSet.getValue()=="" || methods.getValue()=="" ||(sel_IdocType.getValue()=="" && MessageType.value=="" && recepientLogicSystem.value==""))
+						window.alert("Please fill the fields");
+					else
+						saveXML();
+				}
+			}			
+			
+			function saveXML()
+			{							
+				var targetMappingNode,searchPatternNode;
+				var root_old,root;
+				var searchPreferenceXMLStore;
+								
+				system.windows[parentId].name=mappingName.value;
+				system.windows[parentId].idocType=sel_IdocType.getValue();  // ** hb: getValue() instead of value
+				system.windows[parentId].mesType=MessageType.value;
+				system.windows[parentId].recipient=recepientLogicSystem.value;
+				system.windows[parentId].organisationDN=systemOrganization.getValue();
+				system.windows[parentId].soapNode=soapNode.getValue().split(",")[0].substring(3);
+				system.windows[parentId].soapNodeDN=soapNode.getValue();
+				system.windows[parentId].methodSet=methodSet.getValue();				
+				system.windows[parentId].methods=methods.getValue().split(",")[0].substring(3);
+				//system.windows[parentId].methodsDN=methods.getValue();   // ** hb: 26.aug2009 - replaced with getValue()
+				system.windows[parentId].nameSpaceDN=nameSpace;										
+				mappingNode=system.windows[parentId].mappingNode;				
+								
+				bdiTargetMapping.request=constructor_GetXMLStore.XMLDocument;
+				bdiTargetMapping.reset();
+					
+				nameNode=newTag.createElement("Name");
+				nameData=newTag.createTextNode(mappingName.value);
+				nameNode.appendChild(nameData);
+			
+				mesTypeNode=newTag.createElement("MESType");
+				mesTypeData=newTag.createTextNode(MessageType.value);
+				mesTypeNode.appendChild(mesTypeData);
+			
+				idocTypeNode=newTag.createElement("IDOCType");
+				idocTypeData=newTag.createTextNode(sel_IdocType.getValue());
+				idocTypeNode.appendChild(idocTypeData);
+			
+				recipientNode=newTag.createElement("RecipientLS");
+				recipientData=newTag.createTextNode(recepientLogicSystem.value);
+				recipientNode.appendChild(recipientData);
+			
+				organisationNode=newTag.createElement("OrgDN");
+				organisationData=newTag.createTextNode(systemOrganization.getValue());    // ** hb: getValue() instead of value
+				organisationNode.appendChild(organisationData);
+			
+				soapNodeNode=newTag.createElement("SOAPNodeDN");
+				soapNodeData=newTag.createTextNode(soapNode.getValue());
+				soapNodeNode.appendChild(soapNodeData);
+			
+				methodSetNode=newTag.createElement("MethodSet");
+				methodSetData=newTag.createTextNode(methodSet.getValue());
+				methodSetNode.appendChild(methodSetData);
+			
+				methodsNode=newTag.createElement("Method");
+				methodsData=newTag.createTextNode(methods.getValue().split(",")[0].substring(3));
+				methodsNode.appendChild(methodsData);
+			
+				nameSpaceNode=newTag.createElement("Namespace");
+				nameSpaceData=newTag.createTextNode(nameSpace);
+				nameSpaceNode.appendChild(nameSpaceData);
+			
+				root=newTag.firstChild;
+			
+				root.appendChild(nameNode);
+				root.appendChild(mesTypeNode);
+				root.appendChild(idocTypeNode);
+				root.appendChild(recipientNode);			
+				root.appendChild(organisationNode);
+				root.appendChild(soapNodeNode);
+				root.appendChild(methodSetNode);
+				root.appendChild(methodsNode);
+				root.appendChild(nameSpaceNode);
+						
+				if(mappingNode==null || searchPattern=="DEFAULT") 
+				{
+					targetMappingNode=constructor_InsertXMLStore.createElement("TargetMappings");				
+					root_old=constructor_InsertXMLStore.selectSingleNode(".//new");
+					root_old.appendChild(targetMappingNode);
+					
+					searchPatternNode=constructor_InsertXMLStore.createElement("SearchPattern");
+					searchPatternData=newTag.createTextNode(searchPattern);
+					searchPatternNode.appendChild(searchPatternData);
+					targetMappingNode.appendChild(searchPatternNode);
+					targetMappingNode.appendChild(root);					
+				}								
+				else
+				{
+					searchPreferenceXMLStore=bdiTargetMapping.data.selectSingleNode(".//SearchPattern").text;
+					if(searchPreferenceXMLStore=="DEFAULT")
+					{
+						targetMappingNode=constructor_InsertXMLStore.createElement("TargetMappings");				
+						root_old=constructor_InsertXMLStore.selectSingleNode(".//new");				
+						root_old.appendChild(targetMappingNode);				
+						searchPatternNode=constructor_InsertXMLStore.createElement("SearchPattern");				
+						searchPatternData=newTag.createTextNode(searchPattern);
+						searchPatternNode.appendChild(searchPatternData);
+						targetMappingNode.appendChild(searchPatternNode);
+						targetMappingNode.appendChild(root);
+					}					
+					else
+					{					
+						root_old=constructor_InsertXMLStore.selectSingleNode(".//new");								
+						var fullxml=mappingNode.appendChild(root);
+						root_old.appendChild(mappingNode);			
+					}
+				}
+				
+				bdiTargetMapping.request=constructor_InsertXMLStore.XMLDocument;
+				bdiTargetMapping.reset();
+				system.windows[parentId].getXMLData();
+				system.windows[parentId].fillgrid();
+				
+				application.container.close();	
+			}
+			
+			
+			function pressCancel()
+			{	
+				application.container.close();				
+			}			
+			
+		</script>	
+
+<!------------------------------------------------------------------------------------->
+	<eibus:dataisland id="bdiTargetMapping" async="false" automatic="false">
+					
+		<xml id="constructor_IdocType">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<GetIDOCTypesForMesType xmlns="http://schemas.cordys.com/1.0/SAPSchema">
+						<MESTYPE></MESTYPE>
+						<overwrite>false</overwrite>
+					</GetIDOCTypesForMesType>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+		
+		<xml id="constructor_InsertXMLStore">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>	
+					<UpdateXMLObject xmlns="http://schemas.cordys.com/1.0/xmlstore">
+						<tuple key="/cordys/bac/sap/targetmappings" unconditional="true">
+							<new>
+							</new>
+						</tuple>
+					</UpdateXMLObject>			
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+		
+		<xml id="constructor_GetXMLStore">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>	
+					<GetXMLObject xmlns="http://schemas.cordys.com/1.0/xmlstore">
+						<key>/cordys/bac/sap/targetmappings</key>
+					</GetXMLObject>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+		
+		<xml id="newTag">
+			<Mapping></Mapping>
+		</xml>
+		
+		
+		<xml id="constructor_soapnode">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<GetSoapNodes xmlns="http://schemas.cordys.com/1.0/ldap">
+						<dn></dn>
+						<namespace>*</namespace>
+						<sort>ascending</sort>
+					</GetSoapNodes>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+		
+		
+		<xml id="constructor_methods">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<GetMethodsForMethodSet xmlns="http://schemas.cordys.com/1.0/ldap">
+						<methodset></methodset>
+						<sort>ascending</sort>
+					</GetMethodsForMethodSet>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+		
+		<xml id="constructor_nameSpace">
+			<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+				<SOAP:Body>
+					<GetLDAPObject xmlns="http://schemas.cordys.com/1.0/ldap">
+						<dn></dn>
+					</GetLDAPObject>
+				</SOAP:Body>
+			</SOAP:Envelope>
+		</xml>
+
+    <xml id="requestGetSOAPProcessors">
+        <SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+    	  <SOAP:Body>
+    	     <GetSoapProcessors xmlns="http://schemas.cordys.com/1.0/ldap">
+    	        <dn></dn>
+    	     </GetSoapProcessors>
+    	  </SOAP:Body>
+    	</SOAP:Envelope>
+    </xml>
+    
+		
+	</eibus:dataisland>
+	
+
+<!------------------------------------------------------------------------------------->
+	<xml id="FindMessage">
+		<Application>
+			<description></description>
+            <id>FindMessage_TargetMappingID</id>
+            <url>\cordys\bac\sap\getMessageType.htm</url>
+            <caption>Show message type</caption>
+            <frame docked="false" height="350" left="280" top="100" width="300">main</frame>
+            <frame>main</frame>
+            <data></data>
+            <desc></desc>
+            <icon></icon>
+		</Application>
+	</xml>
+	
+	
+	<body class="light">
+		<table style="left:0%; POSITION: absolute;top:2%;width:100%">
+			
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			</tr>
+			
+			<tr id="mappingName_tr" style="display:none">
+				<td  align="right">
+					<label>Mapping name</label>
+				</td>
+				
+				<td>
+					<input class="input" id="mappingName" style="width:95%">										
+				</td>
+			</tr>	
+		
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			</tr>
+			
+			<tr id="messageType_tr" style="display:none">
+				<td align="right">
+					<label>Message type</label>
+				</td>
+				
+				<td>
+					<input class="input" id="MessageType" style="width:80%" onBlur="IdocType()">&nbsp;							
+					<button style="WIDTH: 18px; HEIGHT: 18px" class="lightmedium" id="messageType_button" title="Message Types" onclick="ShowMessage()">
+						<img align="absMiddle" src="/cordys/bac/sap/images/lookup.gif" >
+					</button>									
+				</td>
+				
+			</tr>					
+			
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			</tr>
+			
+			<tr id="idocType_tr"  style="display:none">
+				<td align="right">
+					<label>Idoc Type</label>
+				</td>
+				
+				<td>
+					<eibus:select id="sel_IdocType" editable="true" class="input" style="width:95%">
+						<div value="">Select Idoc Type</div>												
+					</eibus:select>						
+				</td>
+			</tr>
+			
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			</tr>					
+			
+			<tr id="recipientLogicSystem_tr" style="display:none">
+				<td  align="right">
+					<label>Recipients logical system</label>
+				</td>
+				
+				<td>
+					<input class="input" id="recepientLogicSystem" style="width:95%">
+				</td>
+			</tr>				
+			
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			</tr>
+			
+			<tr>
+				<td align="right">
+					<label>Organization</label>						
+				</td>
+				
+				<td>
+					<eibus:select class="input" id="systemOrganization" onchange="fillSoapNodes()" style="width:95%">
+						<div value="">Select organization</div>
+					</eibus:select>
+				</td>					
+			</tr>
+			
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			</tr>
+			
+			<tr>
+				<td align="right">
+					<label>Service Group</label>						
+				</td>
+				
+				<td>
+					<eibus:select class="input" id="soapNode" onchange="fill_methodSetCombo()" style="width:95%">
+						<div value="">Select Service Group</div>
+					</eibus:select>					
+				</td>					
+			</tr>
+
+			
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			</tr>
+				
+			<tr>
+				<td align="right">
+					<label>Web Service Interfaces</label>						
+				</td>
+				
+				<td>
+					<eibus:select id="methodSet" class="input" onchange="getmethods()" style="width:95%">
+						<div value="">Select Web Service Interface</div>												
+					</eibus:select>																	
+				</td>					
+			</tr>
+			
+			<tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			</tr>
+					
+			<tr>
+				<td align="right">
+					<label>Select Web Service Operation</label>						
+				</td>
+				
+				<td>
+					<eibus:select id="methods" class="input" style="width:95%">
+						<div value="">Select Web Service Interface</div>												
+					</eibus:select>																	
+				</td>					
+			</tr>
+			
+						
+			<tr>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			</tr>
+			
+			
+			<tr>
+				<td align="right">
+					<input class="medium" onclick="pressOK()"  type="button" value="Ok" id="OK" style="width:30%">
+				</td>
+				
+				<td>
+					<input class="medium" onclick="pressCancel()"  type="button" value="Cancel" id="CANCEL">
+				</td>
+			</tr>
+		</table>	
+	</body>
+</html>

@@ -1,28 +1,10 @@
-VERSION 2.1.4 (21-12-2011)
-- Change : Replaced coelib.jar with latest
-- Change : All cache files will be created only in the directory specified in the SAP Properties, if not specified it uses default path (BAC/SAP/cache).
+VERSION 2.0.7 - (24-01-2012)
+- Fix   : No need to manually create symbolic link for Web/bac folder after loading ISVP
 
-VERSIOM 2.1.3 (12-12-2011)
-- Change : Removal of Invalid XML Characters will be done only for the SAP Metadata. It will NOT be done for the business data.
-
-VERSIOM 2.1.2 (08-12-2011)
-- Fix    : Fixed issue id 31 - "PCDATA invalid Char value...." when RFC XML is parsed by NOM
-
-VERSIOM 2.1.1 (07-12-2011)
-- Fix    : Updated coelib.jar, now SAP Connector consumes less memory
-- Fix    : Fixed Web Service publish issue. If we directly use SAP BOP-4 web services in BOP 4.1 it will give "Verification Failed" error.
-- Fix    : Solved Add/Update Web service Interfaces issue. Issue was implementation will be empty for the newly added/updated web services.
-- Change : List SAP Objects in Alphabetical order in SAP Web Service Generator wizard.
-- Change : Now SAP Web service generator wizard is not showing empty objects when user clicks "Search Metadata".
-- change : Removed horizontal scrollbar for SAP Web Service Generator wizard.
-- Change : Demo pages are completely migrated to XForm (Currency: GetList and GetDecimal)
-
-VERSIOM 2.1.0 - Beta (25-11-2011)
-- Change : Unused htm files are removed.
-- Add    : SAP User Mapping and Property page are developed with XForm, Property page is still htm since there is no option to add caf as property page.
-- Change : LDAP Runtime reference was removed and added with BOP 4.1 LDAP Runtime Reference - Reason : Verification Failed error during Publish.
-- Change : Runtime Key is changed to BAC.SAP.SAP R3 Connector
-- Fix    : Browser compatibility changes are made in sapwebserviceview.htm
+VERSION 2.0.6 - (21-12-2011)
+- Fix   : Memory issue is fixed by using latest coelib.jar.
+- Fix   : Fixed issue id 31 - "PCDATA invalid Char value...." when RFC XML is parsed by NOM.
+- Change: All cache files will be created only in the directory specified in the SAP Properties, if not specified it uses default path (BAC/SAP/cache).
 
 VERSION 2.0.5 - Beta (21-04-2011)
 - Change: SAP WebService Wizard to provide option to specify Interface name (Issue 6)

@@ -10,10 +10,9 @@
 	<CreationDate>2009-10-14T10:38:36.371</CreationDate>
 	<Notes/>
 	<NamespacePrefix></NamespacePrefix>
-	<RuntimeQualifiedName/>
 	<SourceFolder>
 		<uri
-			id="00505681-3ba3-11e1-e23a-2be379611f42"
+			id="005056C0-0008-11E0-E7D7-FC0B624C9F40"
 			path="TestProject"
 			type="com.cordys.cws.runtime.types.folder.StudioFolder"
 		/>
@@ -28,67 +27,16 @@
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-10-14T10:38:36.371</CreationDate>
 			<Notes/>
-			<Product>TestProject</Product>
 			<BuildNumber>0</BuildNumber>
-			<PostISVLoaderInformation/>
-			<ISVPackageOwner>Cordys</ISVPackageOwner>
-			<PackageForRuntime>true</PackageForRuntime>
-			<Version>1.0</Version>
 			<ISVPackageFileName>Cordys TestProject 1.0.0</ISVPackageFileName>
-			<ThirdPartyAgreement/>
+			<Version>1.0</Version>
+			<Product>TestProject</Product>
+			<PostISVLoaderInformation/>
+			<PackageForRuntime>true</PackageForRuntime>
+			<ISVPackageOwner>Cordys</ISVPackageOwner>
 			<LicenseAgreement/>
+			<ThirdPartyAgreement/>
 		</ISVPackageInfo>
 	</ISVPackageInfo>
-	<_AddOns>
-		<TranslationInformation
-			type="com.cordys.translation.TranslationInformation"
-			typeVersion="b81bb9b4-8af7-470f-a5fa-864be49acb9d"
-			RuntimeDocumentID="00505681-3ba3-11e1-e2ca-995f14bf1f68">
-			<DocumentID>00505681-3ba3-11e1-e2ca-995f14bb5f67</DocumentID>
-			<Name>TranslationInformation</Name>
-			<Description>TranslationInformation</Description>
-			<CreatedBy>srkrishnan</CreatedBy>
-			<CreationDate>2011-11-24T06:24:00.922</CreationDate>
-			<Notes/>
-			<Texts>
-				<uri
-					id="00505681-3ba3-11e1-e2ca-995f14b01f65"
-					path="TestProject/TranslationInformation_00505681-3ba3-11e1-e2ca-995f14b01f65"
-					type="com.cordys.cws.associations.MergeableAssociation"
-				/>
-			</Texts>
-			<TranslationInformation/>
-			<LanguagePacks>
-				<LanguagePack
-					type="com.cordys.translation.LanguagePack"
-					typeVersion="11456b87-q895-32f2-584q-58f3tlm2so65"
-					RuntimeDocumentID="00505681-3ba3-11e1-e2ca-995f14ac5f64">
-					<DocumentID>00505681-3ba3-11e1-e2ca-995f14a89f63</DocumentID>
-					<Name>en-US</Name>
-					<Description>en-US</Description>
-					<CreatedBy>srkrishnan</CreatedBy>
-					<CreationDate>2011-11-24T06:24:00.923</CreationDate>
-					<Notes/>
-					<Language>English - United States</Language>
-					<Texts>
-						<uri
-							id="00505681-3ba3-11e1-e2ca-995f14a11f61"
-							path="TestProject/en-US_00505681-3ba3-11e1-e2ca-995f14a11f61"
-							type="com.cordys.cws.associations.MergeableAssociation"
-						/>
-					</Texts>
-					<TranslationInformation>
-						<uri
-							id="00505681-3ba3-11e1-e2ca-995f14bb5f67"
-						/>
-					</TranslationInformation>
-				</LanguagePack>
-			</LanguagePacks>
-			<ProjectLanguage>
-				<uri
-					id="00505681-3ba3-11e1-e2ca-995f14a89f63"
-				/>
-			</ProjectLanguage>
-		</TranslationInformation>
-	</_AddOns>
+	<RuntimeQualifiedName/>
 </Project>
