@@ -1,0 +1,243 @@
+<!--
+Copyright 2009 Cordys R&D B.V. 
+
+This file is part of the Cordys SAP Connector. 
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<HTML>
+	<HEAD>
+		<xml id="xmlSAPWebserviceViewDefinitions">	
+			<CustomWebserviceView>
+				<WebserviceDefinitionSetModel>
+					<BusinessObjectType>
+						<Name>com.cordys.wsdl.WebserviceDefinitionSet</Name>
+					</BusinessObjectType>
+					<InterfaceObjectType>
+						<Name>com.cordys.wsdl.views.wizard.CustomWebserviceAdapter</Name>
+					</InterfaceObjectType>
+				</WebserviceDefinitionSetModel>
+			</CustomWebserviceView>
+		</xml>
+		<SCRIPT>
+	setPublic(SAPWebserviceView, "bac.sap.cws");
+
+	importType("com.cordys.cws.umf.common.Definition");
+    importType("com.cordys.cws.umf.views.wizard.StudioUMFWizardView");	
+	importType("com.cordys.wsdl.views.wizard.WebserviceSourceWizardView");
+    importType("com.cordys.cws.umf.views.zoom.StudioUMFZoomView");
+	importType("com.cordys.wsdl.WebserviceDefinitionSet");
+
+	inherit(SAPWebserviceView, WebserviceSourceWizardView);
+	
+	var faultOccurred = false;	
+
+	/**
+	 * Constructor. Initializes the view and registers the proper CAf for the framework.
+	 */
+	function SAPWebserviceView()
+	{
+		this.WebserviceSourceWizardView();
+		this.viewDefinition(xmlSAPWebserviceViewDefinitions.documentElement);
+		
+		this.ID("/cordys/BAC/SAP/SAP_ServicesPublisher_BOP4.caf");
+		
+		this.applicationDefinition().URL("/cordys/BAC/SAP/SAP_ServicesPublisher_BOP4.caf");
+		this.applicationDefinition().caption("SAP Webservice");
+		this.applicationDefinition().description("SAP Webservice");
+		this.applicationDefinition().setAttribute("frame", "width", "800");
+		this.applicationDefinition().setAttribute("frame", "height", "800");
+
+		this.defaultFrame(Definition.STUDIO_UMF_MAIN_FRAME);
+		this.uiObjectType("WebserviceDefinitionSetModel");
+
+		//Defines the namespace/prefix mappings.
+		this.prefixes = new Array();
+		this.prefixes["ns"] = "http://schemas.cordys.com/2.0/SAPSchema";
+		this.prefixes["wsdl"] = "http://schemas.xmlsoap.org/wsdl/";
+		this.prefixes["xsd"] = "http://www.w3.org/2001/XMLSchema";
+		this.prefixes["soap"] = "http://schemas.xmlsoap.org/wsdl/soap/";
+	}
+
+	/**
+	 * Handler on the onAfterOpen of the application.
+	 */
+	function SAPWebserviceView.prototype.onAfterOpen()
+	{
+		this.inherited(SAPWebserviceView,"onAfterOpen");
+
+		//If the BO already exists, we can pre-fill the web service interface name. The problem is 
+		//though that we cannot do it here. We need to put it in the system.data array for now.
+		//And from the sapmethodpublisher.htm we'll read it again.
+		//TODO: figure out a more elegant way
+		var bo = this.businessObject();
+		var name = bo.name();
+		if (name && name != "")
+		{
+			system.data["bac.sap.currentbo"] = bo;
+		}
+		else
+		{
+			system.data["bac.sap.currentbo"] = null;
+		}
+	}
+
+	/**
+	 * This method is called when the wizard want to finish. It will chack if all parameters are filled currently.
+	 *
+	 * @return true if all values are filled correctly. Otherwise false.
+	 */
+	function SAPWebserviceView.prototype.onBeforeFinish()
+	{
+	    return this.getViewApplication().validate();
+	}
+
+	/**
+	 * This method is called when the wizard finishes. It will first ask the sapMethodPublisher to generate
+	 * the WSDLs and the implementations. Then based on the WSDLs it will create the Webservice in CWS.
+	 * Afterwards the implementation (realization) will be added to the generated methods. 
+	 */
+	function SAPWebserviceView.prototype.onFinish( iEventObject )
+	{
+		//Get the information needed to generate the WSL and realizations.
+		//I need the information which was entered at the first page of the wizard.
+		var bo = this.businessObject();
+		var viewApplication = this.getViewApplication();
+		if (!bo)
+		{
+			bo = iEventObject.businessObject;
+		}
+		
+		var namespace = bo.targetNamespace();
+		
+		//Get SAP generated data
+	    faultOccurred = false;
+
+		if (system.windows["sapMethodPublisher"] && system.windows["sapMethodPublisher"].getGeneratedWSDL)
+	    {
+		    //Get the response from the GenerateMethods call. It contains both the WSDL and the
+		    //realizations for the methods.
+	        var sapWSDL = system.windows["sapMethodPublisher"].getGeneratedWSDL(namespace);
+
+	        if (sapWSDL != null)
+	        {
+		        //Find the actual WSDL definition
+		        var wsdl = cordys.selectXMLNode(sapWSDL, "//ns:wsdl/wsdl:definitions", this.prefixes);
+		        if (wsdl == null)
+		        {
+					application.showError("Could not find the WSDL in the response");
+		        }
+		        else
+		        {
+			        //Import the WSDL into CWS
+		        	bo.fillFromWSDL(wsdl.xml, faultHandler);
+
+		        	//Go through all methods and add the realization to it.
+		        	if(bo.webserviceBindings().iterator().hasNext())
+					{
+						//First we get the binding (we'll have only 1 binding generated.
+						var binding = bo.webserviceBindings().iterator().next();
+
+						//Check if we need to create the reference to the connector.
+						var createConnector = true;
+						var connectors = bo.connectors();
+						if (connectors != null)
+						{
+							if (connectors.iterator().hasNext())
+							{
+								createConnector = false;
+							}
+						}
+
+						//Set the implementing application connector.
+						if (createConnector)
+						{
+							var key = "/Cordys/WCP/Application Connector/com.eibus.applicationconnector.sap.SAPMapper";
+							var connector = bo.connectors().create("com.cordys.applicationconnector.ApplicationConnectorRuntime");
+	
+							connector.name("SAP R3 Connector Runtime");
+							connector.runtimeKey(key);
+	
+							connector.load();
+	
+							//Set the implementation class for the binding.
+							binding.implementationClass("com.eibus.applicationconnector.sap.SAPMapper");
+							binding.save();
+						}
+						
+						var iterator = binding.bindingOperations().iterator();
+						
+						while(iterator.hasNext())
+						{
+							var operation = iterator.next();
+
+							//Find out if for this operation a realization is available
+							var xpath = "//ns:realizations/ns:realization[@operation='" + operation.name() + "']/implementation";
+							var realization = cordys.selectXMLNode(sapWSDL, xpath, this.prefixes);
+							 
+							if(realization != null)
+							{
+								//Create the realization if needed. Otherwise find the current one.
+								var customRealization = null;
+								
+								if (operation.realizations().iterator().hasNext())
+								{
+									customRealization = operation.realizations().iterator().next();
+								}
+								else
+								{
+									customRealization = operation.realizations().create("com.cordys.wsdl.CustomRealization");
+
+									//Strip out the . in case of the 
+									var tempName = "" + operation.name() + "_realization";
+									tempName = tempName.replace(/[^a-zA-Z_0-9]/g, "");
+									
+									customRealization.name(tempName);
+								}
+
+								//Update the actual realization.
+								customRealization.implementation(realization.cloneNode(true));
+								customRealization.save();
+							}
+						}
+						
+						bo.save();
+					}
+		        }
+	        }
+	        else
+	        {
+				application.showError("The method GenerateMethods did not return the WSDL");
+	        }
+	    }
+
+	    return faultOccurred;
+	}
+
+	/**
+	 * This method is called when a fault was received. 
+	 *
+	 * TODO: We need to show it to the end user. 
+	 */
+	function faultHandler(faultEvent)
+	{
+		debugger;
+		
+		application.showError("Error generating Web Services: " + faultEvent.m_errorResponse.xml);
+		
+	    faultOccurred = true;
+	}
+		</SCRIPT>
+	</HEAD>
+	<BODY></BODY>
+</HTML>

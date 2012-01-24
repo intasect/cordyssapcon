@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurations>
+    <configuration name="Default" type="webgateway">
+        <dausername>pgussow</dausername>
+        <dapassword>OBF:1j911t331sw21xmk1xmq1svw1t331j61</dapassword>
+        <dadomain/>
+        <port>81</port>
+        <server>cnl1259</server>
+    </configuration>
+    <configuration name="cnl1259" type="webgateway">
+        <dausername>pgussow</dausername>
+        <dapassword>OBF:1j911t331sw21xmk1xmq1svw1t331j61</dapassword>
+        <dadomain/>
+    </configuration>
+</configurations>
