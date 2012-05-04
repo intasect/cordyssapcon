@@ -30,6 +30,8 @@ import com.eibus.applicationconnector.sap.usermapping.IUserMapping;
 import com.eibus.applicationconnector.sap.usermapping.UserMappingFactory;
 import com.eibus.applicationconnector.sap.util.BACUtil;
 import com.eibus.applicationconnector.sap.util.Util;
+import com.eibus.applicationconnector.sap.xmi.xbp.XBPRequestManager;
+import com.eibus.applicationconnector.sap.xmi.xbp.XBPSessionContext;
 
 import com.eibus.soap.BodyBlock;
 import com.eibus.soap.MethodDefinition;
@@ -303,10 +305,23 @@ public class SAPJCoRequestHandler
         // System.out.println("Before sending IDOC " + doc.getNumUsedNodes(true));
         MethodDefinition methodDefinition = request.getMethodDefinition();
 
-        String idocType = methodDefinition.getMethodName();
+        
         int implementationNode = methodDefinition.getImplementation();
 
         String mesType = XPathHelper.getStringValue(implementationNode, "MESType", "");
+        
+        /**
+         * Getting the IDOCType information from the method implementation. If IDOCType attribute is not found in the implementation then method name is taken as IDOC Type
+         */
+        String idocType = XPathHelper.getStringValue(implementationNode, "IDOCType", "");
+        if("".equalsIgnoreCase(idocType))
+        { 
+        	if (LOG.isErrorEnabled())
+            {
+                LOG.error("IDOC Type information is not found in the method implementation. This could be a method generated from old isvp");
+            }
+        	 idocType = methodDefinition.getMethodName();
+        }
 
         if (!Util.isSet(mesType))
         {
@@ -330,18 +345,19 @@ public class SAPJCoRequestHandler
             LOG.debug("Message type is " + mesType + ", IDOC type is " + idocType +
                       ", CIMType is " + cimType);
         }
-
-        int sapResponse = requestSender.sendIDOCRequest(requestNode, m_jcoCon, idocType, mesType,
+        
+        int responseNode = response.getXMLNode();
+        String transactionId = requestSender.sendIDOCRequest(requestNode,responseNode, m_jcoCon, idocType, mesType,
                                                         cimType, fromLogicalSystem,
                                                         toLogicalSystem);
 
         if (LOG.isDebugEnabled())
         {
-            LOG.debug("Response node from SAP is " + Node.writeToString(sapResponse, true));
+            LOG.debug("Response node from SAP is " + Node.writeToString(responseNode, true));
         }
 
-        int responseNode = response.getXMLNode();
-        Node.appendToChildren(sapResponse, responseNode);
+      
+        //Node.appendToChildren(sapResponse, responseNode);
         return true;
     }
 
@@ -431,6 +447,52 @@ public class SAPJCoRequestHandler
         Node.delete(sapResponse);
         return true;
     }
+    
+    
+    /** Routes the XMP implementation methods to XMPManager
+     * @param request
+     * @param response
+     * @return
+     * @throws SAPConnectorException
+     */
+    public boolean handleXBPReqeust(BodyBlock request, BodyBlock response)
+    				throws SAPConnectorException
+	{
+		initializeClientAndRequestSender();
+		
+		int requestNode = request.getXMLNode();
+		//To remove the namespace common to all requests in Cordys.
+		Node.removeAttribute(requestNode, commonAttributeName);		
+		if (LOG.isDebugEnabled())
+		{
+		LOG.debug("RequestNode is " + Node.writeToString(requestNode, true));
+		}
+		
+		MethodDefinition methodDefinition = request.getMethodDefinition();		
+		int implementationNode = methodDefinition.getImplementation();
+		int responseNode = response.getXMLNode() ;
+		XBPSessionContext session = new XBPSessionContext();
+		session.setSessionConnection(this.getConnection());
+		session.setExternalUserId(this.getConnection().getUser());
+		session.setExtcompany(this.m_config.getXMICompanyName()) ;
+		session.setExtProduct(this.m_config.getXMIProductName());
+		XBPRequestManager xbpRequestManager = new XBPRequestManager() ;
+		session.setNomDocument(this.getDocument());
+		xbpRequestManager.setM_config(m_config);
+		
+		xbpRequestManager.setSession(session);
+		int xbpCallResponse = xbpRequestManager.processRequest(requestNode, responseNode, implementationNode);
+		if (LOG.isDebugEnabled())
+		{
+				LOG.debug("Response node from SAP is " + Node.writeToString(xbpCallResponse, true));
+		}
+		Node.duplicateAndAppendToChildren(Node.getFirstChild(xbpCallResponse),
+                Node.getLastChild(xbpCallResponse), responseNode);
+		BACUtil.deleteNode(xbpCallResponse);	
+		return true;
+	}
+
+
 
     /**
      * @see  com.eibus.applicationconnector.sap.connection.ISAPRequestHandler#handleTupleRequest(com.eibus.soap.BodyBlock,
@@ -450,6 +512,7 @@ public class SAPJCoRequestHandler
                               throws SAPConnectorException
     {
         int requestNode = request.getXMLNode();
+        int responseNode = response.getXMLNode();
         MethodDefinition methodDefinition = request.getMethodDefinition();
         String methodName = methodDefinition.getMethodName();
 
@@ -475,7 +538,13 @@ public class SAPJCoRequestHandler
 
             if (!idocNumber.equals(""))
             {
-                return requestSender.synchronizeIDOCStatus(idocNumber, m_jcoCon, m_doc);
+            	int idocStatusNode = requestSender.synchronizeIDOCStatus(idocNumber, m_jcoCon, m_doc) ;
+            	 //int responseNode = response.getXMLNode();
+            	 if(idocStatusNode >0 )
+            	 {
+            		 Node.appendToChildren(idocStatusNode,idocStatusNode, responseNode) ;
+            	 }
+                return true;
             }
             else
             {
@@ -530,10 +599,29 @@ public class SAPJCoRequestHandler
                 systemDate = BACUtil.getCurrentDate();
             }
 
-            int responseNode = response.getXMLNode();
+            //int responseNode = response.getXMLNode();
             doc.createTextElement("SystemDate", systemDate, responseNode);
             return true;
         }
+        else if (methodName.equals("GetSerializedIDOCMetadataObject"))
+        {
+        	if (metadataLoader == null)
+            {               
+                metadataLoader = new SAPJCoMetadataLoader(m_config, this);
+            }
+        	
+        	if(metadataLoader instanceof SAPJCoMetadataLoader )
+        	{
+        		return ((SAPJCoMetadataLoader) metadataLoader).getSerializedIDOCMetadataObject(requestNode, responseNode);
+        	}             
+        }
+        else if("RFC_READ_TABLE".equals(methodName))
+        {// This utility method is provided as it gets mostly used.
+        	this.handleRFCReqeust(request, response);
+        	BACUtil.formatRFC_READ_TABLEResponse(requestNode,responseNode);
+        	
+        }
+        
         return false;
     }
 

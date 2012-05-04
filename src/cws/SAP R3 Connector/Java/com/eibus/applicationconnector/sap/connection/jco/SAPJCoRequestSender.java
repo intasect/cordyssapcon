@@ -38,7 +38,7 @@ import com.sap.mw.jco.JCO;
 
 /**
  * This class provides the functionality to send BAPI/RFC requests to SAP backend and retrieve the
- * correspanding responses from SAP backend. Rather than setting each field of an RFC parameters, it
+ * corresponding responses from SAP backend. Rather than setting each field of an RFC parameters, it
  * makes used of fromXML() and toXML() methods of JCO API. It follows Request/Response model rather
  * than using parameter lists.
  *
@@ -53,11 +53,21 @@ public class SAPJCoRequestSender
     /**
      * For inbound IDOCs, target system is always SAP.
      */
-    private static String IDOCTargetSystem = "SAP";
+    private static String IDOCTargetSystem = "SAP"; 
     /**
      * DOCUMENTME.
      */
     private static String RFCREADTABLE_reqeustXML = new String("<RFC_READ_TABLE><QUERY_TABLE></QUERY_TABLE><ROWCOUNT></ROWCOUNT><OPTIONS><item><TEXT/></item></OPTIONS><FIELDS><item><FIELDNAME></FIELDNAME><OFFSET>000000</OFFSET><LENGTH>000000</LENGTH><TYPE/><FIELDTEXT/></item></FIELDS></RFC_READ_TABLE>");
+    
+    private static String EDIDS_RFCREADTABLE_reqeustXML = new String("<RFC_READ_TABLE><DELIMITER>:</DELIMITER><QUERY_TABLE></QUERY_TABLE><ROWCOUNT></ROWCOUNT><OPTIONS><item><TEXT/></item></OPTIONS><FIELDS>" +
+    		"<item><FIELDNAME></FIELDNAME><OFFSET>000000</OFFSET><LENGTH>000000</LENGTH><TYPE/><FIELDTEXT/></item>" +
+    		"<item><FIELDNAME>STATXT</FIELDNAME></item>" +
+    		"<item><FIELDNAME>STAPA1</FIELDNAME></item>" +
+    		"<item><FIELDNAME>STAPA2</FIELDNAME></item>" +
+    		"<item><FIELDNAME>STAPA3</FIELDNAME></item>" +
+    		"<item><FIELDNAME>STAPA4</FIELDNAME></item>" +
+    		"</FIELDS>" +
+    		"</RFC_READ_TABLE>");
     /**
      * DOCUMENTME.
      */
@@ -103,6 +113,7 @@ public class SAPJCoRequestSender
      * This method sends an IDOC request to the SAP server. *
      *
      * @param   requestNode        :XML request of the IDOC
+     * @param   responseNode       :XML response of the IDOC request
      * @param   client             : Client for the current user
      * @param   idocType           : IDOC type
      * @param   mesType            : Message type
@@ -110,11 +121,12 @@ public class SAPJCoRequestSender
      * @param   fromLogicalSystem  DOCUMENTME
      * @param   toLogicalSystem    DOCUMENTME
      *
-     * @return  : Returns the transaction id in an XML node.<tid></tid>
+     * @return  : Returns the transaction id as a String and appends the transaction id in <tid/> and idoc number in <IDOCNum/> node under 
+     * responseNode
      *
      * @throws  SAPConnectorException
      */
-    public int sendIDOCRequest(int requestNode, JCO.Client client, String idocType, String mesType,
+    public String sendIDOCRequest(int requestNode,int responseNode, JCO.Client client, String idocType, String mesType,
                                String cimType, String fromLogicalSystem, String toLogicalSystem)
                         throws SAPConnectorException
     {
@@ -127,9 +139,14 @@ public class SAPJCoRequestSender
         Document doc = Node.getDocument(requestNode);
         // IDOC type is the name of the parent node.
         // String idocType = Node.getLocalName(requestNode);
+        boolean isPartnerUnicode = false ;
+        if(client instanceof SAPJCoConnection)
+        { //This method is made available in the extention class for JCOClient 
+        	isPartnerUnicode = ((SAPJCoConnection) client).isPartnerSystemUnicode();
+        }
+        
         JCoIDoc.JCoDocument idoc = createIDOC(m_config.getIDOCRepository(), idocType, cimType,
-                                              requestNode);
-
+                                              requestNode,isPartnerUnicode);      
         // Setting appropriate control data
         try
         {
@@ -139,8 +156,8 @@ public class SAPJCoRequestSender
         {
             throw new SAPConnectorException(se,
                                             SAPConnectorExceptionMessages.ERROR_CHECKING_IDOC_SYNTAX,
-                                            se.getFieldName(),
-                                            se.getSegment().getSegmentMetaData().getType());
+                                            se.getFieldName()) ;
+                                         //   se.getSegment().getSegmentMetaData().getType());
         }
 
         String transactionID = null;
@@ -159,8 +176,7 @@ public class SAPJCoRequestSender
         if (LOG.isDebugEnabled())
         {
             LOG.debug("Transaction ID is " + transactionID);
-        }
-        // Spy.send("INFORMATION", idoc.toXML());
+        }    
         // set tid in the field RCVLAD to get the IDOC number generated.
         idoc.setRecipientLogicalAddress(transactionID);
 
@@ -175,13 +191,16 @@ public class SAPJCoRequestSender
         // Sending the IDOC to the server
         try
         {
-            client.send(idoc, transactionID);
+            client.send(idoc, transactionID);         
         }
         catch (JCO.Exception je)
         {
             String exceptionMessage = "An exception occured while sending the IDOC to the SAP server, " +
                                       je.getMessage();
             localStatus = "Error while dispatching.";
+           
+                LOG.error(exceptionMessage);
+           
             oleDBRequestSender.saveIDOCInDataBase(idoc, requestNode, transactionID, localStatus,
                                                   exceptionMessage, IDOCTargetSystem,
                                                   m_config.getServiceGroup(), doc);
@@ -226,6 +245,7 @@ public class SAPJCoRequestSender
         }
         idocNum = getIDOCNumberFromSAP(transactionID, client, doc);
         idoc.setIDocNumber(idocNum);
+        
         localStatus = "Dispatched";
         // Store the IDOC in the database.
         oleDBRequestSender.saveIDOCInDataBase(idoc, requestNode, transactionID, localStatus, "",
@@ -235,9 +255,10 @@ public class SAPJCoRequestSender
         {
             LOG.debug(" IDOC saved in the database.");
         }
-
-        int tidNode = doc.createTextElement("tid", transactionID);
-        return tidNode;
+       
+        Node.createTextElement("tid", transactionID, responseNode);
+        Node.createTextElement("IDOCNum", idocNum, responseNode);
+        return transactionID;
     }
 
     /**
@@ -618,11 +639,16 @@ public class SAPJCoRequestSender
      *
      * @throws  SAPConnectorException  In case of any exceptions
      */
-    boolean synchronizeIDOCStatus(String idocNumber, JCO.Client client, Document doc)
+    public int synchronizeIDOCStatus(String idocNumber, JCO.Client client, Document doc)
                            throws SAPConnectorException
     {
-        String idocStatus = getIDOCStatusFromSAP(idocNumber, client, doc);
-        return updateIDOCStatus(idocNumber, idocStatus, doc);
+        int idocStatusNode = getIDOCStatusFromSAP(idocNumber, client, doc);
+        if(idocStatusNode > 0)
+        {
+        	updateIDOCStatus(idocNumber, Node.getDataElement(idocStatusNode, "STATUS", ""), doc);
+        }
+       
+        return idocStatusNode ; 
     }
 
     /**
@@ -645,7 +671,7 @@ public class SAPJCoRequestSender
             oleDBRequestSender = new OLEDBRequestSender(SAPConnectorConstants.IDOC_TABLE_NAME,
                                                         m_config.getOrganization());
         }
-        return oleDBRequestSender.updateIDOCStatus(idocNumber, idocStatus, doc);
+        return oleDBRequestSender.updateIDOCStatus(idocNumber,m_config.getServiceGroup(), idocStatus, doc);
     }
 
     /**
@@ -831,16 +857,16 @@ public class SAPJCoRequestSender
      * @throws  SAPConnectorException  In case of any exceptions
      */
     private JCoIDoc.JCoDocument createIDOC(IDoc.Repository IDOCRepository, String idocType,
-                                           String cimType, int requestNode)
+                                           String cimType, int requestNode, boolean isPartnerUnicode)
                                     throws SAPConnectorException
     {
         JCoIDoc.JCoDocument idoc = (JCoIDoc.JCoDocument) JCoIDoc.createDocument(IDOCRepository,
                                                                                 idocType, cimType);
-        String controlStrucreName = idoc.getTableStructureName();
-        int idocNode = Node.getFirstChild(requestNode);
-        int clone_idocNode = Node.duplicate(idocNode);
-        int controlRecordNode = Find.firstMatch(clone_idocNode,
-                                                "<IDOC><" + controlStrucreName + ">");
+        String controlStrucreName = idoc.getTableStructureName();       
+        int idocNode = Node.getFirstChildElement(requestNode);
+        int clone_idocNode = Node.duplicate(idocNode);    
+
+        int controlRecordNode = Node.getElement(clone_idocNode, controlStrucreName);        
 
         if (controlRecordNode == 0)
         {
@@ -850,8 +876,12 @@ public class SAPJCoRequestSender
         try
         {
             // Fill up control record
-            idoc.fromXML(Node.writeToString(controlRecordNode, false));
-
+        	if(isPartnerUnicode)
+        	{ // If the partner system is unicode then the control record has to be set to EDI_DC40_U other wise it remains EDI_DC40
+        			Node.setName(controlRecordNode, "EDI_DC40_U") ;
+        	}
+        	
+            idoc.fromXML(Node.writeToString(controlRecordNode, false));         
             // Add segments and fill up each segment
             IDoc.Segment rootSegment = idoc.getRootSegment();
             IDoc.SegmentMetaData rootSegmentMetadata = rootSegment.getSegmentMetaData();
@@ -1015,15 +1045,16 @@ public class SAPJCoRequestSender
      *
      * @throws  SAPConnectorException  In case of any exceptions
      */
-    private String getIDOCStatusFromSAP(String idocNumber, JCO.Client client, Document doc)
+    public int getIDOCStatusFromSAP(String idocNumber, JCO.Client client, Document doc)
                                  throws SAPConnectorException
     {
         String returnValue = null;
+        int statusNodeToReturn = 0 ;
         int requestNode = 0;
 
         try
         {
-            requestNode = doc.parseString(RFCREADTABLE_reqeustXML);
+            requestNode = doc.parseString(EDIDS_RFCREADTABLE_reqeustXML);
         }
         catch (Exception xe)
         {
@@ -1055,6 +1086,13 @@ public class SAPJCoRequestSender
             // To get the last status record
             int lastItemNode = Node.getLastChild(dataNode);
             int WANode = Find.firstMatch(lastItemNode, "<item><WA>");
+           
+            if(WANode > 0)
+            {
+            	statusNodeToReturn = Node.duplicate(Node.getParent(WANode)) ;
+            	handlerDelimiters(statusNodeToReturn) ;
+            }
+            
             returnValue = Node.getDataWithDefault(WANode, "");
 
             if (returnValue.equals(""))
@@ -1073,7 +1111,7 @@ public class SAPJCoRequestSender
             BACUtil.deleteNode(responseNode);
         }
 
-        return returnValue;
+        return statusNodeToReturn;
     }
 
     /**
@@ -1153,7 +1191,7 @@ public class SAPJCoRequestSender
      * This method ensures that the output String has only
      * valid XML unicode characters as specified by the
      * XML 1.0 standard. For reference, please see
-     * <a href=”http://www.w3.org/TR/2000/REC-xml-20001006#NT-Char”>the
+     * <a href=â€�http://www.w3.org/TR/2000/REC-xml-20001006#NT-Charâ€�>the
      * standard</a>. This method will return an empty
      * String if the input is null or empty.
      *
@@ -1176,5 +1214,46 @@ public class SAPJCoRequestSender
                 out.append(current);
         }
         return out.toString();
-    }     
+    }   
+    
+    /** Splits the item data and adds them a nodes. The root node then would be retured to the calling code
+     * @param itemNode
+     */
+    private void handlerDelimiters(int itemNode)
+    {
+    	if(itemNode <= 0)
+    		return ;
+    	String contentNodeData = Node.getDataElement(itemNode, "WA", "") ;
+    	if("".equalsIgnoreCase(contentNodeData)) 
+    		return ; // No post processing
+    	String logTokens[] = contentNodeData.split(":");
+    	for(int i=0; logTokens!=null && i<logTokens.length; i++)
+    	{
+    		if(i ==0)
+    		{
+    			Node.createElementWithParentNS("STATUS", logTokens[i],itemNode) ;
+    		}
+    		else if(i ==1)
+    		{
+    			Node.createElementWithParentNS("STATXT", logTokens[i],itemNode) ;
+    		}
+    		else if(i ==2)
+    		{
+    			Node.createElementWithParentNS("STAPA1", logTokens[i],itemNode) ;
+    		}
+    		else if(i ==3)
+    		{
+    			Node.createElementWithParentNS("STAPA2", logTokens[i],itemNode) ;
+    		}
+    		else if(i ==4)
+    		{
+    			Node.createElementWithParentNS("STAPA3", logTokens[i],itemNode) ;
+    		}
+    		else if(i ==5)
+    		{
+    			Node.createElementWithParentNS("STAPA4", logTokens[i],itemNode) ;
+    		}    		
+    		
+    	}
+    }
 }

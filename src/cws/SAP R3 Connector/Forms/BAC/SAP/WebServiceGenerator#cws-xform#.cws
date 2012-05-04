@@ -79,7 +79,7 @@
 						<wcpforms:dataset
 							src="http://schemas.cordys.com/1.0/ldap/GetSoapNodes"
 							type="get"
-							wcpforms:wsguid="00505681-3ba3-11e1-e2a0-47dcf6dd9f1f"
+							wcpforms:wsguid="91D20AF6-5D77-11E1-EE33-D986CE7EF721"
 							operationName="GetSoapNodes">
 							<dn
 								xmlns="http://schemas.cordys.com/1.0/ldap"
@@ -618,6 +618,15 @@
 											textIdentifier="00505681-3ba3-11e1-e23a-2bf23e45d5e1">RFC</xforms:label>
 										<xforms:value>RFC</xforms:value>
 									</xforms:item>
+									<xforms:item
+										wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsRadio"
+										id="radio1_2"
+										wcpforms:class="h_choicebox"
+										wcpforms:size="90px auto">
+										<xforms:label
+											textIdentifier="00505681-3ba3-11e1-e23a-2bf2429815e9">IDOC</xforms:label>
+										<xforms:value>IDOC</xforms:value>
+									</xforms:item>
 									<xforms:action
 										xmlns:ev="http://www.w3.org/2001/xml-events"
 										ev:event="xforms-value-changed">
@@ -808,6 +817,7 @@ function btnSearch_Click(eventObject)
 
     //Execute the search
     SearchObjectModel.setMethodRequest(xmlRequest, "GET");
+    SearchObjectModel.instance.setReceiver(txtServiceContainer.getValue()) ;
     SearchObjectModel.reset();
     if (!SearchObjectModel.soapFaultOccurred)
     {
@@ -825,7 +835,15 @@ function btnSearch_Click(eventObject)
             //var option = {value: sValue, description: sDescription, xmlObject: sapObjects[count]};
             //txtContainer.addOption(option);
             
-            sapObjectsArray[sValue] = sDescription;
+
+          if (rSAPObjectType.getValue() == "IDOC")
+            {
+                sapObjectsArray[sValue] = "("+sValue+") "+sDescription;
+            }
+            else
+            {                
+                 sapObjectsArray[sValue] = sDescription;
+            }
         }
         sortObj(sapObjectsArray);
 
@@ -940,6 +958,16 @@ function txtContainer_Change(eventObject)
         {
             var sValue = cordys.getTextContent(cordys.selectXMLNode(items[count], "ns:value", NAMESPACES));
             var sDescription = cordys.getTextContent(cordys.selectXMLNode(items[count], "ns:displayname", NAMESPACES));
+            //alert(cordys.getXML(items[count])) ;
+            if (rSAPObjectType.getValue() == "IDOC")
+           {
+            var cimtypeNode = cordys.selectXMLNode(items[count], "ns:detail/ns:idoc/ns:cimtype", NAMESPACES);
+            if(cimtypeNode)            {               
+                sDescription = sDescription+" ("+cordys.getTextContent(cimtypeNode)+")" ;
+            }                        
+            
+
+           }
             
             var option = {value: sValue, description: sDescription, xmlObject: items[count]};
             lAvailable.addOption(option);
@@ -1043,8 +1071,16 @@ function getGeneratedWSDL(namespace)
         }
         else if (rSAPObjectType.getValue() == "IDOC")
         {
-            cimType = options[count].value;
+            operationName = options[count].value;           
             webserviceName = options[count].value;
+            var cimTypeNode = cordys.selectXMLNode(SearchObjectModel.getData(), "//ns:sapobject[ns:value='" + sapObjectValue 
+                + "']/ns:items/ns:item[ns:value='" + options[count].value+ "']/ns:detail/ns:idoc/ns:cimtype", NAMESPACES);
+            if(cimTypeNode != null)
+            {
+                cimType = cordys.getTextContent(cimTypeNode);
+            }
+               
+
         }
 
         //Create the actual operation node.
@@ -1066,6 +1102,8 @@ function getGeneratedWSDL(namespace)
 
     //Send the request to the backend.
     GenerateMethodsModel.setMethodRequest(xmlRequest, "GET");
+    GenerateMethodsModel.instance.setReceiver(txtServiceContainer.getValue()) ;
+
     GenerateMethodsModel.reset();    
 
     if (GenerateMethodsModel.soapFaultOccurred)
@@ -1077,6 +1115,7 @@ function getGeneratedWSDL(namespace)
 function btnclearcache_Click(eventObject)
 {
      application.notify("Cache will be cleared and reloaded again.");
+     ClearCacheModel.instance.setReceiver(txtServiceContainer.getValue()) ;
     ClearCacheModel.reset();
 }]]>
 			</xformsscript>
@@ -1979,6 +2018,40 @@ function btnclearcache_Click(eventObject)
 			</TranslatableName>
 			<TooltipText/>
 		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="A75E4B2D-B068-11E1-EEFE-C97DB7D49260">
+			<DocumentID>A75E4B2D-B068-11E1-EEFE-C97DB7D47260</DocumentID>
+			<Name>A75E4B2D-B068-11E1-EEFE-C97DB7D47260</Name>
+			<Description>A75E4B2D-B068-11E1-EEFE-C97DB7D47260</Description>
+			<CreatedBy>jvmohan</CreatedBy>
+			<CreationDate>2012-03-27T10:38:01.734</CreationDate>
+			<Notes/>
+			<UIRef>radio1_2</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e334-b051dd3ad77c"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="A75E4B2D-B068-11E1-EEFE-C97DB7D43260">
+					<DocumentID>A75E4B2D-B068-11E1-EEFE-C97DB7D41260</DocumentID>
+					<Name>A75E4B2D-B068-11E1-EEFE-C97DB7D41260</Name>
+					<Description>A75E4B2D-B068-11E1-EEFE-C97DB7D41260</Description>
+					<CreatedBy>jvmohan</CreatedBy>
+					<CreationDate>2012-03-27T10:38:01.734</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="00505681-3ba3-11e1-e23a-2bf2429815e9"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
 	</TranslatableUITexts>
 	<Representations/>
 	<ReferredXForms/>
@@ -1994,10 +2067,10 @@ function btnclearcache_Click(eventObject)
 			id="001E3780-4713-71DE-8EF4-CEB0649CDF3A"
 		/>
 		<uri
-			id="00505681-3ba3-11e1-e2a0-47dcf6dd9f1f"
+			id="005056C0-0008-11E0-EBEF-21FC296ADFC1"
 		/>
 		<uri
-			id="005056C0-0008-11E0-EBEF-21FC296ADFC1"
+			id="91D20AF6-5D77-11E1-EE33-D986CE7EF721"
 		/>
 	</Webservices>
 	<StyleSheets/>

@@ -69,6 +69,10 @@ public class SAPTransaction
      */
     private static final String TYPE_SAPIDOC = "SAPIDOC";
     /**
+     * Holds the type for the SAP XBP execution method.
+     */
+    private static final String TYPE_SAP_XBP = "SAPXBP";
+    /**
      * Holds the type for the methods which use the tuple format.
      */
     private static final String TYPE_SAP_TUPLE = "SAPTuple";
@@ -105,6 +109,7 @@ public class SAPTransaction
         s_types.add(TYPE_SAPBAPI);
         s_types.add(TYPE_SAPIDOC);
         s_types.add(TYPE_SAPRFC);
+        s_types.add(TYPE_SAP_XBP);
     }
 
     /**
@@ -242,6 +247,10 @@ public class SAPTransaction
             else if (requestType.equalsIgnoreCase(TYPE_SAP_UTIL))
             {
                 return requestHandler.handleUtilRequest(request, response);
+            }
+            else if (requestType.equalsIgnoreCase(TYPE_SAP_XBP))
+            {
+                return ((SAPJCoRequestHandler)requestHandler).handleXBPReqeust(request, response);
             }
             else if (requestType.equalsIgnoreCase(TYPE_SAP_CONNECTOR))
             {

@@ -1177,7 +1177,7 @@ function deleteLDAPEntry(index) {
 	<ReferredXForms/>
 	<image>
 		<uri
-			id="00505681-3ba3-11e1-e23a-2bdf894b1f37"
+			id="91D20AF6-5D77-11E1-EE30-79A7C3B4B721"
 			path="SAP R3 Connector/Web Files/bac/sap/images/sap_icon_cordys_all_sizes_Admin.png"
 			type="com.cordys.cws.documenttypes.image.Png"
 		/>
@@ -1185,20 +1185,7 @@ function deleteLDAPEntry(index) {
 	<TranslatableApplications/>
 	<Images/>
 	<messages/>
-	<Webservices>
-		<uri
-			id="00505681-3ba3-11e1-e2a0-47db46151fd1"
-		/>
-		<uri
-			id="00505681-3ba3-11e1-e2a0-47dc4fa61ffb"
-		/>
-		<uri
-			id="00505681-3ba3-11e1-e2a0-47dd0e515f25"
-		/>
-		<uri
-			id="00505681-3ba3-11e1-e2a0-47ddbce5df43"
-		/>
-	</Webservices>
+	<Webservices/>
 	<StyleSheets/>
 	<input/>
 	<taskParts/>

@@ -1,17 +1,20 @@
-CREATE TABLE IDOCTable(
-Direction varchar2(1) not null,
-Tid varchar2(24) not null,
-IDOCNum varchar2(24) not null,
-CreationDate date not null,
-MESType varchar2(24) not null,
-CIMType varchar2(24) null,
-SenderLS varchar2(10) null,
-ReceiverLS varchar2(10) null,
-LocalStatus varchar2(24) not null,
-ErrorText varchar2(16) null,
-TargetSystem varchar2(24)  null,
-DestinationStatus varchar2(2) null,
-ControlRecord clob not null,
-DataRecord clob not null,
-CONSTRAINT IDOCTable_pk PRIMARY KEY (IDOCNum)
-);
+
+  CREATE TABLE "IDOCTABLE" 
+   (	"DIRECTION" VARCHAR2(1 BYTE) NOT NULL ENABLE, 
+	"TID" VARCHAR2(24 BYTE) NOT NULL ENABLE, 
+	"IDOCNUM" VARCHAR2(24 BYTE) NOT NULL ENABLE, 
+	"CREATIONDATE" DATE, 
+	"MESTYPE" VARCHAR2(24 BYTE) NOT NULL ENABLE, 
+	"CIMTYPE" VARCHAR2(24 BYTE), 
+	"SENDERLS" VARCHAR2(10 BYTE), 
+	"RECEIVERLS" VARCHAR2(10 BYTE), 
+	"LOCALSTATUS" VARCHAR2(24 BYTE) NOT NULL ENABLE, 
+	"ERRORTEXT" VARCHAR2(16 BYTE), 
+	"TARGETSYSTEM" VARCHAR2(24 BYTE), 
+	"DESTINATIONSTATUS" VARCHAR2(2 BYTE), 
+	"CONTROLRECORD" CLOB NOT NULL ENABLE, 
+	"DATARECORD" CLOB NOT NULL ENABLE, 
+	"IDOCTYPE" VARCHAR2(100 BYTE), 
+	"SOAPNODEDN" VARCHAR2(100 BYTE) NOT NULL ENABLE, 
+	 CONSTRAINT "IDOCTABLE_PK" PRIMARY KEY ("IDOCNUM", "SOAPNODEDN")  
+   );

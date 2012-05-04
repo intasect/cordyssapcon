@@ -105,7 +105,7 @@ public class TestMetadata
     private void createConnection()
                            throws Exception
     {
-        int node = m_doc.load(".\\test\\java\\com\\cordys\\test\\connection\\config.xml");
+        int node = m_doc.load(".\\test\\java\\com\\cordys\\test\\xmi\\sapr3config.xml");
 
         try
         {

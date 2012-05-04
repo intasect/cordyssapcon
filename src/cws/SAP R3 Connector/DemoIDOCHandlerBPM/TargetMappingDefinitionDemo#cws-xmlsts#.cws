@@ -1,0 +1,43 @@
+
+<XMLStoreSource
+	type="com.cordys.xmlstore.sourceroot.XMLStoreSource"
+	RuntimeDocumentID="D99B260D-6C94-11E1-EF94-91CA62AF3249">
+	<DocumentID>D99B260D-6C94-11E1-EF94-91CA62AF1249</DocumentID>
+	<Name>TargetMappingDefinitionDemo</Name>
+	<Description>TargetMappingDefinitionDemo</Description>
+	<CreatedBy>jvmohan</CreatedBy>
+	<CreationDate>2012-04-02T09:26:42.436</CreationDate>
+	<Notes/>
+	<NamespacePrefix></NamespacePrefix>
+	<SecurityDescriptor>
+		<XMLStoreSecurityDescriptor
+			type="com.cordys.xmlstore.sourceroot.XMLStoreSecurityDescriptor"
+			RuntimeDocumentID="D99B260D-6C94-11E1-EF94-91CA62AEF249">
+			<DocumentID>D99B260D-6C94-11E1-EF94-91CA62AED249</DocumentID>
+			<Name>Untitled XML Store Definition</Name>
+			<Description>Untitled XML Store Definition</Description>
+			<CreatedBy>jvmohan</CreatedBy>
+			<CreationDate>2012-04-02T09:26:42.436</CreationDate>
+			<Notes/>
+			<inherit>true</inherit>
+			<XMLStoreDefinition>
+				<uri
+					id="D99B260D-6C94-11E1-EF94-91CA62AF1249"
+				/>
+			</XMLStoreDefinition>
+			<securedObject>
+				<uri
+					id="D99B260D-6C94-11E1-EF94-91CA62AF1249"
+				/>
+			</securedObject>
+			<accesscontrolentries/>
+		</XMLStoreSecurityDescriptor>
+	</SecurityDescriptor>
+	<SourceFolder>
+		<uri
+			id="D99B260D-6C94-11E1-EF94-91CA62AE5249"
+			path="SAP R3 Connector/DemoIDOCHandlerBPM/xmlstoretm"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</SourceFolder>
+</XMLStoreSource>

@@ -230,9 +230,8 @@ public class LDAPInterface
             }
 
             // Send the request
-            int mesEnve = Node.getRoot(request);
-            response = connector.sendAndWait(mesEnve);
-
+            int mesEnve = Node.getRoot(request);          
+            response = connector.sendAndWait(mesEnve);            
             // Check for SOAP faults.
             checkErrorInResponse(xmi, response);
 

@@ -301,6 +301,9 @@ function decode(str)
 			createElementWithParentNS(jcoNode, "progID", input_progid_ksprovider.value);
 
 			createElementWithParentNS(jcoNode, "maxCons", input_maxcons.value);
+			createElementWithParentNS(jcoNode, "xmicompanyname", input_xmicompanyname.value);
+			createElementWithParentNS(jcoNode, "xmiproductname", input_xmiproductname.value);
+
 		}
 		else
 		{
@@ -412,6 +415,13 @@ function decode(str)
 			
 			var progID = cordys.getNodeText(jcoNode, "ns:progID", "", namespaces);
 			input_progid_ksprovider.value = progID;
+			
+			var xmiCompanyName = cordys.getNodeText(jcoNode, "ns:xmicompanyname", "", namespaces);
+			input_xmicompanyname.value = xmiCompanyName ;
+    
+			var xmiProductName = cordys.getNodeText(jcoNode, "ns:xmiproductname", "", namespaces);   
+			input_xmiproductname.value =xmiProductName;
+
 		}
 		else
 		{
@@ -691,6 +701,20 @@ function decode(str)
 					<label>IDOC Service URL</label>
 					<br>
 					<input type = "text" class = "input" id = "input_IDOCURL" style = "width:'90%'" tabindex = "7" value = "invoke/sap.bapi/handleBusXMLPost" msg = "Enter the IDOC Service invoke URL." reqFor = "BC" fieldType = "text" onChange="raiseConfigurationChanges()">
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td width = "50%">
+				<label id = "label_xmi_company" title = "XMI">XMI Company Name</label>
+				<br>
+				<input type = "text" class = "input" id = "input_xmicompanyname" title = "SAP Logon Language" style = "width:'90%'" tabindex = "6" value = "" msg = "Enter XMI Company name" reqFor = "None" fieldType = "text" onChange="raiseConfigurationChanges()">
+			</td>
+			<td width = "50%">
+				<div id = "tr_row9" >
+					<label>XMI Product Name</label>
+					<br>
+					<input type = "text" class = "input" id = "input_xmiproductname" style = "width:'90%'" tabindex = "7" value = "" msg = "Enter XMI Product name." reqFor = "None" fieldType = "text" onChange="raiseConfigurationChanges()">
 				</div>
 			</td>
 		</tr>

@@ -69,7 +69,8 @@ class ProcessorConfig
     /**
      * Key where target mappings are stored in XML store.
      */
-    private static final String MAPPINGS_XMLSTORE_PATH = "/cordys/bac/sap/targetmappings";
+    //private static final String MAPPINGS_XMLSTORE_PATH = "/cordys/bac/sap/targetmappings";
+    private static final String MAPPINGS_XMLSTORE_PATH = "/Cordys/bac/sap/TargetMappings.xml";
     /**
      * Holds the default location for the RFC interface cache.
      */
@@ -134,6 +135,11 @@ class ProcessorConfig
      * Holds the name of the tag 'connection'.
      */
     private static final String TAG_CONNECTION = "connection";
+    
+    private static final String TAG_XMI_COMPANY = "xmicompany";
+    private static final String TAG_XMI_PRODUCT = "xmiproduct";
+    private static final String TAG_XMI_USERNAME = "xmiuser";
+    private static final String TAG_XMI_PASSWORD = "xmipassword";
     /**
      * Holds the name of the tag 'fallbackToSystemUser'.
      */
@@ -274,6 +280,14 @@ class ProcessorConfig
      * Holds the user ID to use.
      */
     private String m_userID;
+    
+    private String m_xmiCompanyName;
+    
+    private String m_xmiProductName;
+    
+    private String m_xmiUserName;
+    
+    private String m_xmiPassword;
 
     /**
      * Creates a new ProcessorConfig object. It will parse and validate the configuration XML.
@@ -1168,5 +1182,56 @@ class ProcessorConfig
             throw new SAPConfigurationException(SAPConfigurationExceptionMessages.ERR_TAG_HAS_NO_VALUE,
                                                 TAG_PROGRAM_ID);
         }
+        
+        m_xmiCompanyName = XPathHelper.getStringValue(jco, "ns:" + TAG_XMI_COMPANY, xmi, "");
+        m_xmiProductName = XPathHelper.getStringValue(jco, "ns:" + TAG_XMI_PRODUCT, xmi, "");
+        m_xmiUserName = XPathHelper.getStringValue(jco, "ns:" + TAG_XMI_USERNAME, xmi, "");
+        m_xmiPassword = XPathHelper.getStringValue(jco, "ns:" + TAG_XMI_PASSWORD, xmi, "");
+        if (Util.isSet(m_xmiUserName) && !Util.isSet(m_xmiPassword))
+        {
+            throw new SAPConfigurationException(SAPConfigurationExceptionMessages.ERR_TAG_HAS_NO_VALUE,
+            		TAG_XMI_PASSWORD);
+        }
+        if(Util.isSet(m_xmiPassword))
+        {
+	        byte[] passwdBytes = m_xmiPassword.getBytes();
+	        m_xmiPassword = new String(Native.decodeBinBase64(passwdBytes, bytes.length));
+        }
+        
+        
     }
+
+	public String getXMICompanyName() {
+		return m_xmiCompanyName;
+	}
+
+	public void setXMICompanyName(String m_xmiCompanyName) {
+		this.m_xmiCompanyName = m_xmiCompanyName;
+	}
+
+	public String getXMIProductName() {
+		return m_xmiProductName;
+	}
+
+	public void setXMIProductName(String m_xmiProductName) {
+		this.m_xmiProductName = m_xmiProductName;
+	}
+
+	public String getXMIUserName() {
+		return m_xmiUserName;
+	}
+
+	public void setXMIUserName(String m_xmiUserName) {
+		this.m_xmiUserName = m_xmiUserName;
+	}
+
+	public String getXMIPassword() {
+		return m_xmiPassword;
+	}
+
+	public void setXMIPassword(String m_xmiPassword) {
+		this.m_xmiPassword = m_xmiPassword;
+	}
+    
+    
 }

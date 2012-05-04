@@ -52,7 +52,8 @@ public class SAPIDocServer extends JCoIDoc.Server
     /**
      * Default parameter name assumed.
      */
-    private static String targetMethod_parameterName = "parameter";
+    //private static String targetMethod_parameterName = "parameter";
+    private static String targetMethod_parameterName = "IDOC";
     /**
      * DOCUMENTME.
      */
@@ -95,6 +96,7 @@ public class SAPIDocServer extends JCoIDoc.Server
                   throws SAPConnectorException
     {
         super(gwhost, gwserv, progid, jcoRepository, idocRepository);
+        this.setProperty("jco.server.unicode", "1") ;
         m_config = configuration;
         mappingFinder = m_config.getTargetMappingFinder();
         doc = new Document();

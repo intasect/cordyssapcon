@@ -147,16 +147,19 @@ public abstract class MethodGenerator
      *
      * @throws  SAPConnectorException  In case of any exceptions.
      */
-    public MethodGenerator(BodyBlock request, BodyBlock response)
+    public MethodGenerator(int request, int response)
                     throws SAPConnectorException
     {
-        m_response = response.getXMLNode();
+        //m_response = response.getXMLNode();
+    	m_response = response;
 
         // Use the namespace of the request
-        m_xmi.addNamespaceBinding("ns", Node.getNamespaceURI(request.getXMLNode()));
+       // m_xmi.addNamespaceBinding("ns", Node.getNamespaceURI(request.getXMLNode()));
+    	 m_xmi.addNamespaceBinding("ns", Node.getNamespaceURI(request));
 
         // Parse and validate the request.
-        int xmlRequest = request.getXMLNode();
+        //int xmlRequest = request.getXMLNode();
+        int xmlRequest = request;
 
         // Parse the type
         String type = XPathHelper.getStringValue(xmlRequest, "ns:" + TAG_TYPE, m_xmi, "");
@@ -331,11 +334,16 @@ public abstract class MethodGenerator
                 case IDOC:
                     // Generate the implementation
                     generateIDOCImplementation(m_businessObjectMesType, operation.getCIMType(),
-                                               xmlRealization);
+                                               xmlRealization,operation.getSAPName());
 
-                    // Add the interface to the method. The iDoc type is the operation
-                    generateInterface(methodName, operation.getSAPName(), wsdl, xs, true,
+                    // Add the interface to the method. The iDoc type is the operation                    
+                    generateInterface4IDOC(methodName, operation.getSAPName(), wsdl, xs, true,
                                       operation.getCIMType());
+                    if(Util.isSet( operation.getCIMType()))
+                    {
+                    	methodName = operation.getCIMType();
+                    }
+                                
                     break;
             }
 
@@ -736,15 +744,16 @@ public abstract class MethodGenerator
      * @param  cimType  rfmName THe name of the RFM.
      * @param  parent   The parent XML node.
      */
-    private void generateIDOCImplementation(String mesType, String cimType, int parent)
+    private void generateIDOCImplementation(String mesType, String cimType, int parent, String idocType)
     {
         // Create the implementation XML and set the type.
-        int xmlImplementation = Node.createElementNS("implementation", null, null, null, parent);
+        int xmlImplementation = Node.createElementNS("implementation", null, "", "", parent);
         Node.setAttribute(xmlImplementation, "type", "SAPIDOC");
 
         // Add the FRM name to the implementation.
         Node.createElementWithParentNS("MESType", mesType, xmlImplementation);
         Node.createElementWithParentNS("CIMType", cimType, xmlImplementation);
+        Node.createElementWithParentNS("IDOCType", idocType, xmlImplementation);
         Node.createElementWithParentNS("AutoCommit", "true", xmlImplementation);
         Node.createElementWithParentNS("AutoRollback", "true", xmlImplementation);
 
@@ -779,8 +788,18 @@ public abstract class MethodGenerator
         // Now we need to generate the proper schema for the given object.
         if (isIDOC)
         {
-            createOperationSchemaForIDOC(schema, sapItemName, extension, methodName,
-                                         methodName + "Response");
+//        	if(Util.isSet(extension))
+//        	{
+//        		 createOperationSchemaForIDOC(schema, sapItemName, extension, extension,
+//        				 extension + "Response");
+//        		 
+//        	}
+//        	else
+//        	{
+        		
+        		 createOperationSchemaForIDOC(schema, sapItemName, extension, methodName,
+                         methodName + "Response");
+        	//}
         }
         else
         {
@@ -792,6 +811,30 @@ public abstract class MethodGenerator
             LOG.debug("Generated interface for method " + methodName);
         }
     }
+    
+    private void generateInterface4IDOC(String methodName, String sapItemName, WSDLCreator wsdl,
+            XSDSchema schema, boolean isIDOC, String extension)
+     throws SAPConnectorException
+	{
+		
+		if(Util.isSet(extension))
+		{
+			wsdl.addMethod(extension);
+			createOperationSchemaForIDOC(schema, sapItemName, extension, extension,
+					 extension + "Response");
+		}	
+		else
+		{
+			wsdl.addMethod(methodName);
+		createOperationSchemaForIDOC(schema, sapItemName, extension, methodName,
+		  methodName + "Response");
+		
+		}
+		if (LOG.isDebugEnabled())
+		{
+		LOG.debug("Generated interface for method " + methodName);
+		}
+	}
 
     /**
      * This method generates the methods based on the RFM used (can be either a BAPI of an RFC).

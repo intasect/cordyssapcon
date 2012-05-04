@@ -1,0 +1,22 @@
+
+<TranslatedText
+	type="com.cordys.translation.TranslatedText"
+	RuntimeDocumentID="D99B260D-6C94-11E1-EF93-FB529F687249">
+	<DocumentID>D99B260D-6C94-11E1-EF93-FB529F685249</DocumentID>
+	<Name>D99B260D-6C94-11E1-EF93-FB529F685249</Name>
+	<Description>IDOCNAME</Description>
+	<CreatedBy>jvmohan</CreatedBy>
+	<CreationDate>2012-04-02T08:51:34.515</CreationDate>
+	<Notes/>
+	<Text>IDOCNAME</Text>
+	<Language>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf18b5ddfa5"
+		/>
+	</Language>
+	<TextIdentifier>
+		<uri
+			id="D99B260D-6C94-11E1-EF93-FB529F681249"
+		/>
+	</TextIdentifier>
+</TranslatedText>
