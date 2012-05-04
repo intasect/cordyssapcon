@@ -154,7 +154,7 @@ eibus:\select{font-size:11; font-family:verdana;}
 						id="group2"
 						wcpforms:layout="vertical"
 						wcpforms:class="v_layout autoextent"
-						wcpforms:size="null 385px"
+						wcpforms:size="null 341px"
 						wcpforms:labelalign="ontop">
 						<xforms:input
 							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
@@ -370,21 +370,6 @@ eibus:\select{font-size:11; font-family:verdana;}
 								<xforms:raiseConfigurationChanges/>
 							</xforms:action>
 						</xforms:input>
-						<xforms:secret
-							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsPassword"
-							id="input_kspassword"
-							tabIndex="12"
-							doEBIValidate="false"
-							wcpforms:class="h_layout"
-							wcpforms:size="null auto">
-							<xforms:label
-								textIdentifier="00505681-3ba3-11e1-e235-0d96cc809722"
-								wcpforms:class="v_label">KeyStore Password</xforms:label>
-							<xforms:action
-								ev:event="xforms-value-changed">
-								<xforms:raiseConfigurationChanges/>
-							</xforms:action>
-						</xforms:secret>
 						<xforms:input
 							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
 							id="input_RFCURL_lang"
@@ -402,6 +387,21 @@ eibus:\select{font-size:11; font-family:verdana;}
 								<xforms:raiseConfigurationChanges/>
 							</xforms:action>
 						</xforms:input>
+						<xforms:secret
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsPassword"
+							id="input_kspassword"
+							tabIndex="12"
+							doEBIValidate="false"
+							wcpforms:class="h_layout"
+							wcpforms:size="null auto">
+							<xforms:label
+								textIdentifier="00505681-3ba3-11e1-e235-0d96cc809722"
+								wcpforms:class="v_label">KeyStore Password</xforms:label>
+							<xforms:action
+								ev:event="xforms-value-changed">
+								<xforms:raiseConfigurationChanges/>
+							</xforms:action>
+						</xforms:secret>
 						<xforms:input
 							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
 							id="input_IDOCURL"
@@ -418,6 +418,41 @@ eibus:\select{font-size:11; font-family:verdana;}
 								ev:event="xforms-value-changed">
 								<xforms:raiseConfigurationChanges/>
 							</xforms:action>
+						</xforms:input>
+					</xforms:group>
+					<xforms:group
+						appearance="box"
+						wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsGroupbox"
+						id="groupbox1"
+						isNavigationEnabled="true"
+						wcpforms:collapsible="false"
+						wcpforms:expanded="false"
+						wcpforms:layout="vertical"
+						wcpforms:class="v_layout"
+						wcpforms:size="null 113px"
+						wcpforms:labelalign="ontop">
+						<xforms:label
+							textIdentifier="F72CD9F4-D27E-11E1-EE4D-EA11BFD71F79"
+							wcpforms:class="groupheader">XMI (External Management Information) Settings</xforms:label>
+						<xforms:input
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+							id="input_xmicompanyname"
+							doEBIValidate="false"
+							wcpforms:class="h_layout"
+							wcpforms:size="462px auto">
+							<xforms:label
+								textIdentifier="F72CD9F4-D27E-11E1-EE4D-EA11BFD55F79"
+								wcpforms:class="v_label">XMI Company Name</xforms:label>
+						</xforms:input>
+						<xforms:input
+							wcpforms:designLibrary="cas.xforms.designerlibrary.controls.XFormsInput"
+							id="input_xmiproductname"
+							doEBIValidate="false"
+							wcpforms:class="h_layout"
+							wcpforms:size="487px auto">
+							<xforms:label
+								textIdentifier="F72CD9F4-D27E-11E1-EE4D-EA11BFD49F79"
+								wcpforms:class="v_label">XMI Product Name</xforms:label>
 						</xforms:input>
 					</xforms:group>
 				</xforms:group>
@@ -727,6 +762,12 @@ function fnValidate()
             createElementWithParentNS(jcoNode, "progID", input_progid_ksprovider.getValue());
 
             createElementWithParentNS(jcoNode, "maxCons", input_maxcons.getValue());
+            
+createElementWithParentNS(jcoNode, "xmicompanyname", input_xmicompanyname.getValue());
+
+
+createElementWithParentNS(jcoNode, "xmiproductname", input_xmiproductname.getValue());
+
         }
         else
         {
@@ -761,7 +802,7 @@ function fnValidate()
      */
     function fillInPropertyScreen(configurationNode)
     {
-        //Initialize the namespace mapping        
+           //Initialize the namespace mapping        
         var namespaces = new Array();
         namespaces["ns"] = NS_SAP_CONFIG;
 
@@ -882,6 +923,16 @@ function fnValidate()
             var idocURLNode = cordys.getNodeText(bcNode, "ns:idocinvokeurl", "", namespaces);
             input_IDOCURL.setValue(idocURLNode);
         }
+        
+        
+     var xmiCompanyName = cordys.getNodeText(jcoNode, "ns:xmicompanyname", "", namespaces);
+        input_xmicompanyname.setValue(xmiCompanyName) ;
+    
+     var xmiProductName = cordys.getNodeText(jcoNode, "ns:xmiproductname", "", namespaces);   
+        input_xmiproductname.setValue(xmiProductName) ;
+
+
+
     }
     
     // To show appropriate input elements based on the radio button checked.
@@ -1783,6 +1834,108 @@ function raiseConfigurationChanges()
 					<Identifier/>
 				</TranslatableText>
 			</TooltipText>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="F72CD9F4-D27E-11E1-EE4D-EA11BFD5FF79">
+			<DocumentID>F72CD9F4-D27E-11E1-EE4D-EA11BFD5DF79</DocumentID>
+			<Name>F72CD9F4-D27E-11E1-EE4D-EA11BFD5DF79</Name>
+			<Description>F72CD9F4-D27E-11E1-EE4D-EA11BFD5DF79</Description>
+			<CreatedBy>jvmohan</CreatedBy>
+			<CreationDate>2012-03-20T09:37:02.155</CreationDate>
+			<Notes/>
+			<UIRef>input_xmiproductname</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e21c-ba862698973b"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="F72CD9F4-D27E-11E1-EE4D-EA11BFD09F79">
+					<DocumentID>F72CD9F4-D27E-11E1-EE4D-EA11BFD07F79</DocumentID>
+					<Name>F72CD9F4-D27E-11E1-EE4D-EA11BFD07F79</Name>
+					<Description>F72CD9F4-D27E-11E1-EE4D-EA11BFD07F79</Description>
+					<CreatedBy>jvmohan</CreatedBy>
+					<CreationDate>2012-03-20T09:42:05.348</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="F72CD9F4-D27E-11E1-EE4D-EA11BFD49F79"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="F72CD9F4-D27E-11E1-EE4D-EA11BFD67F79">
+			<DocumentID>F72CD9F4-D27E-11E1-EE4D-EA11BFD65F79</DocumentID>
+			<Name>F72CD9F4-D27E-11E1-EE4D-EA11BFD65F79</Name>
+			<Description>F72CD9F4-D27E-11E1-EE4D-EA11BFD65F79</Description>
+			<CreatedBy>jvmohan</CreatedBy>
+			<CreationDate>2012-03-20T09:37:02.157</CreationDate>
+			<Notes/>
+			<UIRef>input_xmicompanyname</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e21c-ba862698973b"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="F72CD9F4-D27E-11E1-EE4D-EA11BFD05F79">
+					<DocumentID>F72CD9F4-D27E-11E1-EE4D-EA11BFD03F79</DocumentID>
+					<Name>F72CD9F4-D27E-11E1-EE4D-EA11BFD03F79</Name>
+					<Description>F72CD9F4-D27E-11E1-EE4D-EA11BFD03F79</Description>
+					<CreatedBy>jvmohan</CreatedBy>
+					<CreationDate>2012-03-20T09:42:05.349</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="F72CD9F4-D27E-11E1-EE4D-EA11BFD55F79"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
+		</TranslatableUIText>
+		<TranslatableUIText
+			type="com.cordys.xforms.TranslatableUIText"
+			RuntimeDocumentID="F72CD9F4-D27E-11E1-EE4D-EA11BFD91F79">
+			<DocumentID>F72CD9F4-D27E-11E1-EE4D-EA11BFD8FF79</DocumentID>
+			<Name>F72CD9F4-D27E-11E1-EE4D-EA11BFD8FF79</Name>
+			<Description>F72CD9F4-D27E-11E1-EE4D-EA11BFD8FF79</Description>
+			<CreatedBy>jvmohan</CreatedBy>
+			<CreationDate>2012-03-20T09:34:06.036</CreationDate>
+			<Notes/>
+			<UIRef>groupbox1</UIRef>
+			<XForm>
+				<uri
+					id="00505681-3ba3-11e1-e21c-ba862698973b"
+				/>
+			</XForm>
+			<TranslatableName>
+				<TranslatableText
+					type="com.cordys.translation.TranslatableText"
+					RuntimeDocumentID="F72CD9F4-D27E-11E1-EE4D-EA11BFD6FF79">
+					<DocumentID>F72CD9F4-D27E-11E1-EE4D-EA11BFD6DF79</DocumentID>
+					<Name>F72CD9F4-D27E-11E1-EE4D-EA11BFD6DF79</Name>
+					<Description>F72CD9F4-D27E-11E1-EE4D-EA11BFD6DF79</Description>
+					<CreatedBy>jvmohan</CreatedBy>
+					<CreationDate>2012-03-20T09:37:02.156</CreationDate>
+					<Notes/>
+					<Identifier>
+						<uri
+							id="F72CD9F4-D27E-11E1-EE4D-EA11BFD71F79"
+						/>
+					</Identifier>
+				</TranslatableText>
+			</TranslatableName>
+			<TooltipText/>
 		</TranslatableUIText>
 	</TranslatableUITexts>
 	<Representations/>

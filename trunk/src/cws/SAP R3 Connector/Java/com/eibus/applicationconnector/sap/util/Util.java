@@ -17,6 +17,10 @@
  */
  package com.eibus.applicationconnector.sap.util;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
 /**
  * This class contains utility methods.
  *
@@ -35,4 +39,29 @@ public class Util
     {
         return (source != null) && (source.trim().length() > 0);
     }
+    
+    /** Reads the content of the file and encode it to Base64. This is used to read the serialized IDOC Metadata object content into SOAP Response.
+     * @param fileName
+     * @return
+     * @throws IOException
+     */
+    public static String readFileAndEncode(String fileName) throws IOException
+	{
+		File file = new File(fileName);
+		byte[] byteArray = new byte[302400] ;
+		FileInputStream fis = new FileInputStream(file);
+		StringBuffer sBuffer = new StringBuffer() ;
+		int bytesRead = 0 ;
+		while((bytesRead = fis.read(byteArray))!=-1)
+		{
+			byte[] actualBytesRead = new byte[bytesRead];			
+			String encodedString = com.eibus.util.Base64.encodeToStr(actualBytesRead) ;
+			sBuffer.append(encodedString);
+			System.arraycopy(byteArray, 0, actualBytesRead, 0, bytesRead);
+			//System.out.println(actualBytesRead.length);
+		}	
+		fis.close();
+		return sBuffer.toString() ;
+		
+	}
 }

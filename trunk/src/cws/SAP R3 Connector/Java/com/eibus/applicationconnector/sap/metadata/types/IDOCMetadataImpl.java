@@ -41,7 +41,7 @@ class IDOCMetadataImpl extends AbstractTypeMetadata
     /**
      * Holds the name of the SAP tag 'CIMTYPE'.
      */
-    private static final String TAG_SAP_CIM_TYPE = "CIMTYPE";
+    private static final String TAG_SAP_CIM_TYPE = "CIMTYP";
     /**
      * Holds the name of the SAP tag 'RELEASED'.
      */
@@ -217,7 +217,7 @@ class IDOCMetadataImpl extends AbstractTypeMetadata
         m_released = XPathHelper.getStringValue(idoc, "ns:" + TAG_RELEASED, xmi, "");
 
         // Get the CIM type
-        m_cimType = XPathHelper.getStringValue(idoc, "ns:" + TAG_RELEASED, xmi, "");
+        m_cimType = XPathHelper.getStringValue(idoc, "ns:" + TAG_CIM_TYPE, xmi, "");
 
         validate();
     }

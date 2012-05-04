@@ -17,6 +17,15 @@
  */
 package com.eibus.applicationconnector.sap.connection.jco;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+
+
+
 import com.cordys.coe.util.xml.nom.XPathHelper;
 
 import com.eibus.applicationconnector.sap.config.ISAPConfiguration;
@@ -24,6 +33,7 @@ import com.eibus.applicationconnector.sap.exception.SAPConnectorException;
 import com.eibus.applicationconnector.sap.exception.SAPConnectorExceptionMessages;
 import com.eibus.applicationconnector.sap.metadata.MetadataLoader;
 import com.eibus.applicationconnector.sap.util.BACUtil;
+import com.eibus.applicationconnector.sap.util.Util;
 
 import com.eibus.util.logger.CordysLogger;
 
@@ -31,6 +41,8 @@ import com.eibus.xml.nom.Document;
 import com.eibus.xml.nom.Node;
 import com.eibus.xml.nom.XMLException;
 
+import com.sap.mw.idoc.IDoc;
+import com.sap.mw.idoc.jco.JCoIDoc;
 import com.sap.mw.jco.JCO;
 
 /**
@@ -56,6 +68,8 @@ public class SAPJCoMetadataLoader extends MetadataLoader
      * DOCUMENTME.
      */
     private SAPJCoRequestSender requestSender = null;
+    
+    private ISAPConfiguration m_config = null ;
 
     /**
      * Creates a new SAPJCoMetadataLoader object.
@@ -66,6 +80,7 @@ public class SAPJCoMetadataLoader extends MetadataLoader
     public SAPJCoMetadataLoader(ISAPConfiguration config, SAPJCoRequestHandler requestHandler)
     {
         super(config.getCacheDirectory(), config.getRFCCacheRoot(), config.getIDOCCacheRoot());
+        this.m_config = config;
         this.requestHandler = requestHandler;
     }
 
@@ -534,4 +549,55 @@ public class SAPJCoMetadataLoader extends MetadataLoader
             requestSender = requestHandler.getRequestSender();
         }
     }
+    
+    
+    /**This method serializes the JCO IDOC Metadata object into a file with extension ".o". The file is created in the cache directory.
+     * This does not delete the file from cache directory.
+     * @param request
+     * @param response
+     * @return
+     */
+    public boolean getSerializedIDOCMetadataObject(int request, int response)
+    {
+    	String messageType = Node.getDataElement(request, "mesgtype", "") ;
+    	String idocType = Node.getDataElement(request, "idoctype", "") ;
+    	String cimType = Node.getDataElement(request, "cimtype", "") ; 
+    	//IDoc.Document idoc = JCoIDoc.createDocument( this.m_config.getIDOCRepository(), "DEBMAS06", "YSADEBMAS06");
+    	IDoc.Document idoc = JCoIDoc.createDocument( this.m_config.getIDOCRepository(), idocType, cimType);
+        IDoc.Segment rootSegment = idoc.getRootSegment();
+        String fileName = "" ;
+        if(Util.isSet(cimType))
+        {
+        	 fileName = m_cacheDir + File.pathSeparator+cimType+ ".o";
+        }
+        else if(Util.isSet(idocType))
+        {
+        	fileName = m_cacheDir + File.pathSeparator+idocType+ ".o";
+        }
+        else
+        {        	
+        	return false;
+        }
+        try 
+        {
+			FileOutputStream fos = new FileOutputStream(fileName) ;
+			ObjectOutputStream oBjos = new ObjectOutputStream(fos) ;
+			oBjos.writeObject(rootSegment.getSegmentMetaData()) ;
+			oBjos.close();
+			fos.close();
+			String fileContent = Util.readFileAndEncode(fileName);
+			Node.createTextElement("object", fileContent, response);
+			return true;
+		} catch (FileNotFoundException e) {	
+			LOG.error(e.getLocalizedMessage()) ;
+			e.printStackTrace();
+		} catch (IOException e) {
+			LOG.error(e.getLocalizedMessage()) ;
+			e.printStackTrace();
+		}  
+		return false;
+    }
+    
+    
+   
 }

@@ -1451,6 +1451,58 @@
 				</Port>
 			</Ports>
 		</Service>
+		<Service
+			type="com.cordys.wsdl.Service"
+			RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEB1F378">
+			<DocumentID>86052838-CDF7-11E1-F13F-BADBBEB1D378</DocumentID>
+			<Name>WebServiceInterface4 SAP UtilService</Name>
+			<Description>http://schemas.cordys.com/1.0/SAPSchema WebServiceInterface4 SAP UtilService</Description>
+			<CreatedBy>jvmohan</CreatedBy>
+			<CreationDate>2012-04-19T08:58:33.481</CreationDate>
+			<Notes/>
+			<WebserviceDefinitionSet>
+				<uri
+					id="005056C0-0008-71DE-965C-920C8E8AA134"
+				/>
+			</WebserviceDefinitionSet>
+			<QName/>
+			<Ports>
+				<Port
+					type="com.cordys.wsdl.Port"
+					RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEB23378">
+					<DocumentID>86052838-CDF7-11E1-F13F-BADBBEB21378</DocumentID>
+					<Name>WebServiceInterface4 SAP UtilPort</Name>
+					<Description/>
+					<CreatedBy>jvmohan</CreatedBy>
+					<CreationDate>2012-04-19T08:58:33.486</CreationDate>
+					<Notes/>
+					<PortExtension>
+						<SOAPPort
+							type="com.cordys.wsdl.SOAPPort"
+							RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEB27378">
+							<DocumentID>86052838-CDF7-11E1-F13F-BADBBEB25378</DocumentID>
+							<Name>86052838-CDF7-11E1-F13F-BADBBEB25378</Name>
+							<Description/>
+							<CreatedBy>jvmohan</CreatedBy>
+							<CreationDate>2012-04-19T08:58:33.483</CreationDate>
+							<Notes/>
+							<IsRequired>false</IsRequired>
+							<AddressLocation>com.eibus.web.soap.Gateway.wcp</AddressLocation>
+						</SOAPPort>
+					</PortExtension>
+					<Service>
+						<uri
+							id="86052838-CDF7-11E1-F13F-BADBBEB1D378"
+						/>
+					</Service>
+					<WebserviceBinding>
+						<uri
+							id="005056C0-0008-71DE-965C-920D1A4BB91D"
+						/>
+					</WebserviceBinding>
+				</Port>
+			</Ports>
+		</Service>
 	</Services>
 	<SchemaDefinitions>
 		<InlineSchemaDefinition
@@ -1703,6 +1755,74 @@
 					<Rules/>
 				</BusinessObjectDocument>
 			</SchemaFragments>
+		</InlineSchemaDefinition>
+		<InlineSchemaDefinition
+			type="com.cordys.xmlschema.InlineSchemaDefinition"
+			typeVersion="115056C0-0008-71DF-BA44-1FBB9814E83B"
+			RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEAAB378">
+			<DocumentID>86052838-CDF7-11E1-F13F-BADBBEAA9378</DocumentID>
+			<Name>86052838-CDF7-11E1-F13F-BADBBEAA9378</Name>
+			<Description>Inline Schema with TNS http://schemas.cordys.com/1.0/SAPSchema</Description>
+			<CreatedBy>jvmohan</CreatedBy>
+			<CreationDate>2012-04-19T08:58:33.481</CreationDate>
+			<Notes/>
+			<NamespaceReferencePrefix>tns</NamespaceReferencePrefix>
+			<TargetNamespace>http://schemas.cordys.com/1.0/SAPSchema</TargetNamespace>
+			<Location></Location>
+			<XmlNode>
+				<xsd:schema
+					xmlns:cordys="http://schemas.cordys.com/General/1.0/"
+					xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+					xmlns:tns="http://schemas.cordys.com/1.0/SAPSchema"
+					xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+					xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+					xmlns=""
+					attributeFormDefault="unqualified"
+					elementFormDefault="qualified"
+					targetNamespace="http://schemas.cordys.com/1.0/SAPSchema"
+				/>
+			</XmlNode>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
+			<DefinitionSet>
+				<uri
+					id="005056C0-0008-71DE-965C-920C8E8AA134"
+				/>
+			</DefinitionSet>
+			<SchemaReferences>
+				<XSDReference
+					type="com.cordys.xmlschema.XSDReference"
+					RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEAD3378">
+					<DocumentID>86052838-CDF7-11E1-F13F-BADBBEAD1378</DocumentID>
+					<Name>Reference_to_86052838-CDF7-11E1-F13F-BADBBEAAD378</Name>
+					<Description/>
+					<CreatedBy>jvmohan</CreatedBy>
+					<CreationDate>2012-04-19T08:58:33.483</CreationDate>
+					<Notes/>
+					<Prefix></Prefix>
+					<SchemaDefinition>
+						<uri
+							id="005056C0-0008-71DE-965C-920D1A4BB8C5"
+						/>
+					</SchemaDefinition>
+				</XSDReference>
+				<XSDReference
+					type="com.cordys.xmlschema.XSDReference"
+					RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEAD7378">
+					<DocumentID>86052838-CDF7-11E1-F13F-BADBBEAD5378</DocumentID>
+					<Name>Reference_to_86052838-CDF7-11E1-F13F-6D23246D5378</Name>
+					<Description>GetSerializedIDOCMetadataObjectSchema</Description>
+					<CreatedBy>jvmohan</CreatedBy>
+					<CreationDate>2012-04-19T08:58:33.483</CreationDate>
+					<Notes/>
+					<Prefix></Prefix>
+					<SchemaDefinition>
+						<uri
+							id="86052838-CDF7-11E1-F13F-6D23246D5378"
+						/>
+					</SchemaDefinition>
+				</XSDReference>
+			</SchemaReferences>
+			<SchemaFragments/>
 		</InlineSchemaDefinition>
 	</SchemaDefinitions>
 	<QName>
@@ -2165,6 +2285,126 @@
 			</QName>
 			<WebserviceInput/>
 		</WebserviceMessage>
+		<WebserviceMessage
+			type="com.cordys.wsdl.WebserviceMessage"
+			RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEADB378">
+			<DocumentID>86052838-CDF7-11E1-F13F-BADBBEAD9378</DocumentID>
+			<Name>GetSerializedIDOCMetadataObjectInput</Name>
+			<Description>GetSerializedIDOCMetadataObjectInput</Description>
+			<CreatedBy>jvmohan</CreatedBy>
+			<CreationDate>2012-04-19T08:58:33.483</CreationDate>
+			<Notes/>
+			<WebserviceDefinitionSet>
+				<uri
+					id="005056C0-0008-71DE-965C-920C8E8AA134"
+				/>
+			</WebserviceDefinitionSet>
+			<Parts>
+				<Part
+					type="com.cordys.wsdl.Part"
+					RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEADF378">
+					<DocumentID>86052838-CDF7-11E1-F13F-BADBBEADD378</DocumentID>
+					<Name>body</Name>
+					<Description>body</Description>
+					<CreatedBy>jvmohan</CreatedBy>
+					<CreationDate>2012-04-19T08:58:33.485</CreationDate>
+					<Notes/>
+					<ElementOrType>element</ElementOrType>
+					<StandardType></StandardType>
+					<WebserviceMessage>
+						<uri
+							id="86052838-CDF7-11E1-F13F-BADBBEAD9378"
+						/>
+					</WebserviceMessage>
+					<DescribingFragment>
+						<SchemaFragmentReference
+							type="com.cordys.xmlschema.SchemaFragmentReference"
+							RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEAE3378">
+							<DocumentID>86052838-CDF7-11E1-F13F-BADBBEAE1378</DocumentID>
+							<Name>ReferenceTo GetSerializedIDOCMetadataObject</Name>
+							<Description>ReferenceTo GetSerializedIDOCMetadataObject</Description>
+							<CreatedBy>jvmohan</CreatedBy>
+							<CreationDate>2012-04-19T08:58:33.486</CreationDate>
+							<Notes/>
+							<Prefix>tns</Prefix>
+							<SchemaFragment>
+								<uri
+									id="86052838-CDF7-11E1-F13F-6D23246C9378"
+								/>
+							</SchemaFragment>
+						</SchemaFragmentReference>
+					</DescribingFragment>
+				</Part>
+			</Parts>
+			<WebserviceFault/>
+			<WebserviceOutput/>
+			<QName/>
+			<WebserviceInput>
+				<uri
+					id="86052838-CDF7-11E1-F13F-BADBBEAF5378"
+				/>
+			</WebserviceInput>
+		</WebserviceMessage>
+		<WebserviceMessage
+			type="com.cordys.wsdl.WebserviceMessage"
+			RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEAE7378">
+			<DocumentID>86052838-CDF7-11E1-F13F-BADBBEAE5378</DocumentID>
+			<Name>GetSerializedIDOCMetadataObjectOutput</Name>
+			<Description>GetSerializedIDOCMetadataObjectOutput</Description>
+			<CreatedBy>jvmohan</CreatedBy>
+			<CreationDate>2012-04-19T08:58:33.48</CreationDate>
+			<Notes/>
+			<WebserviceDefinitionSet>
+				<uri
+					id="005056C0-0008-71DE-965C-920C8E8AA134"
+				/>
+			</WebserviceDefinitionSet>
+			<Parts>
+				<Part
+					type="com.cordys.wsdl.Part"
+					RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEAEB378">
+					<DocumentID>86052838-CDF7-11E1-F13F-BADBBEAE9378</DocumentID>
+					<Name>body</Name>
+					<Description>body</Description>
+					<CreatedBy>jvmohan</CreatedBy>
+					<CreationDate>2012-04-19T08:58:33.482</CreationDate>
+					<Notes/>
+					<ElementOrType>element</ElementOrType>
+					<StandardType></StandardType>
+					<WebserviceMessage>
+						<uri
+							id="86052838-CDF7-11E1-F13F-BADBBEAE5378"
+						/>
+					</WebserviceMessage>
+					<DescribingFragment>
+						<SchemaFragmentReference
+							type="com.cordys.xmlschema.SchemaFragmentReference"
+							RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEAEF378">
+							<DocumentID>86052838-CDF7-11E1-F13F-BADBBEAED378</DocumentID>
+							<Name>ReferenceTo GetSerializedIDOCMetadataObjectResponse</Name>
+							<Description>ReferenceTo GetSerializedIDOCMetadataObjectResponse</Description>
+							<CreatedBy>jvmohan</CreatedBy>
+							<CreationDate>2012-04-19T08:58:33.481</CreationDate>
+							<Notes/>
+							<Prefix>tns</Prefix>
+							<SchemaFragment>
+								<uri
+									id="86052838-CDF7-11E1-F13F-6D23246AD378"
+								/>
+							</SchemaFragment>
+						</SchemaFragmentReference>
+					</DescribingFragment>
+				</Part>
+			</Parts>
+			<WebserviceFault/>
+			<WebserviceOutput>
+				<uri
+					id="86052838-CDF7-11E1-F13F-BADBBEAF9378"
+				/>
+			</WebserviceOutput>
+			<QName/>
+			<WebserviceInput/>
+		</WebserviceMessage>
 	</WebserviceMessages>
 	<WebserviceImports/>
 	<WebserviceBindings>
@@ -2180,11 +2420,6 @@
 			<Type></Type>
 			<RuntimeWebserviceInterfaceName>BAC.SAP.Util</RuntimeWebserviceInterfaceName>
 			<ImplementationClass></ImplementationClass>
-			<WebserviceDefinitionSet>
-				<uri
-					id="005056C0-0008-71DE-965C-920C8E8AA134"
-				/>
-			</WebserviceDefinitionSet>
 			<BindingOperations>
 				<BindingOperation
 					type="com.cordys.wsdl.BindingOperation"
@@ -2612,7 +2847,155 @@
 						/>
 					</WebserviceBinding>
 				</BindingOperation>
+				<BindingOperation
+					type="com.cordys.wsdl.BindingOperation"
+					RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEAFF378">
+					<DocumentID>86052838-CDF7-11E1-F13F-BADBBEAFD378</DocumentID>
+					<Name>GetSerializedIDOCMetadataObject</Name>
+					<Description/>
+					<CreatedBy>jvmohan</CreatedBy>
+					<CreationDate>2012-04-19T08:58:33.484</CreationDate>
+					<Notes/>
+					<BindingOperationFault/>
+					<Realizations>
+						<CustomRealization
+							type="com.cordys.wsdl.CustomRealization"
+							RuntimeDocumentID="86052838-CDF7-11E1-F13F-6D2324675378">
+							<DocumentID>86052838-CDF7-11E1-F13F-6D2324673378</DocumentID>
+							<Name>GetSerializedIDOCMetadataObject_realization</Name>
+							<Description>GetSerializedIDOCMetadataObject_realization</Description>
+							<CreatedBy>jvmohan</CreatedBy>
+							<CreationDate>2012-04-19T08:58:34.907</CreationDate>
+							<Notes/>
+							<Implementation>
+								<implementation
+									xmlns:c="http://schemas.cordys.com/cws/1.0"
+									xmlns=""
+									xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
+									type="SAPUtil"
+								/>
+							</Implementation>
+							<BindingOperation>
+								<uri
+									id="86052838-CDF7-11E1-F13F-BADBBEAFD378"
+								/>
+							</BindingOperation>
+						</CustomRealization>
+					</Realizations>
+					<SecurityDescriptor/>
+					<BindingOperationOutput>
+						<BindingOperationOutput
+							type="com.cordys.wsdl.BindingOperationOutput"
+							RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEB13378">
+							<DocumentID>86052838-CDF7-11E1-F13F-BADBBEB11378</DocumentID>
+							<Name>Binding Output of GetSerializedIDOCMetadataObject</Name>
+							<Description/>
+							<CreatedBy>jvmohan</CreatedBy>
+							<CreationDate>2012-04-19T08:58:33.48</CreationDate>
+							<Notes/>
+							<OutputExtension>
+								<SOAPOutput
+									type="com.cordys.wsdl.SOAPOutput"
+									RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEB17378">
+									<DocumentID>86052838-CDF7-11E1-F13F-BADBBEB15378</DocumentID>
+									<Name>86052838-CDF7-11E1-F13F-BADBBEB15378</Name>
+									<Description/>
+									<CreatedBy>jvmohan</CreatedBy>
+									<CreationDate>2012-04-19T08:58:33.485</CreationDate>
+									<Notes/>
+									<IsRequired>false</IsRequired>
+									<SOAPBody>
+										<SOAPBody
+											type="com.cordys.wsdl.SOAPBody"
+											RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEB1B378">
+											<DocumentID>86052838-CDF7-11E1-F13F-BADBBEB19378</DocumentID>
+											<Name>86052838-CDF7-11E1-F13F-BADBBEB19378</Name>
+											<Description/>
+											<CreatedBy>jvmohan</CreatedBy>
+											<CreationDate>2012-04-19T08:58:33.486</CreationDate>
+											<Notes/>
+											<Parts></Parts>
+											<IsRequired>false</IsRequired>
+											<EncodingStyle></EncodingStyle>
+											<Namespace></Namespace>
+											<Use>literal</Use>
+										</SOAPBody>
+									</SOAPBody>
+									<SOAPHeaders/>
+								</SOAPOutput>
+							</OutputExtension>
+						</BindingOperationOutput>
+					</BindingOperationOutput>
+					<OperationExtension>
+						<SOAPOperation
+							type="com.cordys.wsdl.SOAPOperation"
+							RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEB03378">
+							<DocumentID>86052838-CDF7-11E1-F13F-BADBBEB01378</DocumentID>
+							<Name>SOAP Operation of GetSerializedIDOCMetadataObject</Name>
+							<Description/>
+							<CreatedBy>jvmohan</CreatedBy>
+							<CreationDate>2012-04-19T08:58:33.483</CreationDate>
+							<Notes/>
+							<IsRequired>false</IsRequired>
+							<SOAPAction></SOAPAction>
+							<Style>document</Style>
+						</SOAPOperation>
+					</OperationExtension>
+					<BindingOperationInput>
+						<BindingOperationInput
+							type="com.cordys.wsdl.BindingOperationInput"
+							RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEB07378">
+							<DocumentID>86052838-CDF7-11E1-F13F-BADBBEB05378</DocumentID>
+							<Name>Binding Input of GetSerializedIDOCMetadataObject</Name>
+							<Description/>
+							<CreatedBy>jvmohan</CreatedBy>
+							<CreationDate>2012-04-19T08:58:33.482</CreationDate>
+							<Notes/>
+							<InputExtension>
+								<SOAPInput
+									type="com.cordys.wsdl.SOAPInput"
+									RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEB0B378">
+									<DocumentID>86052838-CDF7-11E1-F13F-BADBBEB09378</DocumentID>
+									<Name>86052838-CDF7-11E1-F13F-BADBBEB09378</Name>
+									<Description/>
+									<CreatedBy>jvmohan</CreatedBy>
+									<CreationDate>2012-04-19T08:58:33.486</CreationDate>
+									<Notes/>
+									<IsRequired>false</IsRequired>
+									<SOAPBody>
+										<SOAPBody
+											type="com.cordys.wsdl.SOAPBody"
+											RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEB0F378">
+											<DocumentID>86052838-CDF7-11E1-F13F-BADBBEB0D378</DocumentID>
+											<Name>86052838-CDF7-11E1-F13F-BADBBEB0D378</Name>
+											<Description/>
+											<CreatedBy>jvmohan</CreatedBy>
+											<CreationDate>2012-04-19T08:58:33.482</CreationDate>
+											<Notes/>
+											<Parts></Parts>
+											<IsRequired>false</IsRequired>
+											<EncodingStyle></EncodingStyle>
+											<Namespace></Namespace>
+											<Use>literal</Use>
+										</SOAPBody>
+									</SOAPBody>
+									<SOAPHeaders/>
+								</SOAPInput>
+							</InputExtension>
+						</BindingOperationInput>
+					</BindingOperationInput>
+					<WebserviceBinding>
+						<uri
+							id="005056C0-0008-71DE-965C-920D1A4BB91D"
+						/>
+					</WebserviceBinding>
+				</BindingOperation>
 			</BindingOperations>
+			<WebserviceDefinitionSet>
+				<uri
+					id="005056C0-0008-71DE-965C-920C8E8AA134"
+				/>
+			</WebserviceDefinitionSet>
 			<SecurityDescriptor>
 				<SecurityDescriptor
 					type="com.cordys.acl.SecurityDescriptor"
@@ -2737,6 +3120,9 @@
 				<uri
 					id="005056C0-0008-71DE-965C-920D1A4BB957"
 				/>
+				<uri
+					id="86052838-CDF7-11E1-F13F-BADBBEB21378"
+				/>
 			</Ports>
 		</WebserviceBinding>
 	</WebserviceBindings>
@@ -2770,7 +3156,11 @@
 					<Prefix></Prefix>
 				</QualifiedName>
 			</QName>
-			<RuntimeAvailableSchemaDefinitions/>
+			<RuntimeAvailableSchemaDefinitions>
+				<uri
+					id="86052838-CDF7-11E1-F13F-6D23246D5378"
+				/>
+			</RuntimeAvailableSchemaDefinitions>
 			<WebserviceBindings>
 				<uri
 					id="005056C0-0008-71DE-965C-920D1A4BB91D"
@@ -2927,6 +3317,58 @@
 							<WebserviceMessage>
 								<uri
 									id="005056C0-0008-71DE-965C-920D1A4BB8E7"
+								/>
+							</WebserviceMessage>
+							<WebserviceOperation/>
+						</WebserviceInput>
+					</WebserviceInput>
+				</WebserviceOperationDesigntime>
+				<WebserviceOperationDesigntime
+					type="com.cordys.wsdl.WebserviceOperationDesigntime"
+					RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEAF3378">
+					<DocumentID>86052838-CDF7-11E1-F13F-BADBBEAF1378</DocumentID>
+					<Name>GetSerializedIDOCMetadataObject</Name>
+					<Description>GetSerializedIDOCMetadataObject</Description>
+					<CreatedBy>jvmohan</CreatedBy>
+					<CreationDate>2012-04-19T08:58:33.485</CreationDate>
+					<Notes/>
+					<WebserviceOutput>
+						<WebserviceOutput
+							type="com.cordys.wsdl.WebserviceOutput"
+							RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEAFB378">
+							<DocumentID>86052838-CDF7-11E1-F13F-BADBBEAF9378</DocumentID>
+							<Name>Missing_Operation_Name</Name>
+							<Description/>
+							<CreatedBy>jvmohan</CreatedBy>
+							<CreationDate>2012-04-19T08:58:33.48</CreationDate>
+							<Notes/>
+							<WebserviceMessage>
+								<uri
+									id="86052838-CDF7-11E1-F13F-BADBBEAE5378"
+								/>
+							</WebserviceMessage>
+							<WebserviceOperation/>
+						</WebserviceOutput>
+					</WebserviceOutput>
+					<WebserviceInterface>
+						<uri
+							id="005056C0-0008-71DE-965C-920D1A4BB907"
+						/>
+					</WebserviceInterface>
+					<WebserviceFaults/>
+					<WebserviceInput>
+						<WebserviceInput
+							type="com.cordys.wsdl.WebserviceInput"
+							RuntimeDocumentID="86052838-CDF7-11E1-F13F-BADBBEAF7378">
+							<DocumentID>86052838-CDF7-11E1-F13F-BADBBEAF5378</DocumentID>
+							<Name>Missing_Operation_Name</Name>
+							<Description/>
+							<CreatedBy>jvmohan</CreatedBy>
+							<CreationDate>2012-04-19T08:58:33.485</CreationDate>
+							<Notes/>
+							<WebserviceMessage>
+								<uri
+									id="86052838-CDF7-11E1-F13F-BADBBEAD9378"
 								/>
 							</WebserviceMessage>
 							<WebserviceOperation/>

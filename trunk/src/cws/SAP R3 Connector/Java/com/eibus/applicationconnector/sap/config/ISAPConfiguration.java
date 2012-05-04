@@ -524,4 +524,9 @@ public interface ISAPConfiguration
      * This method stops the IDOC servers or listeners.
      */
     void stopIDOCListeners();
+    
+    public String getXMICompanyName() ;
+    public String getXMIProductName() ;
+    public String getXMIUserName();
+    public String getXMIPassword();
 }

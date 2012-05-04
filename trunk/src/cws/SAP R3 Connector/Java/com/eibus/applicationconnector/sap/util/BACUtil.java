@@ -20,7 +20,10 @@
 import com.eibus.applicationconnector.sap.exception.SAPConnectorException;
 import com.eibus.applicationconnector.sap.exception.SAPConnectorExceptionMessages;
 
+import com.eibus.xml.nom.Document;
 import com.eibus.xml.nom.Node;
+import com.eibus.xml.nom.XMLException;
+import com.eibus.xml.xpath.XPath;
 
 import java.text.SimpleDateFormat;
 
@@ -43,7 +46,7 @@ public class BACUtil
      */
     public static int deleteNode(int nodeToBeDeleted)
     {
-        if (nodeToBeDeleted != 0)
+        if (nodeToBeDeleted > 0)
         {
             Node.delete(nodeToBeDeleted);
         }
@@ -92,4 +95,54 @@ public class BACUtil
         Date today = new Date();
         return formatter.format(today);
     }
+    
+    /** This method parses the RFC_READ_TABLE response using the delimiter and forms the response node
+     * @param requestNode
+     * @param responseNode
+     */
+    public static void formatRFC_READ_TABLEResponse(int requestNode, int responseNode)
+    {
+    	String delimiter = ";"; 
+    	int itemNodes[] = XPath.getMatchingNodes("FIELDS/item/FIELDNAME", null, requestNode);
+    	int responseRecords[] = XPath.getMatchingNodes("DATA/item", null, responseNode);//RFC_READ_TABLE.Response><DATA><item><WA>
+    	String tableName = Node.getDataElement(requestNode, "QUERY_TABLE", "Item") ;
+    	if(responseRecords!=null && responseRecords.length > 0)
+    	{
+    		delimiter = Node.getDataElement(requestNode, "DELIMITER", "") ;  
+    		if("".equalsIgnoreCase(delimiter))
+    		{// If the delimiter is empty then don't parse the response
+    			return ;
+    		}
+    	}
+    	else
+    	{
+    		return ;
+    	}
+    	
+    	for(int i=0; i< responseRecords.length ; i++)
+    	{
+    		handlerDelimitersReadTableResponse(responseRecords[i],itemNodes,delimiter,tableName) ;	
+    		
+    	}
+    	
+    }
+    
+    private static void handlerDelimitersReadTableResponse(int itemNode, int[] fieldNodes, String delimiter, String tableName)
+    {
+    	if(itemNode <= 0)
+    		return ;
+    	String contentNodeData = Node.getDataElement(itemNode, "WA", "") ;
+    	if("".equalsIgnoreCase(contentNodeData)) 
+    		return ; // No post processing
+    	Node.delete(Node.getElement(itemNode, "WA")) ;
+    	String logTokens[] = contentNodeData.split(delimiter);    	
+    	for(int i=0; logTokens!=null && i<logTokens.length; i++)
+    	{    		
+    			Node.createElementWithParentNS(Node.getDataWithDefault(fieldNodes[i],"param"), logTokens[i].trim(),itemNode) ;   		
+    		
+    	}
+    	Node.setName(itemNode, tableName);
+    	
+    }
+  
 }

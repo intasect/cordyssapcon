@@ -223,7 +223,7 @@ public class TargetMappingFinder
     {
         // System.out.println("IN get Target Mapping");
         boolean flag_mappingFound = false;
-
+        
         if (searchPatternToBeUsed.equals("DEFAULT"))
         {
             targetSoapNodeDN.append(default_soapNodeDN);
@@ -423,7 +423,10 @@ public class TargetMappingFinder
             throw new SAPConnectorException(SAPConnectorExceptionMessages.SEARCH_PATTERN_NOT_PROPERLY_SPECIFIED);
         }
         searchPatternToBeUsed = searchPattern;
-
+        if (LOG.isDebugEnabled())
+        {
+            LOG.debug("********* searchPatternToBeUsed is :" + searchPatternToBeUsed);
+        }
         if (searchPatternToBeUsed.equals("DEFAULT"))
         {
             int node_method = Find.firstMatch(targetMappingsNode,

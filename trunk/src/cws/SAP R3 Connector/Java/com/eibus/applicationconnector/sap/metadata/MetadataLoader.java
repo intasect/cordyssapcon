@@ -298,6 +298,11 @@ public abstract class MetadataLoader
             int IDOCMetadata = loadIDOCMetadata(doc);
             BACUtil.deleteNode(IDOCMetadata);
         }
+        else if (methodName.equalsIgnoreCase("GetSerializedMetadataObjectForIDOC"))
+        {
+            int IDOCMetadata = loadIDOCMetadata(doc);
+            BACUtil.deleteNode(IDOCMetadata);
+        }
         else
         {
         	throw new SAPConnectorException(SAPConnectorExceptionMessages.UNSUPPORTED_METADATA_METHOD, methodName);

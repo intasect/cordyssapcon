@@ -61,7 +61,7 @@ public class SAPConnectorConstants
     /**
      * Holds the name of the IDOC table.
      */
-    public static final String IDOC_TABLE_NAME = "IDOCTable";
+    public static final String IDOC_TABLE_NAME = "IDOCTABLE";
     /**
      * Holds the internal cache folder.
      */

@@ -66,4 +66,17 @@ public class SAPJCoConnection extends JCO.Client
     {
         isInUse = status;
     }
+    
+    /**
+     * @return TRUE/FALSE tells whether partner system is unicode or not
+     */
+    public boolean isPartnerSystemUnicode()
+    {
+        if (attributes == null) {
+        	      return false;
+        	   }
+        	   String codepage = attributes.getPartnerCodepage();
+        	 
+        return ((codepage != null) && (codepage.length() > 0) && (codepage.charAt(0) == '4'));
+    }
 }

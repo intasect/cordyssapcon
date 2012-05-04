@@ -30,6 +30,7 @@ import com.eibus.util.logger.CordysLogger;
 import com.eibus.xml.nom.Document;
 import com.eibus.xml.nom.Find;
 import com.eibus.xml.nom.Node;
+import com.eibus.xml.xpath.XPath;
 import com.eibus.xml.xpath.XPathMetaInfo;
 import com.sap.mw.idoc.IDoc;
 import com.sap.mw.idoc.jco.JCoIDoc;
@@ -74,6 +75,25 @@ public class OLEDBRequestSender
      * The name of the table.
      */
     private String tableName;
+    
+    
+    public static final String IDOCTABLE_DIRECTION_TAG = "DIRECTION";
+    public static final String IDOCTABLE_TID_TAG = "TID";
+    public static final String IDOCTABLE_IDOCNUM_TAG = "IDOCNUM";
+    public static final String IDOCTABLE_CREATIONDATE_TAG = "CREATIONDATE";
+    public static final String IDOCTABLE_MESTYPE_TAG = "MESTYPE";
+    public static final String IDOCTABLE_IDOCTYPE_TAG = "IDOCTYPE";
+    public static final String IDOCTABLE_CIMTYPE_TAG = "CIMTYPE";
+    public static final String IDOCTABLE_SENDERLS_TAG = "SENDERLS";
+    public static final String IDOCTABLE_RECEIVERLS_TAG = "RECEIVERLS";
+    public static final String IDOCTABLE_LOCALSTATUS_TAG = "LOCALSTATUS";
+    public static final String IDOCTABLE_ERRORTEXT_TAG = "ERRORTEXT";
+    public static final String IDOCTABLE_TARGETSYSTEM_TAG = "TARGETSYSTEM";
+    public static final String IDOCTABLE_DESTINATIONSTATUS_TAG = "DESTINATIONSTATUS";
+    public static final String IDOCTABLE_SOAPNODEDN_TAG = "SOAPNODEDN";
+    public static final String IDOCTABLE_CONTROLRECORD_TAG = "CONTROLRECORD";
+    public static final String IDOCTABLE_DATARECORD_TAG = "DATARECORD";
+    
 
     /**
      * Constructor.
@@ -218,6 +238,24 @@ public class OLEDBRequestSender
         BACUtil.deleteNode(params[0]);
         return responseNode;
     }
+    
+    /** Returns the control structure node. The same should be available with idoc.getTableStructure, but it is getting overwritten after we do fill from xml
+     * @param idocNode Idoc Node
+     * @return
+     */
+    private int getControlStructureNode(int idocNode)
+    {
+    	int controlStructureNode = Node.getElement(idocNode, "EDI_DC40") ;
+    	if(controlStructureNode <= 0)
+    	{
+    		controlStructureNode = Node.getElement(idocNode, "EDI_DC") ;
+    	}    	
+    	if(controlStructureNode <= 0)
+    	{
+    		controlStructureNode = Node.getElement(idocNode, "EDI_DC40_U") ;
+    	}    	
+    	return controlStructureNode ;    		
+    }
 
     /**
      * This method saves the IDOC in the database table.
@@ -241,8 +279,7 @@ public class OLEDBRequestSender
         if (doc == null)
         {
             doc = new Document();
-        }
-
+        }  
         if (idocXMLNode == 0)
         {
             String idocXMLString = idoc.toXML();
@@ -285,9 +322,9 @@ public class OLEDBRequestSender
         Date createdDate = idoc.getCreationDate();
         Date createdTime = idoc.getCreationTime();
         // To make it compatible with OLEDB connector.
-        String creationDateTime = DATE_FORMAT.format(createdDate) + "T" +
-                                  TIME_FORMAT.format(createdTime);
-        params[3] = creationDateTime;
+//        String creationDateTime = DATE_FORMAT.format(createdDate) + "T" +
+//                                  TIME_FORMAT.format(createdTime);
+//      params[3] = creationDateTime; // This line throws exception
         params[4] = idoc.getMessageType(); // Message type
         params[5] = idoc.getIDocType(); // IDOC type
         params[6] = idoc.getIDocTypeExtension(); // Extension
@@ -296,21 +333,24 @@ public class OLEDBRequestSender
         params[9] = localStatus;
         params[10] = errorText;
         params[11] = targetSystem;
-
+        LOG.error("idoctype ="+params[5]+" cimtype"+params[6]); // delete this
         // It will be updated later.
         String destinationStatus = idoc.getStatus();
         params[12] = destinationStatus;
         params[13] = soapNodeDN;
 
         // This is either EDI_DC or EDI_DC40
-        String tableStructureName = idoc.getTableStructureName();
-        // Spy.send("Request", Node.writeToString(duplicateIDOCXMLNode, true));
-        int controlRecordNode = Find.firstMatch(duplicateIDOCXMLNode,
-                                                "<" + params[5] + "><IDOC><" + tableStructureName +
-                                                ">");
-
+        String tableStructureName = idoc.getTableStructureName();   
+        int idocNode = Node.getElement(duplicateIDOCXMLNode, "IDOC") ;
+        int controlRecordNode = Node.getElement(idocNode, tableStructureName) ;
+        if(controlRecordNode <= 0 )
+        {
+        	controlRecordNode = getControlStructureNode(idocNode) ;
+        }
+        // If still!! control structure is not available , throw an exception.
         if (controlRecordNode == 0)
         {
+        	LOG.error("Searching = "+tableStructureName+" Incomming IDOC Node failed" + Node.writeToString(duplicateIDOCXMLNode, true));
             throw new SAPConnectorException(SAPConnectorExceptionMessages.CONTROL_RECORD_NOT_FOUND_FOR_IDOC,
                                             params[2]);
         }
@@ -389,6 +429,7 @@ public class OLEDBRequestSender
      * This method updates the DestinationStatus of an IDOC with the given number in the IDOCTable.
      *
      * @param   idocNumber  DOCUMENTME
+     * @param	soapNodeDN	SOAPNodeDn of the service group
      * @param   idocStatus  DOCUMENTME
      * @param   doc         DOCUMENTME
      *
@@ -396,7 +437,7 @@ public class OLEDBRequestSender
      *
      * @throws  SAPConnectorException  In case of any exceptions
      */
-    public boolean updateIDOCStatus(String idocNumber, String idocStatus, Document doc)
+    public boolean updateIDOCStatus(String idocNumber, String soapNodeDN, String idocStatus, Document doc)
                              throws SAPConnectorException
     {
         int[] param_method = new int[1];
@@ -404,12 +445,15 @@ public class OLEDBRequestSender
         int oldNode = doc.createElement("old", tupleNode);
         int old_tableNode = doc.createElement(tableName, oldNode);
         String sixteenCharIDocNumber = getSixteenCharIDOCNum(idocNumber);
-        doc.createTextElement("IDOCNum", sixteenCharIDocNumber, old_tableNode);
+        /* IDOCNumber + SoapNodeDN become the key for the IDOC table This is to handle cases there Multiple SAP systems are configured in Cordys.
+        as there is only one Single IDOC Table to avoid duplicate IDOC numbers this is done. It can be a rare exception scenario */
+        doc.createTextElement(IDOCTABLE_IDOCNUM_TAG, sixteenCharIDocNumber, old_tableNode);
+        doc.createTextElement(IDOCTABLE_SOAPNODEDN_TAG, soapNodeDN, old_tableNode);
 
         int newNode = doc.createElement("new", tupleNode);
         int new_tableNode = doc.createElement(tableName, newNode);
-        doc.createTextElement("IDOCNum", sixteenCharIDocNumber, new_tableNode);
-        doc.createTextElement("DestinationStatus", idocStatus, new_tableNode);
+        doc.createTextElement(IDOCTABLE_IDOCNUM_TAG, sixteenCharIDocNumber, new_tableNode);
+        doc.createTextElement(IDOCTABLE_DESTINATIONSTATUS_TAG, idocStatus, new_tableNode);
         param_method[0] = tupleNode;
 
         int responseNode = m_ldapInterface.executeMethod(METHOD_UPDATE,
@@ -444,22 +488,22 @@ public class OLEDBRequestSender
         int tupleNode = doc.createElement("tuple");
         int newNode = doc.createElement("new", tupleNode);
         int tableNode = doc.createElement(tableName, newNode);
-        doc.createTextElement("Direction", params[0], tableNode);
-        doc.createTextElement("Tid", params[1], tableNode);
-        doc.createTextElement("IDOCNum", params[2], tableNode);
-        doc.createTextElement("CreationDate", params[3], tableNode);
-        doc.createTextElement("MESType", params[4], tableNode);
-        doc.createTextElement("IDOCType", params[5], tableNode);
-        doc.createTextElement("CIMType", params[6], tableNode);
-        doc.createTextElement("SenderLS", params[7], tableNode);
-        doc.createTextElement("ReceiverLS", params[8], tableNode);
-        doc.createTextElement("LocalStatus", params[9], tableNode);
-        doc.createTextElement("ErrorText", params[10], tableNode);
-        doc.createTextElement("TargetSystem", params[11], tableNode);
-        doc.createTextElement("DestinationStatus", params[12], tableNode);
-        doc.createTextElement("SOAPNodeDN", params[13], tableNode);
-        doc.createTextElement("ControlRecord", params[14], tableNode);
-        doc.createTextElement("DataRecord", params[15], tableNode);
+        doc.createTextElement(IDOCTABLE_DIRECTION_TAG, params[0], tableNode);
+        doc.createTextElement(IDOCTABLE_TID_TAG, params[1], tableNode);
+        doc.createTextElement(IDOCTABLE_IDOCNUM_TAG, params[2], tableNode);
+        doc.createTextElement(IDOCTABLE_CREATIONDATE_TAG, params[3], tableNode);
+        doc.createTextElement(IDOCTABLE_MESTYPE_TAG, params[4], tableNode);
+        doc.createTextElement(IDOCTABLE_IDOCTYPE_TAG, params[5], tableNode);
+        doc.createTextElement(IDOCTABLE_CIMTYPE_TAG, params[6], tableNode);
+        doc.createTextElement(IDOCTABLE_SENDERLS_TAG, params[7], tableNode);
+        doc.createTextElement(IDOCTABLE_RECEIVERLS_TAG, params[8], tableNode);
+        doc.createTextElement(IDOCTABLE_LOCALSTATUS_TAG, params[9], tableNode);
+        doc.createTextElement(IDOCTABLE_ERRORTEXT_TAG, params[10], tableNode);
+        doc.createTextElement(IDOCTABLE_TARGETSYSTEM_TAG, params[11], tableNode);
+        doc.createTextElement(IDOCTABLE_DESTINATIONSTATUS_TAG.toUpperCase(), params[12], tableNode);
+        doc.createTextElement(IDOCTABLE_SOAPNODEDN_TAG.toUpperCase(), params[13], tableNode);
+        doc.createTextElement(IDOCTABLE_CONTROLRECORD_TAG, params[14], tableNode);
+        doc.createTextElement(IDOCTABLE_DATARECORD_TAG, params[15], tableNode);
         return tupleNode;
     }
 
@@ -498,7 +542,7 @@ public class OLEDBRequestSender
     {
         int tupleNode = doc.createElement("tuple");
         int newNode = doc.createElement("new", tupleNode);
-        int tableNode = doc.createElement(tableName, newNode);
+        int tableNode = doc.createElement(tableName.toUpperCase(), newNode);
         doc.createTextElement("Direction", direction, tableNode);
         doc.createTextElement("Tid", tid, tableNode);
         doc.createTextElement("IDOCNum", idocNum, tableNode);
