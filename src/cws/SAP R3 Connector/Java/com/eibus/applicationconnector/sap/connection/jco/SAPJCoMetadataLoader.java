@@ -568,11 +568,11 @@ public class SAPJCoMetadataLoader extends MetadataLoader
         String fileName = "" ;
         if(Util.isSet(cimType))
         {
-        	 fileName = m_cacheDir + File.pathSeparator+cimType+ ".o";
+        	 fileName = m_cacheDir + File.separator+cimType+ ".o";
         }
         else if(Util.isSet(idocType))
         {
-        	fileName = m_cacheDir + File.pathSeparator+idocType+ ".o";
+        	fileName = m_cacheDir + File.separator+idocType+ ".o";
         }
         else
         {        	
@@ -590,10 +590,10 @@ public class SAPJCoMetadataLoader extends MetadataLoader
 			return true;
 		} catch (FileNotFoundException e) {	
 			LOG.error(e.getLocalizedMessage()) ;
-			e.printStackTrace();
+		
 		} catch (IOException e) {
 			LOG.error(e.getLocalizedMessage()) ;
-			e.printStackTrace();
+		
 		}  
 		return false;
     }

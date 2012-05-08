@@ -12,7 +12,59 @@
 	<TargetNamespace>http://schemas.cordys.com/2.0/SAPRFMUtils</TargetNamespace>
 	<TNSPrefix>tns</TNSPrefix>
 	<LocationURI></LocationURI>
-	<Connectors/>
+	<Connectors>
+		<ApplicationConnectorRuntime
+			type="com.cordys.applicationconnector.ApplicationConnectorRuntime"
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="C5A2A5D3-90DC-11E1-F320-57A5365E36A5">
+			<DocumentID>C5A2A5D3-90DC-11E1-F320-57A5365E16A5</DocumentID>
+			<Name>Untitled Application Connector</Name>
+			<Description>Method Set SAP RFM Utils_Untitled Application Connector</Description>
+			<CreatedBy>jvmohan</CreatedBy>
+			<CreationDate>2012-05-08T12:06:11.488</CreationDate>
+			<Notes/>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<RuntimeInstanceLevel>isv</RuntimeInstanceLevel>
+			<ImplementationClass></ImplementationClass>
+			<ISVPName></ISVPName>
+			<RuntimeKey>com.eibus.applicationconnector.sap.SAPMapper</RuntimeKey>
+			<PackageInformation/>
+		</ApplicationConnectorRuntime>
+		<ApplicationConnectorRuntime
+			type="com.cordys.applicationconnector.ApplicationConnectorRuntime"
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="C5A2A5D3-90DC-11E1-F320-57A5366216A5">
+			<DocumentID>C5A2A5D3-90DC-11E1-F320-57A53661F6A5</DocumentID>
+			<Name>Method Set SAP RFM Utils_Untitled Application Connector</Name>
+			<Description>Method Set SAP RFM Utils_Untitled Application Connector</Description>
+			<CreatedBy>jvmohan</CreatedBy>
+			<CreationDate>2012-05-08T12:05:18.014</CreationDate>
+			<Notes/>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<RuntimeInstanceLevel>isv</RuntimeInstanceLevel>
+			<ImplementationClass></ImplementationClass>
+			<ISVPName></ISVPName>
+			<RuntimeKey>com.eibus.applicationconnector.sap.SAPMapper</RuntimeKey>
+			<PackageInformation/>
+		</ApplicationConnectorRuntime>
+		<ApplicationConnectorRuntime
+			type="com.cordys.applicationconnector.ApplicationConnectorRuntime"
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="C5A2A5D3-90DC-11E1-F320-C866DC7A76A5">
+			<DocumentID>C5A2A5D3-90DC-11E1-F320-C866DC7A56A5</DocumentID>
+			<Name>Method Set SAP RFM Utils_Untitled Application Connector (1)</Name>
+			<Description>Method Set SAP RFM Utils_Untitled Application Connector (1)</Description>
+			<CreatedBy>jvmohan</CreatedBy>
+			<CreationDate>2012-05-08T12:07:01.806</CreationDate>
+			<Notes/>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<RuntimeInstanceLevel>isv</RuntimeInstanceLevel>
+			<ImplementationClass></ImplementationClass>
+			<ISVPName></ISVPName>
+			<RuntimeKey>com.eibus.applicationconnector.sap.SAPMapper</RuntimeKey>
+			<PackageInformation/>
+		</ApplicationConnectorRuntime>
+	</Connectors>
 	<RuntimeSchemaDefinitions>
 		<XMLSchemaDefinitionRuntime
 			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
@@ -2170,7 +2222,11 @@
 				/>
 			</WebserviceInterface>
 			<QName/>
-			<ApplicationConnector/>
+			<ApplicationConnector>
+				<uri
+					id="C5A2A5D3-90DC-11E1-F320-C866DC7A56A5"
+				/>
+			</ApplicationConnector>
 			<BindingExtension>
 				<SOAPBinding
 					type="com.cordys.wsdl.SOAPBinding"

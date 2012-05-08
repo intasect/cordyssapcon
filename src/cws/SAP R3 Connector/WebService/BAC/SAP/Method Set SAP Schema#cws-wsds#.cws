@@ -13,7 +13,23 @@
 	<TNSPrefix>tns</TNSPrefix>
 	<LocationURI></LocationURI>
 	<Connectors>
-		
+		<ApplicationConnectorRuntime
+			type="com.cordys.applicationconnector.ApplicationConnectorRuntime"
+			typeVersion="0019B981-E9E3-11DF-FAD3-F797D376BD43"
+			RuntimeDocumentID="C5A2A5D3-90DC-11E1-F320-57A5365FD6A5">
+			<DocumentID>C5A2A5D3-90DC-11E1-F320-57A5365FB6A5</DocumentID>
+			<Name>Method Set SAP Schema_Untitled Application Connector</Name>
+			<Description>Method Set SAP Schema_Untitled Application Connector</Description>
+			<CreatedBy>jvmohan</CreatedBy>
+			<CreationDate>2012-05-08T12:05:45.978</CreationDate>
+			<Notes/>
+			<BinaryReferenceInfo></BinaryReferenceInfo>
+			<RuntimeInstanceLevel>isv</RuntimeInstanceLevel>
+			<ImplementationClass></ImplementationClass>
+			<ISVPName></ISVPName>
+			<RuntimeKey>com.eibus.applicationconnector.sap.SAPMapper</RuntimeKey>
+			<PackageInformation/>
+		</ApplicationConnectorRuntime>
 	</Connectors>
 	<RuntimeSchemaDefinitions>
 		<XMLSchemaDefinitionRuntime
@@ -1568,9 +1584,7 @@
 												name="old">
 												<xsd:complexType>
 													<xsd:sequence>
-														<xsd:element
-															name="Components"
-															type="tns:ctAny">
+														<xsd:element	name="Components"	type="tns:ctAny">
 </xsd:element>
 													</xsd:sequence>
 												</xsd:complexType>
@@ -1698,10 +1712,9 @@
 													minOccurs="1"
 													name="old">
 													<xsd:complexType>
-														<xsd:sequence>
-															<xsd:element
-	name="BusinessObjects"
-	type="tns:ctAny">
+														<xsd:sequence>	<xsd:element
+		name="BusinessObjects"
+		type="tns:ctAny">
 </xsd:element>
 														</xsd:sequence>
 													</xsd:complexType>
@@ -1846,10 +1859,9 @@
 													minOccurs="1"
 													name="old">
 													<xsd:complexType>
-														<xsd:sequence>
-															<xsd:element
-	name="BAPIs"
-	type="tns:ctAny">
+														<xsd:sequence>	<xsd:element
+		name="BAPIs"
+		type="tns:ctAny">
 </xsd:element>
 														</xsd:sequence>
 													</xsd:complexType>
@@ -2127,10 +2139,9 @@
 													minOccurs="1"
 													name="old">
 													<xsd:complexType>
-														<xsd:sequence>
-															<xsd:element
-	name="MessageTypes"
-	type="tns:ctAny">
+														<xsd:sequence>	<xsd:element
+		name="MessageTypes"
+		type="tns:ctAny">
 </xsd:element>
 														</xsd:sequence>
 													</xsd:complexType>
@@ -2275,10 +2286,9 @@
 													minOccurs="1"
 													name="old">
 													<xsd:complexType>
-														<xsd:sequence>
-															<xsd:element
-	name="IDOCTypes"
-	type="tns:ctAny">
+														<xsd:sequence>	<xsd:element
+		name="IDOCTypes"
+		type="tns:ctAny">
 </xsd:element>
 														</xsd:sequence>
 													</xsd:complexType>
@@ -2417,10 +2427,9 @@
 													minOccurs="1"
 													name="old">
 													<xsd:complexType>
-														<xsd:sequence>
-															<xsd:element
-	name="IDOCTypes"
-	type="tns:ctAny">
+														<xsd:sequence>	<xsd:element
+		name="IDOCTypes"
+		type="tns:ctAny">
 </xsd:element>
 														</xsd:sequence>
 													</xsd:complexType>
@@ -2565,10 +2574,9 @@
 													minOccurs="1"
 													name="old">
 													<xsd:complexType>
-														<xsd:sequence>
-															<xsd:element
-	name="IDOCTypes"
-	type="tns:ctAny">
+														<xsd:sequence>	<xsd:element
+		name="IDOCTypes"
+		type="tns:ctAny">
 </xsd:element>
 														</xsd:sequence>
 													</xsd:complexType>
@@ -2970,10 +2978,9 @@
 													minOccurs="1"
 													name="old">
 													<xsd:complexType>
-														<xsd:sequence>
-															<xsd:element
-	name="RFCs"
-	type="tns:ctAny">
+														<xsd:sequence>	<xsd:element
+		name="RFCs"
+		type="tns:ctAny">
 </xsd:element>
 														</xsd:sequence>
 													</xsd:complexType>
@@ -7102,7 +7109,7 @@
 			</QName>
 			<ApplicationConnector>
 				<uri
-					id="001D09BE-4863-71DE-8EEE-B7FE7329B32C"
+					id="C5A2A5D3-90DC-11E1-F320-57A5365FB6A5"
 				/>
 			</ApplicationConnector>
 			<BindingExtension>

@@ -54,11 +54,11 @@ public class Util
 		int bytesRead = 0 ;
 		while((bytesRead = fis.read(byteArray))!=-1)
 		{
-			byte[] actualBytesRead = new byte[bytesRead];			
-			String encodedString = com.eibus.util.Base64.encodeToStr(actualBytesRead) ;
-			sBuffer.append(encodedString);
+			byte[] actualBytesRead = new byte[bytesRead];	
 			System.arraycopy(byteArray, 0, actualBytesRead, 0, bytesRead);
-			//System.out.println(actualBytesRead.length);
+			String encodedString = com.eibus.util.Base64.encodeToStr(actualBytesRead) ;
+			sBuffer.append(encodedString);		
+		
 		}	
 		fis.close();
 		return sBuffer.toString() ;
