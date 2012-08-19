@@ -25,6 +25,7 @@ import com.eibus.applicationconnector.sap.exception.SAPConnectorException;
 import com.eibus.applicationconnector.sap.exception.SAPConnectorExceptionMessages;
 import com.eibus.applicationconnector.sap.request.OLEDBRequestSender;
 import com.eibus.applicationconnector.sap.util.BACUtil;
+import com.eibus.applicationconnector.sap.util.Util;
 import com.eibus.util.logger.CordysLogger;
 import com.eibus.xml.nom.Document;
 import com.eibus.xml.nom.Find;
@@ -860,8 +861,18 @@ public class SAPJCoRequestSender
                                            String cimType, int requestNode, boolean isPartnerUnicode)
                                     throws SAPConnectorException
     {
-        JCoIDoc.JCoDocument idoc = (JCoIDoc.JCoDocument) JCoIDoc.createDocument(IDOCRepository,
-                                                                                idocType, cimType);
+    	 JCoIDoc.JCoDocument idoc = null ;
+    	 if (Util.isSet(cimType))
+         {
+    		 idoc = (JCoIDoc.JCoDocument) JCoIDoc.createDocument(IDOCRepository,
+                     idocType, cimType);
+         }
+    	 else
+    	 {
+    		 idoc = (JCoIDoc.JCoDocument) JCoIDoc.createDocument(IDOCRepository,
+                     idocType);
+    	 }
+        
         String controlStrucreName = idoc.getTableStructureName();       
         int idocNode = Node.getFirstChildElement(requestNode);
         int clone_idocNode = Node.duplicate(idocNode);    

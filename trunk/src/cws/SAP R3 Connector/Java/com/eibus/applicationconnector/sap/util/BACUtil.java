@@ -135,7 +135,8 @@ public class BACUtil
     	if("".equalsIgnoreCase(contentNodeData)) 
     		return ; // No post processing
     	Node.delete(Node.getElement(itemNode, "WA")) ;
-    	String logTokens[] = contentNodeData.split(delimiter);    	
+    	String logTokens[] = contentNodeData.split(delimiter);
+    	
     	for(int i=0; logTokens!=null && i<logTokens.length; i++)
     	{    		
     			Node.createElementWithParentNS(Node.getDataWithDefault(fieldNodes[i],"param"), logTokens[i].trim(),itemNode) ;   		

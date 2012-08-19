@@ -27,6 +27,7 @@ import com.eibus.applicationconnector.sap.exception.SAPConnectorExceptionMessage
 import com.eibus.applicationconnector.sap.util.BACUtil;
 import com.eibus.applicationconnector.sap.util.LDAPInterface;
 import com.eibus.util.logger.CordysLogger;
+import com.eibus.util.logger.Severity;
 import com.eibus.xml.nom.Document;
 import com.eibus.xml.nom.Find;
 import com.eibus.xml.nom.Node;
@@ -145,6 +146,7 @@ public class OLEDBRequestSender
             }
             catch (Exception xe)
             {
+            	LOG.error("Parsing the IDOC Xml failed. Insert tuple formation failed") ;
                 throw new SAPConnectorException(xe,
                                                 SAPConnectorExceptionMessages.ERROR_PARSING_IDOC,
                                                 idocXMLString);
@@ -204,6 +206,7 @@ public class OLEDBRequestSender
 
         if (controlRecordNode == 0)
         {
+        	LOG.error("Control record not available in IDOC, updation to local database is aborted") ;
             throw new SAPConnectorException(SAPConnectorExceptionMessages.CONTROL_RECORD_NOT_FOUND_FOR_IDOC,
                                             params[2]);
         }
@@ -290,6 +293,7 @@ public class OLEDBRequestSender
             }
             catch (Exception xe)
             {
+            	LOG.error("Parsing the IDOC XML fails") ;
                 throw new SAPConnectorException(xe,
                                                 SAPConnectorExceptionMessages.ERROR_PARSING_IDOC,
                                                 idocXMLString);
@@ -322,9 +326,21 @@ public class OLEDBRequestSender
         Date createdDate = idoc.getCreationDate();
         Date createdTime = idoc.getCreationTime();
         // To make it compatible with OLEDB connector.
-//        String creationDateTime = DATE_FORMAT.format(createdDate) + "T" +
-//                                  TIME_FORMAT.format(createdTime);
-//      params[3] = creationDateTime; // This line throws exception
+        String creationDateTime ="";
+        try
+        {
+        creationDateTime = DATE_FORMAT.format(createdDate) + "T" +
+                                  TIME_FORMAT.format(createdTime);
+        params[3] = creationDateTime; // This line throws exception
+        }
+      catch (Exception notHandlerYet) 
+      {
+    	  LOG.log(Severity.ERROR, "Exception while setting the date and time format. Can not update the creation time " +creationDateTime , notHandlerYet);
+      }
+      catch (Throwable notHandlerYet) 
+      {
+    	  LOG.log(Severity.ERROR, "Exception while setting the date and time format. Can not update the creation time " +creationDateTime , notHandlerYet);
+      }
         params[4] = idoc.getMessageType(); // Message type
         params[5] = idoc.getIDocType(); // IDOC type
         params[6] = idoc.getIDocTypeExtension(); // Extension
