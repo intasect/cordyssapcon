@@ -333,8 +333,11 @@ public class SAPJCoRequestHandler
 
         if (!Util.isSet(cimType))
         {
-            throw new SAPConnectorException(SAPConnectorExceptionMessages.COULD_NOT_FIND_TAG_IN_IMPLEMENTATION,
-                                            "CIMType");
+        	if (LOG.isInfoEnabled())
+            {
+                LOG.info("CIMType is not avaliable");
+            }
+            //throw new SAPConnectorException(SAPConnectorExceptionMessages.COULD_NOT_FIND_TAG_IN_IMPLEMENTATION, "CIMType");
         }
 
         String fromLogicalSystem = null;

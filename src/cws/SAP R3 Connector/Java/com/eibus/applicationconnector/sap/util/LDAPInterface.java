@@ -35,6 +35,7 @@ import com.eibus.util.logger.CordysLogger;
 
 import com.eibus.xml.nom.Document;
 import com.eibus.xml.nom.Node;
+import com.eibus.xml.xpath.XPath;
 import com.eibus.xml.xpath.XPathMetaInfo;
 
 import com.novell.ldap.LDAPConnection;
@@ -230,10 +231,12 @@ public class LDAPInterface
             }
 
             // Send the request
+            //LOG.error("Request sent to invoke external webservice" + Node.writeToString(request, true)) ;
             int mesEnve = Node.getRoot(request);          
-            response = connector.sendAndWait(mesEnve);            
-            // Check for SOAP faults.
-            checkErrorInResponse(xmi, response);
+            response = connector.sendAndWait(mesEnve);      
+            //LOG.error("Response from external webservice" + Node.writeToString(response, true)) ;
+            // Check for SOAP faults.re
+            checkErrorInResponse(xmi, response, request);
 
             // Get the method response
             int oldNode = XPathHelper.selectSingleNode(response,
@@ -366,16 +369,20 @@ public class LDAPInterface
      *
      * @throws  SAPConnectorException  In case of any exceptions
      */
-    private void checkErrorInResponse(XPathMetaInfo xmi, int response)
+    private void checkErrorInResponse(XPathMetaInfo xmi, int response, int request)
                                throws SAPConnectorException
     {
-        int faultStringNode = XPathHelper.selectSingleNode(response, "//SOAP:faultstring", xmi);
+        int faultNode = XPathHelper.selectSingleNode(response, "//SOAP:Fault", xmi);
 
-        if (faultStringNode != 0)
+        if (faultNode != 0)
         {
-            String faultString = Node.getDataWithDefault(faultStringNode, "");
-            String faultCode = XPathHelper.getStringValue(response, "//SOAP:faultcode", xmi);
-
+            //String faultString = Node.getDataWithDefault(faultStringNode, "");
+            //String faultCode = XPathHelper.getStringValue(response, "//faultcode", xmi);
+            String faultString  = Node.getData(XPath.getFirstMatch("faultstring", null, faultNode)) ;
+            String faultCode  = Node.getData(XPath.getFirstMatch("faultcode", null, faultNode)) ;
+            LOG.error("Request sent to external webservice= "+ Node.writeToString(request, true) ) ;
+            LOG.error("Response received = "+ Node.writeToString(response, true) ) ;
+            
             throw new SAPConnectorException(SAPConnectorExceptionMessages.ERROR_METHOD_RETURNED_ASOAP_FAULT,
                                             faultCode, faultString,
                                             Node.writeToString(response, false));

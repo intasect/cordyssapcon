@@ -21,6 +21,7 @@ import com.eibus.applicationconnector.sap.exception.SAPConnectorException;
 import com.eibus.applicationconnector.sap.exception.SAPConnectorExceptionMessages;
 import com.eibus.applicationconnector.sap.metadata.ESAPDataType;
 import com.eibus.applicationconnector.sap.metadata.MethodGenerator;
+import com.eibus.applicationconnector.sap.util.SpecialCharactersConvertorUtil;
 import com.eibus.applicationconnector.sap.xsd.XSDAnnotation;
 import com.eibus.applicationconnector.sap.xsd.XSDDumper;
 import com.eibus.applicationconnector.sap.xsd.XSDElement;
@@ -240,6 +241,7 @@ public class JCoMethodGenerator extends MethodGenerator
                     if (field.isStructure())
                     {
                         String referenceType = parameterList.getTabName(i);
+                        referenceType = SpecialCharactersConvertorUtil.encodeToHexa(referenceType) ; //hex
                         handleStructureParameter(schema, xsAll, field, referenceType);
                     }
                     else
@@ -258,7 +260,7 @@ public class JCoMethodGenerator extends MethodGenerator
                 {
                     JCO.Field tableField = tableParameterList.getField(i);
                     String refType = tableParameterList.getTabName(i);
-
+                    refType = SpecialCharactersConvertorUtil.encodeToHexa(refType) ; //hex
                     handleTableParameter(schema, xsAll, tableField, refType);
                 }
             }
@@ -544,7 +546,7 @@ public class JCoMethodGenerator extends MethodGenerator
                                           String referenceType)
     {
         String structName = field.getName();
-
+        structName = SpecialCharactersConvertorUtil.encodeToHexa(structName) ;
         // First of all we'll create the element. The element will point to a NEW complex type
         // which will be added to the schema as well.
         XSDElement element = new XSDElement();
@@ -579,7 +581,7 @@ public class JCoMethodGenerator extends MethodGenerator
                                       String referenceType)
     {
         String tableName = field.getName();
-
+        tableName = SpecialCharactersConvertorUtil.encodeToHexa(tableName) ;
         // Create the element and add it to the sequence
         XSDElement element = new XSDElement();
         element.setName(new QName(getNamespace(), tableName));
