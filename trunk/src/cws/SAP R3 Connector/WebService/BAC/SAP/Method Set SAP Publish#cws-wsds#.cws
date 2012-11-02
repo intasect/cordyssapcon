@@ -1,6 +1,7 @@
 
 <WebserviceDefinitionSet
 	type="com.cordys.wsdl.WebserviceDefinitionSet"
+	typeVersion="001A6BFA-F5C5-11E0-FF5F-D69DC91F37C5"
 	RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3366DD56137">
 	<DocumentID>001D09BE-4863-71DE-8EEE-B3366DD56136</DocumentID>
 	<Name>Method Set SAP Publish</Name>
@@ -8,13 +9,26 @@
 	<CreatedBy>pgussow</CreatedBy>
 	<CreationDate>2009-10-07T11:57:36.562</CreationDate>
 	<Notes/>
-	<Type></Type>
-	<TargetNamespace>http://schemas.cordys.com/1.0/SAPMethodPublish</TargetNamespace>
-	<TNSPrefix>tns</TNSPrefix>
 	<LocationURI></LocationURI>
-	<Connectors>
-		
-	</Connectors>
+	<TNSPrefix>tns</TNSPrefix>
+	<TargetNamespace>http://schemas.cordys.com/1.0/SAPMethodPublish</TargetNamespace>
+	<Type></Type>
+	<Connectors/>
+	<QName>
+		<QualifiedName
+			type="com.cordys.wsdl.QualifiedName"
+			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D02">
+			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D01</DocumentID>
+			<Name>Services_Cordys_SAP_MethodPublish</Name>
+			<Description/>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-10-07T11:57:36.828</CreationDate>
+			<Notes/>
+			<LocalPart>Services_Cordys_SAP_MethodPublish</LocalPart>
+			<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
+			<Prefix></Prefix>
+		</QualifiedName>
+	</QName>
 	<RuntimeSchemaDefinitions>
 		<XMLSchemaDefinitionRuntime
 			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
@@ -27,9 +41,12 @@
 			<CreationDate>2009-10-07T11:57:36.828</CreationDate>
 			<Notes/>
 			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<NamespaceReferencePrefix>tns</NamespaceReferencePrefix>
-			<TargetNamespace></TargetNamespace>
+			<ISVPName>Cordys WS-AppServer</ISVPName>
 			<Location></Location>
+			<NamespaceReferencePrefix>tns</NamespaceReferencePrefix>
+			<RuntimeKey>http://schemas.cordys.com/WS-AppServer/1.0/WSAppServerSchema.xsd</RuntimeKey>
+			<TargetNamespace></TargetNamespace>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
 			<XmlNode>
 				<xsd:schema
 					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
@@ -42,11 +59,20 @@
 					/>
 				</xsd:schema>
 			</XmlNode>
-			<ISVPName>Cordys WS-AppServer</ISVPName>
-			<RuntimeKey>http://schemas.cordys.com/WS-AppServer/1.0/WSAppServerSchema.xsd</RuntimeKey>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
 			<DefinitionSet/>
-			<SchemaReferences/>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf345a816d2">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf3456fd6d1</DocumentID>
+					<Name>ISVP Info forCordys WS-AppServer</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:55.159</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys WS-AppServer</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 			<SchemaFragments>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -58,8 +84,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>UpdateMethodAttributes</FragmentName>
-					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -128,14 +152,16 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>UpdateMethodAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CC9"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -147,8 +173,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>tupleAttributes</FragmentName>
-					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -160,14 +184,16 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>tupleAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CC9"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -179,8 +205,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>seqId</FragmentName>
-					<Type>attribute</Type>
 					<DefinitionXML>
 						<xsd:attribute
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -189,14 +213,16 @@
 							type="xsd:int"
 						/>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>seqId</FragmentName>
+					<Type>attribute</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CC9"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -208,8 +234,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>oldObjectAttributes</FragmentName>
-					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -232,14 +256,16 @@
 							</xsd:attribute>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>oldObjectAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CC9"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -251,8 +277,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>nestedObjectAttributes</FragmentName>
-					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -264,14 +288,16 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>nestedObjectAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CC9"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -283,8 +309,6 @@
 					<CreationDate>2009-10-07T11:57:36.828</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>newObjectAttributes</FragmentName>
-					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -343,14 +367,16 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>newObjectAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CC9"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -362,8 +388,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>GetMethodAttributes</FragmentName>
-					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -417,14 +441,16 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>GetMethodAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CC9"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -436,8 +462,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>elementAttributes</FragmentName>
-					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -449,14 +473,16 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>elementAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CC9"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -468,8 +494,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>values</FragmentName>
-					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -506,14 +530,16 @@
 							</xsd:complexType>
 						</xsd:element>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>values</FragmentName>
+					<Type>element</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CC9"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -525,8 +551,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>cursor</FragmentName>
-					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -561,29 +585,19 @@
 							</xsd:complexType>
 						</xsd:element>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>cursor</FragmentName>
+					<Type>element</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CC9"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 			</SchemaFragments>
-			<PackageInformation>
-				<CordysBinaryReferenceISVPInfo
-					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
-					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf345a816d2">
-					<DocumentID>00505681-3ba3-11e1-e23a-2bf3456fd6d1</DocumentID>
-					<Name>ISVP Info forCordys WS-AppServer</Name>
-					<Description/>
-					<CreatedBy>srkrishnan</CreatedBy>
-					<CreationDate>2011-11-18T10:37:55.159</CreationDate>
-					<Notes/>
-					<ISVPName>Cordys WS-AppServer</ISVPName>
-				</CordysBinaryReferenceISVPInfo>
-			</PackageInformation>
+			<SchemaReferences/>
 		</XMLSchemaDefinitionRuntime>
 		<XMLSchemaDefinitionRuntime
 			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
@@ -596,9 +610,12 @@
 			<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 			<Notes/>
 			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<NamespaceReferencePrefix>tns</NamespaceReferencePrefix>
-			<TargetNamespace></TargetNamespace>
+			<ISVPName>Cordys WS-AppServer</ISVPName>
 			<Location></Location>
+			<NamespaceReferencePrefix>tns</NamespaceReferencePrefix>
+			<RuntimeKey>http://schemas.cordys.com/dbconnectors/schemas/1.0/DBConnectorAttributes.xsd</RuntimeKey>
+			<TargetNamespace></TargetNamespace>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
 			<XmlNode>
 				<xsd:schema
 					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
@@ -607,11 +624,20 @@
 					elementFormDefault="qualified"
 				/>
 			</XmlNode>
-			<ISVPName>Cordys WS-AppServer</ISVPName>
-			<RuntimeKey>http://schemas.cordys.com/dbconnectors/schemas/1.0/DBConnectorAttributes.xsd</RuntimeKey>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
 			<DefinitionSet/>
-			<SchemaReferences/>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf34b4d16d4">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf34b1b16d3</DocumentID>
+					<Name>ISVP Info forCordys WS-AppServer</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:55.042</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys WS-AppServer</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 			<SchemaFragments>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -623,8 +649,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>CommonAttributes</FragmentName>
-					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -689,14 +713,16 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>CommonAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CDF"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -708,8 +734,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>CursorAttributes</FragmentName>
-					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -732,14 +756,16 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>CursorAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CDF"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -751,8 +777,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>QueryAttributes</FragmentName>
-					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -794,14 +818,16 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>QueryAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CDF"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -813,8 +839,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>UpdateAttributes</FragmentName>
-					<Type>attributeGroup</Type>
 					<DefinitionXML>
 						<xsd:attributeGroup
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -838,29 +862,19 @@
 							/>
 						</xsd:attributeGroup>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>UpdateAttributes</FragmentName>
+					<Type>attributeGroup</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CDF"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 			</SchemaFragments>
-			<PackageInformation>
-				<CordysBinaryReferenceISVPInfo
-					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
-					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf34b4d16d4">
-					<DocumentID>00505681-3ba3-11e1-e23a-2bf34b1b16d3</DocumentID>
-					<Name>ISVP Info forCordys WS-AppServer</Name>
-					<Description/>
-					<CreatedBy>srkrishnan</CreatedBy>
-					<CreationDate>2011-11-18T10:37:55.042</CreationDate>
-					<Notes/>
-					<ISVPName>Cordys WS-AppServer</ISVPName>
-				</CordysBinaryReferenceISVPInfo>
-			</PackageInformation>
+			<SchemaReferences/>
 		</XMLSchemaDefinitionRuntime>
 		<XMLSchemaDefinitionRuntime
 			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
@@ -873,9 +887,12 @@
 			<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 			<Notes/>
 			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<NamespaceReferencePrefix></NamespaceReferencePrefix>
-			<TargetNamespace>http://schemas.cordys.com/General/ClientAttributes/</TargetNamespace>
+			<ISVPName>Cordys ESBServer</ISVPName>
 			<Location></Location>
+			<NamespaceReferencePrefix></NamespaceReferencePrefix>
+			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//ClientAttributes.xsd</RuntimeKey>
+			<TargetNamespace>http://schemas.cordys.com/General/ClientAttributes/</TargetNamespace>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
 			<XmlNode>
 				<xsd:schema
 					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
@@ -885,187 +902,7 @@
 					attributeFormDefault="unqualified"
 				/>
 			</XmlNode>
-			<ISVPName>Cordys ESBServer</ISVPName>
-			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//ClientAttributes.xsd</RuntimeKey>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
 			<DefinitionSet/>
-			<SchemaReferences/>
-			<SchemaFragments>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2CEC">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2CEB</DocumentID>
-					<Name>sync_id</Name>
-					<Description>sync_id(attribute)</Description>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<FragmentName>sync_id</FragmentName>
-					<Type>attribute</Type>
-					<DefinitionXML>
-						<xsd:attribute
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="sync_id"
-							type="xsd:string"
-						/>
-					</DefinitionXML>
-					<Realizations/>
-					<DecisionCases/>
-					<SchemaDefinition>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2CE9"
-						/>
-					</SchemaDefinition>
-					<Rules/>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2CEE">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2CED</DocumentID>
-					<Name>current_model</Name>
-					<Description>current_model(attribute)</Description>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<FragmentName>current_model</FragmentName>
-					<Type>attribute</Type>
-					<DefinitionXML>
-						<xsd:attribute
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="current_model"
-							type="xsd:string"
-						/>
-					</DefinitionXML>
-					<Realizations/>
-					<DecisionCases/>
-					<SchemaDefinition>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2CE9"
-						/>
-					</SchemaDefinition>
-					<Rules/>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2CF0">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2CEF</DocumentID>
-					<Name>reorder</Name>
-					<Description>reorder(attribute)</Description>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.828</CreationDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<FragmentName>reorder</FragmentName>
-					<Type>attribute</Type>
-					<DefinitionXML>
-						<xsd:attribute
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="reorder"
-							type="xsd:boolean"
-						/>
-					</DefinitionXML>
-					<Realizations/>
-					<DecisionCases/>
-					<SchemaDefinition>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2CE9"
-						/>
-					</SchemaDefinition>
-					<Rules/>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2CF2">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2CF1</DocumentID>
-					<Name>related</Name>
-					<Description>related(attribute)</Description>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<FragmentName>related</FragmentName>
-					<Type>attribute</Type>
-					<DefinitionXML>
-						<xsd:attribute
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="related"
-							type="xsd:string"
-						/>
-					</DefinitionXML>
-					<Realizations/>
-					<DecisionCases/>
-					<SchemaDefinition>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2CE9"
-						/>
-					</SchemaDefinition>
-					<Rules/>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2CF4">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2CF3</DocumentID>
-					<Name>selected</Name>
-					<Description>selected(attribute)</Description>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<FragmentName>selected</FragmentName>
-					<Type>attribute</Type>
-					<DefinitionXML>
-						<xsd:attribute
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="selected"
-							type="xsd:boolean"
-						/>
-					</DefinitionXML>
-					<Realizations/>
-					<DecisionCases/>
-					<SchemaDefinition>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2CE9"
-						/>
-					</SchemaDefinition>
-					<Rules/>
-				</BusinessObjectDocument>
-				<BusinessObjectDocument
-					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2CF6">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2CF5</DocumentID>
-					<Name>activebusinessobject</Name>
-					<Description>activebusinessobject(attribute)</Description>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-					<Notes/>
-					<AnnotationSpecificationXML/>
-					<FragmentName>activebusinessobject</FragmentName>
-					<Type>attribute</Type>
-					<DefinitionXML>
-						<xsd:attribute
-							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
-							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-							name="activebusinessobject"
-							type="xsd:boolean"
-						/>
-					</DefinitionXML>
-					<Realizations/>
-					<DecisionCases/>
-					<SchemaDefinition>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2CE9"
-						/>
-					</SchemaDefinition>
-					<Rules/>
-				</BusinessObjectDocument>
-			</SchemaFragments>
 			<PackageInformation>
 				<CordysBinaryReferenceISVPInfo
 					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
@@ -1079,6 +916,183 @@
 					<ISVPName>Cordys ESBServer</ISVPName>
 				</CordysBinaryReferenceISVPInfo>
 			</PackageInformation>
+			<SchemaFragments>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2CEC">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2CEB</DocumentID>
+					<Name>sync_id</Name>
+					<Description>sync_id(attribute)</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+					<Notes/>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attribute
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="sync_id"
+							type="xsd:string"
+						/>
+					</DefinitionXML>
+					<FragmentName>sync_id</FragmentName>
+					<Type>attribute</Type>
+					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2CE9"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2CEE">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2CED</DocumentID>
+					<Name>current_model</Name>
+					<Description>current_model(attribute)</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+					<Notes/>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attribute
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="current_model"
+							type="xsd:string"
+						/>
+					</DefinitionXML>
+					<FragmentName>current_model</FragmentName>
+					<Type>attribute</Type>
+					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2CE9"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2CF0">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2CEF</DocumentID>
+					<Name>reorder</Name>
+					<Description>reorder(attribute)</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.828</CreationDate>
+					<Notes/>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attribute
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="reorder"
+							type="xsd:boolean"
+						/>
+					</DefinitionXML>
+					<FragmentName>reorder</FragmentName>
+					<Type>attribute</Type>
+					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2CE9"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2CF2">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2CF1</DocumentID>
+					<Name>related</Name>
+					<Description>related(attribute)</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+					<Notes/>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attribute
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="related"
+							type="xsd:string"
+						/>
+					</DefinitionXML>
+					<FragmentName>related</FragmentName>
+					<Type>attribute</Type>
+					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2CE9"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2CF4">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2CF3</DocumentID>
+					<Name>selected</Name>
+					<Description>selected(attribute)</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+					<Notes/>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attribute
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="selected"
+							type="xsd:boolean"
+						/>
+					</DefinitionXML>
+					<FragmentName>selected</FragmentName>
+					<Type>attribute</Type>
+					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2CE9"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+				<BusinessObjectDocument
+					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2CF6">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2CF5</DocumentID>
+					<Name>activebusinessobject</Name>
+					<Description>activebusinessobject(attribute)</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+					<Notes/>
+					<AnnotationSpecificationXML/>
+					<DefinitionXML>
+						<xsd:attribute
+							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
+							xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+							name="activebusinessobject"
+							type="xsd:boolean"
+						/>
+					</DefinitionXML>
+					<FragmentName>activebusinessobject</FragmentName>
+					<Type>attribute</Type>
+					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
+					<SchemaDefinition>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2CE9"
+						/>
+					</SchemaDefinition>
+				</BusinessObjectDocument>
+			</SchemaFragments>
+			<SchemaReferences/>
 		</XMLSchemaDefinitionRuntime>
 		<XMLSchemaDefinitionRuntime
 			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
@@ -1091,9 +1105,12 @@
 			<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 			<Notes/>
 			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<NamespaceReferencePrefix>cordys</NamespaceReferencePrefix>
-			<TargetNamespace>http://schemas.cordys.com/General/1.0/</TargetNamespace>
+			<ISVPName>Cordys ESBServer</ISVPName>
 			<Location></Location>
+			<NamespaceReferencePrefix>cordys</NamespaceReferencePrefix>
+			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//CordysLocalizableMessage.xsd</RuntimeKey>
+			<TargetNamespace>http://schemas.cordys.com/General/1.0/</TargetNamespace>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
 			<XmlNode>
 				<xsd:schema
 					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
@@ -1103,11 +1120,20 @@
 					elementFormDefault="qualified"
 				/>
 			</XmlNode>
-			<ISVPName>Cordys ESBServer</ISVPName>
-			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//CordysLocalizableMessage.xsd</RuntimeKey>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
 			<DefinitionSet/>
-			<SchemaReferences/>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf338fc56ce">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf338ce16cd</DocumentID>
+					<Name>ISVP Info forCordys ESBServer</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:38:00.245</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys ESBServer</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 			<SchemaFragments>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1119,8 +1145,6 @@
 					<CreationDate>2009-10-07T11:57:36.828</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>LocalizableMessage</FragmentName>
-					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1145,14 +1169,16 @@
 							</xsd:complexType>
 						</xsd:element>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>LocalizableMessage</FragmentName>
+					<Type>element</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CF7"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1164,8 +1190,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>NestedMessage</FragmentName>
-					<Type>complexType</Type>
 					<DefinitionXML>
 						<xsd:complexType
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1197,29 +1221,19 @@
 							</xsd:sequence>
 						</xsd:complexType>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>NestedMessage</FragmentName>
+					<Type>complexType</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CF7"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 			</SchemaFragments>
-			<PackageInformation>
-				<CordysBinaryReferenceISVPInfo
-					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
-					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf338fc56ce">
-					<DocumentID>00505681-3ba3-11e1-e23a-2bf338ce16cd</DocumentID>
-					<Name>ISVP Info forCordys ESBServer</Name>
-					<Description/>
-					<CreatedBy>srkrishnan</CreatedBy>
-					<CreationDate>2011-11-18T10:38:00.245</CreationDate>
-					<Notes/>
-					<ISVPName>Cordys ESBServer</ISVPName>
-				</CordysBinaryReferenceISVPInfo>
-			</PackageInformation>
+			<SchemaReferences/>
 		</XMLSchemaDefinitionRuntime>
 		<XMLSchemaDefinitionRuntime
 			type="com.cordys.xmlschema.XMLSchemaDefinitionRuntime"
@@ -1232,9 +1246,12 @@
 			<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 			<Notes/>
 			<BinaryReferenceInfo></BinaryReferenceInfo>
-			<NamespaceReferencePrefix>cordys</NamespaceReferencePrefix>
-			<TargetNamespace>http://schemas.cordys.com/General/1.0/</TargetNamespace>
+			<ISVPName>Cordys ESBServer</ISVPName>
 			<Location></Location>
+			<NamespaceReferencePrefix>cordys</NamespaceReferencePrefix>
+			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//CordysFaultDetails.xsd</RuntimeKey>
+			<TargetNamespace>http://schemas.cordys.com/General/1.0/</TargetNamespace>
+			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
 			<XmlNode>
 				<xsd:schema
 					xmlns="http://schemas.cordys.com/xmlschema/XMLSchemaDefinitionRuntime/1.0"
@@ -1246,11 +1263,20 @@
 						schemaLocation="http://schemas.cordys.com/CordysSchemas//CordysLocalizableMessage.xsd"> </xsd:include>
 				</xsd:schema>
 			</XmlNode>
-			<ISVPName>Cordys ESBServer</ISVPName>
-			<RuntimeKey>http://schemas.cordys.com/CordysSchemas//CordysFaultDetails.xsd</RuntimeKey>
-			<WebserviceDefinitionSetID></WebserviceDefinitionSetID>
 			<DefinitionSet/>
-			<SchemaReferences/>
+			<PackageInformation>
+				<CordysBinaryReferenceISVPInfo
+					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
+					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf33c4596d0">
+					<DocumentID>00505681-3ba3-11e1-e23a-2bf33c1756cf</DocumentID>
+					<Name>ISVP Info forCordys ESBServer</Name>
+					<Description/>
+					<CreatedBy>srkrishnan</CreatedBy>
+					<CreationDate>2011-11-18T10:37:55.127</CreationDate>
+					<Notes/>
+					<ISVPName>Cordys ESBServer</ISVPName>
+				</CordysBinaryReferenceISVPInfo>
+			</PackageInformation>
 			<SchemaFragments>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1262,8 +1288,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>FaultDetails</FragmentName>
-					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1279,99 +1303,21 @@
 							</xsd:complexType>
 						</xsd:element>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>FaultDetails</FragmentName>
+					<Type>element</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2CFD"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 			</SchemaFragments>
-			<PackageInformation>
-				<CordysBinaryReferenceISVPInfo
-					type="com.cordys.cws.binaryreference.CordysBinaryReferenceISVPInfo"
-					RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf33c4596d0">
-					<DocumentID>00505681-3ba3-11e1-e23a-2bf33c1756cf</DocumentID>
-					<Name>ISVP Info forCordys ESBServer</Name>
-					<Description/>
-					<CreatedBy>srkrishnan</CreatedBy>
-					<CreationDate>2011-11-18T10:37:55.127</CreationDate>
-					<Notes/>
-					<ISVPName>Cordys ESBServer</ISVPName>
-				</CordysBinaryReferenceISVPInfo>
-			</PackageInformation>
+			<SchemaReferences/>
 		</XMLSchemaDefinitionRuntime>
 	</RuntimeSchemaDefinitions>
-	<Services>
-		<Service
-			type="com.cordys.wsdl.Service"
-			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DCC">
-			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DCB</DocumentID>
-			<Name>CustomService</Name>
-			<Description>http://schemas.cordys.com/1.0/SAPMethodPublish CustomService</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-10-07T11:57:36.828</CreationDate>
-			<Notes/>
-			<WebserviceDefinitionSet>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
-				/>
-			</WebserviceDefinitionSet>
-			<QName>
-				<QualifiedName
-					type="com.cordys.wsdl.QualifiedName"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DCE">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DCD</DocumentID>
-					<Name>CustomService</Name>
-					<Description/>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-					<Notes/>
-					<LocalPart>CustomService</LocalPart>
-					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
-					<Prefix></Prefix>
-				</QualifiedName>
-			</QName>
-			<Ports>
-				<Port
-					type="com.cordys.wsdl.Port"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DD0">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DCF</DocumentID>
-					<Name>CustomPort</Name>
-					<Description/>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-					<Notes/>
-					<PortExtension>
-						<SOAPPort
-							type="com.cordys.wsdl.SOAPPort"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DD2">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DD1</DocumentID>
-							<Name>001D09BE-4863-71DE-8EEE-B3389A3E2DD1</Name>
-							<Description/>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-							<Notes/>
-							<IsRequired>false</IsRequired>
-							<AddressLocation>com.eibus.web.soap.Gateway.wcp</AddressLocation>
-						</SOAPPort>
-					</PortExtension>
-					<Service>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2DCB"
-						/>
-					</Service>
-					<WebserviceBinding>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2D85"
-						/>
-					</WebserviceBinding>
-				</Port>
-			</Ports>
-		</Service>
-	</Services>
 	<SchemaDefinitions>
 		<InlineSchemaDefinition
 			type="com.cordys.xmlschema.InlineSchemaDefinition"
@@ -1383,9 +1329,10 @@
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-10-07T11:57:36.828</CreationDate>
 			<Notes/>
+			<Location></Location>
 			<NamespaceReferencePrefix>tns</NamespaceReferencePrefix>
 			<TargetNamespace>http://schemas.cordys.com/1.0/SAPMethodPublish</TargetNamespace>
-			<Location></Location>
+			<WebserviceDefinitionSetID>001D09BE-4863-71DE-8EEE-B3366DD56136</WebserviceDefinitionSetID>
 			<XmlNode>
 				<xsd:schema
 					xmlns="http://schemas.cordys.com/xmlschema/InlineSchemaDefinition/1.0"
@@ -1403,13 +1350,11 @@
 					/>
 				</xsd:schema>
 			</XmlNode>
-			<WebserviceDefinitionSetID>001D09BE-4863-71DE-8EEE-B3366DD56136</WebserviceDefinitionSetID>
 			<DefinitionSet>
 				<uri
 					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
 				/>
 			</DefinitionSet>
-			<SchemaReferences/>
 			<SchemaFragments>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1421,8 +1366,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>GenerateMethods</FragmentName>
-					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1436,14 +1379,16 @@
 							type="tns:ctGenerateMethods"
 						/>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>GenerateMethods</FragmentName>
+					<Type>element</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D03"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1455,8 +1400,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>GenerateMethodsResponse</FragmentName>
-					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1470,14 +1413,16 @@
 							type="tns:ctGenerateMethodResponse"
 						/>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>GenerateMethodsResponse</FragmentName>
+					<Type>element</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D03"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1489,8 +1434,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>PublishBAPI</FragmentName>
-					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1504,14 +1447,16 @@
 							type="tns:ctPublushBAPI"
 						/>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>PublishBAPI</FragmentName>
+					<Type>element</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D03"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1523,8 +1468,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>ctPublushBAPI</FragmentName>
-					<Type>complexType</Type>
 					<DefinitionXML>
 						<xsd:complexType
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1575,14 +1518,16 @@
 							</xsd:sequence>
 						</xsd:complexType>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>ctPublushBAPI</FragmentName>
+					<Type>complexType</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D03"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1594,8 +1539,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>PublishBAPIResponse</FragmentName>
-					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1609,14 +1552,16 @@
 							type="xsd:string"
 						/>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>PublishBAPIResponse</FragmentName>
+					<Type>element</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D03"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1628,8 +1573,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>PublishRFC</FragmentName>
-					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1643,14 +1586,16 @@
 							type="tns:ctPublishRFC"
 						/>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>PublishRFC</FragmentName>
+					<Type>element</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D03"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1662,8 +1607,6 @@
 					<CreationDate>2009-10-07T11:57:36.828</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>PublishRFCResponse</FragmentName>
-					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1677,14 +1620,16 @@
 							type="p:string"
 						/>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>PublishRFCResponse</FragmentName>
+					<Type>element</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D03"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1696,8 +1641,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>PublishIDOC</FragmentName>
-					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1718,14 +1661,16 @@
 							</xsd:complexType>
 						</xsd:element>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>PublishIDOC</FragmentName>
+					<Type>element</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D03"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1737,8 +1682,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>PublishIDOCResponse</FragmentName>
-					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1752,14 +1695,16 @@
 							type="p:string"
 						/>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>PublishIDOCResponse</FragmentName>
+					<Type>element</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D03"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1771,8 +1716,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>ctGenerateMethods</FragmentName>
-					<Type>complexType</Type>
 					<DefinitionXML>
 						<xsd:complexType
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1824,14 +1767,16 @@
 							</xsd:sequence>
 						</xsd:complexType>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>ctGenerateMethods</FragmentName>
+					<Type>complexType</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D03"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1843,8 +1788,6 @@
 					<CreationDate>2009-10-07T11:57:36.828</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>ctOperations</FragmentName>
-					<Type>complexType</Type>
 					<DefinitionXML>
 						<xsd:complexType
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1865,14 +1808,16 @@
 							</xsd:sequence>
 						</xsd:complexType>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>ctOperations</FragmentName>
+					<Type>complexType</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D03"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1884,8 +1829,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>ctPublishRFC</FragmentName>
-					<Type>complexType</Type>
 					<DefinitionXML>
 						<xsd:complexType
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1932,14 +1875,16 @@
 							</xsd:sequence>
 						</xsd:complexType>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>ctPublishRFC</FragmentName>
+					<Type>complexType</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D03"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1951,8 +1896,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>ctGenerateMethodResponse</FragmentName>
-					<Type>complexType</Type>
 					<DefinitionXML>
 						<xsd:complexType
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -1979,14 +1922,16 @@
 							</xsd:sequence>
 						</xsd:complexType>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>ctGenerateMethodResponse</FragmentName>
+					<Type>complexType</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D03"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -1998,8 +1943,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>ctRealizations</FragmentName>
-					<Type>complexType</Type>
 					<DefinitionXML>
 						<xsd:complexType
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -2026,16 +1969,19 @@
 							</xsd:sequence>
 						</xsd:complexType>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>ctRealizations</FragmentName>
+					<Type>complexType</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D03"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 			</SchemaFragments>
+			<SchemaReferences/>
 		</InlineSchemaDefinition>
 		<InlineSchemaDefinition
 			type="com.cordys.xmlschema.InlineSchemaDefinition"
@@ -2047,9 +1993,10 @@
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 			<Notes/>
+			<Location></Location>
 			<NamespaceReferencePrefix>cordys</NamespaceReferencePrefix>
 			<TargetNamespace>http://schemas.cordys.com/General/1.0/</TargetNamespace>
-			<Location></Location>
+			<WebserviceDefinitionSetID>001D09BE-4863-71DE-8EEE-B3366DD56136</WebserviceDefinitionSetID>
 			<XmlNode>
 				<xsd:schema
 					xmlns="http://schemas.cordys.com/xmlschema/InlineSchemaDefinition/1.0"
@@ -2063,13 +2010,11 @@
 					targetNamespace="http://schemas.cordys.com/General/1.0/"
 				/>
 			</XmlNode>
-			<WebserviceDefinitionSetID>001D09BE-4863-71DE-8EEE-B3366DD56136</WebserviceDefinitionSetID>
 			<DefinitionSet>
 				<uri
 					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
 				/>
 			</DefinitionSet>
-			<SchemaReferences/>
 			<SchemaFragments>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -2081,8 +2026,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>FaultDetails</FragmentName>
-					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -2102,14 +2045,16 @@
 							</xsd:complexType>
 						</xsd:element>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>FaultDetails</FragmentName>
+					<Type>element</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D21"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -2121,8 +2066,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>NestedMessage</FragmentName>
-					<Type>complexType</Type>
 					<DefinitionXML>
 						<xsd:complexType
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -2158,14 +2101,16 @@
 							</xsd:sequence>
 						</xsd:complexType>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>NestedMessage</FragmentName>
+					<Type>complexType</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D21"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 				<BusinessObjectDocument
 					type="com.cordys.businessobjectdocument.BusinessObjectDocument"
@@ -2177,8 +2122,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<AnnotationSpecificationXML/>
-					<FragmentName>LocalizableMessage</FragmentName>
-					<Type>element</Type>
 					<DefinitionXML>
 						<xsd:element
 							xmlns="http://schemas.cordys.com/businessobjectdocument/BusinessObjectDocument/1.0"
@@ -2207,631 +2150,93 @@
 							</xsd:complexType>
 						</xsd:element>
 					</DefinitionXML>
-					<Realizations/>
+					<FragmentName>LocalizableMessage</FragmentName>
+					<Type>element</Type>
 					<DecisionCases/>
+					<Realizations/>
+					<Rules/>
 					<SchemaDefinition>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D21"
 						/>
 					</SchemaDefinition>
-					<Rules/>
 				</BusinessObjectDocument>
 			</SchemaFragments>
+			<SchemaReferences/>
 		</InlineSchemaDefinition>
 	</SchemaDefinitions>
-	<QName>
-		<QualifiedName
-			type="com.cordys.wsdl.QualifiedName"
-			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D02">
-			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D01</DocumentID>
-			<Name>Services_Cordys_SAP_MethodPublish</Name>
-			<Description/>
+	<Services>
+		<Service
+			type="com.cordys.wsdl.Service"
+			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DCC">
+			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DCB</DocumentID>
+			<Name>CustomService</Name>
+			<Description>http://schemas.cordys.com/1.0/SAPMethodPublish CustomService</Description>
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-10-07T11:57:36.828</CreationDate>
 			<Notes/>
-			<LocalPart>Services_Cordys_SAP_MethodPublish</LocalPart>
-			<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
-			<Prefix></Prefix>
-		</QualifiedName>
-	</QName>
-	<WebserviceMessages>
-		<WebserviceMessage
-			type="com.cordys.wsdl.WebserviceMessage"
-			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D2A">
-			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D29</DocumentID>
-			<Name>PublishBAPIRequest</Name>
-			<Description>PublishBAPIRequest</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-			<Notes/>
-			<WebserviceDefinitionSet>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
-				/>
-			</WebserviceDefinitionSet>
-			<Parts>
-				<Part
-					type="com.cordys.wsdl.Part"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D2E">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D2D</DocumentID>
-					<Name>body</Name>
-					<Description>body</Description>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-					<Notes/>
-					<ElementOrType>element</ElementOrType>
-					<StandardType></StandardType>
-					<WebserviceMessage>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2D29"
-						/>
-					</WebserviceMessage>
-					<DescribingFragment>
-						<SchemaFragmentReference
-							type="com.cordys.xmlschema.SchemaFragmentReference"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D30">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D2F</DocumentID>
-							<Name>ReferenceTo PublishBAPI</Name>
-							<Description>ReferenceTo PublishBAPI</Description>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-							<Notes/>
-							<Prefix>tns</Prefix>
-							<SchemaFragment>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2D09"
-								/>
-							</SchemaFragment>
-						</SchemaFragmentReference>
-					</DescribingFragment>
-				</Part>
-			</Parts>
-			<WebserviceFault/>
-			<WebserviceOutput/>
-			<QName>
-				<QualifiedName
-					type="com.cordys.wsdl.QualifiedName"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D2C">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D2B</DocumentID>
-					<Name>PublishBAPIRequest</Name>
-					<Description/>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-					<Notes/>
-					<LocalPart>PublishBAPIRequest</LocalPart>
-					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
-					<Prefix></Prefix>
-				</QualifiedName>
-			</QName>
-			<WebserviceInput>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3389A3E2D75"
-				/>
-			</WebserviceInput>
-		</WebserviceMessage>
-		<WebserviceMessage
-			type="com.cordys.wsdl.WebserviceMessage"
-			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D32">
-			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D31</DocumentID>
-			<Name>PublishBAPIResponse</Name>
-			<Description>PublishBAPIResponse</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-10-07T11:57:36.828</CreationDate>
-			<Notes/>
-			<WebserviceDefinitionSet>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
-				/>
-			</WebserviceDefinitionSet>
-			<Parts>
-				<Part
-					type="com.cordys.wsdl.Part"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D36">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D35</DocumentID>
-					<Name>body</Name>
-					<Description>body</Description>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-					<Notes/>
-					<ElementOrType>element</ElementOrType>
-					<StandardType></StandardType>
-					<WebserviceMessage>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2D31"
-						/>
-					</WebserviceMessage>
-					<DescribingFragment>
-						<SchemaFragmentReference
-							type="com.cordys.xmlschema.SchemaFragmentReference"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D38">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D37</DocumentID>
-							<Name>ReferenceTo PublishBAPIResponse</Name>
-							<Description>ReferenceTo PublishBAPIResponse</Description>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-							<Notes/>
-							<Prefix>tns</Prefix>
-							<SchemaFragment>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2D0D"
-								/>
-							</SchemaFragment>
-						</SchemaFragmentReference>
-					</DescribingFragment>
-				</Part>
-			</Parts>
-			<WebserviceFault/>
-			<WebserviceOutput>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3389A3E2D77"
-				/>
-			</WebserviceOutput>
-			<QName>
-				<QualifiedName
-					type="com.cordys.wsdl.QualifiedName"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D34">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D33</DocumentID>
-					<Name>PublishBAPIResponse</Name>
-					<Description/>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.828</CreationDate>
-					<Notes/>
-					<LocalPart>PublishBAPIResponse</LocalPart>
-					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
-					<Prefix></Prefix>
-				</QualifiedName>
-			</QName>
-			<WebserviceInput/>
-		</WebserviceMessage>
-		<WebserviceMessage
-			type="com.cordys.wsdl.WebserviceMessage"
-			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D3A">
-			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D39</DocumentID>
-			<Name>PublishIDOCResponse</Name>
-			<Description>PublishIDOCResponse</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-			<Notes/>
-			<WebserviceDefinitionSet>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
-				/>
-			</WebserviceDefinitionSet>
-			<Parts>
-				<Part
-					type="com.cordys.wsdl.Part"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D3E">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D3D</DocumentID>
-					<Name>body</Name>
-					<Description>body</Description>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-					<Notes/>
-					<ElementOrType>element</ElementOrType>
-					<StandardType></StandardType>
-					<WebserviceMessage>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2D39"
-						/>
-					</WebserviceMessage>
-					<DescribingFragment>
-						<SchemaFragmentReference
-							type="com.cordys.xmlschema.SchemaFragmentReference"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D40">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D3F</DocumentID>
-							<Name>ReferenceTo PublishIDOCResponse</Name>
-							<Description>ReferenceTo PublishIDOCResponse</Description>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.828</CreationDate>
-							<Notes/>
-							<Prefix>tns</Prefix>
-							<SchemaFragment>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2D15"
-								/>
-							</SchemaFragment>
-						</SchemaFragmentReference>
-					</DescribingFragment>
-				</Part>
-			</Parts>
-			<WebserviceFault/>
-			<WebserviceOutput>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3389A3E2D83"
-				/>
-			</WebserviceOutput>
-			<QName>
-				<QualifiedName
-					type="com.cordys.wsdl.QualifiedName"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D3C">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D3B</DocumentID>
-					<Name>PublishIDOCResponse</Name>
+			<Ports>
+				<Port
+					type="com.cordys.wsdl.Port"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DD0">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DCF</DocumentID>
+					<Name>CustomPort</Name>
 					<Description/>
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
-					<LocalPart>PublishIDOCResponse</LocalPart>
-					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
-					<Prefix></Prefix>
-				</QualifiedName>
-			</QName>
-			<WebserviceInput/>
-		</WebserviceMessage>
-		<WebserviceMessage
-			type="com.cordys.wsdl.WebserviceMessage"
-			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D42">
-			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D41</DocumentID>
-			<Name>PublishIDOCRequest</Name>
-			<Description>PublishIDOCRequest</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-			<Notes/>
-			<WebserviceDefinitionSet>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
-				/>
-			</WebserviceDefinitionSet>
-			<Parts>
-				<Part
-					type="com.cordys.wsdl.Part"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D46">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D45</DocumentID>
-					<Name>body</Name>
-					<Description>body</Description>
+					<PortExtension>
+						<SOAPPort
+							type="com.cordys.wsdl.SOAPPort"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DD2">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DD1</DocumentID>
+							<Name>001D09BE-4863-71DE-8EEE-B3389A3E2DD1</Name>
+							<Description/>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+							<Notes/>
+							<AddressLocation>com.eibus.web.soap.Gateway.wcp</AddressLocation>
+							<IsRequired>false</IsRequired>
+						</SOAPPort>
+					</PortExtension>
+					<Service>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2DCB"
+						/>
+					</Service>
+					<WebserviceBinding>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2D85"
+						/>
+					</WebserviceBinding>
+				</Port>
+			</Ports>
+			<QName>
+				<QualifiedName
+					type="com.cordys.wsdl.QualifiedName"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DCE">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DCD</DocumentID>
+					<Name>CustomService</Name>
+					<Description/>
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
-					<ElementOrType>element</ElementOrType>
-					<StandardType></StandardType>
-					<WebserviceMessage>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2D41"
-						/>
-					</WebserviceMessage>
-					<DescribingFragment>
-						<SchemaFragmentReference
-							type="com.cordys.xmlschema.SchemaFragmentReference"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D48">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D47</DocumentID>
-							<Name>ReferenceTo PublishIDOC</Name>
-							<Description>ReferenceTo PublishIDOC</Description>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-							<Notes/>
-							<Prefix>tns</Prefix>
-							<SchemaFragment>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2D13"
-								/>
-							</SchemaFragment>
-						</SchemaFragmentReference>
-					</DescribingFragment>
-				</Part>
-			</Parts>
-			<WebserviceFault/>
-			<WebserviceOutput/>
-			<QName>
-				<QualifiedName
-					type="com.cordys.wsdl.QualifiedName"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D44">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D43</DocumentID>
-					<Name>PublishIDOCRequest</Name>
-					<Description/>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-					<Notes/>
-					<LocalPart>PublishIDOCRequest</LocalPart>
+					<LocalPart>CustomService</LocalPart>
 					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
 					<Prefix></Prefix>
 				</QualifiedName>
 			</QName>
-			<WebserviceInput>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3389A3E2D81"
-				/>
-			</WebserviceInput>
-		</WebserviceMessage>
-		<WebserviceMessage
-			type="com.cordys.wsdl.WebserviceMessage"
-			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D4A">
-			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D49</DocumentID>
-			<Name>PublishRFCResponse</Name>
-			<Description>PublishRFCResponse</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-			<Notes/>
 			<WebserviceDefinitionSet>
 				<uri
 					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
 				/>
 			</WebserviceDefinitionSet>
-			<Parts>
-				<Part
-					type="com.cordys.wsdl.Part"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D4E">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D4D</DocumentID>
-					<Name>body</Name>
-					<Description>body</Description>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-					<Notes/>
-					<ElementOrType>element</ElementOrType>
-					<StandardType></StandardType>
-					<WebserviceMessage>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2D49"
-						/>
-					</WebserviceMessage>
-					<DescribingFragment>
-						<SchemaFragmentReference
-							type="com.cordys.xmlschema.SchemaFragmentReference"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D50">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D4F</DocumentID>
-							<Name>ReferenceTo PublishRFCResponse</Name>
-							<Description>ReferenceTo PublishRFCResponse</Description>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-							<Notes/>
-							<Prefix>tns</Prefix>
-							<SchemaFragment>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2D11"
-								/>
-							</SchemaFragment>
-						</SchemaFragmentReference>
-					</DescribingFragment>
-				</Part>
-			</Parts>
-			<WebserviceFault/>
-			<WebserviceOutput>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3389A3E2D7D"
-				/>
-			</WebserviceOutput>
-			<QName>
-				<QualifiedName
-					type="com.cordys.wsdl.QualifiedName"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D4C">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D4B</DocumentID>
-					<Name>PublishRFCResponse</Name>
-					<Description/>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-					<Notes/>
-					<LocalPart>PublishRFCResponse</LocalPart>
-					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
-					<Prefix></Prefix>
-				</QualifiedName>
-			</QName>
-			<WebserviceInput/>
-		</WebserviceMessage>
-		<WebserviceMessage
-			type="com.cordys.wsdl.WebserviceMessage"
-			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D52">
-			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D51</DocumentID>
-			<Name>PublishRFCRequest</Name>
-			<Description>PublishRFCRequest</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-			<Notes/>
-			<WebserviceDefinitionSet>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
-				/>
-			</WebserviceDefinitionSet>
-			<Parts>
-				<Part
-					type="com.cordys.wsdl.Part"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D56">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D55</DocumentID>
-					<Name>body</Name>
-					<Description>body</Description>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-					<Notes/>
-					<ElementOrType>element</ElementOrType>
-					<StandardType></StandardType>
-					<WebserviceMessage>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2D51"
-						/>
-					</WebserviceMessage>
-					<DescribingFragment>
-						<SchemaFragmentReference
-							type="com.cordys.xmlschema.SchemaFragmentReference"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D58">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D57</DocumentID>
-							<Name>ReferenceTo PublishRFC</Name>
-							<Description>ReferenceTo PublishRFC</Description>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-							<Notes/>
-							<Prefix>tns</Prefix>
-							<SchemaFragment>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2D0F"
-								/>
-							</SchemaFragment>
-						</SchemaFragmentReference>
-					</DescribingFragment>
-				</Part>
-			</Parts>
-			<WebserviceFault/>
-			<WebserviceOutput/>
-			<QName>
-				<QualifiedName
-					type="com.cordys.wsdl.QualifiedName"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D54">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D53</DocumentID>
-					<Name>PublishRFCRequest</Name>
-					<Description/>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-					<Notes/>
-					<LocalPart>PublishRFCRequest</LocalPart>
-					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
-					<Prefix></Prefix>
-				</QualifiedName>
-			</QName>
-			<WebserviceInput>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3389A3E2D7B"
-				/>
-			</WebserviceInput>
-		</WebserviceMessage>
-		<WebserviceMessage
-			type="com.cordys.wsdl.WebserviceMessage"
-			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D5A">
-			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D59</DocumentID>
-			<Name>GenerateMethodsOutput</Name>
-			<Description>GenerateMethodsOutput</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-			<Notes/>
-			<WebserviceDefinitionSet>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
-				/>
-			</WebserviceDefinitionSet>
-			<Parts>
-				<Part
-					type="com.cordys.wsdl.Part"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D5E">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D5D</DocumentID>
-					<Name>body</Name>
-					<Description>body</Description>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-					<Notes/>
-					<ElementOrType>element</ElementOrType>
-					<StandardType></StandardType>
-					<WebserviceMessage>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2D59"
-						/>
-					</WebserviceMessage>
-					<DescribingFragment>
-						<SchemaFragmentReference
-							type="com.cordys.xmlschema.SchemaFragmentReference"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D60">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D5F</DocumentID>
-							<Name>ReferenceTo GenerateMethodsResponse</Name>
-							<Description>ReferenceTo GenerateMethodsResponse</Description>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-							<Notes/>
-							<Prefix>tns</Prefix>
-							<SchemaFragment>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2D07"
-								/>
-							</SchemaFragment>
-						</SchemaFragmentReference>
-					</DescribingFragment>
-				</Part>
-			</Parts>
-			<WebserviceFault/>
-			<WebserviceOutput>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3389A3E2D71"
-				/>
-			</WebserviceOutput>
-			<QName>
-				<QualifiedName
-					type="com.cordys.wsdl.QualifiedName"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D5C">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D5B</DocumentID>
-					<Name>GenerateMethodsOutput</Name>
-					<Description/>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-					<Notes/>
-					<LocalPart>GenerateMethodsOutput</LocalPart>
-					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
-					<Prefix></Prefix>
-				</QualifiedName>
-			</QName>
-			<WebserviceInput/>
-		</WebserviceMessage>
-		<WebserviceMessage
-			type="com.cordys.wsdl.WebserviceMessage"
-			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D62">
-			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D61</DocumentID>
-			<Name>GenerateMethodsInput</Name>
-			<Description>GenerateMethodsInput</Description>
-			<CreatedBy>pgussow</CreatedBy>
-			<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-			<Notes/>
-			<WebserviceDefinitionSet>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
-				/>
-			</WebserviceDefinitionSet>
-			<Parts>
-				<Part
-					type="com.cordys.wsdl.Part"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D66">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D65</DocumentID>
-					<Name>body</Name>
-					<Description>body</Description>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-					<Notes/>
-					<ElementOrType>element</ElementOrType>
-					<StandardType></StandardType>
-					<WebserviceMessage>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2D61"
-						/>
-					</WebserviceMessage>
-					<DescribingFragment>
-						<SchemaFragmentReference
-							type="com.cordys.xmlschema.SchemaFragmentReference"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D68">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D67</DocumentID>
-							<Name>ReferenceTo GenerateMethods</Name>
-							<Description>ReferenceTo GenerateMethods</Description>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-							<Notes/>
-							<Prefix>tns</Prefix>
-							<SchemaFragment>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2D05"
-								/>
-							</SchemaFragment>
-						</SchemaFragmentReference>
-					</DescribingFragment>
-				</Part>
-			</Parts>
-			<WebserviceFault/>
-			<WebserviceOutput/>
-			<QName>
-				<QualifiedName
-					type="com.cordys.wsdl.QualifiedName"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D64">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D63</DocumentID>
-					<Name>GenerateMethodsInput</Name>
-					<Description/>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-					<Notes/>
-					<LocalPart>GenerateMethodsInput</LocalPart>
-					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
-					<Prefix></Prefix>
-				</QualifiedName>
-			</QName>
-			<WebserviceInput>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3389A3E2D6F"
-				/>
-			</WebserviceInput>
-		</WebserviceMessage>
-	</WebserviceMessages>
-	<WebserviceImports/>
+		</Service>
+	</Services>
 	<WebserviceBindings>
 		<WebserviceBinding
 			type="com.cordys.wsdl.WebserviceBinding"
+			typeVersion="FE379025-F509-4cb1-9383-05C305AD061E"
 			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D86">
 			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D85</DocumentID>
 			<Name>WebServiceInterface4SAPMethodPublish</Name>
@@ -2839,14 +2244,29 @@
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-10-07T11:57:36.828</CreationDate>
 			<Notes/>
-			<Type></Type>
-			<RuntimeWebserviceInterfaceName>BAC.SAP.Publish</RuntimeWebserviceInterfaceName>
 			<ImplementationClass></ImplementationClass>
-			<WebserviceDefinitionSet>
+			<RuntimeWebserviceInterfaceName>BAC.SAP.Publish</RuntimeWebserviceInterfaceName>
+			<Type></Type>
+			<ApplicationConnector>
 				<uri
-					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
+					id="00059A3C-7800-71DE-9653-8AF640C2ABEE"
 				/>
-			</WebserviceDefinitionSet>
+			</ApplicationConnector>
+			<BindingExtension>
+				<SOAPBinding
+					type="com.cordys.wsdl.SOAPBinding"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D8A">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D89</DocumentID>
+					<Name>SOAP Binding WebServiceInterface4SAPMethodPublish</Name>
+					<Description>SOAP Binding WebServiceInterface4SAPMethodPublish</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+					<Notes/>
+					<IsRequired>false</IsRequired>
+					<Style>document</Style>
+					<Transport>http://schemas.xmlsoap.org/soap/http</Transport>
+				</SOAPBinding>
+			</BindingExtension>
 			<BindingOperations>
 				<BindingOperation
 					type="com.cordys.wsdl.BindingOperation"
@@ -2858,89 +2278,6 @@
 					<CreationDate>2009-10-07T11:57:36.828</CreationDate>
 					<Notes/>
 					<BindingOperationFault/>
-					<Realizations>
-						<CustomRealization
-							type="com.cordys.wsdl.CustomRealization"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3366DD56124">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3366DD56123</DocumentID>
-							<Name>wsopreal_001D09BE-4863-71DE-8EEE-B3366DD56122</Name>
-							<Description>wsopreal_001D09BE-4863-71DE-8EEE-B3366DD56122</Description>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:58:49.781</CreationDate>
-							<Notes/>
-							<Implementation>
-								<implementation
-									xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
-									xmlns=""
-									type="SAPPublish"
-								/>
-							</Implementation>
-							<BindingOperation>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2D8B"
-								/>
-							</BindingOperation>
-						</CustomRealization>
-					</Realizations>
-					<SecurityDescriptor/>
-					<BindingOperationOutput>
-						<BindingOperationOutput
-							type="com.cordys.wsdl.BindingOperationOutput"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D96">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D95</DocumentID>
-							<Name>Binding Output of GenerateMethods</Name>
-							<Description/>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-							<Notes/>
-							<OutputExtension>
-								<SOAPOutput
-									type="com.cordys.wsdl.SOAPOutput"
-									RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D98">
-									<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D97</DocumentID>
-									<Name>001D09BE-4863-71DE-8EEE-B3389A3E2D97</Name>
-									<Description/>
-									<CreatedBy>pgussow</CreatedBy>
-									<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-									<Notes/>
-									<IsRequired>false</IsRequired>
-									<SOAPBody>
-										<SOAPBody
-											type="com.cordys.wsdl.SOAPBody"
-											RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D9A">
-											<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D99</DocumentID>
-											<Name>001D09BE-4863-71DE-8EEE-B3389A3E2D99</Name>
-											<Description/>
-											<CreatedBy>pgussow</CreatedBy>
-											<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-											<Notes/>
-											<Parts></Parts>
-											<IsRequired>false</IsRequired>
-											<EncodingStyle></EncodingStyle>
-											<Namespace></Namespace>
-											<Use>literal</Use>
-										</SOAPBody>
-									</SOAPBody>
-									<SOAPHeaders/>
-								</SOAPOutput>
-							</OutputExtension>
-						</BindingOperationOutput>
-					</BindingOperationOutput>
-					<OperationExtension>
-						<SOAPOperation
-							type="com.cordys.wsdl.SOAPOperation"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D8E">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D8D</DocumentID>
-							<Name>SOAP Operation of GenerateMethods</Name>
-							<Description/>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-							<Notes/>
-							<IsRequired>false</IsRequired>
-							<SOAPAction>http://schemas.cordys.com/1.0/SAPMethodPublish/GenerateMethods</SOAPAction>
-							<Style></Style>
-						</SOAPOperation>
-					</OperationExtension>
 					<BindingOperationInput>
 						<BindingOperationInput
 							type="com.cordys.wsdl.BindingOperationInput"
@@ -2972,10 +2309,10 @@
 											<CreatedBy>pgussow</CreatedBy>
 											<CreationDate>2009-10-07T11:57:36.828</CreationDate>
 											<Notes/>
-											<Parts></Parts>
-											<IsRequired>false</IsRequired>
 											<EncodingStyle></EncodingStyle>
+											<IsRequired>false</IsRequired>
 											<Namespace></Namespace>
+											<Parts></Parts>
 											<Use>literal</Use>
 										</SOAPBody>
 									</SOAPBody>
@@ -2984,6 +2321,89 @@
 							</InputExtension>
 						</BindingOperationInput>
 					</BindingOperationInput>
+					<BindingOperationOutput>
+						<BindingOperationOutput
+							type="com.cordys.wsdl.BindingOperationOutput"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D96">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D95</DocumentID>
+							<Name>Binding Output of GenerateMethods</Name>
+							<Description/>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+							<Notes/>
+							<OutputExtension>
+								<SOAPOutput
+									type="com.cordys.wsdl.SOAPOutput"
+									RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D98">
+									<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D97</DocumentID>
+									<Name>001D09BE-4863-71DE-8EEE-B3389A3E2D97</Name>
+									<Description/>
+									<CreatedBy>pgussow</CreatedBy>
+									<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+									<Notes/>
+									<IsRequired>false</IsRequired>
+									<SOAPBody>
+										<SOAPBody
+											type="com.cordys.wsdl.SOAPBody"
+											RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D9A">
+											<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D99</DocumentID>
+											<Name>001D09BE-4863-71DE-8EEE-B3389A3E2D99</Name>
+											<Description/>
+											<CreatedBy>pgussow</CreatedBy>
+											<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+											<Notes/>
+											<EncodingStyle></EncodingStyle>
+											<IsRequired>false</IsRequired>
+											<Namespace></Namespace>
+											<Parts></Parts>
+											<Use>literal</Use>
+										</SOAPBody>
+									</SOAPBody>
+									<SOAPHeaders/>
+								</SOAPOutput>
+							</OutputExtension>
+						</BindingOperationOutput>
+					</BindingOperationOutput>
+					<OperationExtension>
+						<SOAPOperation
+							type="com.cordys.wsdl.SOAPOperation"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D8E">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D8D</DocumentID>
+							<Name>SOAP Operation of GenerateMethods</Name>
+							<Description/>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+							<Notes/>
+							<IsRequired>false</IsRequired>
+							<SOAPAction>http://schemas.cordys.com/1.0/SAPMethodPublish/GenerateMethods</SOAPAction>
+							<Style></Style>
+						</SOAPOperation>
+					</OperationExtension>
+					<Realizations>
+						<CustomRealization
+							type="com.cordys.wsdl.CustomRealization"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3366DD56124">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3366DD56123</DocumentID>
+							<Name>wsopreal_001D09BE-4863-71DE-8EEE-B3366DD56122</Name>
+							<Description>wsopreal_001D09BE-4863-71DE-8EEE-B3366DD56122</Description>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:58:49.781</CreationDate>
+							<Notes/>
+							<Implementation>
+								<implementation
+									xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
+									xmlns=""
+									type="SAPPublish"
+								/>
+							</Implementation>
+							<BindingOperation>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2D8B"
+								/>
+							</BindingOperation>
+						</CustomRealization>
+					</Realizations>
+					<SecurityDescriptor/>
 					<WebserviceBinding>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D85"
@@ -3000,89 +2420,6 @@
 					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 					<Notes/>
 					<BindingOperationFault/>
-					<Realizations>
-						<CustomRealization
-							type="com.cordys.wsdl.CustomRealization"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3366DD5611D">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3366DD5611C</DocumentID>
-							<Name>wsopreal_001D09BE-4863-71DE-8EEE-B3366DD5611B</Name>
-							<Description>wsopreal_001D09BE-4863-71DE-8EEE-B3366DD5611B</Description>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:59:09.5</CreationDate>
-							<Notes/>
-							<Implementation>
-								<implementation
-									xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
-									xmlns=""
-									type="SAPPublish"
-								/>
-							</Implementation>
-							<BindingOperation>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2D9B"
-								/>
-							</BindingOperation>
-						</CustomRealization>
-					</Realizations>
-					<SecurityDescriptor/>
-					<BindingOperationOutput>
-						<BindingOperationOutput
-							type="com.cordys.wsdl.BindingOperationOutput"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DA6">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DA5</DocumentID>
-							<Name>Binding Output of PublishBAPI</Name>
-							<Description/>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-							<Notes/>
-							<OutputExtension>
-								<SOAPOutput
-									type="com.cordys.wsdl.SOAPOutput"
-									RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DA8">
-									<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DA7</DocumentID>
-									<Name>001D09BE-4863-71DE-8EEE-B3389A3E2DA7</Name>
-									<Description/>
-									<CreatedBy>pgussow</CreatedBy>
-									<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-									<Notes/>
-									<IsRequired>false</IsRequired>
-									<SOAPBody>
-										<SOAPBody
-											type="com.cordys.wsdl.SOAPBody"
-											RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DAA">
-											<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DA9</DocumentID>
-											<Name>001D09BE-4863-71DE-8EEE-B3389A3E2DA9</Name>
-											<Description/>
-											<CreatedBy>pgussow</CreatedBy>
-											<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-											<Notes/>
-											<Parts></Parts>
-											<IsRequired>false</IsRequired>
-											<EncodingStyle></EncodingStyle>
-											<Namespace></Namespace>
-											<Use>literal</Use>
-										</SOAPBody>
-									</SOAPBody>
-									<SOAPHeaders/>
-								</SOAPOutput>
-							</OutputExtension>
-						</BindingOperationOutput>
-					</BindingOperationOutput>
-					<OperationExtension>
-						<SOAPOperation
-							type="com.cordys.wsdl.SOAPOperation"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D9E">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D9D</DocumentID>
-							<Name>SOAP Operation of PublishBAPI</Name>
-							<Description/>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.828</CreationDate>
-							<Notes/>
-							<IsRequired>false</IsRequired>
-							<SOAPAction>http://schemas.cordys.com/1.0/SAPMethodPublish/PublishBAPI</SOAPAction>
-							<Style></Style>
-						</SOAPOperation>
-					</OperationExtension>
 					<BindingOperationInput>
 						<BindingOperationInput
 							type="com.cordys.wsdl.BindingOperationInput"
@@ -3114,10 +2451,10 @@
 											<CreatedBy>pgussow</CreatedBy>
 											<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 											<Notes/>
-											<Parts></Parts>
-											<IsRequired>false</IsRequired>
 											<EncodingStyle></EncodingStyle>
+											<IsRequired>false</IsRequired>
 											<Namespace></Namespace>
+											<Parts></Parts>
 											<Use>literal</Use>
 										</SOAPBody>
 									</SOAPBody>
@@ -3126,6 +2463,89 @@
 							</InputExtension>
 						</BindingOperationInput>
 					</BindingOperationInput>
+					<BindingOperationOutput>
+						<BindingOperationOutput
+							type="com.cordys.wsdl.BindingOperationOutput"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DA6">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DA5</DocumentID>
+							<Name>Binding Output of PublishBAPI</Name>
+							<Description/>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+							<Notes/>
+							<OutputExtension>
+								<SOAPOutput
+									type="com.cordys.wsdl.SOAPOutput"
+									RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DA8">
+									<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DA7</DocumentID>
+									<Name>001D09BE-4863-71DE-8EEE-B3389A3E2DA7</Name>
+									<Description/>
+									<CreatedBy>pgussow</CreatedBy>
+									<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+									<Notes/>
+									<IsRequired>false</IsRequired>
+									<SOAPBody>
+										<SOAPBody
+											type="com.cordys.wsdl.SOAPBody"
+											RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DAA">
+											<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DA9</DocumentID>
+											<Name>001D09BE-4863-71DE-8EEE-B3389A3E2DA9</Name>
+											<Description/>
+											<CreatedBy>pgussow</CreatedBy>
+											<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+											<Notes/>
+											<EncodingStyle></EncodingStyle>
+											<IsRequired>false</IsRequired>
+											<Namespace></Namespace>
+											<Parts></Parts>
+											<Use>literal</Use>
+										</SOAPBody>
+									</SOAPBody>
+									<SOAPHeaders/>
+								</SOAPOutput>
+							</OutputExtension>
+						</BindingOperationOutput>
+					</BindingOperationOutput>
+					<OperationExtension>
+						<SOAPOperation
+							type="com.cordys.wsdl.SOAPOperation"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D9E">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D9D</DocumentID>
+							<Name>SOAP Operation of PublishBAPI</Name>
+							<Description/>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.828</CreationDate>
+							<Notes/>
+							<IsRequired>false</IsRequired>
+							<SOAPAction>http://schemas.cordys.com/1.0/SAPMethodPublish/PublishBAPI</SOAPAction>
+							<Style></Style>
+						</SOAPOperation>
+					</OperationExtension>
+					<Realizations>
+						<CustomRealization
+							type="com.cordys.wsdl.CustomRealization"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3366DD5611D">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3366DD5611C</DocumentID>
+							<Name>wsopreal_001D09BE-4863-71DE-8EEE-B3366DD5611B</Name>
+							<Description>wsopreal_001D09BE-4863-71DE-8EEE-B3366DD5611B</Description>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:59:09.5</CreationDate>
+							<Notes/>
+							<Implementation>
+								<implementation
+									xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
+									xmlns=""
+									type="SAPPublish"
+								/>
+							</Implementation>
+							<BindingOperation>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2D9B"
+								/>
+							</BindingOperation>
+						</CustomRealization>
+					</Realizations>
+					<SecurityDescriptor/>
 					<WebserviceBinding>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D85"
@@ -3142,89 +2562,6 @@
 					<CreationDate>2009-10-07T11:57:36.828</CreationDate>
 					<Notes/>
 					<BindingOperationFault/>
-					<Realizations>
-						<CustomRealization
-							type="com.cordys.wsdl.CustomRealization"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3366DD56113">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B338D9B404B0</DocumentID>
-							<Name>wsopreal_001D09BE-4863-71DE-8EEE-B338D9B404AF</Name>
-							<Description>wsopreal_001D09BE-4863-71DE-8EEE-B338D9B404AF</Description>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:59:25.64</CreationDate>
-							<Notes/>
-							<Implementation>
-								<implementation
-									xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
-									xmlns=""
-									type="SAPPublish"
-								/>
-							</Implementation>
-							<BindingOperation>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2DAB"
-								/>
-							</BindingOperation>
-						</CustomRealization>
-					</Realizations>
-					<SecurityDescriptor/>
-					<BindingOperationOutput>
-						<BindingOperationOutput
-							type="com.cordys.wsdl.BindingOperationOutput"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DB6">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DB5</DocumentID>
-							<Name>Binding Output of PublishRFC</Name>
-							<Description/>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.828</CreationDate>
-							<Notes/>
-							<OutputExtension>
-								<SOAPOutput
-									type="com.cordys.wsdl.SOAPOutput"
-									RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DB8">
-									<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DB7</DocumentID>
-									<Name>001D09BE-4863-71DE-8EEE-B3389A3E2DB7</Name>
-									<Description/>
-									<CreatedBy>pgussow</CreatedBy>
-									<CreationDate>2009-10-07T11:57:36.828</CreationDate>
-									<Notes/>
-									<IsRequired>false</IsRequired>
-									<SOAPBody>
-										<SOAPBody
-											type="com.cordys.wsdl.SOAPBody"
-											RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DBA">
-											<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DB9</DocumentID>
-											<Name>001D09BE-4863-71DE-8EEE-B3389A3E2DB9</Name>
-											<Description/>
-											<CreatedBy>pgussow</CreatedBy>
-											<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-											<Notes/>
-											<Parts></Parts>
-											<IsRequired>false</IsRequired>
-											<EncodingStyle></EncodingStyle>
-											<Namespace></Namespace>
-											<Use>literal</Use>
-										</SOAPBody>
-									</SOAPBody>
-									<SOAPHeaders/>
-								</SOAPOutput>
-							</OutputExtension>
-						</BindingOperationOutput>
-					</BindingOperationOutput>
-					<OperationExtension>
-						<SOAPOperation
-							type="com.cordys.wsdl.SOAPOperation"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DAE">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DAD</DocumentID>
-							<Name>SOAP Operation of PublishRFC</Name>
-							<Description/>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-							<Notes/>
-							<IsRequired>false</IsRequired>
-							<SOAPAction>http://schemas.cordys.com/1.0/SAPMethodPublish/PublishRFC</SOAPAction>
-							<Style></Style>
-						</SOAPOperation>
-					</OperationExtension>
 					<BindingOperationInput>
 						<BindingOperationInput
 							type="com.cordys.wsdl.BindingOperationInput"
@@ -3256,10 +2593,10 @@
 											<CreatedBy>pgussow</CreatedBy>
 											<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 											<Notes/>
-											<Parts></Parts>
-											<IsRequired>false</IsRequired>
 											<EncodingStyle></EncodingStyle>
+											<IsRequired>false</IsRequired>
 											<Namespace></Namespace>
+											<Parts></Parts>
 											<Use>literal</Use>
 										</SOAPBody>
 									</SOAPBody>
@@ -3268,6 +2605,89 @@
 							</InputExtension>
 						</BindingOperationInput>
 					</BindingOperationInput>
+					<BindingOperationOutput>
+						<BindingOperationOutput
+							type="com.cordys.wsdl.BindingOperationOutput"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DB6">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DB5</DocumentID>
+							<Name>Binding Output of PublishRFC</Name>
+							<Description/>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.828</CreationDate>
+							<Notes/>
+							<OutputExtension>
+								<SOAPOutput
+									type="com.cordys.wsdl.SOAPOutput"
+									RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DB8">
+									<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DB7</DocumentID>
+									<Name>001D09BE-4863-71DE-8EEE-B3389A3E2DB7</Name>
+									<Description/>
+									<CreatedBy>pgussow</CreatedBy>
+									<CreationDate>2009-10-07T11:57:36.828</CreationDate>
+									<Notes/>
+									<IsRequired>false</IsRequired>
+									<SOAPBody>
+										<SOAPBody
+											type="com.cordys.wsdl.SOAPBody"
+											RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DBA">
+											<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DB9</DocumentID>
+											<Name>001D09BE-4863-71DE-8EEE-B3389A3E2DB9</Name>
+											<Description/>
+											<CreatedBy>pgussow</CreatedBy>
+											<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+											<Notes/>
+											<EncodingStyle></EncodingStyle>
+											<IsRequired>false</IsRequired>
+											<Namespace></Namespace>
+											<Parts></Parts>
+											<Use>literal</Use>
+										</SOAPBody>
+									</SOAPBody>
+									<SOAPHeaders/>
+								</SOAPOutput>
+							</OutputExtension>
+						</BindingOperationOutput>
+					</BindingOperationOutput>
+					<OperationExtension>
+						<SOAPOperation
+							type="com.cordys.wsdl.SOAPOperation"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DAE">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DAD</DocumentID>
+							<Name>SOAP Operation of PublishRFC</Name>
+							<Description/>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+							<Notes/>
+							<IsRequired>false</IsRequired>
+							<SOAPAction>http://schemas.cordys.com/1.0/SAPMethodPublish/PublishRFC</SOAPAction>
+							<Style></Style>
+						</SOAPOperation>
+					</OperationExtension>
+					<Realizations>
+						<CustomRealization
+							type="com.cordys.wsdl.CustomRealization"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3366DD56113">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B338D9B404B0</DocumentID>
+							<Name>wsopreal_001D09BE-4863-71DE-8EEE-B338D9B404AF</Name>
+							<Description>wsopreal_001D09BE-4863-71DE-8EEE-B338D9B404AF</Description>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:59:25.64</CreationDate>
+							<Notes/>
+							<Implementation>
+								<implementation
+									xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
+									xmlns=""
+									type="SAPPublish"
+								/>
+							</Implementation>
+							<BindingOperation>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2DAB"
+								/>
+							</BindingOperation>
+						</CustomRealization>
+					</Realizations>
+					<SecurityDescriptor/>
 					<WebserviceBinding>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D85"
@@ -3284,89 +2704,6 @@
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
 					<BindingOperationFault/>
-					<Realizations>
-						<CustomRealization
-							type="com.cordys.wsdl.CustomRealization"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3366DD56118">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3366DD56117</DocumentID>
-							<Name>wsopreal_001D09BE-4863-71DE-8EEE-B3366DD56116</Name>
-							<Description>wsopreal_001D09BE-4863-71DE-8EEE-B3366DD56116</Description>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:59:15.015</CreationDate>
-							<Notes/>
-							<Implementation>
-								<implementation
-									xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
-									xmlns=""
-									type="SAPPublish"
-								/>
-							</Implementation>
-							<BindingOperation>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2DBB"
-								/>
-							</BindingOperation>
-						</CustomRealization>
-					</Realizations>
-					<SecurityDescriptor/>
-					<BindingOperationOutput>
-						<BindingOperationOutput
-							type="com.cordys.wsdl.BindingOperationOutput"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DC6">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DC5</DocumentID>
-							<Name>Binding Output of PublishIDOC</Name>
-							<Description/>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.828</CreationDate>
-							<Notes/>
-							<OutputExtension>
-								<SOAPOutput
-									type="com.cordys.wsdl.SOAPOutput"
-									RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DC8">
-									<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DC7</DocumentID>
-									<Name>001D09BE-4863-71DE-8EEE-B3389A3E2DC7</Name>
-									<Description/>
-									<CreatedBy>pgussow</CreatedBy>
-									<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-									<Notes/>
-									<IsRequired>false</IsRequired>
-									<SOAPBody>
-										<SOAPBody
-											type="com.cordys.wsdl.SOAPBody"
-											RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DCA">
-											<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DC9</DocumentID>
-											<Name>001D09BE-4863-71DE-8EEE-B3389A3E2DC9</Name>
-											<Description/>
-											<CreatedBy>pgussow</CreatedBy>
-											<CreationDate>2009-10-07T11:57:36.828</CreationDate>
-											<Notes/>
-											<Parts></Parts>
-											<IsRequired>false</IsRequired>
-											<EncodingStyle></EncodingStyle>
-											<Namespace></Namespace>
-											<Use>literal</Use>
-										</SOAPBody>
-									</SOAPBody>
-									<SOAPHeaders/>
-								</SOAPOutput>
-							</OutputExtension>
-						</BindingOperationOutput>
-					</BindingOperationOutput>
-					<OperationExtension>
-						<SOAPOperation
-							type="com.cordys.wsdl.SOAPOperation"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DBE">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DBD</DocumentID>
-							<Name>SOAP Operation of PublishIDOC</Name>
-							<Description/>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.828</CreationDate>
-							<Notes/>
-							<IsRequired>false</IsRequired>
-							<SOAPAction>http://schemas.cordys.com/1.0/SAPMethodPublish/PublishIDOC</SOAPAction>
-							<Style></Style>
-						</SOAPOperation>
-					</OperationExtension>
 					<BindingOperationInput>
 						<BindingOperationInput
 							type="com.cordys.wsdl.BindingOperationInput"
@@ -3398,10 +2735,10 @@
 											<CreatedBy>pgussow</CreatedBy>
 											<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 											<Notes/>
-											<Parts></Parts>
-											<IsRequired>false</IsRequired>
 											<EncodingStyle></EncodingStyle>
+											<IsRequired>false</IsRequired>
 											<Namespace></Namespace>
+											<Parts></Parts>
 											<Use>literal</Use>
 										</SOAPBody>
 									</SOAPBody>
@@ -3410,6 +2747,89 @@
 							</InputExtension>
 						</BindingOperationInput>
 					</BindingOperationInput>
+					<BindingOperationOutput>
+						<BindingOperationOutput
+							type="com.cordys.wsdl.BindingOperationOutput"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DC6">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DC5</DocumentID>
+							<Name>Binding Output of PublishIDOC</Name>
+							<Description/>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.828</CreationDate>
+							<Notes/>
+							<OutputExtension>
+								<SOAPOutput
+									type="com.cordys.wsdl.SOAPOutput"
+									RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DC8">
+									<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DC7</DocumentID>
+									<Name>001D09BE-4863-71DE-8EEE-B3389A3E2DC7</Name>
+									<Description/>
+									<CreatedBy>pgussow</CreatedBy>
+									<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+									<Notes/>
+									<IsRequired>false</IsRequired>
+									<SOAPBody>
+										<SOAPBody
+											type="com.cordys.wsdl.SOAPBody"
+											RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DCA">
+											<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DC9</DocumentID>
+											<Name>001D09BE-4863-71DE-8EEE-B3389A3E2DC9</Name>
+											<Description/>
+											<CreatedBy>pgussow</CreatedBy>
+											<CreationDate>2009-10-07T11:57:36.828</CreationDate>
+											<Notes/>
+											<EncodingStyle></EncodingStyle>
+											<IsRequired>false</IsRequired>
+											<Namespace></Namespace>
+											<Parts></Parts>
+											<Use>literal</Use>
+										</SOAPBody>
+									</SOAPBody>
+									<SOAPHeaders/>
+								</SOAPOutput>
+							</OutputExtension>
+						</BindingOperationOutput>
+					</BindingOperationOutput>
+					<OperationExtension>
+						<SOAPOperation
+							type="com.cordys.wsdl.SOAPOperation"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2DBE">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2DBD</DocumentID>
+							<Name>SOAP Operation of PublishIDOC</Name>
+							<Description/>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.828</CreationDate>
+							<Notes/>
+							<IsRequired>false</IsRequired>
+							<SOAPAction>http://schemas.cordys.com/1.0/SAPMethodPublish/PublishIDOC</SOAPAction>
+							<Style></Style>
+						</SOAPOperation>
+					</OperationExtension>
+					<Realizations>
+						<CustomRealization
+							type="com.cordys.wsdl.CustomRealization"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3366DD56118">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3366DD56117</DocumentID>
+							<Name>wsopreal_001D09BE-4863-71DE-8EEE-B3366DD56116</Name>
+							<Description>wsopreal_001D09BE-4863-71DE-8EEE-B3366DD56116</Description>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:59:15.015</CreationDate>
+							<Notes/>
+							<Implementation>
+								<implementation
+									xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/"
+									xmlns=""
+									type="SAPPublish"
+								/>
+							</Implementation>
+							<BindingOperation>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2DBB"
+								/>
+							</BindingOperation>
+						</CustomRealization>
+					</Realizations>
+					<SecurityDescriptor/>
 					<WebserviceBinding>
 						<uri
 							id="001D09BE-4863-71DE-8EEE-B3389A3E2D85"
@@ -3417,6 +2837,26 @@
 					</WebserviceBinding>
 				</BindingOperation>
 			</BindingOperations>
+			<Ports>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3389A3E2DCF"
+				/>
+			</Ports>
+			<QName>
+				<QualifiedName
+					type="com.cordys.wsdl.QualifiedName"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D88">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D87</DocumentID>
+					<Name>WebServiceInterface4SAPMethodPublish</Name>
+					<Description/>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+					<Notes/>
+					<LocalPart>WebServiceInterface4SAPMethodPublish</LocalPart>
+					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
+					<Prefix></Prefix>
+				</QualifiedName>
+			</QName>
 			<SecurityDescriptor>
 				<SecurityDescriptor
 					type="com.cordys.acl.SecurityDescriptor"
@@ -3428,11 +2868,6 @@
 					<CreationDate>2009-10-15T08:48:48.505</CreationDate>
 					<Notes/>
 					<inherit>true</inherit>
-					<securedObject>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2D85"
-						/>
-					</securedObject>
 					<accesscontrolentries>
 						<ACE
 							type="com.cordys.acl.ACE"
@@ -3455,55 +2890,26 @@
 							</rights>
 						</ACE>
 					</accesscontrolentries>
+					<securedObject>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2D85"
+						/>
+					</securedObject>
 				</SecurityDescriptor>
 			</SecurityDescriptor>
+			<WebserviceDefinitionSet>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
+				/>
+			</WebserviceDefinitionSet>
 			<WebserviceInterface>
 				<uri
 					id="001D09BE-4863-71DE-8EEE-B3389A3E2D69"
 				/>
 			</WebserviceInterface>
-			<QName>
-				<QualifiedName
-					type="com.cordys.wsdl.QualifiedName"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D88">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D87</DocumentID>
-					<Name>WebServiceInterface4SAPMethodPublish</Name>
-					<Description/>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-					<Notes/>
-					<LocalPart>WebServiceInterface4SAPMethodPublish</LocalPart>
-					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
-					<Prefix></Prefix>
-				</QualifiedName>
-			</QName>
-			<ApplicationConnector>
-				<uri
-					id="00059A3C-7800-71DE-9653-8AF640C2ABEE"
-				/>
-			</ApplicationConnector>
-			<BindingExtension>
-				<SOAPBinding
-					type="com.cordys.wsdl.SOAPBinding"
-					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D8A">
-					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D89</DocumentID>
-					<Name>SOAP Binding WebServiceInterface4SAPMethodPublish</Name>
-					<Description>SOAP Binding WebServiceInterface4SAPMethodPublish</Description>
-					<CreatedBy>pgussow</CreatedBy>
-					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-					<Notes/>
-					<IsRequired>false</IsRequired>
-					<Transport>http://schemas.xmlsoap.org/soap/http</Transport>
-					<Style>document</Style>
-				</SOAPBinding>
-			</BindingExtension>
-			<Ports>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3389A3E2DCF"
-				/>
-			</Ports>
 		</WebserviceBinding>
 	</WebserviceBindings>
+	<WebserviceImports/>
 	<WebserviceInterfaces>
 		<WebserviceInterfaceDesigntime
 			type="com.cordys.wsdl.WebserviceInterfaceDesigntime"
@@ -3514,11 +2920,6 @@
 			<CreatedBy>pgussow</CreatedBy>
 			<CreationDate>2009-10-07T11:57:36.812</CreationDate>
 			<Notes/>
-			<WebserviceDefinitionSet>
-				<uri
-					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
-				/>
-			</WebserviceDefinitionSet>
 			<QName>
 				<QualifiedName
 					type="com.cordys.wsdl.QualifiedName"
@@ -3540,6 +2941,11 @@
 					id="001D09BE-4863-71DE-8EEE-B3389A3E2D85"
 				/>
 			</WebserviceBindings>
+			<WebserviceDefinitionSet>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
+				/>
+			</WebserviceDefinitionSet>
 			<WebserviceOperations>
 				<WebserviceOperationDesigntime
 					type="com.cordys.wsdl.WebserviceOperationDesigntime"
@@ -3550,29 +2956,6 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-10-07T11:57:36.828</CreationDate>
 					<Notes/>
-					<WebserviceOutput>
-						<WebserviceOutput
-							type="com.cordys.wsdl.WebserviceOutput"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D72">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D71</DocumentID>
-							<Name>Missing_Operation_Name</Name>
-							<Description/>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.796</CreationDate>
-							<Notes/>
-							<WebserviceMessage>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2D59"
-								/>
-							</WebserviceMessage>
-							<WebserviceOperation/>
-						</WebserviceOutput>
-					</WebserviceOutput>
-					<WebserviceInterface>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2D69"
-						/>
-					</WebserviceInterface>
 					<WebserviceFaults/>
 					<WebserviceInput>
 						<WebserviceInput
@@ -3592,6 +2975,29 @@
 							<WebserviceOperation/>
 						</WebserviceInput>
 					</WebserviceInput>
+					<WebserviceInterface>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2D69"
+						/>
+					</WebserviceInterface>
+					<WebserviceOutput>
+						<WebserviceOutput
+							type="com.cordys.wsdl.WebserviceOutput"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D72">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D71</DocumentID>
+							<Name>Missing_Operation_Name</Name>
+							<Description/>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+							<Notes/>
+							<WebserviceMessage>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2D59"
+								/>
+							</WebserviceMessage>
+							<WebserviceOperation/>
+						</WebserviceOutput>
+					</WebserviceOutput>
 				</WebserviceOperationDesigntime>
 				<WebserviceOperationDesigntime
 					type="com.cordys.wsdl.WebserviceOperationDesigntime"
@@ -3602,29 +3008,6 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-10-07T11:57:36.828</CreationDate>
 					<Notes/>
-					<WebserviceOutput>
-						<WebserviceOutput
-							type="com.cordys.wsdl.WebserviceOutput"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D78">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D77</DocumentID>
-							<Name>Missing_Operation_Name</Name>
-							<Description/>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-							<Notes/>
-							<WebserviceMessage>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2D31"
-								/>
-							</WebserviceMessage>
-							<WebserviceOperation/>
-						</WebserviceOutput>
-					</WebserviceOutput>
-					<WebserviceInterface>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2D69"
-						/>
-					</WebserviceInterface>
 					<WebserviceFaults/>
 					<WebserviceInput>
 						<WebserviceInput
@@ -3644,6 +3027,29 @@
 							<WebserviceOperation/>
 						</WebserviceInput>
 					</WebserviceInput>
+					<WebserviceInterface>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2D69"
+						/>
+					</WebserviceInterface>
+					<WebserviceOutput>
+						<WebserviceOutput
+							type="com.cordys.wsdl.WebserviceOutput"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D78">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D77</DocumentID>
+							<Name>Missing_Operation_Name</Name>
+							<Description/>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+							<Notes/>
+							<WebserviceMessage>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2D31"
+								/>
+							</WebserviceMessage>
+							<WebserviceOperation/>
+						</WebserviceOutput>
+					</WebserviceOutput>
 				</WebserviceOperationDesigntime>
 				<WebserviceOperationDesigntime
 					type="com.cordys.wsdl.WebserviceOperationDesigntime"
@@ -3654,29 +3060,6 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
 					<Notes/>
-					<WebserviceOutput>
-						<WebserviceOutput
-							type="com.cordys.wsdl.WebserviceOutput"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D7E">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D7D</DocumentID>
-							<Name>Missing_Operation_Name</Name>
-							<Description/>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-							<Notes/>
-							<WebserviceMessage>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2D49"
-								/>
-							</WebserviceMessage>
-							<WebserviceOperation/>
-						</WebserviceOutput>
-					</WebserviceOutput>
-					<WebserviceInterface>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2D69"
-						/>
-					</WebserviceInterface>
 					<WebserviceFaults/>
 					<WebserviceInput>
 						<WebserviceInput
@@ -3696,6 +3079,29 @@
 							<WebserviceOperation/>
 						</WebserviceInput>
 					</WebserviceInput>
+					<WebserviceInterface>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2D69"
+						/>
+					</WebserviceInterface>
+					<WebserviceOutput>
+						<WebserviceOutput
+							type="com.cordys.wsdl.WebserviceOutput"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D7E">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D7D</DocumentID>
+							<Name>Missing_Operation_Name</Name>
+							<Description/>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+							<Notes/>
+							<WebserviceMessage>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2D49"
+								/>
+							</WebserviceMessage>
+							<WebserviceOperation/>
+						</WebserviceOutput>
+					</WebserviceOutput>
 				</WebserviceOperationDesigntime>
 				<WebserviceOperationDesigntime
 					type="com.cordys.wsdl.WebserviceOperationDesigntime"
@@ -3706,29 +3112,6 @@
 					<CreatedBy>pgussow</CreatedBy>
 					<CreationDate>2009-10-07T11:57:36.828</CreationDate>
 					<Notes/>
-					<WebserviceOutput>
-						<WebserviceOutput
-							type="com.cordys.wsdl.WebserviceOutput"
-							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D84">
-							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D83</DocumentID>
-							<Name>Missing_Operation_Name</Name>
-							<Description/>
-							<CreatedBy>pgussow</CreatedBy>
-							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
-							<Notes/>
-							<WebserviceMessage>
-								<uri
-									id="001D09BE-4863-71DE-8EEE-B3389A3E2D39"
-								/>
-							</WebserviceMessage>
-							<WebserviceOperation/>
-						</WebserviceOutput>
-					</WebserviceOutput>
-					<WebserviceInterface>
-						<uri
-							id="001D09BE-4863-71DE-8EEE-B3389A3E2D69"
-						/>
-					</WebserviceInterface>
 					<WebserviceFaults/>
 					<WebserviceInput>
 						<WebserviceInput
@@ -3748,8 +3131,625 @@
 							<WebserviceOperation/>
 						</WebserviceInput>
 					</WebserviceInput>
+					<WebserviceInterface>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2D69"
+						/>
+					</WebserviceInterface>
+					<WebserviceOutput>
+						<WebserviceOutput
+							type="com.cordys.wsdl.WebserviceOutput"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D84">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D83</DocumentID>
+							<Name>Missing_Operation_Name</Name>
+							<Description/>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+							<Notes/>
+							<WebserviceMessage>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2D39"
+								/>
+							</WebserviceMessage>
+							<WebserviceOperation/>
+						</WebserviceOutput>
+					</WebserviceOutput>
 				</WebserviceOperationDesigntime>
 			</WebserviceOperations>
 		</WebserviceInterfaceDesigntime>
 	</WebserviceInterfaces>
+	<WebserviceMessages>
+		<WebserviceMessage
+			type="com.cordys.wsdl.WebserviceMessage"
+			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D2A">
+			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D29</DocumentID>
+			<Name>PublishBAPIRequest</Name>
+			<Description>PublishBAPIRequest</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+			<Notes/>
+			<Parts>
+				<Part
+					type="com.cordys.wsdl.Part"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D2E">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D2D</DocumentID>
+					<Name>body</Name>
+					<Description>body</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+					<Notes/>
+					<ElementOrType>element</ElementOrType>
+					<StandardType></StandardType>
+					<DescribingFragment>
+						<SchemaFragmentReference
+							type="com.cordys.xmlschema.SchemaFragmentReference"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D30">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D2F</DocumentID>
+							<Name>ReferenceTo PublishBAPI</Name>
+							<Description>ReferenceTo PublishBAPI</Description>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+							<Notes/>
+							<Prefix>tns</Prefix>
+							<SchemaFragment>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2D09"
+								/>
+							</SchemaFragment>
+						</SchemaFragmentReference>
+					</DescribingFragment>
+					<WebserviceMessage>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2D29"
+						/>
+					</WebserviceMessage>
+				</Part>
+			</Parts>
+			<QName>
+				<QualifiedName
+					type="com.cordys.wsdl.QualifiedName"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D2C">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D2B</DocumentID>
+					<Name>PublishBAPIRequest</Name>
+					<Description/>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+					<Notes/>
+					<LocalPart>PublishBAPIRequest</LocalPart>
+					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
+					<Prefix></Prefix>
+				</QualifiedName>
+			</QName>
+			<WebserviceDefinitionSet>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
+				/>
+			</WebserviceDefinitionSet>
+			<WebserviceFault/>
+			<WebserviceInput>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3389A3E2D75"
+				/>
+			</WebserviceInput>
+			<WebserviceOutput/>
+		</WebserviceMessage>
+		<WebserviceMessage
+			type="com.cordys.wsdl.WebserviceMessage"
+			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D32">
+			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D31</DocumentID>
+			<Name>PublishBAPIResponse</Name>
+			<Description>PublishBAPIResponse</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-10-07T11:57:36.828</CreationDate>
+			<Notes/>
+			<Parts>
+				<Part
+					type="com.cordys.wsdl.Part"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D36">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D35</DocumentID>
+					<Name>body</Name>
+					<Description>body</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+					<Notes/>
+					<ElementOrType>element</ElementOrType>
+					<StandardType></StandardType>
+					<DescribingFragment>
+						<SchemaFragmentReference
+							type="com.cordys.xmlschema.SchemaFragmentReference"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D38">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D37</DocumentID>
+							<Name>ReferenceTo PublishBAPIResponse</Name>
+							<Description>ReferenceTo PublishBAPIResponse</Description>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+							<Notes/>
+							<Prefix>tns</Prefix>
+							<SchemaFragment>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2D0D"
+								/>
+							</SchemaFragment>
+						</SchemaFragmentReference>
+					</DescribingFragment>
+					<WebserviceMessage>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2D31"
+						/>
+					</WebserviceMessage>
+				</Part>
+			</Parts>
+			<QName>
+				<QualifiedName
+					type="com.cordys.wsdl.QualifiedName"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D34">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D33</DocumentID>
+					<Name>PublishBAPIResponse</Name>
+					<Description/>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.828</CreationDate>
+					<Notes/>
+					<LocalPart>PublishBAPIResponse</LocalPart>
+					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
+					<Prefix></Prefix>
+				</QualifiedName>
+			</QName>
+			<WebserviceDefinitionSet>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
+				/>
+			</WebserviceDefinitionSet>
+			<WebserviceFault/>
+			<WebserviceInput/>
+			<WebserviceOutput>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3389A3E2D77"
+				/>
+			</WebserviceOutput>
+		</WebserviceMessage>
+		<WebserviceMessage
+			type="com.cordys.wsdl.WebserviceMessage"
+			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D3A">
+			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D39</DocumentID>
+			<Name>PublishIDOCResponse</Name>
+			<Description>PublishIDOCResponse</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+			<Notes/>
+			<Parts>
+				<Part
+					type="com.cordys.wsdl.Part"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D3E">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D3D</DocumentID>
+					<Name>body</Name>
+					<Description>body</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+					<Notes/>
+					<ElementOrType>element</ElementOrType>
+					<StandardType></StandardType>
+					<DescribingFragment>
+						<SchemaFragmentReference
+							type="com.cordys.xmlschema.SchemaFragmentReference"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D40">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D3F</DocumentID>
+							<Name>ReferenceTo PublishIDOCResponse</Name>
+							<Description>ReferenceTo PublishIDOCResponse</Description>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.828</CreationDate>
+							<Notes/>
+							<Prefix>tns</Prefix>
+							<SchemaFragment>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2D15"
+								/>
+							</SchemaFragment>
+						</SchemaFragmentReference>
+					</DescribingFragment>
+					<WebserviceMessage>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2D39"
+						/>
+					</WebserviceMessage>
+				</Part>
+			</Parts>
+			<QName>
+				<QualifiedName
+					type="com.cordys.wsdl.QualifiedName"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D3C">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D3B</DocumentID>
+					<Name>PublishIDOCResponse</Name>
+					<Description/>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+					<Notes/>
+					<LocalPart>PublishIDOCResponse</LocalPart>
+					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
+					<Prefix></Prefix>
+				</QualifiedName>
+			</QName>
+			<WebserviceDefinitionSet>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
+				/>
+			</WebserviceDefinitionSet>
+			<WebserviceFault/>
+			<WebserviceInput/>
+			<WebserviceOutput>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3389A3E2D83"
+				/>
+			</WebserviceOutput>
+		</WebserviceMessage>
+		<WebserviceMessage
+			type="com.cordys.wsdl.WebserviceMessage"
+			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D42">
+			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D41</DocumentID>
+			<Name>PublishIDOCRequest</Name>
+			<Description>PublishIDOCRequest</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+			<Notes/>
+			<Parts>
+				<Part
+					type="com.cordys.wsdl.Part"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D46">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D45</DocumentID>
+					<Name>body</Name>
+					<Description>body</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+					<Notes/>
+					<ElementOrType>element</ElementOrType>
+					<StandardType></StandardType>
+					<DescribingFragment>
+						<SchemaFragmentReference
+							type="com.cordys.xmlschema.SchemaFragmentReference"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D48">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D47</DocumentID>
+							<Name>ReferenceTo PublishIDOC</Name>
+							<Description>ReferenceTo PublishIDOC</Description>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+							<Notes/>
+							<Prefix>tns</Prefix>
+							<SchemaFragment>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2D13"
+								/>
+							</SchemaFragment>
+						</SchemaFragmentReference>
+					</DescribingFragment>
+					<WebserviceMessage>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2D41"
+						/>
+					</WebserviceMessage>
+				</Part>
+			</Parts>
+			<QName>
+				<QualifiedName
+					type="com.cordys.wsdl.QualifiedName"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D44">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D43</DocumentID>
+					<Name>PublishIDOCRequest</Name>
+					<Description/>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+					<Notes/>
+					<LocalPart>PublishIDOCRequest</LocalPart>
+					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
+					<Prefix></Prefix>
+				</QualifiedName>
+			</QName>
+			<WebserviceDefinitionSet>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
+				/>
+			</WebserviceDefinitionSet>
+			<WebserviceFault/>
+			<WebserviceInput>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3389A3E2D81"
+				/>
+			</WebserviceInput>
+			<WebserviceOutput/>
+		</WebserviceMessage>
+		<WebserviceMessage
+			type="com.cordys.wsdl.WebserviceMessage"
+			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D4A">
+			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D49</DocumentID>
+			<Name>PublishRFCResponse</Name>
+			<Description>PublishRFCResponse</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+			<Notes/>
+			<Parts>
+				<Part
+					type="com.cordys.wsdl.Part"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D4E">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D4D</DocumentID>
+					<Name>body</Name>
+					<Description>body</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+					<Notes/>
+					<ElementOrType>element</ElementOrType>
+					<StandardType></StandardType>
+					<DescribingFragment>
+						<SchemaFragmentReference
+							type="com.cordys.xmlschema.SchemaFragmentReference"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D50">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D4F</DocumentID>
+							<Name>ReferenceTo PublishRFCResponse</Name>
+							<Description>ReferenceTo PublishRFCResponse</Description>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+							<Notes/>
+							<Prefix>tns</Prefix>
+							<SchemaFragment>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2D11"
+								/>
+							</SchemaFragment>
+						</SchemaFragmentReference>
+					</DescribingFragment>
+					<WebserviceMessage>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2D49"
+						/>
+					</WebserviceMessage>
+				</Part>
+			</Parts>
+			<QName>
+				<QualifiedName
+					type="com.cordys.wsdl.QualifiedName"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D4C">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D4B</DocumentID>
+					<Name>PublishRFCResponse</Name>
+					<Description/>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+					<Notes/>
+					<LocalPart>PublishRFCResponse</LocalPart>
+					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
+					<Prefix></Prefix>
+				</QualifiedName>
+			</QName>
+			<WebserviceDefinitionSet>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
+				/>
+			</WebserviceDefinitionSet>
+			<WebserviceFault/>
+			<WebserviceInput/>
+			<WebserviceOutput>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3389A3E2D7D"
+				/>
+			</WebserviceOutput>
+		</WebserviceMessage>
+		<WebserviceMessage
+			type="com.cordys.wsdl.WebserviceMessage"
+			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D52">
+			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D51</DocumentID>
+			<Name>PublishRFCRequest</Name>
+			<Description>PublishRFCRequest</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+			<Notes/>
+			<Parts>
+				<Part
+					type="com.cordys.wsdl.Part"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D56">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D55</DocumentID>
+					<Name>body</Name>
+					<Description>body</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+					<Notes/>
+					<ElementOrType>element</ElementOrType>
+					<StandardType></StandardType>
+					<DescribingFragment>
+						<SchemaFragmentReference
+							type="com.cordys.xmlschema.SchemaFragmentReference"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D58">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D57</DocumentID>
+							<Name>ReferenceTo PublishRFC</Name>
+							<Description>ReferenceTo PublishRFC</Description>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+							<Notes/>
+							<Prefix>tns</Prefix>
+							<SchemaFragment>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2D0F"
+								/>
+							</SchemaFragment>
+						</SchemaFragmentReference>
+					</DescribingFragment>
+					<WebserviceMessage>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2D51"
+						/>
+					</WebserviceMessage>
+				</Part>
+			</Parts>
+			<QName>
+				<QualifiedName
+					type="com.cordys.wsdl.QualifiedName"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D54">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D53</DocumentID>
+					<Name>PublishRFCRequest</Name>
+					<Description/>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+					<Notes/>
+					<LocalPart>PublishRFCRequest</LocalPart>
+					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
+					<Prefix></Prefix>
+				</QualifiedName>
+			</QName>
+			<WebserviceDefinitionSet>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
+				/>
+			</WebserviceDefinitionSet>
+			<WebserviceFault/>
+			<WebserviceInput>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3389A3E2D7B"
+				/>
+			</WebserviceInput>
+			<WebserviceOutput/>
+		</WebserviceMessage>
+		<WebserviceMessage
+			type="com.cordys.wsdl.WebserviceMessage"
+			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D5A">
+			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D59</DocumentID>
+			<Name>GenerateMethodsOutput</Name>
+			<Description>GenerateMethodsOutput</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+			<Notes/>
+			<Parts>
+				<Part
+					type="com.cordys.wsdl.Part"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D5E">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D5D</DocumentID>
+					<Name>body</Name>
+					<Description>body</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+					<Notes/>
+					<ElementOrType>element</ElementOrType>
+					<StandardType></StandardType>
+					<DescribingFragment>
+						<SchemaFragmentReference
+							type="com.cordys.xmlschema.SchemaFragmentReference"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D60">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D5F</DocumentID>
+							<Name>ReferenceTo GenerateMethodsResponse</Name>
+							<Description>ReferenceTo GenerateMethodsResponse</Description>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+							<Notes/>
+							<Prefix>tns</Prefix>
+							<SchemaFragment>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2D07"
+								/>
+							</SchemaFragment>
+						</SchemaFragmentReference>
+					</DescribingFragment>
+					<WebserviceMessage>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2D59"
+						/>
+					</WebserviceMessage>
+				</Part>
+			</Parts>
+			<QName>
+				<QualifiedName
+					type="com.cordys.wsdl.QualifiedName"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D5C">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D5B</DocumentID>
+					<Name>GenerateMethodsOutput</Name>
+					<Description/>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+					<Notes/>
+					<LocalPart>GenerateMethodsOutput</LocalPart>
+					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
+					<Prefix></Prefix>
+				</QualifiedName>
+			</QName>
+			<WebserviceDefinitionSet>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
+				/>
+			</WebserviceDefinitionSet>
+			<WebserviceFault/>
+			<WebserviceInput/>
+			<WebserviceOutput>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3389A3E2D71"
+				/>
+			</WebserviceOutput>
+		</WebserviceMessage>
+		<WebserviceMessage
+			type="com.cordys.wsdl.WebserviceMessage"
+			RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D62">
+			<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D61</DocumentID>
+			<Name>GenerateMethodsInput</Name>
+			<Description>GenerateMethodsInput</Description>
+			<CreatedBy>pgussow</CreatedBy>
+			<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+			<Notes/>
+			<Parts>
+				<Part
+					type="com.cordys.wsdl.Part"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D66">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D65</DocumentID>
+					<Name>body</Name>
+					<Description>body</Description>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.796</CreationDate>
+					<Notes/>
+					<ElementOrType>element</ElementOrType>
+					<StandardType></StandardType>
+					<DescribingFragment>
+						<SchemaFragmentReference
+							type="com.cordys.xmlschema.SchemaFragmentReference"
+							RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D68">
+							<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D67</DocumentID>
+							<Name>ReferenceTo GenerateMethods</Name>
+							<Description>ReferenceTo GenerateMethods</Description>
+							<CreatedBy>pgussow</CreatedBy>
+							<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+							<Notes/>
+							<Prefix>tns</Prefix>
+							<SchemaFragment>
+								<uri
+									id="001D09BE-4863-71DE-8EEE-B3389A3E2D05"
+								/>
+							</SchemaFragment>
+						</SchemaFragmentReference>
+					</DescribingFragment>
+					<WebserviceMessage>
+						<uri
+							id="001D09BE-4863-71DE-8EEE-B3389A3E2D61"
+						/>
+					</WebserviceMessage>
+				</Part>
+			</Parts>
+			<QName>
+				<QualifiedName
+					type="com.cordys.wsdl.QualifiedName"
+					RuntimeDocumentID="001D09BE-4863-71DE-8EEE-B3389A3E2D64">
+					<DocumentID>001D09BE-4863-71DE-8EEE-B3389A3E2D63</DocumentID>
+					<Name>GenerateMethodsInput</Name>
+					<Description/>
+					<CreatedBy>pgussow</CreatedBy>
+					<CreationDate>2009-10-07T11:57:36.812</CreationDate>
+					<Notes/>
+					<LocalPart>GenerateMethodsInput</LocalPart>
+					<Namespace>http://schemas.cordys.com/1.0/SAPMethodPublish</Namespace>
+					<Prefix></Prefix>
+				</QualifiedName>
+			</QName>
+			<WebserviceDefinitionSet>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3366DD56136"
+				/>
+			</WebserviceDefinitionSet>
+			<WebserviceFault/>
+			<WebserviceInput>
+				<uri
+					id="001D09BE-4863-71DE-8EEE-B3389A3E2D6F"
+				/>
+			</WebserviceInput>
+			<WebserviceOutput/>
+		</WebserviceMessage>
+	</WebserviceMessages>
 </WebserviceDefinitionSet>

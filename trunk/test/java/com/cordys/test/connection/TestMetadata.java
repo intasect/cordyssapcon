@@ -91,9 +91,12 @@ public class TestMetadata
     public void setup()
     {
         LoggerConfigurator.initLogger("./test/Log4jConfiguration.xml");
+//        System.setProperty("java.library.path",
+//                           "./docs/internal/sapdlls" + File.pathSeparator +
+//                           System.getProperty("java.library.path"));
         System.setProperty("java.library.path",
-                           "./docs/internal/sapdlls" + File.pathSeparator +
-                           System.getProperty("java.library.path"));
+                "D:\\Repositories\\GoogleCode\\SAPConnector\\jco\\sapjco-2.1.10-windows-amd64" + File.pathSeparator +
+                System.getProperty("java.library.path"));
         m_doc = new Document();
     }
 
@@ -105,7 +108,9 @@ public class TestMetadata
     private void createConnection()
                            throws Exception
     {
-        int node = m_doc.load(".\\test\\java\\com\\cordys\\test\\xmi\\sapr3config.xml");
+        //int node = m_doc.load(".\\test\\java\\com\\cordys\\test\\xmi\\sapr3config.xml");
+        //D:\Repositories\GoogleCode\SAPConnector\cordyssapcon\test\java\com\cordys\test\xmi\sapr3config.xml
+        int node = m_doc.load("D:\\Repositories\\GoogleCode\\SAPConnector\\cordyssapcon\\test\\java\\com\\cordys\\test\\xmi\\sapr3config.xml");
 
         try
         {

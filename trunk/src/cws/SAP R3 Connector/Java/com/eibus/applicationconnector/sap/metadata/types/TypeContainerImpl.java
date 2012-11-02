@@ -102,9 +102,16 @@ class TypeContainerImpl
     {
         synchronized (m_items)
         {
-            if (!m_items.containsKey(type.getValue()))
+        	String key = type.getValue() ;
+        	if(type instanceof IDOCMetadataImpl)
+        	{
+        		 key = type.getValue() + ((IDOCMetadataImpl)type).getCIMType() ;
+        	}
+        	
+        	
+            if (!m_items.containsKey(key))
             {
-                m_items.put(type.getValue(), type);
+                m_items.put(key, type);
             }
         }
     }

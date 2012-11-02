@@ -1,6 +1,6 @@
 <dummy>
 	<connection xmlns="http://sapconnector.cordys.com/2.0/configuration">
-      <sapserver>10.222.138.242</sapserver>
+      <sapserver>10.222.138.91</sapserver>
       <fallbackToSystemUser>false</fallbackToSystemUser>
       <alwaysUseMappedUser>false</alwaysUseMappedUser>
       <cachedirectory />
@@ -8,11 +8,11 @@
         <client>202</client>
         <sysnum>01</sysnum>
         <language>EN</language>
-        <userid>SESA81764</userid>
-        <password>Y2hhdGVhdQ==</password>
-        <idocservers>1</idocservers>
+        <userid>BIPRFCUSER</userid>
+        <password>Qk9QREVWMTA=</password>
+        <idocservers>0</idocservers>
         <gwserv>sapgw01</gwserv>
-        <progID>CORDYSIDOCLIST</progID>
+        <progID>CORDYSRFCDESTPROG</progID>
         <maxCons>10</maxCons>
         <xmicompany>CORDYS</xmicompany>
         <xmiproduct>CORDYS-SCH</xmiproduct>

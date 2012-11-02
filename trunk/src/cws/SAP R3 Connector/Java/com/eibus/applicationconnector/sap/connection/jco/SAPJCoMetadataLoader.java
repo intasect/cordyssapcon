@@ -225,7 +225,8 @@ public class SAPJCoMetadataLoader extends MetadataLoader
             }
             catch (Exception xe)
             {
-                throw new SAPConnectorException(xe,
+            	
+                throw new SAPConnectorException(
                                                 SAPConnectorExceptionMessages.ERROR_WRITING_FILE,
                                                 filename);
             }
@@ -307,7 +308,7 @@ public class SAPJCoMetadataLoader extends MetadataLoader
             }
             catch (XMLException xe)
             {
-                throw new SAPConnectorException(xe,
+                throw new SAPConnectorException(
                                                 SAPConnectorExceptionMessages.ERROR_WRITING_FILE,
                                                 filename);
             }
@@ -381,7 +382,7 @@ public class SAPJCoMetadataLoader extends MetadataLoader
             }
             catch (XMLException xe)
             {
-                throw new SAPConnectorException(xe,
+                throw new SAPConnectorException(
                                                 SAPConnectorExceptionMessages.ERROR_WRITING_FILE,
                                                 filename);
             }
@@ -454,7 +455,7 @@ public class SAPJCoMetadataLoader extends MetadataLoader
             }
             catch (XMLException xe)
             {
-                throw new SAPConnectorException(xe,
+                throw new SAPConnectorException(
                                                 SAPConnectorExceptionMessages.ERROR_WRITING_FILE,
                                                 filename);
             }
@@ -516,7 +517,7 @@ public class SAPJCoMetadataLoader extends MetadataLoader
             }
             catch (XMLException xe)
             {
-                throw new SAPConnectorException(xe,
+                throw new SAPConnectorException(
                                                 SAPConnectorExceptionMessages.ERROR_WRITING_FILE,
                                                 filename);
             }
