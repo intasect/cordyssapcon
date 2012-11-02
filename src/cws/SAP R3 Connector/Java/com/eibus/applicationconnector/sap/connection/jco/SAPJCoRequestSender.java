@@ -17,6 +17,9 @@
  */
 package com.eibus.applicationconnector.sap.connection.jco;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import com.cordys.coe.util.xml.nom.XPathHelper;
 import com.eibus.applicationconnector.sap.Messages;
 import com.eibus.applicationconnector.sap.SAPConnectorConstants;
@@ -44,9 +47,24 @@ import com.sap.mw.jco.JCO;
  * than using parameter lists.
  *
  * @author  : ygopal
+ * @author  : Vamsi Mohan Jayanti
  */
 public class SAPJCoRequestSender
 {
+	
+	private static final ThreadLocal <SimpleDateFormat> dateFormatter = new ThreadLocal<SimpleDateFormat>()
+	{
+		protected SimpleDateFormat initialValue()
+		{
+			return new SimpleDateFormat("yyyyMMdd");
+		}
+		
+	} ;
+	
+	private static final long MILLIS_IN_A_DAY = 1000*60*60*24; 
+	private static final Boolean BOOL_IDOC_GETIDOCNUMBER_BYDATE = System.getProperty("idoc.getidocnumber.bydate", "false").equals("true")?true:false ;
+	
+	
     /**
      * Holds the logger to use.
      */
@@ -58,7 +76,7 @@ public class SAPJCoRequestSender
     /**
      * DOCUMENTME.
      */
-    private static String RFCREADTABLE_reqeustXML = new String("<RFC_READ_TABLE><QUERY_TABLE></QUERY_TABLE><ROWCOUNT></ROWCOUNT><OPTIONS><item><TEXT/></item></OPTIONS><FIELDS><item><FIELDNAME></FIELDNAME><OFFSET>000000</OFFSET><LENGTH>000000</LENGTH><TYPE/><FIELDTEXT/></item></FIELDS></RFC_READ_TABLE>");
+    private static String RFCREADTABLE_reqeustXML = new String("<RFC_READ_TABLE xmlns=\"http://connector/internal/rfcreadtable\"><QUERY_TABLE></QUERY_TABLE><ROWCOUNT></ROWCOUNT><OPTIONS></OPTIONS><FIELDS><item><FIELDNAME></FIELDNAME><OFFSET>000000</OFFSET><LENGTH>000000</LENGTH><TYPE/><FIELDTEXT/></item></FIELDS></RFC_READ_TABLE>");
     
     private static String EDIDS_RFCREADTABLE_reqeustXML = new String("<RFC_READ_TABLE><DELIMITER>:</DELIMITER><QUERY_TABLE></QUERY_TABLE><ROWCOUNT></ROWCOUNT><OPTIONS><item><TEXT/></item></OPTIONS><FIELDS>" +
     		"<item><FIELDNAME></FIELDNAME><OFFSET>000000</OFFSET><LENGTH>000000</LENGTH><TYPE/><FIELDTEXT/></item>" +
@@ -231,7 +249,7 @@ public class SAPJCoRequestSender
                                       je.getMessage();
             // localStatus = "Error while confirming the transaction." ;
             localStatus = "Error";
-            idocNum = getIDOCNumberFromSAP(transactionID, client, doc);
+            idocNum = getIDOCNumberFromSAP(transactionID,mesType, client, doc);
             idoc.setIDocNumber(idocNum);
             oleDBRequestSender.saveIDOCInDataBase(idoc, requestNode, transactionID, localStatus,
                                                   exceptionMessage, IDOCTargetSystem,
@@ -244,7 +262,7 @@ public class SAPJCoRequestSender
             throw new SAPConnectorException(je,
                                             SAPConnectorExceptionMessages.ERROR_DISPATCHING_IDOC);
         }
-        idocNum = getIDOCNumberFromSAP(transactionID, client, doc);
+        idocNum = getIDOCNumberFromSAP(transactionID,mesType, client, doc);
         idoc.setIDocNumber(idocNum);
         
         localStatus = "Dispatched";
@@ -983,7 +1001,7 @@ public class SAPJCoRequestSender
      *
      * @throws  SAPConnectorException  In case of any exceptions
      */
-    private String getIDOCNumberFromSAP(String transactionID, JCO.Client client,
+    private String getIDOCNumberFromSAP(String transactionID, String mesType, JCO.Client client,
                                         Document doc)
                                  throws SAPConnectorException
     {
@@ -1001,17 +1019,60 @@ public class SAPJCoRequestSender
                                             "RFCREADTABLE_reqeustXML");
         }
 
-        int queryTableNode = Find.firstMatch(requestNode, "<RFC_READ_TABLE><QUERY_TABLE>");
-        doc.createText(controlTableName, queryTableNode);
-
-        int fieldNameNode = Find.firstMatch(requestNode,
-                                            "<RFC_READ_TABLE><FIELDS><item><FIELDNAME>");
-        doc.createText("DOCNUM", fieldNameNode);
-
-        String whereClause = "RCVLAD = '" + transactionID + "'";
-        int TEXTNode = Find.firstMatch(requestNode, "<RFC_READ_TABLE><OPTIONS><item><TEXT>");
-        doc.createText(whereClause, TEXTNode);
-
+        {
+//        /*This code will be obselete*/
+//        int queryTableNode = Find.firstMatch(requestNode, "<RFC_READ_TABLE><QUERY_TABLE>");
+//        doc.createText(controlTableName, queryTableNode);
+//
+//        int fieldNameNode = Find.firstMatch(requestNode,
+//                                            "<RFC_READ_TABLE><FIELDS><item><FIELDNAME>");
+//        doc.createText("DOCNUM", fieldNameNode);
+//
+//        String whereClause = "RCVLAD = '" + transactionID + "'";
+//        int TEXTNode = Find.firstMatch(requestNode, "<RFC_READ_TABLE><OPTIONS><item><TEXT>");
+//        doc.createText(whereClause, TEXTNode);
+//        
+//        /**/
+        }
+        {
+        	//int queryTableNode = Node.getElement(requestNode,"QUERY_TABLE");
+        	Node.setDataElement(requestNode, "QUERY_TABLE", controlTableName);
+        	Node.setDataElement(requestNode, "ROWCOUNT", "1");
+        	
+        	int queryFieldsNode = Node.getElement(requestNode,"FIELDS");
+        	/*
+        	 * Get the query item
+        	 */
+        	int item1 = Node.getElement(queryFieldsNode,"item");
+        	Node.setDataElement(item1,"FIELDNAME","DOCNUM");
+        	
+        	/*
+        	 * Form the where clause now.
+        	 */
+        	int optionsNode = Node.getElement(requestNode,"OPTIONS");
+        	int option_messagetype = Node.createElement("item",optionsNode);
+        	String whereMessageTypeString = "MESTYP ='"+mesType+"'" ;
+        	Node.setDataElement(option_messagetype,"TEXT",whereMessageTypeString);
+        	
+        	if(BOOL_IDOC_GETIDOCNUMBER_BYDATE)
+			{
+				int option_credat = Node.createElement("item", optionsNode);
+				Date currentDate = new Date() ;		
+				String todaysFormatedDate = dateFormatter.get().format(currentDate.getTime()+MILLIS_IN_A_DAY) ;
+				String yesterdaysFormatedDate = dateFormatter.get().format(currentDate.getTime()) ;
+				String tommorowsFormatedDate = dateFormatter.get().format(currentDate.getTime()-MILLIS_IN_A_DAY) ;
+				
+				String whereCREDATString = "and CREDAT IN ('"+todaysFormatedDate+"','"+tommorowsFormatedDate+"','"+yesterdaysFormatedDate+"')" ;
+				Node.setDataElement(option_credat, "TEXT",
+						whereCREDATString);
+			}
+        	
+        	int option_rcvlad = Node.createElement("item",optionsNode);
+        	String whereRCVLADEqualsString = "and RCVLAD = '" + transactionID + "'";
+        	Node.setDataElement(option_rcvlad,"TEXT",whereRCVLADEqualsString);        	
+        	
+        	
+        }    
         int responseNode = 0;
 
         try
