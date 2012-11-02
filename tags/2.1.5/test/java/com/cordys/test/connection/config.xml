@@ -1,0 +1,20 @@
+<dummy>
+	<connection xmlns="http://sapconnector.cordys.com/2.0/configuration">
+		<sapserver>/H/192.168.10.13/H/194.117.106.130/S/3297/H/cpce801
+		</sapserver>
+		<fallbackToSystemUser>true</fallbackToSystemUser>
+		<alwaysUseMappedUser>false</alwaysUseMappedUser>
+		<cachedirectory />
+		<jco>
+			<client>850</client>
+			<sysnum>75</sysnum>
+			<language>EN</language>
+			<userid>vanenburg</userid>
+			<password>Q0U4aW5pdA==</password>
+			<idocservers>0</idocservers>
+			<gwserv>BACDESTINATION</gwserv>
+			<progID>BACProg</progID>
+			<maxCons>10</maxCons>
+		</jco>
+	</connection>
+</dummy>

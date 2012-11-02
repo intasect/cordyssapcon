@@ -1,0 +1,19 @@
+
+<QualifiedNameRoot
+	type="com.cordys.cws.namespace.qualifiedname.QualifiedNameRoot"
+	RuntimeDocumentID="D99B260D-6C94-11E1-EF94-91CA62AC3249">
+	<DocumentID>D99B260D-6C94-11E1-EF94-91CA62AC1249</DocumentID>
+	<Name>runtimeQNR for folder</Name>
+	<Description>runtimeQNR for folder</Description>
+	<CreatedBy>jvmohan</CreatedBy>
+	<CreationDate>2012-04-02T09:28:38.49</CreationDate>
+	<Notes/>
+	<RuntimeQNRFolder>
+		<uri
+			id="D99B260D-6C94-11E1-EF94-91CA62AE5249"
+			path="SAP R3 Connector/DemoIDOCHandlerBPM/xmlstoretm"
+			type="com.cordys.cws.runtime.types.folder.StudioFolder"
+		/>
+	</RuntimeQNRFolder>
+	<DesigntimeQNRFolder/>
+</QualifiedNameRoot>

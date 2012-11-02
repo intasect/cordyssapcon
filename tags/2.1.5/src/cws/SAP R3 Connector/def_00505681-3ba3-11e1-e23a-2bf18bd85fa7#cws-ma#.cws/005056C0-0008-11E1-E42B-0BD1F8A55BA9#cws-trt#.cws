@@ -1,0 +1,22 @@
+
+<TranslatedText
+	type="com.cordys.translation.TranslatedText"
+	RuntimeDocumentID="005056C0-0008-11E1-E42B-0BD1F8A57BA9">
+	<DocumentID>005056C0-0008-11E1-E42B-0BD1F8A55BA9</DocumentID>
+	<Name>005056C0-0008-11E1-E42B-0BD1F8A55BA9</Name>
+	<Description>Valied To</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-12-08T04:54:38.943</CreationDate>
+	<Notes/>
+	<Text>Valied To</Text>
+	<Language>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf18b5ddfa5"
+		/>
+	</Language>
+	<TextIdentifier>
+		<uri
+			id="005056C0-0008-11E1-E42B-0BD1F8A51BA9"
+		/>
+	</TextIdentifier>
+</TranslatedText>

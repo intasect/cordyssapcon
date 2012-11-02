@@ -1,0 +1,23 @@
+
+<TextIdentifier
+	type="com.cordys.translation.TextIdentifier"
+	typeVersion="55890f21-u239-76j6-988a-92j7opq6ws09"
+	RuntimeDocumentID="00505681-3ba3-11e1-e23a-2bf22bcf9000">
+	<DocumentID>00505681-3ba3-11e1-e23a-2bf22b9edfff</DocumentID>
+	<Name>00505681-3ba3-11e1-e23a-2bf22b9edfff</Name>
+	<Description>Enter the details for the methods to be generated</Description>
+	<CreatedBy>srkrishnan</CreatedBy>
+	<CreationDate>2011-11-18T10:38:00.176</CreationDate>
+	<Notes/>
+	<DefaultText>Enter the details for the methods to be generated</DefaultText>
+	<Translations>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf22ad09ffd"
+		/>
+	</Translations>
+	<TranslationInformation>
+		<uri
+			id="00505681-3ba3-11e1-e23a-2bf181ca9f9b"
+		/>
+	</TranslationInformation>
+</TextIdentifier>
