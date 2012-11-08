@@ -1,3 +1,22 @@
+VERSION 2.1.5 (08-11-2012)
+- Change : Replaced coelib.jar with latest
+- Change : All cache files will be created only in the directory specified in the SAP Properties, if not specified it uses default path (BAC/SAP/cache).
+- Fix    : Inbound IDOC fixes.
+- Fix    : Outbound IDOC fixes.
+- Fix    : IDOC Table script fixes.
+- Add    : XML/XBP features added (Java/Webservices)
+- Fix    : IDOC Metadatafixes (UI/Java).
+- Add    : Demo BPM to handle INBOUND IDOC added. (Developer now needs to have BPM processor in organization to publish project).
+- Add    : Processor configuration page changes to capture XMI parameters.
+- Change : Processor Configuration XSD updated.
+- Add    : RFC_READ_TABLE added as utility method.
+- Add    : Utility method for serializing IDOC metadata object, useful if IDOCS are generated into files in offline mode.
+- Add    : Test cases added.
+- Fix    : Fix for ISSUE 30.
+- Fix    : Fix for ISSUE 35.
+- Fix    : Fix for ISSUE 41.
+- Fix    : Fix for ISSUE 49.
+
 VERSION 2.1.4 (21-12-2011)
 - Change : Replaced coelib.jar with latest
 - Change : All cache files will be created only in the directory specified in the SAP Properties, if not specified it uses default path (BAC/SAP/cache).
