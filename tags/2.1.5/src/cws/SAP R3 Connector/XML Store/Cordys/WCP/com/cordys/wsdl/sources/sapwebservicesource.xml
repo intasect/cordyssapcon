@@ -1,4 +1,0 @@
-<WebserviceSource>
-     <SourceName>SAP WebService</SourceName>
-     <WizardViewClass>bac.sap.cws.SAPWebserviceView</WizardViewClass>
-</WebserviceSource>

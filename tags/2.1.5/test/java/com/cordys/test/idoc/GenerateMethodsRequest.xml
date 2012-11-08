@@ -1,9 +1,0 @@
-<GenerateMethods  xmlns="http://schemas.cordys.com/2.0/SAPSchema">
-      <type>IDOC</type>
-      <businessobject_mestype>YCRBOADJ_DEBMAS</businessobject_mestype>
-      <interfacename>Tset Web Service</interfacename>
-      <namespace>http://DEBMAS</namespace>
-      <operations>
-        <operation servicename="DEBMAS06" cimtype="YSADEBMAS06">DEBMAS06</operation>
-      </operations>
-</GenerateMethods>

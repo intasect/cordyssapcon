@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<configurations>
-    <configuration name="Default" type="webgateway"/>
-    <configuration name="cnl1259" type="webgateway">
-        <server>localhost</server>
-        <authenticationtype>SSO</authenticationtype>
-        <port>81</port>
-    </configuration>
-</configurations>

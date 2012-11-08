@@ -1,1 +1,0 @@
-http://cnl1259:81/cordys/BAC/sap/wsdl/Method%20Set%20SAP%20Publish.wsdl

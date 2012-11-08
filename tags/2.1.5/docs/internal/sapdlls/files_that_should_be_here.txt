@@ -1,8 +1,0 @@
-librfc32.dll
-msvcp71.dll
-msvcr71.dll
-sapjcorfc.dll
-  
-For convience reasons these can downloaded from:
-http://code.google.com/p/cordyssapcon/downloads/detail?name=sapdlls.zip
-
