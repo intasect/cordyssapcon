@@ -82,6 +82,7 @@ public class LDAPInterface
     {
         initialize();
         organizationalUser = directory.getOrganizationalUser();
+        organizationalUser = System.getProperty("idoc.listener.proxyUser", organizationalUser) ;
 
         if (LOG.isDebugEnabled())
         {
@@ -104,6 +105,7 @@ public class LDAPInterface
         initialize();
         directory.setOrganization(organization);
         organizationalUser = directory.getOrganizationalUser();
+        organizationalUser = System.getProperty("idoc.listener.proxyUser", organizationalUser) ;
 
         if (LOG.isDebugEnabled())
         {
