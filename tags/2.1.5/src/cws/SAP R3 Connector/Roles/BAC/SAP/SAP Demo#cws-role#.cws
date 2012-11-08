@@ -1,0 +1,33 @@
+
+<RoleDesignTime
+	type="com.cordys.organization.role.RoleDesignTime"
+	RuntimeDocumentID="005056C0-0008-71DE-965C-92849343B0B5">
+	<DocumentID>005056C0-0008-71DE-965C-92849343B0B4</DocumentID>
+	<Name>SAP Demo</Name>
+	<Description>SAP Demo Role for BOP4.1</Description>
+	<CreatedBy>hboecker</CreatedBy>
+	<CreationDate>2009-08-26T21:12:20.625</CreationDate>
+	<Notes/>
+	<isFunctionalRole>true</isFunctionalRole>
+	<type>Functional</type>
+	<DistinguishedName>cn=#roleName#, cn=#ISVPName#, #LDAPRoot#</DistinguishedName>
+	<configuredTasks>
+		<ConfiguredTask
+			type="com.cordys.task.ConfiguredTask"
+			RuntimeDocumentID="EE0F0AB5-5765-11E1-E432-D0A523891B73">
+			<DocumentID>EE0F0AB5-5765-11E1-E432-D0A52388FB73</DocumentID>
+			<Name>Demo_EE0F0AB5-5765-11E1-E432-D0A52388FB73</Name>
+			<Description>Demo_EE0F0AB5-5765-11E1-E432-D0A52388FB73</Description>
+			<CreatedBy>srkrishnan</CreatedBy>
+			<CreationDate>2011-12-08T12:23:50.506</CreationDate>
+			<Notes/>
+			<configuredTaskParts/>
+			<uiTask>
+				<uri
+					id="005056C0-0008-11E1-E42A-F7869CB0DBA9"
+				/>
+			</uiTask>
+		</ConfiguredTask>
+	</configuredTasks>
+	<Subroles/>
+</RoleDesignTime>

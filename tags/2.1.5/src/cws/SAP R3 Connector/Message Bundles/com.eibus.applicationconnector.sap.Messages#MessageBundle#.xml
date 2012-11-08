@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MessageBundle id="com.eibus.applicationconnector.sap.Messages" xmlns="http://schemas.cordys.com/localization/message/MessageBundle/1.0">
+    <Message id="WRN_PARAMETER_NAME_EMPTY">
+        <MessageText>Parameter name is empty in the RFC Interface.</MessageText>
+        <Description/>
+        <Annotations>
+            <DocumentationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ERR_IDOC_SERVER">
+        <MessageText>IDOC Server exception occurred: {0}</MessageText>
+        <Description/>
+        <Annotations>
+            <DocumentationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ERR_CHECKING_TID">
+        <MessageText>A SOAPFault occurred while checking for tid in the database: {0}</MessageText>
+        <Description/>
+        <Annotations>
+            <DocumentationURL/>
+        </Annotations>
+    </Message>
+    <Message id="WRN_CONVERT">
+        <MessageText>The request going to SAP couldn't be converted to XML</MessageText>
+        <Description/>
+        <Annotations>
+            <DocumentationURL/>
+        </Annotations>
+    </Message>
+    <Message id="WRN_MAPPINGS_NOT_LOADED">
+        <MessageText>Target mappings not loaded</MessageText>
+        <Description/>
+        <Annotations>
+            <DocumentationURL/>
+        </Annotations>
+    </Message>
+    <Message id="WRN_NR_OF_SERVERS_NOT_SPECIFIED">
+        <MessageText>Number of IDOC servers not properly specified in the processor configuration.</MessageText>
+        <Description/>
+        <Annotations>
+            <DocumentationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ERROR_EXECUTING_REQUEST">
+        <MessageText>Error executing request: {0}</MessageText>
+        <Description/>
+        <Annotations>
+            <DocumentationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ERROR_CLOSING_CONNECTOR">
+        <MessageText>Error closing connector</MessageText>
+        <Description/>
+        <Annotations>
+            <DocumentationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ErrorDispatchingIdoc">
+        <MessageText>Error dispatching idoc</MessageText>
+        <Description/>
+        <Annotations>
+            <DocumentationURL/>
+        </Annotations>
+    </Message>
+    <Message id="ErrorLoadingXml">
+        <MessageText>Error loading xml: {0}</MessageText>
+        <Description/>
+        <Annotations>
+            <DocumentationURL/>
+        </Annotations>
+    </Message>
+    <Message id="WrnNoUsermappingFoundForUser">
+        <MessageText>Wrn no usermapping found for user {0}</MessageText>
+        <Description/>
+        <Annotations>
+            <DocumentationURL/>
+        </Annotations>
+    </Message>
+</MessageBundle>

@@ -1,0 +1,14 @@
+<TargetMappings>
+    <SearchPattern>DEFAULT</SearchPattern>
+    <Mapping>
+        <Name/>
+        <MESType></MESType>
+        <IDOCType/>
+        <RecipientLS/>
+        <OrgDN/>
+        <SOAPNodeDN>cn=OrgBPM,cn=soap nodes,o=SouthwindMDMDemoModel,cn=cordys,cn=defaultInst3,o=vanenburg.com</SOAPNodeDN>
+        <MethodSet/>
+        <Method>IDOCHandlerBPM</Method>
+        <Namespace>http://schemas.cordys.com/sap/idocdemo</Namespace>
+    </Mapping>
+</TargetMappings>
